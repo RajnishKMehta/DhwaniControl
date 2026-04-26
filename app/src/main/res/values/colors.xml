@@ -1,0 +1,13 @@
+<resources>
+    <color name="colorPrimary">#0F766E</color>
+    <color name="colorPrimaryVariant">#115E59</color>
+    <color name="colorAccent">#5EEAD4</color>
+    <color name="colorBackground">#0B1220</color>
+    <color name="colorSurface">#121A2A</color>
+    <color name="colorSurfaceVariant">#1E293B</color>
+    <color name="colorTextPrimary">#E2E8F0</color>
+    <color name="colorTextSecondary">#94A3B8</color>
+    <color name="edgeInactive">#2A3A4A</color>
+    <color name="edgeActive">#5EEAD4</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
