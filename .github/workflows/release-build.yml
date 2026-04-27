@@ -57,7 +57,9 @@ jobs:
         run: |
           INFO=$(./gradlew -q app:printAppInfo)
 
-          read -r VERSION VERSION_MAJOR VERSION_CODE <<< "$(echo "$INFO" | jq -r '.version, .versionMajor, .versionCode')"
+          VERSION=$(echo "$INFO" | jq -r '.version')
+          VERSION_MAJOR=$(echo "$INFO" | jq -r '.versionMajor')
+          VERSION_CODE=$(echo "$INFO" | jq -r '.versionCode')
 
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "version_major=$VERSION_MAJOR" >> $GITHUB_OUTPUT
