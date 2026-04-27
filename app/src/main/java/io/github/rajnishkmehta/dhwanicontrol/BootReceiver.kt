@@ -3,9 +3,9 @@ package io.github.rajnishkmehta.dhwanicontrol
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.provider.Settings
-import androidx.core.content.ContextCompat
-import androidx.preference.PreferenceManager
+import android.util.Log
+import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureRegistry
+import io.github.rajnishkmehta.dhwanicontrol.core.preferences.AppPreferences
 
 class BootReceiver : BroadcastReceiver() {
 
@@ -15,16 +15,18 @@ class BootReceiver : BroadcastReceiver() {
             return
         }
 
-        val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val setupComplete = preferences.getBoolean(Constants.PREF_SETUP_COMPLETE, false)
-        val serviceEnabled = preferences.getBoolean(Constants.PREF_SERVICE_ENABLED, true)
-        val canDrawOverlays = Settings.canDrawOverlays(context)
+        AppPreferences.ensureMigration(context)
 
-        if (setupComplete && serviceEnabled && canDrawOverlays && !VolumeOverlayService.isRunning) {
-            ContextCompat.startForegroundService(
-                context,
-                Intent(context, VolumeOverlayService::class.java)
-            )
+        FeatureRegistry.all().forEach { controller ->
+            runCatching {
+                controller.synchronize(context)
+            }.onFailure { throwable ->
+                Log.e(TAG, "Failed to sync feature ${controller.spec.id} after boot", throwable)
+            }
         }
+    }
+
+    private companion object {
+        const val TAG = "BootReceiver"
     }
 }

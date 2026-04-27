@@ -1,111 +1,63 @@
-# Setup Guide
+# Setup Guide (v0.2.0)
 
-Hello, I am Rajnish. This tutorial is meant for people who simply wish to **download and utilize** the DhwaniControl app on their mobile device. There is no requirement to have an Android Studio or anything related to programming here.
+This guide is for installing and using DhwaniControl on a phone.
 
 ## Before you start
 
-Make sure your phone is on **Android 10 or newer**. Most phones from 2019 onwards are fine. (Settings → About phone → Android version.)
+- Android 10 or newer.
 
-That's the only requirement.
+## Step 1: Download APK
 
-## Step 1 — Download the APK
+[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.2.0-Download-blue?logo=android&style=social)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.2.0/DhwaniControl.apk)
 
-[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.1.0-Download-blue?logo=android&style=social)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.1.0/DhwaniControl.apk)
+If Android warns about APK downloads from browser, continue with **Download anyway**.
 
-Your browser may show a warning that this kind of file can harm your device. That warning is normal for any APK that doesn't come from the Play Store. Tap **Download anyway** / **Keep**.
+## Step 2: Allow install from source (one-time)
 
-## Step 2 — Allow installs from your browser (one-time)
+1. Open the downloaded APK.
+2. If blocked, tap **Settings**.
+3. Enable **Allow from this source** for your browser or file manager.
+4. Return and continue install.
 
-Android blocks APK installs from outside the Play Store by default. You only need to do this once.
+## Step 3: Open app
 
-1. Open the downloaded file (from your notification shade or the Files / Downloads app).
-2. Android will show a popup saying installs from this source are not allowed. Tap **Settings**.
-3. Toggle on **Allow from this source** for whichever app you used to open the file (usually Chrome, or your Files app).
-4. Go back. The installer will continue.
+After install, open DhwaniControl.
 
-The exact wording differs a bit between OEMs (Xiaomi, Samsung, Realme, etc.) but the flow is the same.
+You now land on the **Home feature hub**.
 
-## Step 3 — Install
+## Step 4: Configure Quick Settings Tile (Primary)
 
-Tap **Install**. Once it finishes, tap **Open**. You'll land on the permission screen.
+1. On Home, open **Quick Settings Tile** and tap **Config**.
+2. Follow the in-app instructions.
+3. Open Android Quick Settings, enter edit mode, and add the **Volume Panel** tile.
+4. Tap the tile to open Android volume controls.
 
-## Step 4 — Grant the permissions
+## Step 5: Configure Edge Swipe Overlay (Secondary, optional)
 
-The first screen lists two permissions. Both are needed for the app to work.
+1. On Home, open **Edge Swipe Overlay** and tap **Config**.
+2. Grant required permissions when prompted.
+3. For first-time setup, swipe inward from your chosen edge 3 times.
+4. After setup, the feature switch becomes available on Home.
 
-### a) Draw over other apps
+Reconfiguration later uses a simple left/right selector screen.
 
-This is required so the invisible edge strip can sit on top of whatever app you're using.
+## Permission behavior
 
-1. Tap **Grant** next to **Draw over other apps**.
-2. Android will open a system settings page. Toggle **Allow display over other apps** on for **DhwaniControl**.
-3. Press the back gesture / button to return to the app.
+- If required permissions are missing, DhwaniControl opens a dedicated permission flow for that feature.
+- On Android 13+, if notification permission has been denied multiple times and Android no longer shows the prompt, DhwaniControl sends you to app settings.
 
-### b) Notifications (only asked on Android 13 and newer)
+## Troubleshooting
 
-The app runs as a foreground service. Android requires a visible notification for that, otherwise the system kills the service after a few seconds.
+- **Edge swipe not working:**
+  - Verify overlay permission is allowed.
+  - Verify Edge Swipe switch is ON on Home.
+- **Service stops on some OEM devices:**
+  - Disable battery restrictions for DhwaniControl.
+  - Enable autostart where available.
+- **Tile not visible in edit list:**
+  - Ensure app is installed and reopen Quick Settings edit mode.
 
-1. Tap **Grant** next to **Notifications**.
-2. Tap **Allow** in the popup.
+## Uninstall
 
-On Android 12 and below this isn't asked you'll see "Not required on this Android version" and you can skip it.
-
-When both show **Granted**, the **Continue** button at the bottom becomes active. Tap it.
-
-## Step 5 — Pick your edge
-
-You'll see a screen that says "Choose active edge" with a counter at the bottom.
-
-1. Determine which side you prefer; the *left* or the *right*.
-2. Sweep inwards from the edge of the side that you choose, starting from the exact edge and moving towards the center.
-3. Do this three times on the same side. This tiny band will light up and count how many times it has sensed the action; showing 1/3, 2/3, and 3/3 successively.
-4. When the count reaches three, your selection becomes permanent and you are brought to the main screen.
-
-If a swipe doesn't register, check that you're actually starting at the very edge, and that the swipe is mostly horizontal and long enough (around 40dp / about 1cm or more).
-
-## Step 6 — That's it, try it
-
-You should now see the home screen with:
-
-- A switch labelled **Service enabled** — this is on by default.
-- A card showing your **Active edge** (Left or Right) with a **Change** button if you want to switch later.
-- A hint line telling you what to do.
-
-Open any application – WhatsApp, web browser, YouTube, whatever you want. Swipe from one side to another. The regular Android panel for controlling the volume will appear. Use the slider the same way as usual.
-
-## Notification
-
-You'll see a small persistent notification while the service is running:
-
-> **DhwaniControl is active**
-> Swipe inward from your selected edge to open volume controls.
-
-This sits at the bottom of your notification shade (priority is set to MIN so it stays out of the way) and has a **Stop** button. Tap **Stop** to turn the service off without opening the app.
-
-## Things that can go wrong
-
-- **Nothing happens when I swipe.** Open the app; if you find a yellow warning asking to turn on overlay permission, then activate it using the permissions screen. This permission setting may be turned off automatically by some skins for Android phones (like Xiaomi, Realme, Vivo, Oppo).
-- **Service stops by itself in the background.** On Xiaomi / Realme / Vivo / Oppo / OnePlus, also do this:
-  - Lock the app in your recents screen (long-press the recents card → lock icon).
-  - Turn off battery optimization for DhwaniControl: **Settings → Apps → DhwaniControl → Battery → Unrestricted / No restrictions**.
-  - On Xiaomi / Redmi: **Settings → Apps → DhwaniControl → Other permissions → Display pop-up windows while running in the background → Allow**, and **Autostart → On**.
-- **Swipe is hard to trigger.** Start the swipe right at the very edge of the screen. The active strip is only about 5% of screen width.
-- **I picked the wrong edge.** Open the app → tap **Change** on the Active edge card → do the 3-swipe setup again from the other side.
-- **I want to turn it off temporarily.** Use the **Stop** button on the notification, or open the app and turn off the **Service enabled** switch.
-- **It doesn't survive a reboot on my phone.** Make sure autostart is allowed for the app on your OEM (see the Xiaomi note above). On stock Android it should restart automatically.
-
-## Updating the app
-
-When a new release is out on GitHub, just download the new APK and install it the same way. Your settings (active edge, service on/off) are kept.
-
-> Note: settings are not included in Google's cloud backup or device-to-device transfer. If you switch to a new phone, you'll redo the short setup once.
-
-## Uninstalling
-
-Long-press the app icon → **Uninstall**. Or **Settings → Apps → DhwaniControl → Uninstall**. Standard Android stuff. Nothing is left behind on your device.
-
----
-
-That's it! If there's any difference from what you observe on your device, just make sure to create an issue in the repository and let me know what went wrong: which phone, which Android version, and at what step. It'll be fixed.
-
-— Rajnish
+- Long-press app icon and uninstall.
+- Or use Android Settings > Apps > DhwaniControl > Uninstall.

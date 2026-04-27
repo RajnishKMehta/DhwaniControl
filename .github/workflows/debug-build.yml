@@ -33,7 +33,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       # Java setup
       - name: Set up JDK 17
@@ -52,25 +52,30 @@ jobs:
         id: version
         run: |
           INFO=$(./gradlew -q app:printAppInfo)
-          echo "raw_json=$INFO"
 
-          VERSION=$(echo "$INFO" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['version'])")
-          VERSION_CODE=$(echo "$INFO" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['versionCode'])")
-          VERSION_MAJOR=$(echo "$INFO" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['versionMajor'])")
+          read -r VERSION VERSION_CODE VERSION_MAJOR <<< "$(echo "$INFO" | jq -r '.version, .versionCode, .versionMajor')"
 
-          echo "version=$VERSION"         >> "$GITHUB_OUTPUT"
-          echo "version_code=$VERSION_CODE" >> "$GITHUB_OUTPUT"
-          echo "version_major=$VERSION_MAJOR" >> "$GITHUB_OUTPUT"
+          cat <<EOF >> "$GITHUB_OUTPUT"
+version=$VERSION
+version_code=$VERSION_CODE
+version_major=$VERSION_MAJOR
+EOF
 
       # Build Debug APK
       - name: Build debug APK
-        run: ./gradlew assembleDebug --no-daemon --stacktrace
+        run: |
+          set -e
+          ./gradlew assembleDebug --no-daemon --stacktrace
 
       # Rename APK for clarity
       - name: Rename APK artifact
         run: |
           mkdir -p artifacts
           APK_PATH=$(find app/build/outputs/apk/debug -name "*.apk" | head -n 1)
+          if [ -z "$APK_PATH" ] || [ ! -f "$APK_PATH" ]; then
+            echo "Error: Debug APK not found"
+            exit 1
+          fi
           cp "$APK_PATH" "artifacts/DhwaniControl-v${{ steps.version.outputs.version }}-debug.apk"
 
       # Upload artifact
