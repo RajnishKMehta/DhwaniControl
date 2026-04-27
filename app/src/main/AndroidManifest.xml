@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +20,7 @@
         android:theme="@style/Theme.DhwaniControl">
 
         <activity
-            android:name=".PermissionActivity"
+            android:name=".home.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,19 +30,40 @@
         </activity>
 
         <activity
-            android:name=".SetupActivity"
+            android:name=".permission.PermissionHubActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".features.edge.EdgeSwipeSetupActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".features.edge.EdgeSwipeSideSelectorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".features.quicktile.QuickSettingsGuideActivity"
             android:exported="false" />
 
         <service
-            android:name=".VolumeOverlayService"
+            android:name=".features.edge.VolumeOverlayService"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="mediaPlayback" />
+
+        <service
+            android:name=".features.quicktile.VolumePanelTileService"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@drawable/ic_notification"
+            android:label="@string/quick_tile_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
 
         <receiver
             android:name=".BootReceiver"

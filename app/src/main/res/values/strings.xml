@@ -1,42 +1,70 @@
 <resources>
     <string name="app_name">DhwaniControl</string>
 
-    <string name="permission_screen_title">Permissions required</string>
-    <string name="permission_screen_subtitle">Grant both permissions to start edge swipe volume control.</string>
+    <string name="home_title">DhwaniControl</string>
+    <string name="home_subtitle">Choose a system below. Each feature is isolated and can be configured independently.</string>
+
+    <string name="feature_quick_tile_title">Quick Settings Tile</string>
+    <string name="feature_quick_tile_description">Primary method. Add the tile and tap it anytime to open Android volume controls.</string>
+    <string name="feature_edge_title">Edge Swipe Overlay</string>
+    <string name="feature_edge_description">Secondary method. Swipe inward from your selected edge to open Android volume controls.</string>
+
+    <string name="feature_toggle_label">On / Off</string>
+    <string name="feature_config_button">Config</string>
+    <string name="feature_action_failed">Action failed. Please try again.</string>
+
+    <string name="feature_status_ready">Ready</string>
+    <string name="feature_status_enabled">Enabled</string>
+    <string name="feature_status_disabled">Disabled</string>
+    <string name="feature_status_needs_config">Configuration required</string>
+    <string name="feature_status_unavailable">Temporarily unavailable</string>
+
+    <string name="permission_screen_title_with_feature">Permissions for %1$s</string>
+    <string name="permission_screen_subtitle">Grant required permissions to continue this feature configuration.</string>
     <string name="permission_overlay_title">Draw over other apps</string>
-    <string name="permission_overlay_explanation">Required to show the volume trigger zone above other apps</string>
+    <string name="permission_overlay_explanation">Required to run the edge-swipe overlay above other apps.</string>
     <string name="permission_notifications_title">Notifications</string>
-    <string name="permission_notifications_explanation">Required to keep the background service running on Android 13+</string>
+    <string name="permission_notifications_explanation">Required to keep the background service alive on Android 13+.</string>
     <string name="permission_grant_button">Grant</string>
+    <string name="permission_open_settings_button">Open settings</string>
     <string name="permission_continue_button">Continue</string>
     <string name="permission_status_granted">Granted</string>
     <string name="permission_status_pending">Pending</string>
     <string name="permission_not_required">Not required on this Android version</string>
+    <string name="permission_settings_hint">Android is no longer showing the prompt. Open app settings and allow notifications manually.</string>
 
-    <string name="setup_title">Choose active edge</string>
-    <string name="setup_body">Swipe inward from your preferred edge three times to confirm.</string>
-    <string name="setup_swipe_counter">Swipes: %1$d / %2$d</string>
-    <string name="setup_saved_message">Edge saved</string>
-    <string name="setup_saved_detail">Opening home screen...</string>
+    <string name="edge_setup_title">Choose active edge</string>
+    <string name="edge_setup_body">Swipe inward from your preferred edge three times to confirm.</string>
+    <string name="edge_setup_swipe_counter">Swipes: %1$d / %2$d</string>
+    <string name="edge_setup_saved_message">Edge saved</string>
+    <string name="edge_setup_saved_detail">Returning to home...</string>
 
-    <string name="main_service_title">Gesture service</string>
-    <string name="main_service_subtitle">Enable edge swipe detection above all apps.</string>
-    <string name="main_switch_label">Service enabled</string>
-    <string name="main_active_edge_title">Active edge</string>
-    <string name="main_change_button">Change</string>
-    <string name="main_edge_left">Left</string>
-    <string name="main_edge_right">Right</string>
-    <string name="main_usage_hint_left">Swipe inward from the left edge to open the system volume panel.</string>
-    <string name="main_usage_hint_right">Swipe inward from the right edge to open the system volume panel.</string>
-    <string name="main_overlay_warning">Overlay permission is off. Re-enable it from permissions to run the service.</string>
+    <string name="edge_selector_title">Update active edge</string>
+    <string name="edge_selector_body">Select which edge should trigger the volume panel.</string>
+    <string name="edge_selector_save_button">Save edge</string>
+    <string name="edge_side_left">Left edge</string>
+    <string name="edge_side_right">Right edge</string>
 
-    <string name="notification_channel_name">DhwaniControl background service</string>
+    <string name="quick_tile_label">Volume Panel</string>
+    <string name="quick_tile_guide_title">Quick Settings Tile Setup</string>
+    <string name="quick_tile_guide_intro">This feature has no on/off toggle. Once added to Quick Settings, tapping the tile opens Android volume controls immediately.</string>
+    <string name="quick_tile_guide_steps_title">How to add and use it</string>
+    <string name="quick_tile_guide_steps">1. Swipe down from the top twice to open Quick Settings fully.
+2. Tap the edit button (pen icon or "Edit tiles").
+3. Find the "Volume Panel" tile from DhwaniControl.
+4. Drag it into active tiles and save.
+5. Tap the tile anytime to open Android volume controls.</string>
+    <string name="quick_tile_guide_preview_label">Preview image</string>
+    <string name="quick_tile_guide_image_description">Quick Settings tile tutorial preview</string>
+    <string name="quick_tile_guide_done_button">Done</string>
+    <string name="quick_tile_tutorial_image_url">https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200&amp;q=80&amp;auto=format&amp;fit=crop</string>
+
+    <string name="notification_channel_name">DhwaniControl edge swipe service</string>
     <string name="notification_channel_description">Keeps edge swipe detection active</string>
-    <string name="notification_title">DhwaniControl is active</string>
+    <string name="notification_title">Edge Swipe Overlay is active</string>
     <string name="notification_text">Swipe inward from your selected edge to open volume controls.</string>
     <string name="notification_stop_action">Stop</string>
 
-    <string name="content_description_permission_icon">Permission icon</string>
     <string name="content_description_status_indicator">Permission status indicator</string>
     <string name="content_description_overlay_icon">Draw-over-apps icon</string>
     <string name="content_description_notifications_icon">Notifications icon</string>
