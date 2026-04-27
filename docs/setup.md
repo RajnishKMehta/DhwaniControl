@@ -10,7 +10,7 @@ That's the only requirement.
 
 ## Step 1 — Download the APK
 
-Go straight to [RajnishKMehta/DhwaniControl/releases/latest](https://github.com/RajnishKMehta/DhwaniControl/releases/latest) and download apk
+[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.1.0-Download-blue?logo=android&style=social)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.1.0/DhwaniControl.apk)
 
 Your browser may show a warning that this kind of file can harm your device. That warning is normal for any APK that doesn't come from the Play Store. Tap **Download anyway** / **Keep**.
 

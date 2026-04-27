@@ -17,7 +17,9 @@ No custom volume UI, no extra sliders, nothing fancy. Just a shortcut to the pan
 
 ## Install & setup
 
-The simplest way is to grab the APK from the **Releases** page and install it on your phone. Step-by-step instructions are in [`docs/setup.md`](docs/setup.md).
+[![Download DhwaniControl APK](https://img.shields.io/badge/APK-Download-blue?logo=android&style=for-the-badge)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.1.0/DhwaniControl.apk)
+
+The simplest way is to grab the APK from the releases and install it on your phone. Step-by-step instructions are in [`docs/setup.md`](docs/setup.md).
 
 ## How to use it (once installed)
 
