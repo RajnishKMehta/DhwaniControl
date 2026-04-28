@@ -32,7 +32,7 @@ object QuickSettingsFeatureController : FeatureController {
     }
 
     override fun openConfig(activity: Activity) {
-        activity.startActivity(Intent(activity, QuickTileConfigActivity::class.java))
+        activity.startActivity(Intent(activity, QuickSettingsGuideActivity::class.java))
     }
 
     override fun synchronize(context: Context) {

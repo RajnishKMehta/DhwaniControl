@@ -24,19 +24,10 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/guideBodyText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/quick_tile_guide_intro"
-            android:textColor="@color/colorTextSecondary"
-            android:textSize="14sp" />
-
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="14dp"
             app:cardBackgroundColor="@color/colorSurface"
             app:cardCornerRadius="14dp"
             app:strokeColor="@color/colorSurfaceVariant"
@@ -49,51 +40,10 @@
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/tutorialContentText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/quick_tile_guide_steps_title"
-                    android:textColor="@color/colorTextPrimary"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/quick_tile_guide_steps"
-                    android:textColor="@color/colorTextSecondary"
-                    android:textSize="14sp" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:cardBackgroundColor="@color/colorSurface"
-            app:cardCornerRadius="14dp"
-            app:strokeColor="@color/colorSurfaceVariant"
-            app:strokeWidth="1dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/quick_tile_guide_links_title"
-                    android:textColor="@color/colorTextPrimary"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/quick_tile_guide_links_text"
+                    android:text="@string/quick_tile_guide_intro"
                     android:textColor="@color/colorTextSecondary"
                     android:textSize="14sp" />
             </LinearLayout>

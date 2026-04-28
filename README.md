@@ -12,8 +12,7 @@ Version `0.2.1` keeps the modular feature hub and focuses on startup stability, 
   - **Edge Swipe Overlay** (secondary): swipe inward from a chosen edge to open Android volume controls.
 - Keeps feature logic isolated, so a problem in one feature does not block the other.
 - Fixes startup crashes caused by inconsistent legacy preference data types.
-- Adds a **separate Quick Tile settings screen** so tutorial content is no longer mixed into settings.
-- Shows a **text-only Quick Settings tutorial** with placeholder screenshot links (`https://example.com`).
+- Shows a **text-only Quick Settings tutorial** from the tile `Config` screen, with placeholder screenshot links (`https://example.com`).
 - Removes unnecessary runtime logs and image-loading overhead for a leaner app.
 - Uses shared permission orchestration before feature configuration.
 - Redirects users to app settings when Android stops showing repeated notification permission prompts.
@@ -28,7 +27,7 @@ Detailed install and setup steps are in [`docs/setup.md`](docs/setup.md).
 ## Usage
 
 1. Open the app and land on the Home feature hub.
-2. Configure **Quick Settings Tile** from its `Config` button, then open the dedicated tutorial screen and add the tile in Android Quick Settings.
+2. Configure **Quick Settings Tile** from its `Config` button and follow the in-app tutorial.
 3. Optionally configure **Edge Swipe Overlay** from its `Config` button.
 4. Edge Swipe on/off switch becomes active only after first-time edge configuration.
 

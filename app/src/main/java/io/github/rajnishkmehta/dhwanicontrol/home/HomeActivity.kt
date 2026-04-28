@@ -2,6 +2,7 @@ package io.github.rajnishkmehta.dhwanicontrol.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,19 +28,28 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        runCatching {
+            binding = ActivityHomeBinding.inflate(layoutInflater)
+            setContentView(binding.root)
 
-        AppPreferences.ensureMigration(this)
+            AppPreferences.ensureMigration(this)
 
-        binding.featureRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.featureRecyclerView.adapter = adapter
+            binding.featureRecyclerView.layoutManager = LinearLayoutManager(this)
+            binding.featureRecyclerView.adapter = adapter
+        }.onFailure {
+            val fallbackView = View(this)
+            fallbackView.setBackgroundColor(getColor(R.color.colorBackground))
+            setContentView(fallbackView)
+            Toast.makeText(this, R.string.home_init_failed, Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        synchronizeAllFeatures()
-        refreshFeatureCards()
+        runCatching {
+            synchronizeAllFeatures()
+            refreshFeatureCards()
+        }
     }
 
     private fun synchronizeAllFeatures() {

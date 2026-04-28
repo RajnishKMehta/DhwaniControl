@@ -2,6 +2,7 @@ package io.github.rajnishkmehta.dhwanicontrol.features.quicktile
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import io.github.rajnishkmehta.dhwanicontrol.R
 import io.github.rajnishkmehta.dhwanicontrol.databinding.ActivityQuickSettingsGuideBinding
 
 class QuickSettingsGuideActivity : AppCompatActivity() {
@@ -12,9 +13,18 @@ class QuickSettingsGuideActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityQuickSettingsGuideBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.tutorialContentText.text = loadGuideText()
 
         binding.doneButton.setOnClickListener {
             finish()
         }
+    }
+
+    private fun loadGuideText(): String {
+        return runCatching {
+            assets.open("quick_tile_tutorial.txt")
+                .bufferedReader()
+                .use { it.readText() }
+        }.getOrDefault(getString(R.string.quick_tile_guide_fallback_text))
     }
 }

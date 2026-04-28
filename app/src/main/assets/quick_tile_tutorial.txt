@@ -1,0 +1,16 @@
+Quick Settings Tile Guide
+
+Step 1: Open Quick Settings
+- Swipe down from the top of your screen two times.
+- Tap the Edit button (pen icon or Edit tiles).
+- Screenshot link: https://example.com
+
+Step 2: Add Volume Panel tile
+- Find the Volume Panel tile from DhwaniControl.
+- Drag it into active tiles and save.
+- Screenshot link: https://example.com
+
+Step 3: Use the tile
+- Open Quick Settings and tap Volume Panel tile.
+- Android volume controls will open instantly.
+- Screenshot link: https://example.com
