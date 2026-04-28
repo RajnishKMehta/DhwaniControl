@@ -47,6 +47,10 @@
             android:name=".features.quicktile.QuickSettingsGuideActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".features.quicktile.QuickTileConfigActivity"
+            android:exported="false" />
+
         <service
             android:name=".features.edge.VolumeOverlayService"
             android:enabled="true"

@@ -61,7 +61,13 @@ object AppPreferences {
     }
 
     fun ensureMigration(context: Context) {
-        migrateIfNeeded(preferences(context))
+        val prefs = preferences(context)
+        runCatching {
+            migrateIfNeeded(prefs)
+        }.onFailure {
+            prefs.edit().clear().apply()
+            prefs.edit().putBoolean(Constants.PREF_MIGRATION_COMPLETE, true).apply()
+        }
     }
 
     private fun preferences(context: Context): SharedPreferences {

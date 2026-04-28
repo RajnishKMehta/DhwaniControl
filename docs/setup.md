@@ -28,9 +28,10 @@ You now land on the **Home feature hub**.
 ## Step 4: Configure Quick Settings Tile (Primary)
 
 1. On Home, open **Quick Settings Tile** and tap **Config**.
-2. Follow the in-app instructions.
-3. Open Android Quick Settings, enter edit mode, and add the **Volume Panel** tile.
-4. Tap the tile to open Android volume controls.
+2. In Quick Tile Settings, tap **Open tutorial**.
+3. Follow the tutorial instructions.
+4. Open Android Quick Settings, enter edit mode, and add the **Volume Panel** tile.
+5. Tap the tile to open Android volume controls.
 
 ## Step 5: Configure Edge Swipe Overlay (Secondary, optional)
 

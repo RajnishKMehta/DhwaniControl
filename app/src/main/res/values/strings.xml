@@ -46,8 +46,12 @@
     <string name="edge_side_right">Right edge</string>
 
     <string name="quick_tile_label">Volume Panel</string>
+    <string name="quick_tile_config_title">Quick Tile Settings</string>
+    <string name="quick_tile_config_body">This screen only handles Quick Tile settings. Tutorial is now separate. Open the tutorial to see step-by-step setup and screenshot links.</string>
+    <string name="quick_tile_open_tutorial">Open tutorial</string>
+    <string name="quick_tile_config_done">Done</string>
     <string name="quick_tile_guide_title">Quick Settings Tile Setup</string>
-    <string name="quick_tile_guide_intro">This feature has no on/off toggle. Open this guide anytime from Config and follow the steps below.</string>
+    <string name="quick_tile_guide_intro">This is the dedicated tutorial screen for Quick Settings Tile. Follow these steps to add the tile and use it anytime.</string>
     <string name="quick_tile_guide_steps_title">How to add and use it</string>
     <string name="quick_tile_guide_steps">1. Swipe down from the top twice to open Quick Settings fully.
 2. Tap the edit button (pen icon or "Edit tiles").
