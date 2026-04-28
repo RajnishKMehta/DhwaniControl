@@ -9,37 +9,37 @@ object AppPreferences {
 
     fun isEdgeConfigured(context: Context): Boolean {
         val preferences = preferences(context)
-        migrateIfNeeded(preferences)
+        runCatching { migrateIfNeeded(preferences) }
         return getBooleanSafely(preferences, Constants.PREF_EDGE_CONFIGURED, false)
     }
 
     fun setEdgeConfigured(context: Context, configured: Boolean) {
         val preferences = preferences(context)
-        migrateIfNeeded(preferences)
+        runCatching { migrateIfNeeded(preferences) }
         preferences.edit().putBoolean(Constants.PREF_EDGE_CONFIGURED, configured).apply()
     }
 
     fun getEdgeSelectedSide(context: Context): String {
         val preferences = preferences(context)
-        migrateIfNeeded(preferences)
+        runCatching { migrateIfNeeded(preferences) }
         return getStringSafely(preferences, Constants.PREF_EDGE_SELECTED_SIDE, Constants.SIDE_RIGHT)
     }
 
     fun setEdgeSelectedSide(context: Context, side: String) {
         val preferences = preferences(context)
-        migrateIfNeeded(preferences)
+        runCatching { migrateIfNeeded(preferences) }
         preferences.edit().putString(Constants.PREF_EDGE_SELECTED_SIDE, side).apply()
     }
 
     fun isEdgeEnabled(context: Context): Boolean {
         val preferences = preferences(context)
-        migrateIfNeeded(preferences)
+        runCatching { migrateIfNeeded(preferences) }
         return getBooleanSafely(preferences, Constants.PREF_EDGE_ENABLED, true)
     }
 
     fun setEdgeEnabled(context: Context, enabled: Boolean) {
         val preferences = preferences(context)
-        migrateIfNeeded(preferences)
+        runCatching { migrateIfNeeded(preferences) }
         preferences.edit().putBoolean(Constants.PREF_EDGE_ENABLED, enabled).apply()
     }
 
@@ -103,7 +103,7 @@ object AppPreferences {
         return runCatching {
             preferences.getBoolean(key, defaultValue)
         }.getOrElse {
-            val fallback = preferences.all[key]
+            val fallback = readRawValue(preferences, key)
             when (fallback) {
                 is Boolean -> fallback
                 is Number -> fallback.toInt() != 0
@@ -117,7 +117,7 @@ object AppPreferences {
         return runCatching {
             preferences.getInt(key, defaultValue)
         }.getOrElse {
-            val fallback = preferences.all[key]
+            val fallback = readRawValue(preferences, key)
             when (fallback) {
                 is Int -> fallback
                 is Long -> fallback.toInt()
@@ -129,11 +129,18 @@ object AppPreferences {
         }
     }
 
+
+    private fun readRawValue(preferences: SharedPreferences, key: String): Any? {
+        return runCatching {
+            preferences.all[key]
+        }.getOrNull()
+    }
+
     private fun getStringSafely(preferences: SharedPreferences, key: String, defaultValue: String): String {
         return runCatching {
             preferences.getString(key, defaultValue)
         }.getOrElse {
-            val fallback = preferences.all[key]
+            val fallback = readRawValue(preferences, key)
             when (fallback) {
                 is String -> fallback
                 is Number, is Boolean -> fallback.toString()
