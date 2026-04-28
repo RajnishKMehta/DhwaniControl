@@ -1,4 +1,4 @@
-# Setup Guide (v0.2.0)
+# Setup Guide (v0.2.1)
 
 This guide is for installing and using DhwaniControl on a phone.
 
@@ -8,7 +8,7 @@ This guide is for installing and using DhwaniControl on a phone.
 
 ## Step 1: Download APK
 
-[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.2.0-Download-blue?logo=android&style=social)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.2.0/DhwaniControl.apk)
+[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.2.1-Download-blue?logo=android&style=social)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.2.1/DhwaniControl.apk)
 
 If Android warns about APK downloads from browser, continue with **Download anyway**.
 
@@ -61,3 +61,8 @@ Reconfiguration later uses a simple left/right selector screen.
 
 - Long-press app icon and uninstall.
 - Or use Android Settings > Apps > DhwaniControl > Uninstall.
+
+### In-app Quick Tile guide notes (v0.2.1)
+
+- The **Config** screen for Quick Settings Tile now shows a text-only guide.
+- Screenshot entries use placeholder URLs (`https://example.com`) so they can be replaced later without app code changes.
