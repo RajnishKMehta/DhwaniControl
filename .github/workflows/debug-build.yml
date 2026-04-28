@@ -56,10 +56,10 @@ jobs:
           read -r VERSION VERSION_CODE VERSION_MAJOR <<< "$(echo "$INFO" | jq -r '.version, .versionCode, .versionMajor')"
 
           cat <<EOF >> "$GITHUB_OUTPUT"
-version=$VERSION
-version_code=$VERSION_CODE
-version_major=$VERSION_MAJOR
-EOF
+          version=$VERSION
+          version_code=$VERSION_CODE
+          version_major=$VERSION_MAJOR
+          EOF
 
       # Build Debug APK
       - name: Build debug APK
