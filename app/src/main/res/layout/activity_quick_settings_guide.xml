@@ -49,20 +49,47 @@
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/step1TitleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/quick_tile_guide_steps_title"
+                    android:text="@string/quick_tile_guide_step_1_title"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/step1BodyText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="@string/quick_tile_guide_steps"
+                    android:text="@string/quick_tile_guide_step_1_body"
                     android:textColor="@color/colorTextSecondary"
                     android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/step1Image"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="10dp"
+                    android:contentDescription="@string/quick_tile_guide_step_image_description"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/quick_tile_guide_screenshot_label"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/step1ImageUrlText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="12sp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -82,26 +109,165 @@
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/step2TitleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/quick_tile_guide_preview_label"
+                    android:text="@string/quick_tile_guide_step_2_title"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/tutorialImage"
+                <TextView
+                    android:id="@+id/step2BodyText"
                     android:layout_width="match_parent"
-                    android:layout_height="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/quick_tile_guide_step_2_body"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/step2Image"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
                     android:layout_marginTop="10dp"
-                    android:contentDescription="@string/quick_tile_guide_image_description"
+                    android:contentDescription="@string/quick_tile_guide_step_image_description"
                     android:scaleType="centerCrop" />
 
                 <TextView
-                    android:id="@+id/imageUrlText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:text="@string/quick_tile_guide_screenshot_label"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/step2ImageUrlText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            app:cardCornerRadius="14dp"
+            app:strokeColor="@color/colorSurfaceVariant"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/step3TitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/quick_tile_guide_step_3_title"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/step3BodyText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/quick_tile_guide_step_3_body"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/step3Image"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="10dp"
+                    android:contentDescription="@string/quick_tile_guide_step_image_description"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/quick_tile_guide_screenshot_label"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/step3ImageUrlText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            app:cardCornerRadius="14dp"
+            app:strokeColor="@color/colorSurfaceVariant"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/step4TitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/quick_tile_guide_step_4_title"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/step4BodyText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/quick_tile_guide_step_4_body"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/step4Image"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="10dp"
+                    android:contentDescription="@string/quick_tile_guide_step_image_description"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/quick_tile_guide_screenshot_label"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/step4ImageUrlText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:textColor="@color/colorTextSecondary"
                     android:textSize="12sp" />
             </LinearLayout>

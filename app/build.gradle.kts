@@ -8,15 +8,15 @@ val applicationId = "io.github.rajnishkmehta.dhwanicontrol"
 // VERSIONING
 val versionMajor = 0
 val versionMinor = 2
-val versionPatch = 0
+val versionPatch = 1
 val versionBuild = System.getenv("GITHUB_RUN_NUMBER")?.toInt() ?: 1
 
-val versionCode =
+val appVersionCode =
     versionMajor * 10000 +
     versionMinor * 100 +
     versionPatch
 
-val versionName = "$versionMajor.$versionMinor.$versionPatch"
+val appVersionName = "$versionMajor.$versionMinor.$versionPatch"
 
 // TASK
 tasks.register("printAppInfo") {
@@ -29,8 +29,8 @@ tasks.register("printAppInfo") {
               "versionMinor": $versionMinor,
               "versionPatch": $versionPatch,
               "versionBuild": $versionBuild,
-              "version": "$versionName",
-              "versionCode": $versionCode
+              "version": "$appVersionName",
+              "versionCode": $appVersionCode
             }
             """.trimIndent()
         )
@@ -47,8 +47,8 @@ android {
         minSdk = 29
         targetSdk = 36
 
-        versionCode = this@defaultConfig.versionCode
-        versionName = this@defaultConfig.versionName
+        versionCode = appVersionCode
+        versionName = appVersionName
     }
 
     signingConfigs {

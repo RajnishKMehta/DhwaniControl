@@ -47,17 +47,22 @@
 
     <string name="quick_tile_label">Volume Panel</string>
     <string name="quick_tile_guide_title">Quick Settings Tile Setup</string>
-    <string name="quick_tile_guide_intro">This feature has no on/off toggle. Once added to Quick Settings, tapping the tile opens Android volume controls immediately.</string>
-    <string name="quick_tile_guide_steps_title">How to add and use it</string>
-    <string name="quick_tile_guide_steps">1. Swipe down from the top twice to open Quick Settings fully.
-2. Tap the edit button (pen icon or "Edit tiles").
-3. Find the "Volume Panel" tile from DhwaniControl.
-4. Drag it into active tiles and save.
-5. Tap the tile anytime to open Android volume controls.</string>
-    <string name="quick_tile_guide_preview_label">Preview image</string>
-    <string name="quick_tile_guide_image_description">Quick Settings tile tutorial preview</string>
+    <string name="quick_tile_guide_intro">This feature has no toggle. Complete these steps once, then tap the tile anytime to open Android volume controls.</string>
+    <string name="quick_tile_guide_step_1_title">Step 1: Open Quick Settings</string>
+    <string name="quick_tile_guide_step_1_body">Swipe down from the top of the screen twice to fully expand Quick Settings.</string>
+    <string name="quick_tile_guide_step_1_image_url">https://example.com/quick-tile-step-1.png</string>
+    <string name="quick_tile_guide_step_2_title">Step 2: Enter Edit Mode</string>
+    <string name="quick_tile_guide_step_2_body">Tap the edit button (usually a pencil icon or "Edit tiles").</string>
+    <string name="quick_tile_guide_step_2_image_url">https://example.com/quick-tile-step-2.png</string>
+    <string name="quick_tile_guide_step_3_title">Step 3: Add Volume Panel Tile</string>
+    <string name="quick_tile_guide_step_3_body">Find "Volume Panel" from DhwaniControl and drag it into your active tiles.</string>
+    <string name="quick_tile_guide_step_3_image_url">https://example.com/quick-tile-step-3.png</string>
+    <string name="quick_tile_guide_step_4_title">Step 4: Save and Use</string>
+    <string name="quick_tile_guide_step_4_body">Save the tile layout, then tap "Volume Panel" anytime to open Android volume controls.</string>
+    <string name="quick_tile_guide_step_4_image_url">https://example.com/quick-tile-step-4.png</string>
+    <string name="quick_tile_guide_screenshot_label">Screenshot URL (replace later)</string>
+    <string name="quick_tile_guide_step_image_description">Quick Settings guide screenshot</string>
     <string name="quick_tile_guide_done_button">Done</string>
-    <string name="quick_tile_tutorial_image_url">https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200&amp;q=80&amp;auto=format&amp;fit=crop</string>
 
     <string name="notification_channel_name">DhwaniControl edge swipe service</string>
     <string name="notification_channel_description">Keeps edge swipe detection active</string>

@@ -22,7 +22,6 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
 import androidx.core.app.NotificationCompat
-import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import io.github.rajnishkmehta.dhwanicontrol.Constants
@@ -50,11 +49,13 @@ class VolumeOverlayService : Service() {
     }
 
     private var overlayView: View? = null
-    private var gestureDetector: GestureDetectorCompat? = null
+    private var gestureDetector: GestureDetector? = null
 
     override fun onCreate() {
         super.onCreate()
-        createNotificationChannelIfNeeded()
+        runCatching {
+            createNotificationChannelIfNeeded()
+        }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -65,7 +66,13 @@ class VolumeOverlayService : Service() {
         }
 
         if (!isRunning) {
-            startForeground(Constants.NOTIFICATION_ID, buildForegroundNotification())
+            val started = runCatching {
+                startForeground(Constants.NOTIFICATION_ID, buildForegroundNotification())
+            }.isSuccess
+            if (!started) {
+                stopSelf()
+                return START_NOT_STICKY
+            }
             isRunning = true
         }
 
@@ -78,11 +85,13 @@ class VolumeOverlayService : Service() {
     override fun onDestroy() {
         detachOverlay()
         isRunning = false
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            stopForeground(STOP_FOREGROUND_REMOVE)
-        } else {
-            @Suppress("DEPRECATION")
-            stopForeground(true)
+        runCatching {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                stopForeground(STOP_FOREGROUND_REMOVE)
+            } else {
+                @Suppress("DEPRECATION")
+                stopForeground(true)
+            }
         }
         super.onDestroy()
     }
@@ -121,7 +130,7 @@ class VolumeOverlayService : Service() {
         }
 
         val touchView = View(this)
-        val detector = GestureDetectorCompat(
+        val detector = GestureDetector(
             this,
             createGestureListener(side = selectedSide, touchTarget = touchView)
         )
