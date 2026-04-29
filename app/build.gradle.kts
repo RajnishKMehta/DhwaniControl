@@ -64,7 +64,7 @@ android {
         debug {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
-            resValue("string", "app_name", "DC Debug")
+            resValue("string", "app_name", "DhwaniCtrl_debug")
         }
         release {
             isMinifyEnabled = true
