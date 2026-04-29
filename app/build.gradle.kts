@@ -9,7 +9,7 @@ val applicationId = "io.github.rajnishkmehta.dhwanicontrol"
 val versionMajor = 0
 val versionMinor = 2
 val versionPatch = 1
-val versionBuild = System.getenv("GITHUB_RUN_NUMBER")?.toInt() ?: 1
+val versionBuild = System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull() ?: 1
 
 val appVersionCode =
     versionMajor * 10000 +
