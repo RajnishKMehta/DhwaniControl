@@ -12,6 +12,11 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     branches: ["**"]
+    paths-ignore:
+      - "docs/**"
+      - "**/*.md"
+      - ".github/**"
+      - "LICENSE"
 
 # One concurrent run per PR. New pushes cancel the previous run.
 concurrency:
