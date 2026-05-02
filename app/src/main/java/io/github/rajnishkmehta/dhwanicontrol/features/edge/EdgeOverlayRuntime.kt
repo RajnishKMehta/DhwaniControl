@@ -38,13 +38,17 @@ object EdgeOverlayRuntime {
             return
         }
 
-        ContextCompat.startForegroundService(
-            context,
-            Intent(context, VolumeOverlayService::class.java)
-        )
+        runCatching {
+            ContextCompat.startForegroundService(
+                context,
+                Intent(context, VolumeOverlayService::class.java)
+            )
+        }
     }
 
     fun stop(context: Context) {
-        context.stopService(Intent(context, VolumeOverlayService::class.java))
+        runCatching {
+            context.stopService(Intent(context, VolumeOverlayService::class.java))
+        }
     }
 }

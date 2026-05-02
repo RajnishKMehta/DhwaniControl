@@ -7,16 +7,16 @@ val applicationId = "io.github.rajnishkmehta.dhwanicontrol"
 
 // VERSIONING
 val versionMajor = 0
-val versionMinor = 2
+val versionMinor = 3
 val versionPatch = 0
-val versionBuild = System.getenv("GITHUB_RUN_NUMBER")?.toInt() ?: 1
+val versionBuild = System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull() ?: 1
 
-val versionCode =
+val appVersionCode =
     versionMajor * 10000 +
     versionMinor * 100 +
     versionPatch
 
-val versionName = "$versionMajor.$versionMinor.$versionPatch"
+val appVersionName = "$versionMajor.$versionMinor.$versionPatch"
 
 // TASK
 tasks.register("printAppInfo") {
@@ -29,8 +29,8 @@ tasks.register("printAppInfo") {
               "versionMinor": $versionMinor,
               "versionPatch": $versionPatch,
               "versionBuild": $versionBuild,
-              "version": "$versionName",
-              "versionCode": $versionCode
+              "version": "$appVersionName",
+              "versionCode": $appVersionCode
             }
             """.trimIndent()
         )
@@ -47,8 +47,8 @@ android {
         minSdk = 29
         targetSdk = 36
 
-        versionCode = this@defaultConfig.versionCode
-        versionName = this@defaultConfig.versionName
+        versionCode = appVersionCode
+        versionName = appVersionName
     }
 
     signingConfigs {
@@ -64,6 +64,7 @@ android {
         debug {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
+            resValue("string", "app_name", "DhwaniCtrl_debug")
         }
         release {
             isMinifyEnabled = true
@@ -99,6 +100,8 @@ dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.constraintlayout:constraintlayout:2.2.1")
+    implementation("androidx.viewpager2:viewpager2:1.1.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.preference:preference-ktx:1.2.1")
     implementation("io.coil-kt:coil:2.7.0")

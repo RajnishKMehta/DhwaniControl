@@ -10,7 +10,7 @@ object AppPreferences {
     fun isEdgeConfigured(context: Context): Boolean {
         val preferences = preferences(context)
         migrateIfNeeded(preferences)
-        return preferences.getBoolean(Constants.PREF_EDGE_CONFIGURED, false)
+        return getBooleanSafe(preferences, Constants.PREF_EDGE_CONFIGURED, false)
     }
 
     fun setEdgeConfigured(context: Context, configured: Boolean) {
@@ -22,8 +22,7 @@ object AppPreferences {
     fun getEdgeSelectedSide(context: Context): String {
         val preferences = preferences(context)
         migrateIfNeeded(preferences)
-        return preferences.getString(Constants.PREF_EDGE_SELECTED_SIDE, Constants.SIDE_RIGHT)
-            ?: Constants.SIDE_RIGHT
+        return getStringSafe(preferences, Constants.PREF_EDGE_SELECTED_SIDE, Constants.SIDE_RIGHT)
     }
 
     fun setEdgeSelectedSide(context: Context, side: String) {
@@ -35,7 +34,7 @@ object AppPreferences {
     fun isEdgeEnabled(context: Context): Boolean {
         val preferences = preferences(context)
         migrateIfNeeded(preferences)
-        return preferences.getBoolean(Constants.PREF_EDGE_ENABLED, true)
+        return getBooleanSafe(preferences, Constants.PREF_EDGE_ENABLED, true)
     }
 
     fun setEdgeEnabled(context: Context, enabled: Boolean) {
@@ -45,12 +44,12 @@ object AppPreferences {
     }
 
     fun getNotificationDenialCount(context: Context): Int {
-        return preferences(context).getInt(Constants.PREF_NOTIFICATION_DENIAL_COUNT, 0)
+        return getIntSafe(preferences(context), Constants.PREF_NOTIFICATION_DENIAL_COUNT, 0)
     }
 
     fun incrementNotificationDenialCount(context: Context) {
         val preferences = preferences(context)
-        val newCount = preferences.getInt(Constants.PREF_NOTIFICATION_DENIAL_COUNT, 0) + 1
+        val newCount = getIntSafe(preferences, Constants.PREF_NOTIFICATION_DENIAL_COUNT, 0) + 1
         preferences.edit().putInt(Constants.PREF_NOTIFICATION_DENIAL_COUNT, newCount).apply()
     }
 
@@ -70,15 +69,14 @@ object AppPreferences {
     }
 
     private fun migrateIfNeeded(preferences: SharedPreferences) {
-        val alreadyMigrated = preferences.getBoolean(Constants.PREF_MIGRATION_COMPLETE, false)
+        val alreadyMigrated = getBooleanSafe(preferences, Constants.PREF_MIGRATION_COMPLETE, false)
         if (alreadyMigrated) {
             return
         }
 
-        val legacyConfigured = preferences.getBoolean(Constants.LEGACY_PREF_SETUP_COMPLETE, false)
-        val legacyEnabled = preferences.getBoolean(Constants.LEGACY_PREF_SERVICE_ENABLED, true)
-        val legacySide = preferences.getString(Constants.LEGACY_PREF_SELECTED_SIDE, Constants.SIDE_RIGHT)
-            ?: Constants.SIDE_RIGHT
+        val legacyConfigured = getBooleanSafe(preferences, Constants.LEGACY_PREF_SETUP_COMPLETE, false)
+        val legacyEnabled = getBooleanSafe(preferences, Constants.LEGACY_PREF_SERVICE_ENABLED, true)
+        val legacySide = getStringSafe(preferences, Constants.LEGACY_PREF_SELECTED_SIDE, Constants.SIDE_RIGHT)
 
         val editor = preferences.edit()
         if (!preferences.contains(Constants.PREF_EDGE_CONFIGURED)) {
@@ -93,5 +91,23 @@ object AppPreferences {
 
         editor.putBoolean(Constants.PREF_MIGRATION_COMPLETE, true)
         editor.apply()
+    }
+
+    private fun getBooleanSafe(preferences: SharedPreferences, key: String, defaultValue: Boolean): Boolean {
+        return runCatching {
+            preferences.getBoolean(key, defaultValue)
+        }.getOrDefault(defaultValue)
+    }
+
+    private fun getIntSafe(preferences: SharedPreferences, key: String, defaultValue: Int): Int {
+        return runCatching {
+            preferences.getInt(key, defaultValue)
+        }.getOrDefault(defaultValue)
+    }
+
+    private fun getStringSafe(preferences: SharedPreferences, key: String, defaultValue: String): String {
+        return runCatching {
+            preferences.getString(key, defaultValue)
+        }.getOrNull() ?: defaultValue
     }
 }

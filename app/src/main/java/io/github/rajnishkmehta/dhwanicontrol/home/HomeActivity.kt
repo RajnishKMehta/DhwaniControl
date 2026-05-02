@@ -2,7 +2,6 @@ package io.github.rajnishkmehta.dhwanicontrol.home
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,18 +38,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        synchronizeAllFeatures()
         refreshFeatureCards()
-    }
-
-    private fun synchronizeAllFeatures() {
-        FeatureRegistry.all().forEach { controller ->
-            runCatching {
-                controller.synchronize(applicationContext)
-            }.onFailure { throwable ->
-                Log.e(TAG, "Feature sync failed for ${controller.spec.id}", throwable)
-            }
-        }
     }
 
     private fun refreshFeatureCards() {
@@ -133,9 +121,5 @@ class HomeActivity : AppCompatActivity() {
         }
 
         refreshFeatureCards()
-    }
-
-    private companion object {
-        const val TAG = "HomeActivity"
     }
 }
