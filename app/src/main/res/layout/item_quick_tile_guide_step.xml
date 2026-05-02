@@ -47,7 +47,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/stepBodyText"
-            app:layout_constraintBottom_toTopOf="@id/stepImageUrlText">
+            app:layout_constraintBottom_toTopOf="@id/stepImageUrlLabelText">
 
             <ImageView
                 android:id="@+id/stepImage"

@@ -81,7 +81,7 @@ class QuickSettingsGuideActivity : AppCompatActivity() {
         val total = steps.size
         binding.stepCounterText.text = getString(R.string.quick_tile_guide_step_counter, position + 1, total)
         binding.previousButton.isEnabled = position > 0
-        binding.nextButton.isEnabled = position < steps.lastIndex
+        binding.nextButton.isEnabled = true
         binding.nextButton.text = if (position == steps.lastIndex) {
             getString(R.string.quick_tile_guide_done_button)
         } else {
