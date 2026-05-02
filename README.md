@@ -41,7 +41,7 @@ Version `0.2.2` focuses on launch stability fixes, workflow cleanup, and improve
 
 - No analytics.
 - No tracking.
-- No external data upload by default.
+- No external data upload.
 - Local preferences only.
 
 ## Tech
