@@ -1,4 +1,4 @@
-# Setup Guide (v0.2.1)
+# Setup Guide (v0.2.2)
 
 This guide covers installation and first-time setup for DhwaniControl.
 
@@ -8,7 +8,7 @@ This guide covers installation and first-time setup for DhwaniControl.
 
 ## Step 1: Download APK
 
-[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.2.1-Download-blue?logo=android&style=social)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.2.1/DhwaniControl.apk)
+[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.2.2-Download-blue?logo=android&style=social)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.2.2/DhwaniControl.apk)
 
 ## Step 2: Allow Install From Source (One-Time)
 
@@ -48,7 +48,7 @@ Detailed step-by-step tutorial with screenshot URL placeholders:
 ## Troubleshooting
 
 - App closes immediately on open:
-  - Install the latest release (`v0.2.1` or newer).
+  - Install the latest release (`v0.2.2` or newer).
   - Reinstall once if the install was upgraded from an older build.
 - Edge swipe not working:
   - Verify overlay permission is granted.

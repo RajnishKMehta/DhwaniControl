@@ -1,4 +1,4 @@
-# Quick Settings Tile Guide
+# Quick Settings Tile Guide (v0.2.2)
 
 Use this guide after opening **Quick Settings Tile > Config** inside DhwaniControl.
 

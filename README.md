@@ -2,9 +2,9 @@
 
 DhwaniControl helps you open Android's native volume panel without hardware volume buttons.
 
-Version `0.2.1` focuses on launch stability fixes, workflow cleanup, and improved Quick Settings tile guidance.
+Version `0.2.2` focuses on launch stability fixes, workflow cleanup, and improved Quick Settings tile guidance.
 
-## What it does in v0.2.1
+## What it does in v0.2.2
 
 - Uses a Home feature hub as the main entry.
 - Provides two independent systems:
@@ -16,7 +16,7 @@ Version `0.2.1` focuses on launch stability fixes, workflow cleanup, and improve
 
 ## Install
 
-[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.2.1-Download-blue?logo=android&style=for-the-badge)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.2.1/DhwaniControl.apk)
+[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.2.2-Download-blue?logo=android&style=for-the-badge)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.2.2/DhwaniControl.apk)
 
 ## Documentation
 
