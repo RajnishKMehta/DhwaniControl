@@ -8,7 +8,7 @@ This guide covers installation and first-time setup for DhwaniControl.
 
 ## Step 1: Download APK
 
-[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.3.0-Download-blue?logo=android&style=social)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.3.0/DhwaniControl.apk)
+[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.3.1-Download-blue?logo=android&style=social)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.3.1/DhwaniControl.apk)
 
 ## Step 2: Allow Install From Source (One-Time)
 
@@ -33,6 +33,8 @@ You will land on the Home feature hub.
 Detailed step-by-step tutorial with screenshot URL placeholders:
 [`docs/quick-tile-guide.md`](quick-tile-guide.md)
 
+The in-app tutorial downloads screenshots into app-private storage and does not need storage permission. Screenshot links and the View Image fallback are shown only if a guide image cannot be displayed.
+
 ## Step 5: Configure Edge Swipe Overlay (Optional)
 
 1. On Home, tap **Config** in **Edge Swipe Overlay**.
@@ -48,7 +50,7 @@ Detailed step-by-step tutorial with screenshot URL placeholders:
 ## Troubleshooting
 
 - App closes immediately on open:
-  - Install the latest release (`v0.3.0` or newer).
+  - Install the latest release (`v0.3.1` or newer).
   - Reinstall once if the install was upgraded from an older build.
 - Edge swipe not working:
   - Verify overlay permission is granted.
