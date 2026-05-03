@@ -62,7 +62,10 @@
     <string name="quick_tile_guide_step_4_image_url">https://raw.githubusercontent.com/RajnishKMehta/images/refs/heads/main/DhwaniControl/quick-tile-step-4.webp</string>
     <string name="quick_tile_guide_screenshot_label">Screenshot URL</string>
     <string name="quick_tile_guide_step_image_description">Quick Settings guide screenshot</string>
-    <string name="quick_tile_guide_image_fallback">Image unavailable. The step text and screenshot URL are still shown below.</string>
+    <string name="quick_tile_guide_image_loading">Loading guide screenshot...</string>
+    <string name="quick_tile_guide_image_fallback">Image unavailable. Use the screenshot link below or tap View Image.</string>
+    <string name="quick_tile_guide_view_image_button">View Image</string>
+    <string name="quick_tile_guide_image_link_open_failed">No app can open this image link.</string>
     <string name="quick_tile_guide_step_counter">Step %1$d of %2$d</string>
     <string name="quick_tile_guide_previous_button">Previous</string>
     <string name="quick_tile_guide_next_button">Next</string>

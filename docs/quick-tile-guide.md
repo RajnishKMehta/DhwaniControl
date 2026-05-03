@@ -2,6 +2,7 @@
 
 Use this guide after opening **Quick Settings Tile > Config** inside DhwaniControl.
 
+In the app, guide screenshots are saved in app-private internal storage after the first successful download. Android storage permission is not required. The screenshot URL and View Image fallback appear only when the screenshot cannot be displayed in the tutorial.
 
 ## Step 1: Open Quick Settings
 

@@ -8,7 +8,7 @@ val applicationId = "io.github.rajnishkmehta.dhwanicontrol"
 // VERSIONING
 val versionMajor = 0
 val versionMinor = 3
-val versionPatch = 0
+val versionPatch = 1
 val versionBuild = System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull() ?: 1
 
 val appVersionCode =
@@ -104,5 +104,4 @@ dependencies {
     implementation("androidx.viewpager2:viewpager2:1.1.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.preference:preference-ktx:1.2.1")
-    implementation("io.coil-kt:coil:2.7.0")
 }

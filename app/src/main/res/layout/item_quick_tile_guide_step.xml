@@ -92,6 +92,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/stepImageUrlLabelText" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/viewImageButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:minWidth="0dp"
+            android:minHeight="48dp"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:text="@string/quick_tile_guide_view_image_button"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/stepImageUrlText"
+            app:strokeColor="@color/colorAccent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

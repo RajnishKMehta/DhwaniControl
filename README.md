@@ -2,9 +2,9 @@
 
 DhwaniControl helps you open Android's native volume panel without hardware volume buttons.
 
-Version `0.3.0` focuses on launch stability fixes, workflow cleanup, and improved Quick Settings tile guidance.
+Version `0.3.1` focuses on private guide image storage and cleaner Quick Settings tutorial fallbacks.
 
-## What it does in v0.3.0
+## What it does in v0.3.1
 
 - Uses a Home feature hub as the main entry.
 - Provides two independent systems:
@@ -12,11 +12,12 @@ Version `0.3.0` focuses on launch stability fixes, workflow cleanup, and improve
   - **Edge Swipe Overlay** (secondary): swipe inward from your selected edge to open Android volume controls.
 - Stabilizes startup path to reduce splash-time crashes.
 - Keeps edge service startup fail-safe to avoid process-level crash on service errors.
-- Shows a short in-app Quick Settings tutorial with per-step screenshot URLs.
+- Saves Quick Settings tutorial screenshots in app-private storage after first download.
+- Hides screenshot URLs when the saved image is visible, and shows a small View Image fallback only when the image cannot be displayed.
 
 ## Install
 
-[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.3.0-Download-blue?logo=android&style=for-the-badge)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.3.0/DhwaniControl.apk)
+[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.3.1-Download-blue?logo=android&style=for-the-badge)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.3.1/DhwaniControl.apk)
 
 ## Documentation
 
@@ -35,7 +36,7 @@ Version `0.3.0` focuses on launch stability fixes, workflow cleanup, and improve
 - Android 10 (API 29) or newer.
 - Overlay permission for Edge Swipe Overlay.
 - Notification permission on Android 13+ for edge foreground service.
-- Internet access only for loading tutorial screenshot URLs from links you provide.
+- Internet access only for downloading tutorial screenshots into app-private storage. No storage permission is required.
 
 ## Privacy
 
@@ -51,6 +52,7 @@ Version `0.3.0` focuses on launch stability fixes, workflow cleanup, and improve
 - Modular feature architecture (`FeatureSpec`, `FeatureController`, `FeatureRegistry`).
 - Foreground service for Edge Swipe Overlay.
 - Android Quick Settings `TileService` support.
+- App-private tutorial image storage under Android's internal files directory.
 
 ## License
 
