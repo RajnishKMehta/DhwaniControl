@@ -23,6 +23,13 @@ class QuickSettingsGuidePagerAdapter(
     private val imageExecutor: ExecutorService = Executors.newFixedThreadPool(2)
     private val mainHandler = Handler(Looper.getMainLooper())
     private val imageStore = QuickSettingsGuideImageStore(context.applicationContext)
+    @Volatile
+    private var isDetached = false
+
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        isDetached = false
+        super.onAttachedToRecyclerView(recyclerView)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StepViewHolder {
         val binding = ItemQuickTileGuideStepBinding.inflate(
@@ -46,6 +53,7 @@ class QuickSettingsGuidePagerAdapter(
 
     override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
         imageExecutor.shutdownNow()
+        isDetached = true
         super.onDetachedFromRecyclerView(recyclerView)
     }
 
@@ -72,7 +80,7 @@ class QuickSettingsGuidePagerAdapter(
             imageExecutor.execute {
                 val result = imageStore.loadBitmap(imageUrl)
                 mainHandler.post {
-                    if (currentRequestId != requestId) return@post
+                    if (currentRequestId != requestId || isDetached) return@post
 
                     result.fold(
                         onSuccess = { bitmap ->

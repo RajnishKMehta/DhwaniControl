@@ -4,6 +4,8 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import java.io.File
+import java.io.InputStream
+import java.io.OutputStream
 import java.net.HttpURLConnection
 import java.net.URI
 import java.security.MessageDigest
@@ -13,13 +15,18 @@ class QuickSettingsGuideImageStore(context: Context) {
     private val imageDirectory = File(context.filesDir, DIRECTORY_NAME)
 
     fun loadBitmap(imageUrl: String): Result<Bitmap> = runCatching {
+        checkInterrupted()
         val imageFile = ensureImageFile(imageUrl)
+        checkInterrupted()
+
         val bitmap = BitmapFactory.decodeFile(imageFile.absolutePath)
+        if (Thread.interrupted()) throw InterruptedException("Image load interrupted.")
 
         if (bitmap == null && imageFile.length() > 0) {
             // Corrupted cached file detected; delete and retry once
             imageFile.delete()
             val redownloadedFile = ensureImageFile(imageUrl)
+            checkInterrupted()
             BitmapFactory.decodeFile(redownloadedFile.absolutePath)
                 ?: error("Saved guide image could not be decoded.")
         } else {
@@ -28,6 +35,8 @@ class QuickSettingsGuideImageStore(context: Context) {
     }
 
     private fun ensureImageFile(imageUrl: String): File {
+        checkInterrupted()
+
         val imageFile = File(imageDirectory, imageUrl.toStableFileName())
         if (imageFile.isFile && imageFile.length() > 0L) {
             return imageFile
@@ -51,10 +60,11 @@ class QuickSettingsGuideImageStore(context: Context) {
 
             connection.inputStream.use { input ->
                 tempFile.outputStream().use { output ->
-                    input.copyTo(output)
+                    copyInterruptibly(input, output)
                 }
             }
 
+            if (Thread.interrupted()) throw InterruptedException("Image download interrupted.")
             if (tempFile.length() == 0L) {
                 tempFile.delete()
                 error("Guide image download failed.")
@@ -71,6 +81,20 @@ class QuickSettingsGuideImageStore(context: Context) {
         } finally {
             connection.disconnect()
         }
+    }
+
+    private fun copyInterruptibly(input: InputStream, output: OutputStream) {
+        val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
+        while (true) {
+            if (Thread.interrupted()) throw InterruptedException("Image download interrupted.")
+            val bytesRead = input.read(buffer)
+            if (bytesRead < 0) break
+            output.write(buffer, 0, bytesRead)
+        }
+    }
+
+    private fun checkInterrupted() {
+        if (Thread.interrupted()) throw InterruptedException("Image load interrupted.")
     }
 
     private fun String.toStableFileName(): String {
