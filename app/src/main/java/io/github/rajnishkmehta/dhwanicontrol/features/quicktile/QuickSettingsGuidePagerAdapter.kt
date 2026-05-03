@@ -66,7 +66,7 @@ class QuickSettingsGuidePagerAdapter(
                 openImageUrl(imageUrl)
             }
 
-            showFallback(R.string.quick_tile_guide_image_loading)
+            showLoading(R.string.quick_tile_guide_image_loading)
 
             imageExecutor.execute {
                 val result = imageStore.loadBitmap(imageUrl)
@@ -94,6 +94,16 @@ class QuickSettingsGuidePagerAdapter(
             requestId++
             binding.stepImage.setImageDrawable(null)
             binding.stepImage.isVisible = false
+        }
+
+        private fun showLoading(messageRes: Int) {
+            binding.stepImage.setImageDrawable(null)
+            binding.stepImage.isVisible = false
+            binding.stepFallbackText.setText(messageRes)
+            binding.stepFallbackText.isVisible = true
+            binding.stepImageUrlLabelText.isVisible = false
+            binding.stepImageUrlText.isVisible = false
+            binding.viewImageButton.isVisible = false
         }
 
         private fun showFallback(messageRes: Int) {

@@ -14,8 +14,17 @@ class QuickSettingsGuideImageStore(context: Context) {
 
     fun loadBitmap(imageUrl: String): Result<Bitmap> = runCatching {
         val imageFile = ensureImageFile(imageUrl)
-        BitmapFactory.decodeFile(imageFile.absolutePath)
-            ?: error("Saved guide image could not be decoded.")
+        val bitmap = BitmapFactory.decodeFile(imageFile.absolutePath)
+
+        if (bitmap == null && imageFile.length() > 0) {
+            // Corrupted cached file detected; delete and retry once
+            imageFile.delete()
+            val redownloadedFile = ensureImageFile(imageUrl)
+            BitmapFactory.decodeFile(redownloadedFile.absolutePath)
+                ?: error("Saved guide image could not be decoded.")
+        } else {
+            bitmap ?: error("Saved guide image could not be decoded.")
+        }
     }
 
     private fun ensureImageFile(imageUrl: String): File {
@@ -25,7 +34,7 @@ class QuickSettingsGuideImageStore(context: Context) {
         }
 
         imageDirectory.mkdirs()
-        val tempFile = File(imageDirectory, "${imageFile.name}.download")
+        val tempFile = File.createTempFile("${imageFile.name}.download.", ".tmp", imageDirectory)
 
         val connection = (URI(imageUrl).toURL().openConnection() as HttpURLConnection).apply {
             connectTimeout = CONNECT_TIMEOUT_MS
@@ -36,6 +45,7 @@ class QuickSettingsGuideImageStore(context: Context) {
 
         try {
             if (connection.responseCode !in 200..299) {
+                tempFile.delete()
                 error("Guide image download failed.")
             }
 
@@ -46,6 +56,7 @@ class QuickSettingsGuideImageStore(context: Context) {
             }
 
             if (tempFile.length() == 0L) {
+                tempFile.delete()
                 error("Guide image download failed.")
             }
 
