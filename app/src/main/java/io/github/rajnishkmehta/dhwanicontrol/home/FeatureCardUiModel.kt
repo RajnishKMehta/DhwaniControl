@@ -5,6 +5,7 @@ data class FeatureCardUiModel(
     val title: String,
     val description: String,
     val status: String,
+    val isBlocked: Boolean,
     val showToggle: Boolean,
     val toggleEnabled: Boolean,
     val toggledOn: Boolean,

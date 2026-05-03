@@ -2,10 +2,12 @@ package io.github.rajnishkmehta.dhwanicontrol.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import io.github.rajnishkmehta.dhwanicontrol.R
 import io.github.rajnishkmehta.dhwanicontrol.databinding.ItemFeatureCardBinding
 
 class FeatureCardAdapter(
@@ -34,6 +36,12 @@ class FeatureCardAdapter(
             binding.featureTitleText.text = item.title
             binding.featureDescriptionText.text = item.description
             binding.featureStatusText.text = item.status
+            val statusColor = if (item.isBlocked) {
+                ContextCompat.getColor(binding.root.context, R.color.colorWarning)
+            } else {
+                ContextCompat.getColor(binding.root.context, R.color.colorAccent)
+            }
+            binding.featureStatusText.setTextColor(statusColor)
 
             binding.featureToggleSwitch.setOnCheckedChangeListener(null)
             binding.featureToggleSwitch.isVisible = item.showToggle
@@ -45,6 +53,7 @@ class FeatureCardAdapter(
             }
 
             binding.featureConfigButton.isEnabled = item.configEnabled
+            binding.featureConfigButton.alpha = if (item.configEnabled) 1f else 0.65f
             binding.featureConfigButton.setOnClickListener {
                 onConfigClick(item.featureId)
             }

@@ -6,8 +6,8 @@
 
     <string name="feature_quick_tile_title">Quick Settings Tile</string>
     <string name="feature_quick_tile_description">Primary method. Add the tile and tap it anytime to open Android volume controls.</string>
-    <string name="feature_edge_title">Edge Swipe Overlay</string>
-    <string name="feature_edge_description">Secondary method. Swipe inward from your selected edge to open Android volume controls.</string>
+    <string name="feature_edge_title">Edge Swipe (Accessibility)</string>
+    <string name="feature_edge_description">Secondary method. Uses an Accessibility service to detect inward edge swipes and open Android volume controls.</string>
 
     <string name="feature_toggle_label">On / Off</string>
     <string name="feature_config_button">Config</string>
@@ -16,22 +16,19 @@
     <string name="feature_status_ready">Ready</string>
     <string name="feature_status_enabled">Enabled</string>
     <string name="feature_status_disabled">Disabled</string>
+    <string name="feature_status_blocked">Blocked</string>
     <string name="feature_status_needs_config">Configuration required</string>
     <string name="feature_status_unavailable">Temporarily unavailable</string>
 
     <string name="permission_screen_title_with_feature">Permissions for %1$s</string>
-    <string name="permission_screen_subtitle">Grant required permissions to continue this feature configuration.</string>
-    <string name="permission_overlay_title">Draw over other apps</string>
-    <string name="permission_overlay_explanation">Required to run the edge-swipe overlay above other apps.</string>
-    <string name="permission_notifications_title">Notifications</string>
-    <string name="permission_notifications_explanation">Required to keep the background service alive on Android 13+.</string>
+    <string name="permission_screen_subtitle">Grant required access to continue this feature configuration.</string>
+    <string name="permission_accessibility_title">Accessibility service</string>
+    <string name="permission_accessibility_explanation">Required for Edge Swipe. Open Accessibility settings, select DhwaniControl, and enable the service.</string>
     <string name="permission_grant_button">Grant</string>
-    <string name="permission_open_settings_button">Open settings</string>
     <string name="permission_continue_button">Continue</string>
     <string name="permission_status_granted">Granted</string>
     <string name="permission_status_pending">Pending</string>
     <string name="permission_not_required">Not required on this Android version</string>
-    <string name="permission_settings_hint">Android is no longer showing the prompt. Open app settings and allow notifications manually.</string>
 
     <string name="edge_setup_title">Choose active edge</string>
     <string name="edge_setup_body">Swipe inward from your preferred edge three times to confirm.</string>
@@ -44,6 +41,8 @@
     <string name="edge_selector_save_button">Save edge</string>
     <string name="edge_side_left">Left edge</string>
     <string name="edge_side_right">Right edge</string>
+    <string name="feature_block_edge_gesture_navigation">Blocked: this feature is unavailable while gesture navigation is enabled.</string>
+    <string name="feature_block_edge_android_10_11">Blocked: Accessibility-based edge swipe is not available on Android 10-11.</string>
 
     <string name="quick_tile_label">Volume Panel</string>
     <string name="quick_tile_guide_title">Quick Settings Tile Guide</string>
@@ -71,13 +70,6 @@
     <string name="quick_tile_guide_next_button">Next</string>
     <string name="quick_tile_guide_done_button">Done</string>
 
-    <string name="notification_channel_name">DhwaniControl edge swipe service</string>
-    <string name="notification_channel_description">Keeps edge swipe detection active</string>
-    <string name="notification_title">Edge Swipe Overlay is active</string>
-    <string name="notification_text">Swipe inward from your selected edge to open volume controls.</string>
-    <string name="notification_stop_action">Stop</string>
-
     <string name="content_description_status_indicator">Permission status indicator</string>
-    <string name="content_description_overlay_icon">Draw-over-apps icon</string>
-    <string name="content_description_notifications_icon">Notifications icon</string>
+    <string name="content_description_accessibility_icon">Accessibility permission icon</string>
 </resources>

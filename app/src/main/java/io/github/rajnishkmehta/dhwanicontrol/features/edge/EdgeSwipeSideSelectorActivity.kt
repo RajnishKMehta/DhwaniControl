@@ -1,8 +1,10 @@
 package io.github.rajnishkmehta.dhwanicontrol.features.edge
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import io.github.rajnishkmehta.dhwanicontrol.Constants
+import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureAvailabilityEvaluator
 import io.github.rajnishkmehta.dhwanicontrol.core.preferences.AppPreferences
 import io.github.rajnishkmehta.dhwanicontrol.databinding.ActivityEdgeSwipeSideSelectorBinding
 
@@ -32,6 +34,18 @@ class EdgeSwipeSideSelectorActivity : AppCompatActivity() {
             AppPreferences.setEdgeSelectedSide(this, side)
             AppPreferences.setEdgeConfigured(this, true)
             EdgeOverlayRuntime.sync(this)
+            finish()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val availability = FeatureAvailabilityEvaluator.enforce(this, EdgeSwipeFeatureController)
+        if (availability.isBlocked) {
+            val reason = availability.blockResult.resolveReason(this)
+            if (!reason.isNullOrBlank()) {
+                Toast.makeText(this, reason, Toast.LENGTH_SHORT).show()
+            }
             finish()
         }
     }

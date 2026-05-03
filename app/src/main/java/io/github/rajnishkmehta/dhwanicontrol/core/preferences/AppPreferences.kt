@@ -43,23 +43,6 @@ object AppPreferences {
         preferences.edit().putBoolean(Constants.PREF_EDGE_ENABLED, enabled).apply()
     }
 
-    fun getNotificationDenialCount(context: Context): Int {
-        return getIntSafe(preferences(context), Constants.PREF_NOTIFICATION_DENIAL_COUNT, 0)
-    }
-
-    fun incrementNotificationDenialCount(context: Context) {
-        val preferences = preferences(context)
-        val newCount = getIntSafe(preferences, Constants.PREF_NOTIFICATION_DENIAL_COUNT, 0) + 1
-        preferences.edit().putInt(Constants.PREF_NOTIFICATION_DENIAL_COUNT, newCount).apply()
-    }
-
-    fun resetNotificationDenialCount(context: Context) {
-        preferences(context)
-            .edit()
-            .putInt(Constants.PREF_NOTIFICATION_DENIAL_COUNT, 0)
-            .apply()
-    }
-
     fun ensureMigration(context: Context) {
         migrateIfNeeded(preferences(context))
     }
@@ -96,12 +79,6 @@ object AppPreferences {
     private fun getBooleanSafe(preferences: SharedPreferences, key: String, defaultValue: Boolean): Boolean {
         return runCatching {
             preferences.getBoolean(key, defaultValue)
-        }.getOrDefault(defaultValue)
-    }
-
-    private fun getIntSafe(preferences: SharedPreferences, key: String, defaultValue: Int): Int {
-        return runCatching {
-            preferences.getInt(key, defaultValue)
         }.getOrDefault(defaultValue)
     }
 

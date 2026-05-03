@@ -5,10 +5,12 @@ import android.animation.ValueAnimator
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.MotionEvent
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import io.github.rajnishkmehta.dhwanicontrol.Constants
 import io.github.rajnishkmehta.dhwanicontrol.R
+import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureAvailabilityEvaluator
 import io.github.rajnishkmehta.dhwanicontrol.core.preferences.AppPreferences
 import io.github.rajnishkmehta.dhwanicontrol.databinding.ActivityEdgeSwipeSetupBinding
 import kotlin.math.abs
@@ -49,6 +51,18 @@ class EdgeSwipeSetupActivity : AppCompatActivity() {
         binding.gestureSurface.setOnTouchListener { _, event ->
             handleGestureEvent(event)
             true
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val availability = FeatureAvailabilityEvaluator.enforce(this, EdgeSwipeFeatureController)
+        if (availability.isBlocked) {
+            val reason = availability.blockResult.resolveReason(this)
+            if (!reason.isNullOrBlank()) {
+                Toast.makeText(this, reason, Toast.LENGTH_SHORT).show()
+            }
+            finish()
         }
     }
 
