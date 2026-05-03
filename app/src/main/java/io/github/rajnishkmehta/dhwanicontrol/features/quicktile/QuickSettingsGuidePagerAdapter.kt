@@ -16,11 +16,13 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 class QuickSettingsGuidePagerAdapter(
-    private val steps: List<QuickSettingsGuideStep>
+    private val steps: List<QuickSettingsGuideStep>,
+    private val context: android.content.Context
 ) : RecyclerView.Adapter<QuickSettingsGuidePagerAdapter.StepViewHolder>() {
 
     private val imageExecutor: ExecutorService = Executors.newFixedThreadPool(2)
     private val mainHandler = Handler(Looper.getMainLooper())
+    private val imageStore = QuickSettingsGuideImageStore(context.applicationContext)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StepViewHolder {
         val binding = ItemQuickTileGuideStepBinding.inflate(
@@ -51,7 +53,6 @@ class QuickSettingsGuidePagerAdapter(
         private val binding: ItemQuickTileGuideStepBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        private val imageStore = QuickSettingsGuideImageStore(binding.root.context.applicationContext)
         private var requestId = 0
 
         fun bind(step: QuickSettingsGuideStep) {

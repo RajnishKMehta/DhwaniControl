@@ -37,7 +37,7 @@ class QuickSettingsGuideActivity : AppCompatActivity() {
         binding = ActivityQuickSettingsGuideBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val adapter = QuickSettingsGuidePagerAdapter(steps)
+        val adapter = QuickSettingsGuidePagerAdapter(steps, this)
         binding.guidePager.adapter = adapter
         binding.guidePager.offscreenPageLimit = 1
         binding.guidePager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
