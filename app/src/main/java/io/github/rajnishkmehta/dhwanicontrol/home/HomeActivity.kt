@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import io.github.rajnishkmehta.dhwanicontrol.Constants
 import io.github.rajnishkmehta.dhwanicontrol.R
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureAvailabilityEvaluator
+import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureBlockResult
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureController
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureRegistry
 import io.github.rajnishkmehta.dhwanicontrol.core.preferences.AppPreferences
@@ -55,7 +56,10 @@ class HomeActivity : AppCompatActivity() {
             val availability = FeatureAvailabilityEvaluator.enforce(this, controller)
             val configured = controller.isConfigured(this)
             val enabled = controller.isEnabled(this)
-            val blockedReason = availability.blockResult.resolveReason(this)
+            val blockedReason = when (val blockResult = availability.blockResult) {
+                is FeatureBlockResult.Blocked -> blockResult.resolveReason(this)
+                FeatureBlockResult.NotBlocked -> null
+            }
 
             val statusText = when {
                 availability.isBlocked -> blockedReason ?: getString(R.string.feature_status_blocked)
@@ -99,7 +103,10 @@ class HomeActivity : AppCompatActivity() {
         val controller = FeatureRegistry.findById(featureId) ?: return
         val availability = FeatureAvailabilityEvaluator.enforce(this, controller)
         if (availability.isBlocked) {
-            val blockReason = availability.blockResult.resolveReason(this)
+            val blockReason = when (val blockResult = availability.blockResult) {
+                is FeatureBlockResult.Blocked -> blockResult.resolveReason(this)
+                FeatureBlockResult.NotBlocked -> null
+            }
             if (!blockReason.isNullOrBlank()) {
                 Toast.makeText(this, blockReason, Toast.LENGTH_SHORT).show()
             }

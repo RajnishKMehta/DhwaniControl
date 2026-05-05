@@ -30,7 +30,7 @@ object PermissionPolicy {
         val expectedComponent = ComponentName(
             context,
             EdgeSwipeAccessibilityService::class.java
-        ).flattenToString()
+        )
 
         val enabledServices = Settings.Secure.getString(
             context.contentResolver,
@@ -41,7 +41,8 @@ object PermissionPolicy {
             setString(enabledServices)
         }
         while (splitter.hasNext()) {
-            if (splitter.next().equals(expectedComponent, ignoreCase = true)) {
+            val parsedComponent = ComponentName.unflattenFromString(splitter.next()) ?: continue
+            if (parsedComponent == expectedComponent) {
                 return true
             }
         }

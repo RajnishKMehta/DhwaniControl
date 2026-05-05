@@ -43,6 +43,27 @@ object AppPreferences {
         preferences.edit().putBoolean(Constants.PREF_EDGE_ENABLED, enabled).apply()
     }
 
+    fun getEdgeZonePercent(context: Context): Float {
+        val preferences = preferences(context)
+        migrateIfNeeded(preferences)
+        val storedValue = getFloatSafe(
+            preferences,
+            Constants.PREF_EDGE_ZONE_PERCENT,
+            Constants.EDGE_ZONE_PERCENT_DEFAULT
+        )
+        return storedValue.coerceIn(Constants.EDGE_ZONE_PERCENT_MIN, Constants.EDGE_ZONE_PERCENT_MAX)
+    }
+
+    fun setEdgeZonePercent(context: Context, edgeZonePercent: Float) {
+        val preferences = preferences(context)
+        migrateIfNeeded(preferences)
+        val clampedValue = edgeZonePercent.coerceIn(
+            Constants.EDGE_ZONE_PERCENT_MIN,
+            Constants.EDGE_ZONE_PERCENT_MAX
+        )
+        preferences.edit().putFloat(Constants.PREF_EDGE_ZONE_PERCENT, clampedValue).apply()
+    }
+
     fun ensureMigration(context: Context) {
         migrateIfNeeded(preferences(context))
     }
@@ -71,6 +92,9 @@ object AppPreferences {
         if (!preferences.contains(Constants.PREF_EDGE_SELECTED_SIDE)) {
             editor.putString(Constants.PREF_EDGE_SELECTED_SIDE, legacySide)
         }
+        if (!preferences.contains(Constants.PREF_EDGE_ZONE_PERCENT)) {
+            editor.putFloat(Constants.PREF_EDGE_ZONE_PERCENT, Constants.EDGE_ZONE_PERCENT_DEFAULT)
+        }
 
         editor.putBoolean(Constants.PREF_MIGRATION_COMPLETE, true)
         editor.apply()
@@ -86,5 +110,11 @@ object AppPreferences {
         return runCatching {
             preferences.getString(key, defaultValue)
         }.getOrNull() ?: defaultValue
+    }
+
+    private fun getFloatSafe(preferences: SharedPreferences, key: String, defaultValue: Float): Float {
+        return runCatching {
+            preferences.getFloat(key, defaultValue)
+        }.getOrDefault(defaultValue)
     }
 }

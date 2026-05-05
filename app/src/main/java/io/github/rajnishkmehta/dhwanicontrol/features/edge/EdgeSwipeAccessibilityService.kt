@@ -13,6 +13,7 @@ import android.view.InputDevice
 import android.view.MotionEvent
 import android.view.accessibility.AccessibilityEvent
 import io.github.rajnishkmehta.dhwanicontrol.Constants
+import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureBlockResult
 import io.github.rajnishkmehta.dhwanicontrol.core.preferences.AppPreferences
 import kotlin.math.abs
 
@@ -122,7 +123,9 @@ class EdgeSwipeAccessibilityService : AccessibilityService() {
             }
 
             MotionEvent.ACTION_UP -> {
-                if (hasMove && isValidInwardSwipe(startX, startY, lastX, lastY)) {
+                lastX = event.x
+                lastY = event.y
+                if (isValidInwardSwipe(startX, startY, lastX, lastY)) {
                     triggerVolumePanel()
                 }
                 hasMove = false
@@ -144,8 +147,7 @@ class EdgeSwipeAccessibilityService : AccessibilityService() {
         var flags = info.flags and AccessibilityServiceInfo.FLAG_REQUEST_TOUCH_EXPLORATION_MODE.inv()
         flags = flags and AccessibilityServiceInfo.FLAG_SEND_MOTION_EVENTS.inv()
 
-        if (Build.VERSION.SDK_INT in Build.VERSION_CODES.S..Build.VERSION_CODES.TIRAMISU && shouldDetect) {
-            flags = flags or AccessibilityServiceInfo.FLAG_REQUEST_TOUCH_EXPLORATION_MODE
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && shouldDetect) {
             flags = flags or AccessibilityServiceInfo.FLAG_SEND_MOTION_EVENTS
         }
         info.flags = flags
@@ -166,7 +168,7 @@ class EdgeSwipeAccessibilityService : AccessibilityService() {
             return false
         }
 
-        return !EdgeSwipeBlockCondition.evaluate(this).isBlocked
+        return EdgeSwipeBlockCondition.evaluate(this) !is FeatureBlockResult.Blocked
     }
 
     private fun isInwardSwipeFromMotionEvents(motionEvents: List<MotionEvent>): Boolean {
@@ -199,7 +201,8 @@ class EdgeSwipeAccessibilityService : AccessibilityService() {
 
     private fun isValidInwardSwipe(startX: Float, startY: Float, endX: Float, endY: Float): Boolean {
         val screenWidth = resources.displayMetrics.widthPixels.toFloat()
-        val edgeThreshold = (screenWidth * Constants.EDGE_ZONE_PERCENT).coerceAtLeast(1f)
+        val edgeZonePercent = AppPreferences.getEdgeZonePercent(this)
+        val edgeThreshold = (screenWidth * edgeZonePercent).coerceAtLeast(1f)
 
         val side = when {
             startX <= edgeThreshold -> Constants.SIDE_LEFT

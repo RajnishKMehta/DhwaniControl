@@ -38,6 +38,9 @@
 
     <string name="edge_selector_title">Update active edge</string>
     <string name="edge_selector_body">Select which edge should trigger the volume panel.</string>
+    <string name="edge_selector_width_title">Active edge width</string>
+    <string name="edge_selector_width_body">Choose how much of the selected edge should listen for inward swipes.</string>
+    <string name="edge_selector_width_value">%1$d%% of screen width</string>
     <string name="edge_selector_save_button">Save edge</string>
     <string name="edge_side_left">Left edge</string>
     <string name="edge_side_right">Right edge</string>

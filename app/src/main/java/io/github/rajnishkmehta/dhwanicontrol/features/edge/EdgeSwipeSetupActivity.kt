@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import io.github.rajnishkmehta.dhwanicontrol.Constants
 import io.github.rajnishkmehta.dhwanicontrol.R
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureAvailabilityEvaluator
+import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureBlockResult
 import io.github.rajnishkmehta.dhwanicontrol.core.preferences.AppPreferences
 import io.github.rajnishkmehta.dhwanicontrol.databinding.ActivityEdgeSwipeSetupBinding
 import kotlin.math.abs
@@ -58,7 +59,10 @@ class EdgeSwipeSetupActivity : AppCompatActivity() {
         super.onResume()
         val availability = FeatureAvailabilityEvaluator.enforce(this, EdgeSwipeFeatureController)
         if (availability.isBlocked) {
-            val reason = availability.blockResult.resolveReason(this)
+            val reason = when (val blockResult = availability.blockResult) {
+                is FeatureBlockResult.Blocked -> blockResult.resolveReason(this)
+                FeatureBlockResult.NotBlocked -> null
+            }
             if (!reason.isNullOrBlank()) {
                 Toast.makeText(this, reason, Toast.LENGTH_SHORT).show()
             }

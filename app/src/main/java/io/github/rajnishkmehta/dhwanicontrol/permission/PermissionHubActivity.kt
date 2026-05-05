@@ -12,6 +12,7 @@ import com.google.android.material.button.MaterialButton
 import io.github.rajnishkmehta.dhwanicontrol.Constants
 import io.github.rajnishkmehta.dhwanicontrol.R
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureAvailabilityEvaluator
+import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureBlockResult
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureController
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureRegistry
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.PermissionRequirement
@@ -79,7 +80,10 @@ class PermissionHubActivity : AppCompatActivity() {
         val accessibilityGranted = PermissionPolicy.isGranted(this, PermissionRequirement.Accessibility)
 
         binding.accessibilityPermissionCard.visibility = if (accessibilityRequired) View.VISIBLE else View.GONE
-        val blockedReason = availability.blockResult.resolveReason(this)
+        val blockedReason = when (val blockResult = availability.blockResult) {
+            is FeatureBlockResult.Blocked -> blockResult.resolveReason(this)
+            FeatureBlockResult.NotBlocked -> null
+        }
         binding.blockedReasonText.isVisible = availability.isBlocked && !blockedReason.isNullOrBlank()
         if (binding.blockedReasonText.isVisible) {
             binding.blockedReasonText.text = blockedReason

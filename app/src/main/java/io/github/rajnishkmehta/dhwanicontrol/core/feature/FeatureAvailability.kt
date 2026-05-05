@@ -5,5 +5,5 @@ data class FeatureAvailability(
     val missingPermissions: Set<PermissionRequirement>
 ) {
     val isBlocked: Boolean
-        get() = blockResult.isBlocked
+        get() = blockResult is FeatureBlockResult.Blocked
 }

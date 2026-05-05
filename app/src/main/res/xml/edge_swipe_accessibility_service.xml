@@ -3,7 +3,7 @@
     android:accessibilityEventTypes="typeWindowsChanged"
     android:accessibilityFeedbackType="feedbackGeneric"
     android:accessibilityFlags="flagDefault"
-    android:canRequestTouchExplorationMode="true"
+    android:canRequestTouchExplorationMode="false"
     android:canRetrieveWindowContent="false"
     android:description="@string/permission_accessibility_explanation"
     android:isAccessibilityTool="false"
