@@ -18,6 +18,7 @@ object QuickSettingsFeatureController : FeatureController {
         requiredPermissions = emptySet(),
         order = 1
     )
+    override val blockCondition = QuickSettingsBlockCondition
 
     override fun isConfigured(context: Context): Boolean {
         return true

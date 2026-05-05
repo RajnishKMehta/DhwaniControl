@@ -43,21 +43,25 @@ object AppPreferences {
         preferences.edit().putBoolean(Constants.PREF_EDGE_ENABLED, enabled).apply()
     }
 
-    fun getNotificationDenialCount(context: Context): Int {
-        return getIntSafe(preferences(context), Constants.PREF_NOTIFICATION_DENIAL_COUNT, 0)
-    }
-
-    fun incrementNotificationDenialCount(context: Context) {
+    fun getEdgeZonePercent(context: Context): Float {
         val preferences = preferences(context)
-        val newCount = getIntSafe(preferences, Constants.PREF_NOTIFICATION_DENIAL_COUNT, 0) + 1
-        preferences.edit().putInt(Constants.PREF_NOTIFICATION_DENIAL_COUNT, newCount).apply()
+        migrateIfNeeded(preferences)
+        val storedValue = getFloatSafe(
+            preferences,
+            Constants.PREF_EDGE_ZONE_PERCENT,
+            Constants.EDGE_ZONE_PERCENT_DEFAULT
+        )
+        return storedValue.coerceIn(Constants.EDGE_ZONE_PERCENT_MIN, Constants.EDGE_ZONE_PERCENT_MAX)
     }
 
-    fun resetNotificationDenialCount(context: Context) {
-        preferences(context)
-            .edit()
-            .putInt(Constants.PREF_NOTIFICATION_DENIAL_COUNT, 0)
-            .apply()
+    fun setEdgeZonePercent(context: Context, edgeZonePercent: Float) {
+        val preferences = preferences(context)
+        migrateIfNeeded(preferences)
+        val clampedValue = edgeZonePercent.coerceIn(
+            Constants.EDGE_ZONE_PERCENT_MIN,
+            Constants.EDGE_ZONE_PERCENT_MAX
+        )
+        preferences.edit().putFloat(Constants.PREF_EDGE_ZONE_PERCENT, clampedValue).apply()
     }
 
     fun ensureMigration(context: Context) {
@@ -88,6 +92,9 @@ object AppPreferences {
         if (!preferences.contains(Constants.PREF_EDGE_SELECTED_SIDE)) {
             editor.putString(Constants.PREF_EDGE_SELECTED_SIDE, legacySide)
         }
+        if (!preferences.contains(Constants.PREF_EDGE_ZONE_PERCENT)) {
+            editor.putFloat(Constants.PREF_EDGE_ZONE_PERCENT, Constants.EDGE_ZONE_PERCENT_DEFAULT)
+        }
 
         editor.putBoolean(Constants.PREF_MIGRATION_COMPLETE, true)
         editor.apply()
@@ -99,15 +106,15 @@ object AppPreferences {
         }.getOrDefault(defaultValue)
     }
 
-    private fun getIntSafe(preferences: SharedPreferences, key: String, defaultValue: Int): Int {
-        return runCatching {
-            preferences.getInt(key, defaultValue)
-        }.getOrDefault(defaultValue)
-    }
-
     private fun getStringSafe(preferences: SharedPreferences, key: String, defaultValue: String): String {
         return runCatching {
             preferences.getString(key, defaultValue)
         }.getOrNull() ?: defaultValue
+    }
+
+    private fun getFloatSafe(preferences: SharedPreferences, key: String, defaultValue: Float): Float {
+        return runCatching {
+            preferences.getFloat(key, defaultValue)
+        }.getOrDefault(defaultValue)
     }
 }

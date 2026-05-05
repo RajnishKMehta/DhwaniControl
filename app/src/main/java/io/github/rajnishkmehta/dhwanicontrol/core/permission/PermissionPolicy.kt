@@ -1,31 +1,53 @@
 package io.github.rajnishkmehta.dhwanicontrol.core.permission
 
-import android.Manifest
+import android.content.ComponentName
 import android.content.Context
-import android.content.pm.PackageManager
-import android.os.Build
 import android.provider.Settings
-import androidx.core.content.ContextCompat
+import android.text.TextUtils
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.PermissionRequirement
+import io.github.rajnishkmehta.dhwanicontrol.features.edge.EdgeSwipeAccessibilityService
 
 object PermissionPolicy {
 
     fun isGranted(context: Context, requirement: PermissionRequirement): Boolean {
         return when (requirement) {
-            PermissionRequirement.Overlay -> Settings.canDrawOverlays(context)
-            PermissionRequirement.Notifications -> isNotificationGranted(context)
+            PermissionRequirement.Accessibility -> isAccessibilityGranted(context)
         }
     }
 
-    fun isNotificationGranted(context: Context): Boolean {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-            return true
+    fun isAccessibilityGranted(context: Context): Boolean {
+        val accessibilityEnabled = runCatching {
+            Settings.Secure.getInt(
+                context.contentResolver,
+                Settings.Secure.ACCESSIBILITY_ENABLED,
+                0
+            )
+        }.getOrDefault(0) == 1
+        if (!accessibilityEnabled) {
+            return false
         }
 
-        return ContextCompat.checkSelfPermission(
+        val expectedComponent = ComponentName(
             context,
-            Manifest.permission.POST_NOTIFICATIONS
-        ) == PackageManager.PERMISSION_GRANTED
+            EdgeSwipeAccessibilityService::class.java
+        )
+
+        val enabledServices = Settings.Secure.getString(
+            context.contentResolver,
+            Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES
+        ) ?: return false
+
+        val splitter = TextUtils.SimpleStringSplitter(':').apply {
+            setString(enabledServices)
+        }
+        while (splitter.hasNext()) {
+            val parsedComponent = ComponentName.unflattenFromString(splitter.next()) ?: continue
+            if (parsedComponent == expectedComponent) {
+                return true
+            }
+        }
+
+        return false
     }
 
     fun missingPermissions(

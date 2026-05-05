@@ -5,6 +5,7 @@ import android.content.Context
 
 interface FeatureController {
     val spec: FeatureSpec
+    val blockCondition: FeatureBlockCondition
 
     fun isConfigured(context: Context): Boolean
 

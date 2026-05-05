@@ -2,19 +2,23 @@ package io.github.rajnishkmehta.dhwanicontrol.features.edge
 
 import android.content.Context
 import android.content.Intent
-import androidx.core.content.ContextCompat
+import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureAvailabilityEvaluator
 import io.github.rajnishkmehta.dhwanicontrol.core.permission.PermissionPolicy
 import io.github.rajnishkmehta.dhwanicontrol.core.preferences.AppPreferences
 
 object EdgeOverlayRuntime {
+    private const val LEGACY_OVERLAY_SERVICE_CLASS_NAME =
+        "io.github.rajnishkmehta.dhwanicontrol.features.edge.VolumeOverlayService"
 
     fun sync(context: Context) {
+        stopLegacyOverlayService(context)
+
         if (!canRun(context)) {
-            stop(context)
+            stopAccessibilityHandling()
             return
         }
 
-        start(context)
+        startAccessibilityHandling()
     }
 
     private fun canRun(context: Context): Boolean {
@@ -26,29 +30,31 @@ object EdgeOverlayRuntime {
             return false
         }
 
-        val missingPermissions = PermissionPolicy.missingPermissions(
+        val isBlocked = FeatureAvailabilityEvaluator
+            .evaluate(context, EdgeSwipeFeatureController)
+            .isBlocked
+        if (isBlocked) {
+            return false
+        }
+
+        return PermissionPolicy.missingPermissions(
             context,
             EdgeSwipeFeatureController.spec.requiredPermissions
-        )
-        return missingPermissions.isEmpty()
+        ).isEmpty()
     }
 
-    private fun start(context: Context) {
-        if (VolumeOverlayService.isRunning) {
-            return
-        }
-
-        runCatching {
-            ContextCompat.startForegroundService(
-                context,
-                Intent(context, VolumeOverlayService::class.java)
-            )
-        }
+    private fun startAccessibilityHandling() {
+        EdgeSwipeAccessibilityService.refreshConfiguration()
     }
 
-    fun stop(context: Context) {
+    private fun stopAccessibilityHandling() {
+        EdgeSwipeAccessibilityService.pauseEdgeDetection()
+    }
+
+    private fun stopLegacyOverlayService(context: Context) {
         runCatching {
-            context.stopService(Intent(context, VolumeOverlayService::class.java))
+            val intent = Intent().setClassName(context.packageName, LEGACY_OVERLAY_SERVICE_CLASS_NAME)
+            context.stopService(intent)
         }
     }
 }

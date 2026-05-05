@@ -1,42 +1,28 @@
 package io.github.rajnishkmehta.dhwanicontrol.permission
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import android.widget.TextView
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.google.android.material.button.MaterialButton
 import io.github.rajnishkmehta.dhwanicontrol.Constants
 import io.github.rajnishkmehta.dhwanicontrol.R
+import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureAvailabilityEvaluator
+import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureBlockResult
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureController
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureRegistry
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.PermissionRequirement
 import io.github.rajnishkmehta.dhwanicontrol.core.permission.PermissionPolicy
-import io.github.rajnishkmehta.dhwanicontrol.core.preferences.AppPreferences
 import io.github.rajnishkmehta.dhwanicontrol.databinding.ActivityPermissionHubBinding
 
 class PermissionHubActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPermissionHubBinding
     private var featureController: FeatureController? = null
-
-    private val notificationPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { granted ->
-        if (granted) {
-            AppPreferences.resetNotificationDenialCount(this)
-        } else {
-            AppPreferences.incrementNotificationDenialCount(this)
-        }
-        refreshPermissionUi()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,12 +37,8 @@ class PermissionHubActivity : AppCompatActivity() {
             return
         }
 
-        binding.overlayGrantButton.setOnClickListener {
-            openOverlayPermissionSettings()
-        }
-
-        binding.notificationGrantButton.setOnClickListener {
-            requestNotificationPermission()
+        binding.accessibilityGrantButton.setOnClickListener {
+            openAccessibilitySettings()
         }
 
         binding.continueButton.setOnClickListener {
@@ -73,12 +55,8 @@ class PermissionHubActivity : AppCompatActivity() {
 
     private fun routeToFeatureConfigIfReady() {
         val controller = featureController ?: return
-        val missingPermissions = PermissionPolicy.missingPermissions(
-            this,
-            controller.spec.requiredPermissions
-        )
-
-        if (missingPermissions.isNotEmpty()) {
+        val availability = FeatureAvailabilityEvaluator.enforce(this, controller)
+        if (availability.isBlocked || availability.missingPermissions.isNotEmpty()) {
             refreshPermissionUi()
             return
         }
@@ -87,98 +65,41 @@ class PermissionHubActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun openOverlayPermissionSettings() {
-        val intent = Intent(
-            Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-            Uri.fromParts("package", packageName, null)
-        )
-        startActivity(intent)
-    }
-
-    private fun requestNotificationPermission() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-            refreshPermissionUi()
-            return
-        }
-
-        val alreadyGranted = ContextCompat.checkSelfPermission(
-            this,
-            Manifest.permission.POST_NOTIFICATIONS
-        ) == PackageManager.PERMISSION_GRANTED
-
-        if (alreadyGranted) {
-            AppPreferences.resetNotificationDenialCount(this)
-            refreshPermissionUi()
-            return
-        }
-
-        val denialCount = AppPreferences.getNotificationDenialCount(this)
-        val shouldRedirectToSettings = denialCount >= Constants.NOTIFICATION_DENIAL_REDIRECT_THRESHOLD ||
-            (denialCount > 0 && !shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS))
-
-        if (shouldRedirectToSettings) {
-            openAppDetailsSettings()
-            return
-        }
-
-        notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-    }
-
-    private fun openAppDetailsSettings() {
-        val intent = Intent(
-            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-            Uri.fromParts("package", packageName, null)
-        )
-        startActivity(intent)
+    private fun openAccessibilitySettings() {
+        startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
     }
 
     private fun refreshPermissionUi() {
         val controller = featureController ?: return
         val featureName = getString(controller.spec.titleRes)
         binding.permissionScreenTitle.text = getString(R.string.permission_screen_title_with_feature, featureName)
+        val availability = FeatureAvailabilityEvaluator.enforce(this, controller)
 
         val requirements = controller.spec.requiredPermissions
-        val overlayRequired = requirements.contains(PermissionRequirement.Overlay)
-        val notificationsRequired = requirements.contains(PermissionRequirement.Notifications) &&
-            Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
+        val accessibilityRequired = requirements.contains(PermissionRequirement.Accessibility)
+        val accessibilityGranted = PermissionPolicy.isGranted(this, PermissionRequirement.Accessibility)
 
-        binding.overlayPermissionCard.visibility = if (overlayRequired) View.VISIBLE else View.GONE
-        binding.notificationPermissionCard.visibility = if (notificationsRequired) View.VISIBLE else View.GONE
-
-        val overlayGranted = PermissionPolicy.isGranted(this, PermissionRequirement.Overlay)
-        val notificationsGranted = PermissionPolicy.isGranted(this, PermissionRequirement.Notifications)
-
-        updatePermissionStatus(
-            granted = overlayGranted,
-            statusDot = binding.overlayStatusDot,
-            statusText = binding.overlayStatusText,
-            grantButton = binding.overlayGrantButton,
-            required = overlayRequired,
-            settingsFallback = false
-        )
-
-        val denialCount = AppPreferences.getNotificationDenialCount(this)
-        val shouldUseSettingsFallback = denialCount >= Constants.NOTIFICATION_DENIAL_REDIRECT_THRESHOLD ||
-            (denialCount > 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
-                !shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS))
+        binding.accessibilityPermissionCard.visibility = if (accessibilityRequired) View.VISIBLE else View.GONE
+        val blockedReason = when (val blockResult = availability.blockResult) {
+            is FeatureBlockResult.Blocked -> blockResult.resolveReason(this)
+            FeatureBlockResult.NotBlocked -> null
+        }
+        binding.blockedReasonText.isVisible = availability.isBlocked && !blockedReason.isNullOrBlank()
+        if (binding.blockedReasonText.isVisible) {
+            binding.blockedReasonText.text = blockedReason
+        }
 
         updatePermissionStatus(
-            granted = notificationsGranted,
-            statusDot = binding.notificationStatusDot,
-            statusText = binding.notificationStatusText,
-            grantButton = binding.notificationGrantButton,
-            required = notificationsRequired,
-            settingsFallback = shouldUseSettingsFallback
+            granted = accessibilityGranted,
+            statusDot = binding.accessibilityStatusDot,
+            statusText = binding.accessibilityStatusText,
+            grantButton = binding.accessibilityGrantButton,
+            required = accessibilityRequired,
+            blocked = availability.isBlocked
         )
 
-        val allPermissionsGranted = PermissionPolicy.missingPermissions(this, requirements).isEmpty()
-        binding.continueButton.isEnabled = allPermissionsGranted
-        binding.settingsHintText.visibility =
-            if (notificationsRequired && shouldUseSettingsFallback && !notificationsGranted) {
-                View.VISIBLE
-            } else {
-                View.GONE
-            }
+        val allPermissionsGranted = availability.missingPermissions.isEmpty()
+        binding.continueButton.isEnabled = allPermissionsGranted && !availability.isBlocked
     }
 
     private fun updatePermissionStatus(
@@ -187,7 +108,7 @@ class PermissionHubActivity : AppCompatActivity() {
         statusText: TextView,
         grantButton: MaterialButton,
         required: Boolean,
-        settingsFallback: Boolean
+        blocked: Boolean
     ) {
         val accent = ContextCompat.getColor(this, R.color.colorAccent)
         val pending = ContextCompat.getColor(this, R.color.colorTextSecondary)
@@ -203,14 +124,7 @@ class PermissionHubActivity : AppCompatActivity() {
         )
         statusText.setTextColor(statusColor)
 
-        grantButton.isEnabled = required && !granted
-        grantButton.setText(
-            if (settingsFallback && grantButton.isEnabled) {
-                R.string.permission_open_settings_button
-            } else {
-                R.string.permission_grant_button
-            }
-        )
+        grantButton.isEnabled = required && !granted && !blocked
         grantButton.alpha = if (grantButton.isEnabled) 1f else 0.65f
     }
 }

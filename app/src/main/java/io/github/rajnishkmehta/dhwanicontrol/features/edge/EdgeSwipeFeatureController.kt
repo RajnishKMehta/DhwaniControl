@@ -17,12 +17,10 @@ object EdgeSwipeFeatureController : FeatureController {
         titleRes = R.string.feature_edge_title,
         descriptionRes = R.string.feature_edge_description,
         supportsToggle = true,
-        requiredPermissions = setOf(
-            PermissionRequirement.Overlay,
-            PermissionRequirement.Notifications
-        ),
+        requiredPermissions = setOf(PermissionRequirement.Accessibility),
         order = 2
     )
+    override val blockCondition = EdgeSwipeBlockCondition
 
     override fun isConfigured(context: Context): Boolean {
         return AppPreferences.isEdgeConfigured(context)

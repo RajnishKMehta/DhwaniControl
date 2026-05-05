@@ -7,9 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.github.rajnishkmehta.dhwanicontrol.Constants
 import io.github.rajnishkmehta.dhwanicontrol.R
+import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureAvailabilityEvaluator
+import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureBlockResult
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureController
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureRegistry
-import io.github.rajnishkmehta.dhwanicontrol.core.permission.PermissionPolicy
 import io.github.rajnishkmehta.dhwanicontrol.core.preferences.AppPreferences
 import io.github.rajnishkmehta.dhwanicontrol.databinding.ActivityHomeBinding
 import io.github.rajnishkmehta.dhwanicontrol.permission.PermissionHubActivity
@@ -52,10 +53,16 @@ class HomeActivity : AppCompatActivity() {
         val spec = controller.spec
 
         return runCatching {
+            val availability = FeatureAvailabilityEvaluator.enforce(this, controller)
             val configured = controller.isConfigured(this)
             val enabled = controller.isEnabled(this)
+            val blockedReason = when (val blockResult = availability.blockResult) {
+                is FeatureBlockResult.Blocked -> blockResult.resolveReason(this)
+                FeatureBlockResult.NotBlocked -> null
+            }
 
             val statusText = when {
+                availability.isBlocked -> blockedReason ?: getString(R.string.feature_status_blocked)
                 spec.supportsToggle && !configured -> getString(R.string.feature_status_needs_config)
                 spec.supportsToggle && enabled -> getString(R.string.feature_status_enabled)
                 spec.supportsToggle -> getString(R.string.feature_status_disabled)
@@ -68,10 +75,14 @@ class HomeActivity : AppCompatActivity() {
                 title = getString(spec.titleRes),
                 description = getString(spec.descriptionRes),
                 status = statusText,
+                isBlocked = availability.isBlocked,
                 showToggle = spec.supportsToggle,
-                toggleEnabled = spec.supportsToggle && configured,
+                toggleEnabled = spec.supportsToggle &&
+                    configured &&
+                    !availability.isBlocked &&
+                    availability.missingPermissions.isEmpty(),
                 toggledOn = spec.supportsToggle && enabled,
-                configEnabled = true
+                configEnabled = !availability.isBlocked
             )
         }.getOrElse {
             FeatureCardUiModel(
@@ -79,6 +90,7 @@ class HomeActivity : AppCompatActivity() {
                 title = getString(spec.titleRes),
                 description = getString(spec.descriptionRes),
                 status = getString(R.string.feature_status_unavailable),
+                isBlocked = false,
                 showToggle = spec.supportsToggle,
                 toggleEnabled = false,
                 toggledOn = false,
@@ -89,12 +101,20 @@ class HomeActivity : AppCompatActivity() {
 
     private fun handleConfigClick(featureId: String) {
         val controller = FeatureRegistry.findById(featureId) ?: return
-        val missingPermissions = PermissionPolicy.missingPermissions(
-            this,
-            controller.spec.requiredPermissions
-        )
+        val availability = FeatureAvailabilityEvaluator.enforce(this, controller)
+        if (availability.isBlocked) {
+            val blockReason = when (val blockResult = availability.blockResult) {
+                is FeatureBlockResult.Blocked -> blockResult.resolveReason(this)
+                FeatureBlockResult.NotBlocked -> null
+            }
+            if (!blockReason.isNullOrBlank()) {
+                Toast.makeText(this, blockReason, Toast.LENGTH_SHORT).show()
+            }
+            refreshFeatureCards()
+            return
+        }
 
-        if (missingPermissions.isNotEmpty()) {
+        if (availability.missingPermissions.isNotEmpty()) {
             val intent = Intent(this, PermissionHubActivity::class.java)
                 .putExtra(Constants.EXTRA_FEATURE_ID, featureId)
             startActivity(intent)
@@ -111,6 +131,20 @@ class HomeActivity : AppCompatActivity() {
     private fun handleToggleChanged(featureId: String, isEnabled: Boolean) {
         val controller = FeatureRegistry.findById(featureId) ?: return
         if (!controller.spec.supportsToggle) {
+            return
+        }
+
+        val availability = FeatureAvailabilityEvaluator.enforce(this, controller)
+        if (availability.isBlocked) {
+            refreshFeatureCards()
+            return
+        }
+
+        if (availability.missingPermissions.isNotEmpty()) {
+            val intent = Intent(this, PermissionHubActivity::class.java)
+                .putExtra(Constants.EXTRA_FEATURE_ID, featureId)
+            startActivity(intent)
+            refreshFeatureCards()
             return
         }
 
