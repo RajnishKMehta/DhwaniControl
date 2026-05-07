@@ -15,6 +15,8 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.button.MaterialButton
 import io.github.rajnishkmehta.dhwanicontrol.Constants
 import io.github.rajnishkmehta.dhwanicontrol.R
+import io.github.rajnishkmehta.dhwanicontrol.core.block.FeatureAvailabilityEvaluator
+import io.github.rajnishkmehta.dhwanicontrol.core.block.FeatureBlockResult
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureController
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureRegistry
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.PermissionRequirement
@@ -73,6 +75,13 @@ class PermissionHubActivity : AppCompatActivity() {
 
     private fun routeToFeatureConfigIfReady() {
         val controller = featureController ?: return
+
+        val blockResult = controller.blockCondition.evaluate(this)
+        if (blockResult is FeatureBlockResult.Blocked) {
+            refreshPermissionUi()
+            return
+        }
+
         val missingPermissions = PermissionPolicy.missingPermissions(
             this,
             controller.spec.requiredPermissions
@@ -137,6 +146,17 @@ class PermissionHubActivity : AppCompatActivity() {
         val featureName = getString(controller.spec.titleRes)
         binding.permissionScreenTitle.text = getString(R.string.permission_screen_title_with_feature, featureName)
 
+        val availability = FeatureAvailabilityEvaluator.evaluate(this, controller)
+        val blockResult = availability.blockResult
+        val isBlocked = blockResult is FeatureBlockResult.Blocked
+
+        if (isBlocked && blockResult is FeatureBlockResult.Blocked) {
+            binding.blockedReasonCard.visibility = View.VISIBLE
+            binding.blockedReasonText.setText(blockResult.reasonRes)
+        } else {
+            binding.blockedReasonCard.visibility = View.GONE
+        }
+
         val requirements = controller.spec.requiredPermissions
         val overlayRequired = requirements.contains(PermissionRequirement.Overlay)
         val notificationsRequired = requirements.contains(PermissionRequirement.Notifications) &&
@@ -171,8 +191,8 @@ class PermissionHubActivity : AppCompatActivity() {
             settingsFallback = shouldUseSettingsFallback
         )
 
-        val allPermissionsGranted = PermissionPolicy.missingPermissions(this, requirements).isEmpty()
-        binding.continueButton.isEnabled = allPermissionsGranted
+        val allPermissionsGranted = availability.missingPermissions.isEmpty()
+        binding.continueButton.isEnabled = allPermissionsGranted && !isBlocked
         binding.settingsHintText.visibility =
             if (notificationsRequired && shouldUseSettingsFallback && !notificationsGranted) {
                 View.VISIBLE

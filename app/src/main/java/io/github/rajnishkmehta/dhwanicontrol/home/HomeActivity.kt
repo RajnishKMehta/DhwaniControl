@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.github.rajnishkmehta.dhwanicontrol.Constants
 import io.github.rajnishkmehta.dhwanicontrol.R
+import io.github.rajnishkmehta.dhwanicontrol.core.block.FeatureAvailabilityEvaluator
+import io.github.rajnishkmehta.dhwanicontrol.core.block.FeatureBlockResult
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureController
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureRegistry
 import io.github.rajnishkmehta.dhwanicontrol.core.permission.PermissionPolicy
@@ -52,10 +54,14 @@ class HomeActivity : AppCompatActivity() {
         val spec = controller.spec
 
         return runCatching {
+            val availability = FeatureAvailabilityEvaluator.enforce(this, controller)
             val configured = controller.isConfigured(this)
             val enabled = controller.isEnabled(this)
+            val blockResult = availability.blockResult
+            val isBlocked = blockResult is FeatureBlockResult.Blocked
 
             val statusText = when {
+                isBlocked -> getString((blockResult as FeatureBlockResult.Blocked).reasonRes)
                 spec.supportsToggle && !configured -> getString(R.string.feature_status_needs_config)
                 spec.supportsToggle && enabled -> getString(R.string.feature_status_enabled)
                 spec.supportsToggle -> getString(R.string.feature_status_disabled)
@@ -69,9 +75,9 @@ class HomeActivity : AppCompatActivity() {
                 description = getString(spec.descriptionRes),
                 status = statusText,
                 showToggle = spec.supportsToggle,
-                toggleEnabled = spec.supportsToggle && configured,
+                toggleEnabled = spec.supportsToggle && configured && !isBlocked,
                 toggledOn = spec.supportsToggle && enabled,
-                configEnabled = true
+                configEnabled = !isBlocked
             )
         }.getOrElse {
             FeatureCardUiModel(
@@ -89,6 +95,12 @@ class HomeActivity : AppCompatActivity() {
 
     private fun handleConfigClick(featureId: String) {
         val controller = FeatureRegistry.findById(featureId) ?: return
+
+        val blockResult = controller.blockCondition.evaluate(this)
+        if (blockResult is FeatureBlockResult.Blocked) {
+            return
+        }
+
         val missingPermissions = PermissionPolicy.missingPermissions(
             this,
             controller.spec.requiredPermissions
@@ -111,6 +123,12 @@ class HomeActivity : AppCompatActivity() {
     private fun handleToggleChanged(featureId: String, isEnabled: Boolean) {
         val controller = FeatureRegistry.findById(featureId) ?: return
         if (!controller.spec.supportsToggle) {
+            return
+        }
+
+        val blockResult = controller.blockCondition.evaluate(this)
+        if (blockResult is FeatureBlockResult.Blocked) {
+            refreshFeatureCards()
             return
         }
 

@@ -5,12 +5,15 @@ import android.content.Context
 import android.content.Intent
 import io.github.rajnishkmehta.dhwanicontrol.Constants
 import io.github.rajnishkmehta.dhwanicontrol.R
+import io.github.rajnishkmehta.dhwanicontrol.core.block.FeatureBlockCondition
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureController
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureSpec
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.PermissionRequirement
 import io.github.rajnishkmehta.dhwanicontrol.core.preferences.AppPreferences
 
 object EdgeSwipeFeatureController : FeatureController {
+
+    override val blockCondition: FeatureBlockCondition = EdgeSwipeBlockCondition
 
     override val spec = FeatureSpec(
         id = Constants.FEATURE_ID_EDGE_SWIPE,
