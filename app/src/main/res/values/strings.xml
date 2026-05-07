@@ -19,7 +19,7 @@
     <string name="feature_status_needs_config">Configuration required</string>
     <string name="feature_status_unavailable">Temporarily unavailable</string>
 
-    <string name="feature_blocked_gesture_nav">Not available with gesture navigation. Switch to button navigation in Settings → System → Gestures → System navigation.</string>
+    <string name="feature_blocked_gesture_nav">Not available with gesture navigation. Switch to button navigation in Settings > Gestures > Navigation moden.</string>
     <string name="permission_blocked_reason_label">Why is this unavailable?</string>
 
     <string name="permission_screen_title_with_feature">Permissions for %1$s</string>
