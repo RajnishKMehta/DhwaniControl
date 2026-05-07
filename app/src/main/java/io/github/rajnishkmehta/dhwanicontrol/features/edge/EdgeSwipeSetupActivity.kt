@@ -154,6 +154,7 @@ class EdgeSwipeSetupActivity : AppCompatActivity() {
 
         AppPreferences.setEdgeSelectedSide(this, side)
         AppPreferences.setEdgeConfigured(this, true)
+        AppPreferences.setEdgeEnabled(this, true)
 
         binding.setupTitleText.setText(R.string.edge_setup_saved_message)
         binding.setupBodyText.setText(R.string.edge_setup_saved_detail)

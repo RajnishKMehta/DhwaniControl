@@ -34,10 +34,6 @@ object EdgeOverlayRuntime {
     }
 
     private fun start(context: Context) {
-        if (VolumeOverlayService.isRunning) {
-            return
-        }
-
         runCatching {
             ContextCompat.startForegroundService(
                 context,
