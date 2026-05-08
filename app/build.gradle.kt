@@ -54,17 +54,17 @@ android {
     signingConfigs {
         create("release") {
             storeFile = file("release.jks")
-            storePassword = System.getenv("KEYSTORE_PASSWORD") ?: ""
-            keyAlias = System.getenv("KEY_ALIAS") ?: ""
-            keyPassword = System.getenv("KEY_PASSWORD") ?: ""
+            storePassword = System.getenv("KEYSTORE_PASSWORD") ?: error("Missing KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("KEY_ALIAS") ?: error("Missing KEY_ALIAS")
+            keyPassword = System.getenv("KEY_PASSWORD") ?: error("Missing KEY_PASSWORD")
         }
     }
 
     buildTypes {
         debug {
-            applicationIdSuffix = ".debug"
-            versionNameSuffix = "-debug"
-            resValue("string", "app_name", "DhwaniCtrl_debug")
+            applicationIdSuffix = ".$versionBuild.debug"
+            versionNameSuffix = ".$versionBuild-debug"
+            resValue("string", "app_name", "DC_debug")
         }
         release {
             isMinifyEnabled = true
