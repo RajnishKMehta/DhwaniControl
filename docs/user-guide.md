@@ -7,7 +7,6 @@ This guide covers first-time setup and normal usage.
 - Android 10 (API 29) or newer
 - Overlay permission for Edge Swipe Overlay
 - Notification permission on Android 13+ for the edge background service
-- Button navigation (3-button or 2-button) for Edge Swipe Overlay
 
 ## First-Time Setup
 
