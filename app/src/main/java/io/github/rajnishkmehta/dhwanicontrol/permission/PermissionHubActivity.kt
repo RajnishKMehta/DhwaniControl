@@ -143,7 +143,7 @@ class PermissionHubActivity : AppCompatActivity() {
 
     private fun refreshPermissionUi() {
         val controller = featureController ?: return
-        val featureName = getString(controller.spec.titleRes)
+        val featureName = getString(controller.spec.nameRes)
         binding.permissionScreenTitle.text = getString(R.string.permission_screen_title_with_feature, featureName)
 
         val availability = FeatureAvailabilityEvaluator.evaluate(this, controller)

@@ -11,12 +11,12 @@ import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureSpec
 object QuickSettingsFeatureController : FeatureController {
 
     override val spec = FeatureSpec(
-        id = Constants.FEATURE_ID_QUICK_TILE,
-        titleRes = R.string.feature_quick_tile_title,
-        descriptionRes = R.string.feature_quick_tile_description,
+        featureId = Constants.FEATURE_ID_QUICK_TILE,
+        nameRes = R.string.feature_quick_tile_title,
+        summaryRes = R.string.feature_quick_tile_description,
         supportsToggle = false,
         requiredPermissions = emptySet(),
-        order = 1
+        displayOrder = 1
     )
 
     override fun isConfigured(context: Context): Boolean {

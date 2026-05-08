@@ -47,14 +47,13 @@ class HomeActivity : AppCompatActivity() {
     private fun refreshFeatureCards() {
         val controllers = FeatureRegistry.all()
 
-        
         controllers.forEach { controller ->
             runCatching {
                 FeatureAvailabilityEvaluator.enforce(this, controller)
             }.onFailure {
                 Log.e(
                     "HomeActivity",
-                    "Failed to enforce availability for ${controller.spec.id}",
+                    "Failed to enforce availability for ${controller.spec.featureId}",
                     it
                 )
             }
@@ -96,9 +95,9 @@ class HomeActivity : AppCompatActivity() {
             }
 
             FeatureCardUiModel(
-                featureId = spec.id,
-                title = getString(spec.titleRes),
-                description = getString(spec.descriptionRes),
+                featureId = spec.featureId,
+                title = getString(spec.nameRes),
+                description = getString(spec.summaryRes),
                 status = statusText,
                 showToggle = spec.supportsToggle,
                 toggleEnabled = spec.supportsToggle && configured && !isBlocked,
@@ -107,9 +106,9 @@ class HomeActivity : AppCompatActivity() {
             )
         }.getOrElse {
             FeatureCardUiModel(
-                featureId = spec.id,
-                title = getString(spec.titleRes),
-                description = getString(spec.descriptionRes),
+                featureId = spec.featureId,
+                title = getString(spec.nameRes),
+                description = getString(spec.summaryRes),
                 status = getString(R.string.feature_status_unavailable),
                 showToggle = spec.supportsToggle,
                 toggleEnabled = false,

@@ -5,16 +5,18 @@ import io.github.rajnishkmehta.dhwanicontrol.features.quicktile.QuickSettingsFea
 
 object FeatureRegistry {
 
-    private val controllers = listOf(
+    private val orderedControllers = listOf(
         QuickSettingsFeatureController,
         EdgeSwipeFeatureController
-    ).sortedBy { it.spec.order }
+    ).sortedBy { it.spec.displayOrder }
+
+    private val controllersById = orderedControllers.associateBy { it.spec.featureId }
 
     fun all(): List<FeatureController> {
-        return controllers
+        return orderedControllers
     }
 
     fun findById(featureId: String): FeatureController? {
-        return controllers.firstOrNull { it.spec.id == featureId }
+        return controllersById[featureId]
     }
 }
