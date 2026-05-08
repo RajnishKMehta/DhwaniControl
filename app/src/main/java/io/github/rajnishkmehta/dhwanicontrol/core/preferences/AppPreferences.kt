@@ -34,7 +34,7 @@ object AppPreferences {
     fun isEdgeEnabled(context: Context): Boolean {
         val preferences = preferences(context)
         migrateIfNeeded(preferences)
-        return getBooleanSafe(preferences, Constants.PREF_EDGE_ENABLED, true)
+        return getBooleanSafe(preferences, Constants.PREF_EDGE_ENABLED, false)
     }
 
     fun setEdgeEnabled(context: Context, enabled: Boolean) {
@@ -75,7 +75,7 @@ object AppPreferences {
         }
 
         val legacyConfigured = getBooleanSafe(preferences, Constants.LEGACY_PREF_SETUP_COMPLETE, false)
-        val legacyEnabled = getBooleanSafe(preferences, Constants.LEGACY_PREF_SERVICE_ENABLED, true)
+        val legacyEnabled = getBooleanSafe(preferences, Constants.LEGACY_PREF_SERVICE_ENABLED, false)
         val legacySide = getStringSafe(preferences, Constants.LEGACY_PREF_SELECTED_SIDE, Constants.SIDE_RIGHT)
 
         val editor = preferences.edit()
