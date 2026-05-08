@@ -150,7 +150,7 @@ class PermissionHubActivity : AppCompatActivity() {
         val blockResult = availability.blockResult
         val isBlocked = blockResult is FeatureBlockResult.Blocked
 
-        if (isBlocked && blockResult is FeatureBlockResult.Blocked) {
+        if (blockResult is FeatureBlockResult.Blocked) {
             binding.blockedReasonCard.visibility = View.VISIBLE
             binding.blockedReasonText.setText(blockResult.reasonRes)
         } else {
