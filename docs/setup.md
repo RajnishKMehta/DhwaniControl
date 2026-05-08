@@ -37,7 +37,7 @@ The in-app tutorial downloads screenshots into app-private storage and does not 
 
 ## Step 5: Configure Edge Swipe Overlay (Optional)
 
-> **Note:** Edge Swipe Overlay requires **button navigation** (3-button or 2-button). If your device is set to gesture navigation, the feature card will show a blocked reason and all actions will be disabled until you switch navigation mode in **Settings → System → Gestures → System navigation**.
+> **Note:** Edge Swipe Overlay requires **button navigation** (3-button or 2-button). If your device is set to gesture navigation, the feature card will show a blocked reason and all actions will be disabled until you switch navigation mode in **Settings > Gestures > Navigation mode**.
 
 1. On Home, tap **Config** in **Edge Swipe Overlay**.
 2. Grant overlay and notification permissions when prompted.
