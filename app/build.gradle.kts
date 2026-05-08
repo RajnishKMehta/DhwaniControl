@@ -18,6 +18,16 @@ val appVersionCode =
 
 val appVersionName = "$versionMajor.$versionMinor.$versionPatch"
 
+// SIGNING
+val keystorePassword = System.getenv("KEYSTORE_PASSWORD") ?: ""
+val keyAliasEnv = System.getenv("KEY_ALIAS") ?: ""
+val keyPasswordEnv = System.getenv("KEY_PASSWORD") ?: ""
+
+val hasReleaseSigning =
+    keystorePassword.isNotBlank() &&
+    keyAliasEnv.isNotBlank() &&
+    keyPasswordEnv.isNotBlank()
+
 // TASK
 tasks.register("printAppInfo") {
     doLast {
@@ -33,6 +43,19 @@ tasks.register("printAppInfo") {
               "versionCode": $appVersionCode
             }
             """.trimIndent()
+        )
+    }
+}
+
+// Fail fast only for release builds.
+gradle.taskGraph.whenReady {
+    val isReleaseTask = allTasks.any {
+        it.name.contains("Release", ignoreCase = true)
+    }
+
+    if (isReleaseTask && !hasReleaseSigning) {
+        error(
+            "Missing release signing environment variables."
         )
     }
 }
@@ -54,22 +77,27 @@ android {
     signingConfigs {
         create("release") {
             storeFile = file("release.jks")
-            storePassword = System.getenv("KEYSTORE_PASSWORD") ?: error("Missing KEYSTORE_PASSWORD")
-            keyAlias = System.getenv("KEY_ALIAS") ?: error("Missing KEY_ALIAS")
-            keyPassword = System.getenv("KEY_PASSWORD") ?: error("Missing KEY_PASSWORD")
+            storePassword = keystorePassword
+            keyAlias = keyAliasEnv
+            keyPassword = keyPasswordEnv
         }
     }
 
     buildTypes {
         debug {
-            applicationIdSuffix = ".$versionBuild.debug"
-            versionNameSuffix = ".$versionBuild-debug"
-            resValue("string", "app_name", "DC_debug")
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-$versionBuild-debug"
+            resValue("string", "app_name", "DC Debug")
         }
+
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            signingConfig = signingConfigs.getByName("release")
+
+            if (hasReleaseSigning) {
+                signingConfig = signingConfigs.getByName("release")
+            }
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 rootProject.file("proguard-rules.pro")
