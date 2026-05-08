@@ -58,7 +58,7 @@ If you later want to switch the active edge, tap **Config** again — the change
   - Install the latest release (`v0.4.0` or newer).
   - Reinstall once if the install was upgraded from an older build.
 - Edge swipe card is greyed out and shows a blocked message:
-  - Your device is using gesture navigation. Go to **Settings > Gestures > Navigation moden** and switch to 3-button or 2-button navigation.
+  - Your device is using gesture navigation. Go to **Settings > Gestures > Navigation mode** and switch to 3-button or 2-button navigation.
 - Edge swipe not working after setup:
   - Verify overlay permission is granted.
   - Verify the Edge Swipe switch is ON on Home.
