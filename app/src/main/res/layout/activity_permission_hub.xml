@@ -149,6 +149,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/permission_grant_button"
+                        android:textColor="@color/colorTextPrimary"
                         app:backgroundTint="@color/colorPrimary"
                         app:iconTint="@color/colorTextPrimary" />
                 </LinearLayout>
@@ -227,6 +228,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:text="@string/permission_grant_button"
+                        android:textColor="@color/colorTextPrimary"
                         app:backgroundTint="@color/colorPrimary"
                         app:iconTint="@color/colorTextPrimary" />
                 </LinearLayout>
@@ -252,6 +254,7 @@
         android:layout_height="wrap_content"
         android:enabled="false"
         android:text="@string/permission_continue_button"
+        android:textColor="@color/colorBackground"
         app:backgroundTint="@color/colorAccent"
         app:iconTint="@color/colorBackground"
         app:rippleColor="@color/colorPrimary" />

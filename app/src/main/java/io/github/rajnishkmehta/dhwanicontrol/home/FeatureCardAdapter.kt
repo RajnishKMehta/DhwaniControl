@@ -1,11 +1,14 @@
 package io.github.rajnishkmehta.dhwanicontrol.home
 
+import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import io.github.rajnishkmehta.dhwanicontrol.R
 import io.github.rajnishkmehta.dhwanicontrol.databinding.ItemFeatureCardBinding
 
 class FeatureCardAdapter(
@@ -34,17 +37,44 @@ class FeatureCardAdapter(
             binding.featureTitleText.text = item.title
             binding.featureDescriptionText.text = item.description
             binding.featureStatusText.text = item.status
+            val context = binding.root.context
+            val statusTextColor = if (item.statusIsWarning) {
+                ContextCompat.getColor(context, R.color.colorWarning)
+            } else {
+                ContextCompat.getColor(context, R.color.colorSuccess)
+            }
+            val statusBgColor = if (item.statusIsWarning) {
+                ContextCompat.getColor(context, R.color.colorWarningSurface)
+            } else {
+                ContextCompat.getColor(context, R.color.colorSurfaceVariant)
+            }
+            binding.featureStatusText.setTextColor(statusTextColor)
+            binding.featureStatusText.backgroundTintList = ColorStateList.valueOf(statusBgColor)
 
             binding.featureToggleSwitch.setOnCheckedChangeListener(null)
             binding.featureToggleSwitch.isVisible = item.showToggle
             binding.featureToggleSwitch.isEnabled = item.toggleEnabled
             binding.featureToggleSwitch.isChecked = item.toggledOn
+            binding.featureToggleSwitch.alpha = if (item.toggleEnabled) 1f else 0.5f
 
             binding.featureToggleSwitch.setOnCheckedChangeListener { _, isChecked ->
                 onToggleChanged(item.featureId, isChecked)
             }
 
             binding.featureConfigButton.isEnabled = item.configEnabled
+            binding.featureConfigButton.alpha = if (item.configEnabled) 1f else 0.6f
+            val configBgColor = if (item.configEnabled) {
+                ContextCompat.getColor(context, R.color.colorPrimary)
+            } else {
+                ContextCompat.getColor(context, R.color.colorDisabledSurface)
+            }
+            val configTextColor = if (item.configEnabled) {
+                ContextCompat.getColor(context, R.color.colorTextPrimary)
+            } else {
+                ContextCompat.getColor(context, R.color.colorTextMuted)
+            }
+            binding.featureConfigButton.backgroundTintList = ColorStateList.valueOf(configBgColor)
+            binding.featureConfigButton.setTextColor(configTextColor)
             binding.featureConfigButton.setOnClickListener {
                 onConfigClick(item.featureId)
             }

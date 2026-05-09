@@ -5,6 +5,8 @@
         <item name="colorSecondary">@color/colorAccent</item>
         <item name="colorOnPrimary">@color/colorTextPrimary</item>
         <item name="colorOnSecondary">@color/colorBackground</item>
+        <item name="colorError">@color/colorWarning</item>
+        <item name="colorOnError">@color/colorBackground</item>
         <item name="colorSurface">@color/colorSurface</item>
         <item name="colorOnSurface">@color/colorTextPrimary</item>
         <item name="android:statusBarColor">@color/colorBackground</item>

@@ -16,15 +16,15 @@ object EdgeSwipeFeatureController : FeatureController {
     override val blockCondition: FeatureBlockCondition = EdgeSwipeBlockCondition
 
     override val spec = FeatureSpec(
-        id = Constants.FEATURE_ID_EDGE_SWIPE,
-        titleRes = R.string.feature_edge_title,
-        descriptionRes = R.string.feature_edge_description,
+        featureId = Constants.FEATURE_ID_EDGE_SWIPE,
+        nameRes = R.string.feature_edge_title,
+        summaryRes = R.string.feature_edge_description,
         supportsToggle = true,
         requiredPermissions = setOf(
             PermissionRequirement.Overlay,
             PermissionRequirement.Notifications
         ),
-        order = 2
+        displayOrder = 2
     )
 
     override fun isConfigured(context: Context): Boolean {

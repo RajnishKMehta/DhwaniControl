@@ -27,7 +27,7 @@ object FeatureAvailabilityEvaluator {
             runCatching {
                 controller.setEnabled(context, false)
             }.onFailure { e ->
-                Log.e(TAG, "Failed to force-disable feature ${controller.spec.id}", e)
+                Log.e(TAG, "Failed to force-disable feature ${controller.spec.featureId}", e)
             }
         }
         return evaluate(context, controller)

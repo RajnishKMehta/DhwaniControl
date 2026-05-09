@@ -69,6 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/edge_selector_save_button"
+        android:textColor="@color/colorBackground"
         app:backgroundTint="@color/colorAccent"
         app:iconTint="@color/colorBackground" />
 

@@ -17,12 +17,13 @@ import java.util.concurrent.Executors
 
 class QuickSettingsGuidePagerAdapter(
     private val steps: List<QuickSettingsGuideStep>,
-    private val context: android.content.Context
+    context: android.content.Context
 ) : RecyclerView.Adapter<QuickSettingsGuidePagerAdapter.StepViewHolder>() {
 
     private val imageExecutor: ExecutorService = Executors.newFixedThreadPool(2)
     private val mainHandler = Handler(Looper.getMainLooper())
     private val imageStore = QuickSettingsGuideImageStore(context.applicationContext)
+
     @Volatile
     private var isDetached = false
 

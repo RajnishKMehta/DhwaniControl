@@ -41,13 +41,13 @@
             android:layout_height="0dp"
             android:layout_marginTop="14dp"
             android:background="@color/colorBackground"
-            android:foregroundGravity="center"
             android:clipToPadding="false"
+            android:foregroundGravity="center"
+            app:layout_constraintBottom_toTopOf="@id/stepImageUrlLabelText"
             app:layout_constraintDimensionRatio="3:4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/stepBodyText"
-            app:layout_constraintBottom_toTopOf="@id/stepImageUrlLabelText">
+            app:layout_constraintTop_toBottomOf="@id/stepBodyText">
 
             <ImageView
                 android:id="@+id/stepImage"
@@ -60,9 +60,9 @@
                 android:id="@+id/stepFallbackText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/colorBackground"
                 android:gravity="center"
                 android:padding="20dp"
-                android:background="@color/colorBackground"
                 android:textColor="@color/colorTextSecondary"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -98,8 +98,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:minWidth="0dp"
             android:minHeight="48dp"
+            android:minWidth="0dp"
             android:paddingStart="14dp"
             android:paddingEnd="14dp"
             android:text="@string/quick_tile_guide_view_image_button"

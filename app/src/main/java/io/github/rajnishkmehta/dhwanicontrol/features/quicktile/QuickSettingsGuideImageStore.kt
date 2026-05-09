@@ -23,7 +23,7 @@ class QuickSettingsGuideImageStore(context: Context) {
         if (Thread.interrupted()) throw InterruptedException("Image load interrupted.")
 
         if (bitmap == null && imageFile.length() > 0) {
-            // Corrupted cached file detected; delete and retry once
+            // Corrupted cached file detected; delete and retry once.
             imageFile.delete()
             val redownloadedFile = ensureImageFile(imageUrl)
             checkInterrupted()

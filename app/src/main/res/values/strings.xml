@@ -2,12 +2,13 @@
     <string name="app_name">DhwaniControl</string>
 
     <string name="home_title">DhwaniControl</string>
-    <string name="home_subtitle">Choose a system below. Each feature is isolated and can be configured independently.</string>
+    <string name="home_subtitle">Choose a feature below. Each feature can be configured independently.</string>
+    <string name="home_info_button_content_description">Open app information</string>
 
     <string name="feature_quick_tile_title">Quick Settings Tile</string>
-    <string name="feature_quick_tile_description">Primary method. Add the tile and tap it anytime to open Android volume controls.</string>
+    <string name="feature_quick_tile_description">Add this tile to Quick Settings, then tap it anytime to open Android volume controls.</string>
     <string name="feature_edge_title">Edge Swipe Overlay</string>
-    <string name="feature_edge_description">Secondary method. Swipe inward from your selected edge to open Android volume controls.</string>
+    <string name="feature_edge_description">Swipe inward from your selected edge to open Android volume controls.</string>
 
     <string name="feature_toggle_label">On / Off</string>
     <string name="feature_config_button">Config</string>
@@ -73,6 +74,28 @@
     <string name="quick_tile_guide_previous_button">Previous</string>
     <string name="quick_tile_guide_next_button">Next</string>
     <string name="quick_tile_guide_done_button">Done</string>
+
+    <string name="app_info_title">App Info</string>
+    <string name="app_info_subtitle">About the app and the developer</string>
+    <string name="app_info_back_button">Back</string>
+    <string name="app_info_intro">I am the developer of this app. I am a regular independent developer, and I build and maintain DhwaniControl step by step.</string>
+    <string name="app_info_name_label">Developer</string>
+    <string name="app_info_name">Rajnish Mehta</string>
+    <string name="app_info_username">Username: RajnishKMehta</string>
+    <string name="app_info_avatar_description">Developer avatar</string>
+    <string name="app_info_avatar_loading">Loading developer avatar...</string>
+    <string name="app_info_avatar_refreshing">Showing saved avatar. Refreshing in background...</string>
+    <string name="app_info_avatar_updated">Avatar updated</string>
+    <string name="app_info_avatar_failed">Could not refresh avatar. Showing saved image.</string>
+    <string name="app_info_avatar_unavailable">Could not load avatar right now.</string>
+    <string name="app_info_open_link_failed">No app can open this link.</string>
+    <string name="app_info_x_button">Open X: RajnishKMehta</string>
+    <string name="app_info_github_button">Open GitHub: RajnishKMehta</string>
+    <string name="app_info_linkedin_button">Open LinkedIn: RajnishKMehta</string>
+    <string name="app_info_avatar_url">https://avatars.githubusercontent.com/u/172272341</string>
+    <string name="app_info_link_x">https://x.com/RajnishKMehta</string>
+    <string name="app_info_link_github">https://github.com/RajnishKMehta</string>
+    <string name="app_info_link_linkedin">https://www.linkedin.com/in/RajnishKMehta</string>
 
     <string name="notification_channel_name">DhwaniControl edge swipe service</string>
     <string name="notification_channel_description">Keeps edge swipe detection active</string>
