@@ -3,6 +3,7 @@
 
     <string name="home_title">DhwaniControl</string>
     <string name="home_subtitle">Choose a feature below. Each feature can be configured independently.</string>
+    <string name="home_info_button_content_description">Open app information</string>
 
     <string name="feature_quick_tile_title">Quick Settings Tile</string>
     <string name="feature_quick_tile_description">Add this tile to Quick Settings, then tap it anytime to open Android volume controls.</string>
@@ -50,19 +51,51 @@
 
     <string name="quick_tile_label">Volume Panel</string>
     <string name="quick_tile_guide_title">Quick Settings Tile Guide</string>
-    <string name="quick_tile_guide_intro">Swipe between steps or use the buttons below.</string>
+    <string name="quick_tile_guide_intro">Swipe left or right to move between steps. Use the buttons below if you prefer tapping.</string>
     <string name="quick_tile_guide_step_1_title">Step 1: Open Quick Settings</string>
     <string name="quick_tile_guide_step_1_body">Swipe down from the top of the screen once, then swipe down again to fully expand Quick Settings.</string>
+    <string name="quick_tile_guide_step_1_image_url">https://raw.githubusercontent.com/RajnishKMehta/images/refs/heads/main/DhwaniControl/quick-tile-step-1.webp</string>
     <string name="quick_tile_guide_step_2_title">Step 2: Enter Edit Mode</string>
     <string name="quick_tile_guide_step_2_body">Tap the edit control, usually a pencil icon or an Edit tiles button.</string>
+    <string name="quick_tile_guide_step_2_image_url">https://raw.githubusercontent.com/RajnishKMehta/images/refs/heads/main/DhwaniControl/quick-tile-step-2.webp</string>
     <string name="quick_tile_guide_step_3_title">Step 3: Add the Tile</string>
     <string name="quick_tile_guide_step_3_body">Find Volume Panel from DhwaniControl and drag it into your active tiles area.</string>
+    <string name="quick_tile_guide_step_3_image_url">https://raw.githubusercontent.com/RajnishKMehta/images/refs/heads/main/DhwaniControl/quick-tile-step-3.webp</string>
     <string name="quick_tile_guide_step_4_title">Step 4: Save and Test</string>
     <string name="quick_tile_guide_step_4_body">Save the layout, exit edit mode, then tap Volume Panel to open Android volume controls.</string>
+    <string name="quick_tile_guide_step_4_image_url">https://raw.githubusercontent.com/RajnishKMehta/images/refs/heads/main/DhwaniControl/quick-tile-step-4.webp</string>
+    <string name="quick_tile_guide_screenshot_label">Screenshot URL</string>
+    <string name="quick_tile_guide_step_image_description">Quick Settings guide screenshot</string>
+    <string name="quick_tile_guide_image_loading">Loading guide screenshot...</string>
+    <string name="quick_tile_guide_image_fallback">Image unavailable. Use the screenshot link below or tap View Image.</string>
+    <string name="quick_tile_guide_view_image_button">View Image</string>
+    <string name="quick_tile_guide_image_link_open_failed">No app can open this image link.</string>
     <string name="quick_tile_guide_step_counter">Step %1$d of %2$d</string>
     <string name="quick_tile_guide_previous_button">Previous</string>
     <string name="quick_tile_guide_next_button">Next</string>
     <string name="quick_tile_guide_done_button">Done</string>
+
+    <string name="app_info_title">App Info</string>
+    <string name="app_info_subtitle">About the app and the developer</string>
+    <string name="app_info_back_button">Back</string>
+    <string name="app_info_intro">I am the developer of this app. I am a regular independent developer, and I build and maintain DhwaniControl step by step.</string>
+    <string name="app_info_name_label">Developer</string>
+    <string name="app_info_name">Rajnish Mehta</string>
+    <string name="app_info_username">Username: RajnishKMehta</string>
+    <string name="app_info_avatar_description">Developer avatar</string>
+    <string name="app_info_avatar_loading">Loading developer avatar...</string>
+    <string name="app_info_avatar_refreshing">Showing saved avatar. Refreshing in background...</string>
+    <string name="app_info_avatar_updated">Avatar updated</string>
+    <string name="app_info_avatar_failed">Could not refresh avatar. Showing saved image.</string>
+    <string name="app_info_avatar_unavailable">Could not load avatar right now.</string>
+    <string name="app_info_open_link_failed">No app can open this link.</string>
+    <string name="app_info_x_button">Open X: RajnishKMehta</string>
+    <string name="app_info_github_button">Open GitHub: RajnishKMehta</string>
+    <string name="app_info_linkedin_button">Open LinkedIn: RajnishKMehta</string>
+    <string name="app_info_avatar_url">https://avatars.githubusercontent.com/u/172272341</string>
+    <string name="app_info_link_x">https://x.com/RajnishKMehta</string>
+    <string name="app_info_link_github">https://github.com/RajnishKMehta</string>
+    <string name="app_info_link_linkedin">https://www.linkedin.com/in/RajnishKMehta</string>
 
     <string name="notification_channel_name">DhwaniControl edge swipe service</string>
     <string name="notification_channel_description">Keeps edge swipe detection active</string>

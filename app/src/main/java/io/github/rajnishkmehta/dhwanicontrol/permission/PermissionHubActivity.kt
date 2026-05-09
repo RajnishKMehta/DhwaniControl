@@ -1,6 +1,7 @@
 package io.github.rajnishkmehta.dhwanicontrol.permission
 
 import android.Manifest
+import android.content.res.ColorStateList
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -152,7 +153,12 @@ class PermissionHubActivity : AppCompatActivity() {
 
         if (blockResult is FeatureBlockResult.Blocked) {
             binding.blockedReasonCard.visibility = View.VISIBLE
+            val warningSurface = ContextCompat.getColor(this, R.color.colorWarningSurface)
+            val warningColor = ContextCompat.getColor(this, R.color.colorWarning)
+            binding.blockedReasonCard.setCardBackgroundColor(warningSurface)
+            binding.blockedReasonCard.strokeColor = warningColor
             binding.blockedReasonText.setText(blockResult.reasonRes)
+            binding.blockedReasonText.setTextColor(warningColor)
         } else {
             binding.blockedReasonCard.visibility = View.GONE
         }
@@ -193,12 +199,26 @@ class PermissionHubActivity : AppCompatActivity() {
 
         val allPermissionsGranted = availability.missingPermissions.isEmpty()
         binding.continueButton.isEnabled = allPermissionsGranted && !isBlocked
+        val continueBg = if (binding.continueButton.isEnabled) {
+            ContextCompat.getColor(this, R.color.colorAccent)
+        } else {
+            ContextCompat.getColor(this, R.color.colorDisabledSurface)
+        }
+        val continueText = if (binding.continueButton.isEnabled) {
+            ContextCompat.getColor(this, R.color.colorBackground)
+        } else {
+            ContextCompat.getColor(this, R.color.colorTextMuted)
+        }
+        binding.continueButton.backgroundTintList = ColorStateList.valueOf(continueBg)
+        binding.continueButton.setTextColor(continueText)
+        binding.continueButton.alpha = if (binding.continueButton.isEnabled) 1f else 0.7f
         binding.settingsHintText.visibility =
             if (notificationsRequired && shouldUseSettingsFallback && !notificationsGranted) {
                 View.VISIBLE
             } else {
                 View.GONE
             }
+        binding.settingsHintText.setTextColor(ContextCompat.getColor(this, R.color.colorWarning))
     }
 
     private fun updatePermissionStatus(
@@ -210,7 +230,7 @@ class PermissionHubActivity : AppCompatActivity() {
         settingsFallback: Boolean
     ) {
         val accent = ContextCompat.getColor(this, R.color.colorAccent)
-        val pending = ContextCompat.getColor(this, R.color.colorTextSecondary)
+        val pending = ContextCompat.getColor(this, R.color.colorWarning)
         val statusColor = if (granted) accent else pending
 
         statusDot.backgroundTintList = android.content.res.ColorStateList.valueOf(statusColor)
@@ -224,6 +244,18 @@ class PermissionHubActivity : AppCompatActivity() {
         statusText.setTextColor(statusColor)
 
         grantButton.isEnabled = required && !granted
+        val buttonBg = if (grantButton.isEnabled) {
+            ContextCompat.getColor(this, R.color.colorPrimary)
+        } else {
+            ContextCompat.getColor(this, R.color.colorDisabledSurface)
+        }
+        val buttonText = if (grantButton.isEnabled) {
+            ContextCompat.getColor(this, R.color.colorTextPrimary)
+        } else {
+            ContextCompat.getColor(this, R.color.colorTextMuted)
+        }
+        grantButton.backgroundTintList = ColorStateList.valueOf(buttonBg)
+        grantButton.setTextColor(buttonText)
         grantButton.setText(
             if (settingsFallback && grantButton.isEnabled) {
                 R.string.permission_open_settings_button

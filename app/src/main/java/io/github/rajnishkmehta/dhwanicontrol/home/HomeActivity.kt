@@ -15,6 +15,7 @@ import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureRegistry
 import io.github.rajnishkmehta.dhwanicontrol.core.permission.PermissionPolicy
 import io.github.rajnishkmehta.dhwanicontrol.core.preferences.AppPreferences
 import io.github.rajnishkmehta.dhwanicontrol.databinding.ActivityHomeBinding
+import io.github.rajnishkmehta.dhwanicontrol.info.AppInfoActivity
 import io.github.rajnishkmehta.dhwanicontrol.permission.PermissionHubActivity
 
 class HomeActivity : AppCompatActivity() {
@@ -37,6 +38,9 @@ class HomeActivity : AppCompatActivity() {
 
         binding.featureRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.featureRecyclerView.adapter = adapter
+        binding.homeInfoButton.setOnClickListener {
+            startActivity(Intent(this, AppInfoActivity::class.java))
+        }
     }
 
     override fun onResume() {
@@ -75,10 +79,12 @@ class HomeActivity : AppCompatActivity() {
             val enabled = controller.isEnabled(this)
             val blockResult = availability.blockResult
             val isBlocked = blockResult is FeatureBlockResult.Blocked
+            val needsConfiguration = spec.supportsToggle && !configured
+            val statusIsWarning = isBlocked || needsConfiguration
 
             val statusText = when {
                 isBlocked -> getString((blockResult as FeatureBlockResult.Blocked).reasonRes)
-                spec.supportsToggle && !configured ->
+                needsConfiguration ->
                     getString(R.string.feature_status_needs_config)
 
                 spec.supportsToggle && enabled ->
@@ -99,8 +105,9 @@ class HomeActivity : AppCompatActivity() {
                 title = getString(spec.nameRes),
                 description = getString(spec.summaryRes),
                 status = statusText,
+                statusIsWarning = statusIsWarning,
                 showToggle = spec.supportsToggle,
-                toggleEnabled = spec.supportsToggle && configured && !isBlocked,
+                toggleEnabled = spec.supportsToggle && !isBlocked,
                 toggledOn = spec.supportsToggle && enabled,
                 configEnabled = !isBlocked
             )
@@ -110,6 +117,7 @@ class HomeActivity : AppCompatActivity() {
                 title = getString(spec.nameRes),
                 description = getString(spec.summaryRes),
                 status = getString(R.string.feature_status_unavailable),
+                statusIsWarning = true,
                 showToggle = spec.supportsToggle,
                 toggleEnabled = false,
                 toggledOn = false,
@@ -156,6 +164,12 @@ class HomeActivity : AppCompatActivity() {
 
         val blockResult = controller.blockCondition.evaluate(this)
         if (blockResult is FeatureBlockResult.Blocked) {
+            refreshFeatureCards()
+            return
+        }
+
+        if (isEnabled && !controller.isConfigured(this)) {
+            handleConfigClick(featureId)
             refreshFeatureCards()
             return
         }

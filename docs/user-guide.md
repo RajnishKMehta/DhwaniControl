@@ -13,7 +13,7 @@ This guide covers first-time setup and normal usage.
 
 1. Install the APK.
 2. Open **DhwaniControl**.
-3. On Home, open **Quick Settings Tile** and follow the in-app text guide.
+3. On Home, open **Quick Settings Tile** and follow the in-app guide.
 4. Add the **Volume Panel** tile in Android Quick Settings.
 5. Optionally set up **Edge Swipe Overlay** from its Config button.
 
@@ -25,6 +25,7 @@ Detailed tile steps with screenshots:
 - Tap the **Volume Panel** tile from Quick Settings to open volume controls.
 - If Edge Swipe Overlay is enabled, swipe inward from the configured edge.
 - Use each feature card's **Config** button for feature-specific setup.
+- Tap the top-right info button on Home to view app and developer information.
 
 ## Troubleshooting
 

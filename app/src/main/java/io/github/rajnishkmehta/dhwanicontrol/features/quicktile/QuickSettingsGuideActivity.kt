@@ -12,19 +12,23 @@ class QuickSettingsGuideActivity : AppCompatActivity() {
     private val steps = listOf(
         QuickSettingsGuideStep(
             titleRes = R.string.quick_tile_guide_step_1_title,
-            bodyRes = R.string.quick_tile_guide_step_1_body
+            bodyRes = R.string.quick_tile_guide_step_1_body,
+            imageUrlRes = R.string.quick_tile_guide_step_1_image_url
         ),
         QuickSettingsGuideStep(
             titleRes = R.string.quick_tile_guide_step_2_title,
-            bodyRes = R.string.quick_tile_guide_step_2_body
+            bodyRes = R.string.quick_tile_guide_step_2_body,
+            imageUrlRes = R.string.quick_tile_guide_step_2_image_url
         ),
         QuickSettingsGuideStep(
             titleRes = R.string.quick_tile_guide_step_3_title,
-            bodyRes = R.string.quick_tile_guide_step_3_body
+            bodyRes = R.string.quick_tile_guide_step_3_body,
+            imageUrlRes = R.string.quick_tile_guide_step_3_image_url
         ),
         QuickSettingsGuideStep(
             titleRes = R.string.quick_tile_guide_step_4_title,
-            bodyRes = R.string.quick_tile_guide_step_4_body
+            bodyRes = R.string.quick_tile_guide_step_4_body,
+            imageUrlRes = R.string.quick_tile_guide_step_4_image_url
         )
     )
 
@@ -33,7 +37,7 @@ class QuickSettingsGuideActivity : AppCompatActivity() {
         binding = ActivityQuickSettingsGuideBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val adapter = QuickSettingsGuidePagerAdapter(steps)
+        val adapter = QuickSettingsGuidePagerAdapter(steps, this)
         binding.guidePager.adapter = adapter
         binding.guidePager.offscreenPageLimit = 1
         binding.guidePager.orientation = ViewPager2.ORIENTATION_HORIZONTAL

@@ -11,7 +11,7 @@ The app uses a feature-driven architecture where each feature is isolated behind
 
 ## Install
 
-[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.4.0-Download-blue?logo=android&style=for-the-badge)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.4.0/DhwaniControl.apk)
+[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.5.0-Download-blue?logo=android&style=for-the-badge)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.5.0/DhwaniControl.apk)
 
 ## Documentation
 
