@@ -64,7 +64,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/featureConfigButton"
-                style="@style/Widget.MaterialComponents.Button"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/feature_config_button"

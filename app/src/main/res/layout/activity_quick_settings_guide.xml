@@ -65,7 +65,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/previousButton"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -75,7 +75,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/nextButton"
-                style="@style/Widget.MaterialComponents.Button"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -89,7 +89,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/doneButton"
-        style="@style/Widget.MaterialComponents.Button"
+        style="@style/Widget.Material3.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -99,3 +99,4 @@
         app:iconTint="@color/colorTextPrimary" />
 
 </LinearLayout>
+rLayout>

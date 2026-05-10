@@ -71,7 +71,7 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/openGithubRepoButton"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        style="@style/Widget.Material3.Button.TextButton"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -82,7 +82,7 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/openGitlabRepoButton"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        style="@style/Widget.Material3.Button.TextButton"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -132,7 +132,7 @@
                         android:background="@color/colorSurfaceVariant"
                         android:contentDescription="@string/app_info_avatar_description"
                         android:scaleType="centerCrop"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialComponents.Circle" />
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Material3.Circle" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -195,7 +195,7 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/openGithubButton"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        style="@style/Widget.Material3.Button.TextButton"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -208,7 +208,7 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/openXButton"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        style="@style/Widget.Material3.Button.TextButton"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -221,7 +221,7 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/openLinkedinButton"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        style="@style/Widget.Material3.Button.TextButton"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
@@ -235,6 +235,10 @@
                 </GridLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>
+
 
     </LinearLayout>
 </ScrollView>
