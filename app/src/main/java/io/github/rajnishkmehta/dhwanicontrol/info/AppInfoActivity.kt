@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import io.github.rajnishkmehta.dhwanicontrol.R
@@ -20,7 +21,6 @@ class AppInfoActivity : AppCompatActivity() {
     private val avatarExecutor: ExecutorService = Executors.newSingleThreadExecutor()
     private val mainHandler = Handler(Looper.getMainLooper())
 
-    private var hasSavedAvatar = false
     private var isClosed = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,8 +30,17 @@ class AppInfoActivity : AppCompatActivity() {
 
         avatarStore = DeveloperAvatarStore(applicationContext)
 
-        binding.backButton.setOnClickListener {
-            finish()
+        setupClickListeners()
+        loadAvatar()
+    }
+
+    private fun setupClickListeners() {
+        binding.openGithubRepoButton.setOnClickListener {
+            openLink(getString(R.string.app_info_link_github_repo))
+        }
+
+        binding.openGitlabRepoButton.setOnClickListener {
+            openLink(getString(R.string.app_info_link_gitlab_repo))
         }
 
         binding.openXButton.setOnClickListener {
@@ -45,8 +54,6 @@ class AppInfoActivity : AppCompatActivity() {
         binding.openLinkedinButton.setOnClickListener {
             openLink(getString(R.string.app_info_link_linkedin))
         }
-
-        loadAvatar()
     }
 
     override fun onDestroy() {
@@ -57,13 +64,13 @@ class AppInfoActivity : AppCompatActivity() {
 
     private fun loadAvatar() {
         val savedAvatar = avatarStore.loadSavedBitmap()
-        hasSavedAvatar = savedAvatar != null
 
         if (savedAvatar != null) {
             binding.avatarImage.setImageBitmap(savedAvatar)
-            binding.avatarStatusText.setText(R.string.app_info_avatar_refreshing)
+            binding.avatarStatusText.visibility = View.GONE
         } else {
             binding.avatarImage.setImageResource(android.R.drawable.sym_def_app_icon)
+            binding.avatarStatusText.visibility = View.VISIBLE
             binding.avatarStatusText.setText(R.string.app_info_avatar_loading)
         }
 
@@ -83,13 +90,14 @@ class AppInfoActivity : AppCompatActivity() {
                 result.fold(
                     onSuccess = { bitmap ->
                         binding.avatarImage.setImageBitmap(bitmap)
-                        binding.avatarStatusText.setText(R.string.app_info_avatar_updated)
+                        binding.avatarStatusText.visibility = View.GONE
                     },
                     onFailure = {
-                        if (hasSavedAvatar) {
+                        if (binding.avatarImage.drawable == null) {
+                            binding.avatarStatusText.visibility = View.VISIBLE
                             binding.avatarStatusText.setText(R.string.app_info_avatar_failed)
                         } else {
-                            binding.avatarStatusText.setText(R.string.app_info_avatar_unavailable)
+                            binding.avatarStatusText.visibility = View.GONE
                         }
                     }
                 )

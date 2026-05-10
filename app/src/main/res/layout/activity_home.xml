@@ -33,7 +33,7 @@
             android:background="@drawable/bg_icon_button"
             android:contentDescription="@string/home_info_button_content_description"
             android:padding="10dp"
-            android:src="@android:drawable/ic_menu_info_details"
+            android:src="@drawable/ic_info"
             android:tint="@color/colorAccent" />
     </LinearLayout>
 

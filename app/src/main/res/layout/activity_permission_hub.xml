@@ -181,7 +181,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:contentDescription="@string/content_description_notifications_icon"
-                            android:src="@android:drawable/ic_dialog_info"
+                            android:src="@drawable/ic_bell"
                             android:tint="@color/colorAccent" />
 
                         <TextView
@@ -260,3 +260,4 @@
         app:rippleColor="@color/colorPrimary" />
 
 </LinearLayout>
+out>
