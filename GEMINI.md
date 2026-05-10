@@ -5,6 +5,7 @@
 - **Modern Standards:** Use future-proof and latest Android development practices (Kotlin, Jetpack, etc.).
 - **Professionalism:** Code must be highly optimized, clean, and professional.
 - **Git Safety:** Never use `git push` or `git commit` commands.
+- **Web Research:** Always perform a **web search** to find the latest stable versions of tools, libraries, and plugins before adding or updating them. Do not rely on internal data as it may be outdated.
 
 ## App Overview
 DhwaniControl is built to solve a common problem: physical volume buttons failing or becoming stuck. Instead of navigating deep into settings or dealing with a stuck button that resets volume to 0%, this app provides easy access to volume controls via Edge Swipe gestures and Quick Settings tiles.
