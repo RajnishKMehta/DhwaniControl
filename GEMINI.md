@@ -7,7 +7,7 @@
 - **Git Safety:** Never use `git push` or `git commit` commands.
 
 ## App Overview
-DhwaniControl was created to solve a common problem: physical volume buttons failing or becoming stuck. Instead of navigating deep into settings or dealing with a stuck button that resets volume to 0%, this app provides easy access to volume controls via Edge Swipe gestures and Quick Settings tiles.
+DhwaniControl is built to solve a common problem: physical volume buttons failing or becoming stuck. Instead of navigating deep into settings or dealing with a stuck button that resets volume to 0%, this app provides easy access to volume controls via Edge Swipe gestures and Quick Settings tiles.
 
 ## Project Structure
 - `app/src/main/java/io/github/rajnishkmehta/dhwanicontrol/`: Main source code.
