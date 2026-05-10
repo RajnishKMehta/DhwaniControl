@@ -142,6 +142,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        resValues = true
     }
 
     packaging {
