@@ -132,12 +132,8 @@ android {
     }
 
     compileOptions {
-
-        sourceCompatibility =
-            JavaVersion.VERSION_17
-
-        targetCompatibility =
-            JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     buildFeatures {
@@ -153,6 +149,13 @@ android {
                 "/META-INF/{AL2.0,LGPL2.1}"
             )
         }
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+        freeCompilerArgs.add("-Xannotation-default-target=param-property")
     }
 }
 

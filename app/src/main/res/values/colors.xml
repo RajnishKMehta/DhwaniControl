@@ -17,4 +17,5 @@
 
     <color name="edgeInactive">#2A3A4A</color>
     <color name="edgeActive">#22D3EE</color>
+    <color name="white">#FFFFFFFF</color>
 </resources>
