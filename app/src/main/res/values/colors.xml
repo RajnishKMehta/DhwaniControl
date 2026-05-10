@@ -1,6 +1,5 @@
 <resources>
     <color name="colorPrimary">#14B8A6</color>
-    <color name="colorPrimaryVariant">#0F766E</color>
     <color name="colorAccent">#22D3EE</color>
 
     <color name="colorBackground">#070B14</color>
@@ -18,6 +17,4 @@
 
     <color name="edgeInactive">#2A3A4A</color>
     <color name="edgeActive">#22D3EE</color>
-
-    <color name="white">#FFFFFFFF</color>
 </resources>

@@ -25,16 +25,16 @@
             android:textSize="28sp"
             android:textStyle="bold" />
 
-        <androidx.appcompat.widget.AppCompatImageButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/homeInfoButton"
+            style="@style/Widget.Material3.Button.IconButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="12dp"
-            android:background="@drawable/bg_icon_button"
             android:contentDescription="@string/home_info_button_content_description"
-            android:padding="10dp"
-            android:src="@drawable/ic_info"
-            android:tint="@color/colorAccent" />
+            app:icon="@drawable/ic_info"
+            app:iconSize="24dp"
+            app:iconTint="@color/colorAccent" />
     </LinearLayout>
 
     <TextView

@@ -55,26 +55,12 @@ class FeatureCardAdapter(
             binding.featureToggleSwitch.isVisible = item.showToggle
             binding.featureToggleSwitch.isEnabled = item.toggleEnabled
             binding.featureToggleSwitch.isChecked = item.toggledOn
-            binding.featureToggleSwitch.alpha = if (item.toggleEnabled) 1f else 0.5f
 
             binding.featureToggleSwitch.setOnCheckedChangeListener { _, isChecked ->
                 onToggleChanged(item.featureId, isChecked)
             }
 
             binding.featureConfigButton.isEnabled = item.configEnabled
-            binding.featureConfigButton.alpha = if (item.configEnabled) 1f else 0.6f
-            val configBgColor = if (item.configEnabled) {
-                ContextCompat.getColor(context, R.color.colorPrimary)
-            } else {
-                ContextCompat.getColor(context, R.color.colorDisabledSurface)
-            }
-            val configTextColor = if (item.configEnabled) {
-                ContextCompat.getColor(context, R.color.colorTextPrimary)
-            } else {
-                ContextCompat.getColor(context, R.color.colorTextMuted)
-            }
-            binding.featureConfigButton.backgroundTintList = ColorStateList.valueOf(configBgColor)
-            binding.featureConfigButton.setTextColor(configTextColor)
             binding.featureConfigButton.setOnClickListener {
                 onConfigClick(item.featureId)
             }

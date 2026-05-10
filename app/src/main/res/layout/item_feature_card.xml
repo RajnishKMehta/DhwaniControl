@@ -33,17 +33,19 @@
 
         <TextView
             android:id="@+id/featureStatusText"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_status_pill"
-            android:paddingStart="10dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="10dp"
-            android:paddingBottom="5dp"
+            android:paddingStart="12dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="6dp"
             android:textColor="@color/colorTextPrimary"
-            android:textSize="12sp"
-            android:textStyle="bold" />
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:letterSpacing="0.05" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,24 +54,26 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/featureToggleSwitch"
+            <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/feature_toggle_label"
                 android:textColor="@color/colorTextSecondary"
-                app:thumbTint="@color/colorAccent"
-                app:trackTint="@color/colorSurfaceVariant" />
+                android:textSize="14sp" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/featureToggleSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/featureConfigButton"
                 style="@style/Widget.Material3.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/feature_config_button"
-                android:textColor="@color/colorTextPrimary"
-                app:backgroundTint="@color/colorPrimary" />
+                android:text="@string/feature_config_button" />
 
         </LinearLayout>
     </LinearLayout>
