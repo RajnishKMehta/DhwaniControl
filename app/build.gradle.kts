@@ -114,14 +114,6 @@ android {
     }
 }
 
-// Kotlin config
-kotlin {
-    compilerOptions {
-        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
-        freeCompilerArgs.add("-opt-in=kotlin.RequiresOptIn")
-    }
-}
-
 // DEPENDENCIES
 dependencies {
     implementation("androidx.core:core-ktx:1.18.0")
