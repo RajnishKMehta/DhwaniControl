@@ -14,7 +14,7 @@ DhwaniControl currently ships with two features.
 **Configuration entry**
 - Home -> Quick Settings Tile -> **Config**
 
-## 2) Edge Swipe Overlay
+## 2) Edge Swipe
 
 **What it does**
 - Detects inward swipes from the configured screen edge.
@@ -26,13 +26,13 @@ DhwaniControl currently ships with two features.
 - Button navigation mode (gesture navigation blocks this feature)
 
 **Configuration entry**
-- Home -> Edge Swipe Overlay -> **Config**
+- Home -> Edge Swipe -> **Config**
 
 ## Feature Ordering
 
 Feature order is controlled by metadata in each feature controller:
 
 - `displayOrder = 1` -> Quick Settings Tile
-- `displayOrder = 2` -> Edge Swipe Overlay
+- `displayOrder = 2` -> Edge Swipe
 
 The Home screen and registry use this metadata to render a stable, predictable order.

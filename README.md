@@ -9,7 +9,7 @@ I have created this app because my phone's physical volume buttons are broken. N
 ## Features
 
 - **Quick Settings Tile**: Add a tile and tap it to open Android volume controls.
-- **Edge Swipe Overlay**: Swipe inward from your selected edge to open Android volume controls.
+- **Edge Swipe**: Swipe inward from your selected edge to open Android volume controls.
 
 ## Install
 
@@ -20,7 +20,7 @@ I have created this app because my phone's physical volume buttons are broken. N
 - User setup and daily usage: [`docs/user-guide.md`](docs/user-guide.md)
 - Feature overview and requirements: [`docs/features.md`](docs/features.md)
 - Quick Settings Tile walkthrough with screenshots: [`docs/quick-settings-tile.md`](docs/quick-settings-tile.md)
-- Edge Swipe Overlay setup and behavior: [`docs/edge-swipe-overlay.md`](docs/edge-swipe-overlay.md)
+- Edge Swipe setup and behavior: [`docs/edge-swipe.md`](docs/edge-swipe.md)
 - How to add a new feature in code: [`docs/add-feature.md`](docs/add-feature.md)
 - Contributing guide: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 

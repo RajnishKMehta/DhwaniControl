@@ -43,8 +43,13 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    private fun synchronizeFeatures() {
+        FeatureRegistry.all().forEach { it.synchronize(this) }
+    }
+
     override fun onResume() {
         super.onResume()
+        synchronizeFeatures()
         refreshFeatureCards()
     }
 
