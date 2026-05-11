@@ -79,7 +79,7 @@
     <string name="app_info_subtitle">Learn more about the app and the developer</string>
     <string name="app_info_about_app_title">About DhwaniControl</string>
     <string name="app_info_what_does_it_do">DhwaniControl provides easy access to your device\'s volume controls via edge-swipe gestures and quick settings tiles, allowing you to manage volume without relying on physical hardware buttons.</string>
-    <string name="app_info_about_app_body">I have built this app because my phone\'s physical volume buttons are broken. It is frustrating to go to settings every time I want to change the volume. I build this for myself and open-source it so that anyone facing similar issues can use it easily through its features.</string>
+    <string name="app_info_about_app_body">I have built this app because my phone\'s physical volume buttons are broken. It is frustrating to go to settings every time I want to change the volume. I built this for myself and open-source it so that anyone facing similar issues can use it easily through its features.</string>
     <string name="app_info_about_dev_title">About the Developer</string>
     <string name="app_info_intro">I am the developer of this app. I built DhwaniControl to solve a real-world problem I was facing, and I continue to maintain it as an open-source project for the community.</string>
     <string name="app_info_name_label">Developer</string>
