@@ -4,7 +4,6 @@
 - **Language:** All code, comments, and documentation must be in English.
 - **Modern Standards:** Use future-proof and latest Android development practices (Kotlin, Jetpack, etc.).
 - **Professionalism:** Code must be highly optimized, clean, and professional.
-- **Git Safety:** Never use `git push` or `git commit` commands.
 - **Web Research:** Always perform a **web search** to find the latest stable versions of tools, libraries, and plugins before adding or updating them. Do not rely on internal data as it may be outdated.
 
 ## App Overview
