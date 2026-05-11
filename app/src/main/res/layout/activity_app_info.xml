@@ -57,7 +57,17 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/app_info_what_does_it_do"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:text="@string/app_info_about_app_body"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="14sp"
@@ -121,75 +131,61 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/avatarImage"
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
                         android:background="@color/colorSurfaceVariant"
                         android:contentDescription="@string/app_info_avatar_description"
                         android:scaleType="centerCrop"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Material3.Circle" />
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Material3.Circle"
+                        app:strokeColor="@color/colorAccent"
+                        app:strokeWidth="2dp" />
 
-                    <LinearLayout
-                        android:layout_width="0dp"
+                    <TextView
+                        android:id="@+id/developerNameText"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:layout_marginTop="12dp"
+                        android:text="@string/app_info_name"
+                        android:textColor="@color/colorTextPrimary"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/developerNameText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/app_info_name"
-                            android:textColor="@color/colorTextPrimary"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/developerUsernameText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/app_info_username"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="16sp" />
 
-                        <TextView
-                            android:id="@+id/developerUsernameText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/app_info_username"
-                            android:textColor="@color/colorTextSecondary"
-                            android:textSize="14sp" />
-                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/avatarStatusText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/app_info_avatar_loading"
+                        android:textColor="@color/colorTextMuted"
+                        android:textSize="11sp"
+                        android:visibility="gone" />
                 </LinearLayout>
-
-                <TextView
-                    android:id="@+id/avatarStatusText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/app_info_avatar_loading"
-                    android:textColor="@color/colorTextMuted"
-                    android:textSize="12sp"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/developerIntroText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/app_info_intro"
-                    android:textColor="@color/colorTextPrimary"
-                    android:textSize="14sp"
-                    android:lineSpacingExtra="2dp" />
 
                 <com.google.android.material.divider.MaterialDivider
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="20dp"
                     app:dividerColor="@color/colorSurfaceVariant" />
 
                 <GridLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:columnCount="2"
                     android:rowCount="2">
 
@@ -229,6 +225,19 @@
                         android:text="@string/app_info_linkedin_button"
                         android:textColor="@color/colorTextSecondary"
                         app:icon="@drawable/ic_linkedin"
+                        app:iconPadding="8dp"
+                        app:iconTint="@color/colorTextSecondary" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/openDevToButton"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/app_info_devto_button"
+                        android:textColor="@color/colorTextSecondary"
+                        app:icon="@drawable/ic_devto"
                         app:iconPadding="8dp"
                         app:iconTint="@color/colorTextSecondary" />
 
