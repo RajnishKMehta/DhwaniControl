@@ -65,37 +65,29 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/previousButton"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/quick_tile_guide_previous_button"
-                android:textColor="@color/colorAccent"
-                app:strokeColor="@color/colorAccent" />
+                android:text="@string/quick_tile_guide_previous_button" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/nextButton"
-                style="@style/Widget.MaterialComponents.Button"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:text="@string/quick_tile_guide_next_button"
-                android:textColor="@color/colorBackground"
-                app:backgroundTint="@color/colorAccent"
-                app:iconTint="@color/colorBackground" />
+                android:text="@string/quick_tile_guide_next_button" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/doneButton"
-        style="@style/Widget.MaterialComponents.Button"
+        style="@style/Widget.Material3.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="@string/quick_tile_guide_done_button"
-        android:textColor="@color/colorTextPrimary"
-        app:backgroundTint="@color/colorPrimary"
-        app:iconTint="@color/colorTextPrimary" />
+        android:text="@string/quick_tile_guide_done_button" />
 
 </LinearLayout>

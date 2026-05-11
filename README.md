@@ -2,7 +2,9 @@
 
 DhwaniControl helps you open Android's native volume panel without using hardware volume buttons.
 
-The app uses a feature-driven architecture where each feature is isolated behind its own controller and metadata.
+## Why DhwaniControl?
+
+I have created this app because my phone's physical volume buttons are broken. Navigating to the Settings menu every time I want to change the volume is frustrating. I build and maintain this app for my own use to provide easy access to volume controls via gestures and tiles, and I've open-sourced it so that anyone else facing similar hardware issues can benefit.
 
 ## Features
 
