@@ -10,7 +10,7 @@
     <string name="feature_edge_title">Edge Swipe Overlay</string>
     <string name="feature_edge_description">Swipe inward from your selected edge to open Android volume controls.</string>
 
-    <string name="feature_toggle_label">On / Off</string>
+    <string name="feature_toggle_label">Off / On</string>
     <string name="feature_config_button">Config</string>
     <string name="feature_action_failed">Action failed. Please try again.</string>
 

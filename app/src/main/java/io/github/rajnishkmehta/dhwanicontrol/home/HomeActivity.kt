@@ -109,7 +109,8 @@ class HomeActivity : AppCompatActivity() {
                 showToggle = spec.supportsToggle,
                 toggleEnabled = spec.supportsToggle && !isBlocked,
                 toggledOn = spec.supportsToggle && enabled,
-                configEnabled = !isBlocked
+                configEnabled = !isBlocked,
+                lastRefreshTime = System.currentTimeMillis()
             )
         }.getOrElse {
             FeatureCardUiModel(
@@ -121,7 +122,8 @@ class HomeActivity : AppCompatActivity() {
                 showToggle = spec.supportsToggle,
                 toggleEnabled = false,
                 toggledOn = false,
-                configEnabled = false
+                configEnabled = false,
+                lastRefreshTime = System.currentTimeMillis()
             )
         }
     }
@@ -169,8 +171,12 @@ class HomeActivity : AppCompatActivity() {
         }
 
         if (isEnabled && !controller.isConfigured(this)) {
+            // Send to configuration
             handleConfigClick(featureId)
-            refreshFeatureCards()
+            // Immediately refresh to revert the visual flip of the switch
+            binding.root.post {
+                refreshFeatureCards()
+            }
             return
         }
 

@@ -9,5 +9,6 @@ data class FeatureCardUiModel(
     val showToggle: Boolean,
     val toggleEnabled: Boolean,
     val toggledOn: Boolean,
-    val configEnabled: Boolean
+    val configEnabled: Boolean,
+    val lastRefreshTime: Long = System.currentTimeMillis()
 )
