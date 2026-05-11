@@ -44,7 +44,17 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun synchronizeFeatures() {
-        FeatureRegistry.all().forEach { it.synchronize(this) }
+        FeatureRegistry.all().forEach { feature ->
+            try {
+                feature.synchronize(this)
+            } catch (exception: Exception) {
+                Log.e(
+                    "HomeActivity",
+                    "Failed to synchronize feature ${feature.spec.featureId}",
+                    exception
+                )
+            }
+        }
     }
 
     override fun onResume() {
