@@ -1,8 +1,8 @@
-# Edge Swipe Overlay Guide
+# Edge Swipe Guide
 
 ## What It Does
 
-Edge Swipe Overlay listens for inward swipes from one screen edge and opens Android volume controls.
+Edge Swipe listens for inward swipes from one screen edge and opens Android volume controls.
 
 ## Requirements
 
@@ -12,14 +12,14 @@ Edge Swipe Overlay listens for inward swipes from one screen edge and opens Andr
 
 ## First Setup
 
-1. Open **Home -> Edge Swipe Overlay -> Config**.
+1. Open **Home -> Edge Swipe -> Config**.
 2. Grant required permissions when prompted.
 3. Swipe inward from your chosen edge three times.
 4. After setup, the feature is automatically enabled.
 
 ## Change Active Edge Later
 
-1. Open **Home -> Edge Swipe Overlay -> Config**.
+1. Open **Home -> Edge Swipe -> Config**.
 2. Choose left or right edge.
 3. Save.
 

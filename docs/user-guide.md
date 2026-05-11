@@ -5,7 +5,7 @@ This guide covers first-time setup and normal usage.
 ## Requirements
 
 - Android 10 (API 29) or newer
-- Overlay permission for Edge Swipe Overlay
+- Overlay permission for Edge Swipe
 - Notification permission on Android 13+ for the edge background service
 
 ## First-Time Setup
@@ -14,7 +14,7 @@ This guide covers first-time setup and normal usage.
 2. Open **DhwaniControl**.
 3. On Home, open **Quick Settings Tile** and follow the in-app guide.
 4. Add the **Volume Panel** tile in Android Quick Settings.
-5. Optionally set up **Edge Swipe Overlay** from its Config button.
+5. Optionally set up **Edge Swipe** from its Config button.
 
 Detailed tile steps with screenshots:
 [`docs/quick-settings-tile.md`](quick-settings-tile.md)
@@ -22,7 +22,7 @@ Detailed tile steps with screenshots:
 ## Daily Usage
 
 - Tap the **Volume Panel** tile from Quick Settings to open volume controls.
-- If Edge Swipe Overlay is enabled, swipe inward from the configured edge.
+- If Edge Swipe is enabled, swipe inward from the configured edge.
 - Use each feature card's **Config** button for feature-specific setup.
 - Tap the top-right info button on Home to view app and developer information.
 

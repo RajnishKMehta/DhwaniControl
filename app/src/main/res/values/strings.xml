@@ -7,7 +7,7 @@
 
     <string name="feature_quick_tile_title">Quick Settings Tile</string>
     <string name="feature_quick_tile_description">Add this tile to Quick Settings, then tap it anytime to open Android volume controls.</string>
-    <string name="feature_edge_title">Edge Swipe Overlay</string>
+    <string name="feature_edge_title">Edge Swipe</string>
     <string name="feature_edge_description">Swipe inward from your selected edge to open Android volume controls.</string>
 
     <string name="feature_toggle_label">Off / On</string>
