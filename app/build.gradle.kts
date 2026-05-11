@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
 }
 
-val applicationId = "io.github.rajnishkmehta.dhwanicontrol"
+val appId = "io.github.rajnishkmehta.dhwanicontrol"
 
 // VERSIONING
 val versionMajor = 0
@@ -40,7 +40,7 @@ tasks.register("printAppInfo") {
         println(
             """
             {
-              "applicationId": "$applicationId",
+              "applicationId": "$appId",
               "versionMajor": $versionMajor,
               "versionMinor": $versionMinor,
               "versionPatch": $versionPatch,
@@ -55,9 +55,9 @@ tasks.register("printAppInfo") {
 
 // FAIL FAST FOR RELEASE BUILDS
 gradle.taskGraph.whenReady {
-
-    val isReleaseTask = allTasks.any {
-        it.name.contains("Release", ignoreCase = true)
+    val releaseTaskNames = setOf("assembleRelease", "bundleRelease", "packageRelease")
+    val isReleaseTask = allTasks.any { task ->
+        releaseTaskNames.any { it.equals(task.name, ignoreCase = true) }
     }
 
     if (isReleaseTask && !hasReleaseSigning) {
@@ -70,13 +70,13 @@ gradle.taskGraph.whenReady {
 // ANDROID CONFIG
 android {
 
-    namespace = applicationId
+    namespace = appId
 
     compileSdk = 36
 
     defaultConfig {
 
-        applicationId = applicationId
+        applicationId = appId
 
         minSdk = 29
         targetSdk = 36
@@ -191,7 +191,7 @@ dependencies {
     )
 
     implementation(
-        "androidx.activity:activity-ktx:1.10.1"
+        "androidx.activity:activity-ktx:1.13.0"
     )
 
     implementation(

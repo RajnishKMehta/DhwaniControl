@@ -10,7 +10,7 @@
     <string name="feature_edge_title">Edge Swipe Overlay</string>
     <string name="feature_edge_description">Swipe inward from your selected edge to open Android volume controls.</string>
 
-    <string name="feature_toggle_label">On / Off</string>
+    <string name="feature_toggle_label">Off / On</string>
     <string name="feature_config_button">Config</string>
     <string name="feature_action_failed">Action failed. Please try again.</string>
 
@@ -78,7 +78,8 @@
     <string name="app_info_title">App Info</string>
     <string name="app_info_subtitle">Learn more about the app and the developer</string>
     <string name="app_info_about_app_title">About DhwaniControl</string>
-    <string name="app_info_about_app_body">I have built this app because my phone\'s physical volume buttons are broken. It is frustrating to go to settings every time I want to change the volume. I build this for myself and open-source it so that anyone facing similar issues can use it easily through gestures or quick tiles.</string>
+    <string name="app_info_what_does_it_do">DhwaniControl provides easy access to your device\'s volume controls via edge-swipe gestures and quick settings tiles, allowing you to manage volume without relying on physical hardware buttons.</string>
+    <string name="app_info_about_app_body">I have built this app because my phone\'s physical volume buttons are broken. It is frustrating to go to settings every time I want to change the volume. I built this for myself and open-source it so that anyone facing similar issues can use it easily through its features.</string>
     <string name="app_info_about_dev_title">About the Developer</string>
     <string name="app_info_intro">I am the developer of this app. I built DhwaniControl to solve a real-world problem I was facing, and I continue to maintain it as an open-source project for the community.</string>
     <string name="app_info_name_label">Developer</string>
@@ -96,12 +97,14 @@
     <string name="app_info_github_repo_button">GitHub Repo</string>
     <string name="app_info_gitlab_repo_button">GitLab Repo</string>
     <string name="app_info_linkedin_button">LinkedIn</string>
+    <string name="app_info_devto_button">Dev.to</string>
     <string name="app_info_avatar_url">https://avatars.githubusercontent.com/u/172272341</string>
     <string name="app_info_link_x">https://x.com/RajnishKMehta</string>
     <string name="app_info_link_github">https://github.com/RajnishKMehta</string>
     <string name="app_info_link_github_repo">https://github.com/RajnishKMehta/DhwaniControl</string>
     <string name="app_info_link_gitlab_repo">https://gitlab.com/RajnishKMehta/DhwaniControl</string>
     <string name="app_info_link_linkedin">https://www.linkedin.com/in/RajnishKMehta</string>
+    <string name="app_info_link_devto">https://dev.to/RajnishKMehta</string>
 
     <string name="notification_channel_name">DhwaniControl edge swipe service</string>
     <string name="notification_channel_description">Keeps edge swipe detection active</string>

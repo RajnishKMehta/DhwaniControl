@@ -54,6 +54,10 @@ class AppInfoActivity : AppCompatActivity() {
         binding.openLinkedinButton.setOnClickListener {
             openLink(getString(R.string.app_info_link_linkedin))
         }
+
+        binding.openDevToButton.setOnClickListener {
+            openLink(getString(R.string.app_info_link_devto))
+        }
     }
 
     override fun onDestroy() {

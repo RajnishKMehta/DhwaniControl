@@ -169,8 +169,18 @@ class HomeActivity : AppCompatActivity() {
         }
 
         if (isEnabled && !controller.isConfigured(this)) {
+            // Send to configuration
             handleConfigClick(featureId)
-            refreshFeatureCards()
+
+            // Surgically revert the switch visually because the feature isn't truly 'On' yet.
+            // notifyItemChanged forces the adapter to re-bind this item, which resets the switch
+            // to the state defined in the model (which is currently 'Off').
+            val index = adapter.currentList.indexOfFirst { it.featureId == featureId }
+            if (index != -1) {
+                binding.root.post {
+                    adapter.notifyItemChanged(index)
+                }
+            }
             return
         }
 
