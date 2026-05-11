@@ -109,8 +109,7 @@ class HomeActivity : AppCompatActivity() {
                 showToggle = spec.supportsToggle,
                 toggleEnabled = spec.supportsToggle && !isBlocked,
                 toggledOn = spec.supportsToggle && enabled,
-                configEnabled = !isBlocked,
-                lastRefreshTime = System.currentTimeMillis()
+                configEnabled = !isBlocked
             )
         }.getOrElse {
             FeatureCardUiModel(
@@ -122,8 +121,7 @@ class HomeActivity : AppCompatActivity() {
                 showToggle = spec.supportsToggle,
                 toggleEnabled = false,
                 toggledOn = false,
-                configEnabled = false,
-                lastRefreshTime = System.currentTimeMillis()
+                configEnabled = false
             )
         }
     }
