@@ -9,6 +9,8 @@
     <string name="feature_quick_tile_description">Add this tile to Quick Settings, then tap it anytime to open Android volume controls.</string>
     <string name="feature_edge_title">Edge Swipe</string>
     <string name="feature_edge_description">Swipe inward from your selected edge to open Android volume controls.</string>
+    <string name="feature_floating_title">Floating Button</string>
+    <string name="feature_floating_description">A movable floating button. Tap it to open volume controls. Hold and drag to move.</string>
 
     <string name="feature_toggle_label">Off / On</string>
     <string name="feature_config_button">Config</string>
@@ -110,6 +112,12 @@
     <string name="notification_channel_description">Keeps edge swipe detection active</string>
     <string name="notification_title">Edge Swipe Overlay is active</string>
     <string name="notification_text">Swipe inward from your selected edge to open volume controls.</string>
+
+    <string name="notification_channel_name_floating">DhwaniControl floating button service</string>
+    <string name="notification_channel_description_floating">Keeps floating button active</string>
+    <string name="notification_title_floating">Floating Button is active</string>
+    <string name="notification_text_floating">Tap the floating button to open volume controls. Drag to move it.</string>
+
     <string name="notification_stop_action">Stop</string>
 
     <string name="content_description_status_indicator">Permission status indicator</string>

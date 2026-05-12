@@ -43,6 +43,34 @@ object AppPreferences {
         preferences.edit().putBoolean(Constants.PREF_EDGE_ENABLED, enabled).apply()
     }
 
+    fun isFloatingEnabled(context: Context): Boolean {
+        val preferences = preferences(context)
+        return getBooleanSafe(preferences, Constants.PREF_FLOATING_ENABLED, false)
+    }
+
+    fun setFloatingEnabled(context: Context, enabled: Boolean) {
+        val preferences = preferences(context)
+        preferences.edit().putBoolean(Constants.PREF_FLOATING_ENABLED, enabled).apply()
+    }
+
+    fun getFloatingPosition(context: Context): Pair<Int, Int>? {
+        val preferences = preferences(context)
+        if (!preferences.contains(Constants.PREF_FLOATING_X) || !preferences.contains(Constants.PREF_FLOATING_Y)) {
+            return null
+        }
+        val x = getIntSafe(preferences, Constants.PREF_FLOATING_X, 0)
+        val y = getIntSafe(preferences, Constants.PREF_FLOATING_Y, 0)
+        return Pair(x, y)
+    }
+
+    fun setFloatingPosition(context: Context, x: Int, y: Int) {
+        val preferences = preferences(context)
+        preferences.edit()
+            .putInt(Constants.PREF_FLOATING_X, x)
+            .putInt(Constants.PREF_FLOATING_Y, y)
+            .apply()
+    }
+
     fun getNotificationDenialCount(context: Context): Int {
         return getIntSafe(preferences(context), Constants.PREF_NOTIFICATION_DENIAL_COUNT, 0)
     }

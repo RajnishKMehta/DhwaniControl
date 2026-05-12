@@ -1,55 +1,46 @@
-package io.github.rajnishkmehta.dhwanicontrol.features.edge
+package io.github.rajnishkmehta.dhwanicontrol.features.floating
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import io.github.rajnishkmehta.dhwanicontrol.Constants
 import io.github.rajnishkmehta.dhwanicontrol.R
-import io.github.rajnishkmehta.dhwanicontrol.core.block.FeatureBlockCondition
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureController
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureSpec
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.PermissionRequirement
 import io.github.rajnishkmehta.dhwanicontrol.core.preferences.AppPreferences
 
-object EdgeSwipeFeatureController : FeatureController {
-
-    override val blockCondition: FeatureBlockCondition = EdgeSwipeBlockCondition
+object FloatingButtonFeatureController : FeatureController {
 
     override val spec = FeatureSpec(
-        featureId = Constants.FEATURE_ID_EDGE_SWIPE,
-        nameRes = R.string.feature_edge_title,
-        summaryRes = R.string.feature_edge_description,
+        featureId = Constants.FEATURE_ID_FLOATING_BUTTON,
+        nameRes = R.string.feature_floating_title,
+        summaryRes = R.string.feature_floating_description,
         supportsToggle = true,
         requiredPermissions = setOf(
             PermissionRequirement.Overlay,
             PermissionRequirement.Notifications
         ),
-        displayOrder = 3
+        displayOrder = 2
     )
 
     override fun isConfigured(context: Context): Boolean {
-        return AppPreferences.isEdgeConfigured(context)
+        return true
     }
 
     override fun isEnabled(context: Context): Boolean {
-        return AppPreferences.isEdgeEnabled(context)
+        return AppPreferences.isFloatingEnabled(context)
     }
 
     override fun setEnabled(context: Context, enabled: Boolean) {
-        AppPreferences.setEdgeEnabled(context, enabled)
-        EdgeOverlayRuntime.sync(context)
+        AppPreferences.setFloatingEnabled(context, enabled)
+        FloatingButtonRuntime.sync(context)
     }
 
     override fun openConfig(activity: Activity) {
-        val target = if (AppPreferences.isEdgeConfigured(activity)) {
-            EdgeSwipeSideSelectorActivity::class.java
-        } else {
-            EdgeSwipeSetupActivity::class.java
-        }
-        activity.startActivity(Intent(activity, target))
+        // No config activity needed
     }
 
     override fun synchronize(context: Context) {
-        EdgeOverlayRuntime.sync(context)
+        FloatingButtonRuntime.sync(context)
     }
 }
