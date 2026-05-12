@@ -92,10 +92,3 @@
     </application>
 
 </manifest>
-on.QUICKBOOT_POWERON" />
-            </intent-filter>
-        </receiver>
-
-    </application>
-
-</manifest>
