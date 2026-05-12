@@ -124,6 +124,7 @@ class HomeActivity : AppCompatActivity() {
                 showToggle = spec.supportsToggle,
                 toggleEnabled = spec.supportsToggle && !isBlocked,
                 toggledOn = spec.supportsToggle && enabled,
+                showConfig = spec.supportsConfig,
                 configEnabled = !isBlocked
             )
         }.getOrElse {
@@ -136,6 +137,7 @@ class HomeActivity : AppCompatActivity() {
                 showToggle = spec.supportsToggle,
                 toggleEnabled = false,
                 toggledOn = false,
+                showConfig = spec.supportsConfig,
                 configEnabled = false
             )
         }

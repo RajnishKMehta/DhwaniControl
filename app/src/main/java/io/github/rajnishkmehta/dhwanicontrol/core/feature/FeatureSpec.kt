@@ -14,6 +14,7 @@ data class FeatureSpec(
     @StringRes val nameRes: Int,
     @StringRes val summaryRes: Int,
     val supportsToggle: Boolean,
+    val supportsConfig: Boolean = true,
     val requiredPermissions: Set<PermissionRequirement>,
     @IntRange(from = 1)
     val displayOrder: Int

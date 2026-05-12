@@ -60,6 +60,7 @@ class FeatureCardAdapter(
                 onToggleChanged(item.featureId, isChecked)
             }
 
+            binding.featureConfigButton.isVisible = item.showConfig
             binding.featureConfigButton.isEnabled = item.configEnabled
             binding.featureConfigButton.setOnClickListener {
                 onConfigClick(item.featureId)

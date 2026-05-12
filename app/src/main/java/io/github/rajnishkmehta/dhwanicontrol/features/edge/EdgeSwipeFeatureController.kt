@@ -20,11 +20,12 @@ object EdgeSwipeFeatureController : FeatureController {
         nameRes = R.string.feature_edge_title,
         summaryRes = R.string.feature_edge_description,
         supportsToggle = true,
+        supportsConfig = true,
         requiredPermissions = setOf(
             PermissionRequirement.Overlay,
             PermissionRequirement.Notifications
         ),
-        displayOrder = 2
+        displayOrder = 3
     )
 
     override fun isConfigured(context: Context): Boolean {
