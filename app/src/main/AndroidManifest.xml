@@ -55,7 +55,11 @@
             android:name=".features.edge.VolumeOverlayService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="mediaPlayback" />
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Edge swipe overlay to open system volume UI" />
+        </service>
 
         <service
             android:name=".features.floating.FloatingButtonService"
