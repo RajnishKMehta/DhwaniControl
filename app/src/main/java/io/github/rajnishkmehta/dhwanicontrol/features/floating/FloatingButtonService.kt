@@ -90,8 +90,7 @@ class FloatingButtonService : Service() {
             iconSize,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
-                WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
             PixelFormat.TRANSLUCENT
         ).apply {
             gravity = Gravity.TOP or Gravity.START
@@ -134,8 +133,15 @@ class FloatingButtonService : Service() {
                     }
 
                     if (isLongPressing) {
-                        layoutParams.x = initialX + deltaX.toInt()
-                        layoutParams.y = initialY + deltaY.toInt()
+                        val metrics = resources.displayMetrics
+                        val screenWidth = metrics.widthPixels
+                        val screenHeight = metrics.heightPixels
+
+                        val newX = (initialX + deltaX.toInt()).coerceIn(0, screenWidth - view.width)
+                        val newY = (initialY + deltaY.toInt()).coerceIn(0, screenHeight - view.height)
+
+                        layoutParams.x = newX
+                        layoutParams.y = newY
                         windowManager.updateViewLayout(view, layoutParams)
                     }
                     true
@@ -148,7 +154,14 @@ class FloatingButtonService : Service() {
                         showNativeVolumePanel()
                         view.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY)
                     } else if (isLongPressing) {
-                        AppPreferences.setFloatingPosition(this, layoutParams.x, layoutParams.y)
+                        val metrics = resources.displayMetrics
+                        val screenWidth = metrics.widthPixels
+                        val screenHeight = metrics.heightPixels
+                        
+                        val finalX = layoutParams.x.coerceIn(0, screenWidth - view.width)
+                        val finalY = layoutParams.y.coerceIn(0, screenHeight - view.height)
+                        
+                        AppPreferences.setFloatingPosition(this, finalX, finalY)
                     }
                     isLongPressing = false
                     true
