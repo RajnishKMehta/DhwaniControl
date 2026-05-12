@@ -14,21 +14,7 @@ DhwaniControl currently ships with two features.
 **Configuration entry**
 - Home -> Quick Settings Tile -> **Config**
 
-## 2) Edge Swipe
-
-**What it does**
-- Detects inward swipes from the configured screen edge.
-- Opens Android's native volume controls.
-
-**Requirements**
-- Draw over other apps permission
-- Notification permission on Android 13+
-- Button navigation mode (gesture navigation blocks this feature)
-
-**Configuration entry**
-- Home -> Edge Swipe -> **Config**
-
-## 3) Floating Button
+## 2) Floating Button
 
 **What it does**
 - Displays a movable button that stays on top of other apps.
@@ -42,6 +28,20 @@ DhwaniControl currently ships with two features.
 
 **Configuration entry**
 - Home -> Floating Button (Toggle only)
+
+## 3) Edge Swipe
+
+**What it does**
+- Detects inward swipes from the configured screen edge.
+- Opens Android's native volume controls.
+
+**Requirements**
+- Draw over other apps permission
+- Notification permission on Android 13+
+- Button navigation mode (gesture navigation blocks this feature)
+
+**Configuration entry**
+- Home -> Edge Swipe -> **Config**
 
 ## Feature Ordering
 
