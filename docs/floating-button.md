@@ -1,6 +1,6 @@
 # Floating Button Overlay
 
-The Floating Button feature provides a constant, movable point of access to your device\'s volume controls.
+The Floating Button feature provides a constant, movable point of access to your device's volume controls.
 
 ## How it works
 
