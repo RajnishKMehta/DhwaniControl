@@ -3,6 +3,7 @@ package io.github.rajnishkmehta.dhwanicontrol
 object Constants {
     const val FEATURE_ID_QUICK_TILE = "quick_tile"
     const val FEATURE_ID_EDGE_SWIPE = "edge_swipe"
+    const val FEATURE_ID_FLOATING_ICON = "floating_icon"
 
     const val EXTRA_FEATURE_ID = "extra_feature_id"
 
@@ -16,6 +17,10 @@ object Constants {
     const val PREF_EDGE_SELECTED_SIDE = "feature.edge.selected_side"
     const val PREF_EDGE_ENABLED = "feature.edge.enabled"
 
+    const val PREF_FLOATING_ENABLED = "feature.floating.enabled"
+    const val PREF_FLOATING_X = "feature.floating.x"
+    const val PREF_FLOATING_Y = "feature.floating.y"
+
     const val PREF_NOTIFICATION_DENIAL_COUNT = "permission.notifications.denial_count"
 
     const val SIDE_LEFT = "LEFT"
@@ -26,10 +31,14 @@ object Constants {
 
     const val ACTION_STOP_EDGE_SERVICE =
         "io.github.rajnishkmehta.dhwanicontrol.action.STOP_EDGE_SERVICE"
+    const val ACTION_STOP_FLOATING_SERVICE =
+        "io.github.rajnishkmehta.dhwanicontrol.action.STOP_FLOATING_SERVICE"
     const val QUICKBOOT_POWER_ON_ACTION = "android.intent.action.QUICKBOOT_POWERON"
 
     const val NOTIFICATION_CHANNEL_ID = "dhwanicontrol_edge_service_channel"
+    const val NOTIFICATION_CHANNEL_ID_FLOATING = "dhwanicontrol_floating_service_channel"
     const val NOTIFICATION_ID = 1201
+    const val NOTIFICATION_ID_FLOATING = 1202
     const val STOP_ACTION_REQUEST_CODE = 19
 
     const val SWIPE_MIN_DISTANCE_DP = 40f

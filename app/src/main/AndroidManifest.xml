@@ -57,6 +57,12 @@
             android:foregroundServiceType="mediaPlayback" />
 
         <service
+            android:name=".features.floating.FloatingIconService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
+        <service
             android:name=".features.quicktile.VolumePanelTileService"
             android:enabled="true"
             android:exported="true"
