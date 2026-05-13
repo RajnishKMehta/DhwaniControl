@@ -71,6 +71,22 @@ object AppPreferences {
             .apply()
     }
 
+    fun getFloatingIconName(context: Context): String {
+        return getStringSafe(preferences(context), Constants.PREF_FLOATING_ICON_NAME, "ic_1_volume-up")
+    }
+
+    fun setFloatingIconName(context: Context, name: String) {
+        preferences(context).edit().putString(Constants.PREF_FLOATING_ICON_NAME, name).apply()
+    }
+
+    fun getFloatingIconColor(context: Context): Int {
+        return getIntSafe(preferences(context), Constants.PREF_FLOATING_ICON_COLOR, -1)
+    }
+
+    fun setFloatingIconColor(context: Context, color: Int) {
+        preferences(context).edit().putInt(Constants.PREF_FLOATING_ICON_COLOR, color).apply()
+    }
+
     fun getNotificationDenialCount(context: Context): Int {
         return getIntSafe(preferences(context), Constants.PREF_NOTIFICATION_DENIAL_COUNT, 0)
     }

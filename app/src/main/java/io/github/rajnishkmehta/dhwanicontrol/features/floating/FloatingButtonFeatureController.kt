@@ -2,6 +2,7 @@ package io.github.rajnishkmehta.dhwanicontrol.features.floating
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import io.github.rajnishkmehta.dhwanicontrol.Constants
 import io.github.rajnishkmehta.dhwanicontrol.R
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureController
@@ -16,7 +17,7 @@ object FloatingButtonFeatureController : FeatureController {
         nameRes = R.string.feature_floating_title,
         summaryRes = R.string.feature_floating_description,
         supportsToggle = true,
-        supportsConfig = false,
+        supportsConfig = true,
         requiredPermissions = setOf(
             PermissionRequirement.Overlay,
             PermissionRequirement.Notifications
@@ -38,7 +39,7 @@ object FloatingButtonFeatureController : FeatureController {
     }
 
     override fun openConfig(activity: Activity) {
-        // No config activity needed
+        activity.startActivity(Intent(activity, FloatingButtonConfigActivity::class.java))
     }
 
     override fun synchronize(context: Context) {

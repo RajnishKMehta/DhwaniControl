@@ -100,13 +100,21 @@ class FloatingButtonService : Service() {
 
         params = layoutParams
 
+        val iconName = AppPreferences.getFloatingIconName(this)
+        val iconResId = resources.getIdentifier(iconName, "drawable", packageName)
+            .takeIf { it != 0 } ?: R.drawable.ic_overlay
+
+        val iconColor = AppPreferences.getFloatingIconColor(this)
+        val tintColor = if (iconColor == -1) {
+            context.getColor(R.color.colorPrimary)
+        } else {
+            iconColor
+        }
+
         val imageView = ImageView(this).apply {
-            setImageResource(R.drawable.ic_overlay)
-            setBackgroundResource(R.drawable.bg_status_pill)
-            // Use project colors
-            setColorFilter(context.getColor(R.color.white))
-            backgroundTintList = context.getColorStateList(R.color.colorPrimary)
-            setPadding(dpToPx(12), dpToPx(12), dpToPx(12), dpToPx(12))
+            setImageResource(iconResId)
+            setColorFilter(tintColor)
+            setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8))
             elevation = dpToPx(4).toFloat()
         }
 
