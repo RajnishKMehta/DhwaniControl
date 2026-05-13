@@ -19,6 +19,7 @@
     <string name="feature_status_ready">Ready</string>
     <string name="feature_status_enabled">Enabled</string>
     <string name="feature_status_disabled">Disabled</string>
+    <string name="feature_status_permissions_required">Permission required</string>
     <string name="feature_status_needs_config">Configuration required</string>
     <string name="feature_status_unavailable">Temporarily unavailable</string>
 

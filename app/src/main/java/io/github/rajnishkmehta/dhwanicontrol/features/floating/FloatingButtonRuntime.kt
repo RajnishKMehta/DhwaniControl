@@ -10,29 +10,32 @@ import io.github.rajnishkmehta.dhwanicontrol.core.preferences.AppPreferences
 object FloatingButtonRuntime {
 
     fun sync(context: Context) {
-        if (!canRun(context)) {
+        val enabledByPref = AppPreferences.isFloatingEnabled(context)
+        if (!enabledByPref) {
+            stop(context)
+            return
+        }
+
+        // Feature is intended to be ON. Check if it CAN run.
+        val missingPermissions = PermissionPolicy.missingPermissions(
+            context,
+            FloatingButtonFeatureController.spec.requiredPermissions
+        )
+
+        if (missingPermissions.isNotEmpty()) {
+            // Permissions revoked, turn off the feature preference
+            AppPreferences.setFloatingEnabled(context, false)
+            stop(context)
+            return
+        }
+
+        val blockResult = FloatingButtonFeatureController.blockCondition.evaluate(context)
+        if (blockResult is FeatureBlockResult.Blocked) {
             stop(context)
             return
         }
 
         start(context)
-    }
-
-    private fun canRun(context: Context): Boolean {
-        val blockResult = FloatingButtonFeatureController.blockCondition.evaluate(context)
-        if (blockResult is FeatureBlockResult.Blocked) {
-            return false
-        }
-
-        if (!AppPreferences.isFloatingEnabled(context)) {
-            return false
-        }
-
-        val missingPermissions = PermissionPolicy.missingPermissions(
-            context,
-            FloatingButtonFeatureController.spec.requiredPermissions
-        )
-        return missingPermissions.isEmpty()
     }
 
     private fun start(context: Context) {

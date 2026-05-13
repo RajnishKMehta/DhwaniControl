@@ -15,6 +15,7 @@ object QuickSettingsFeatureController : FeatureController {
         nameRes = R.string.feature_quick_tile_title,
         summaryRes = R.string.feature_quick_tile_description,
         supportsToggle = false,
+        supportsConfig = true,
         requiredPermissions = emptySet(),
         displayOrder = 1
     )

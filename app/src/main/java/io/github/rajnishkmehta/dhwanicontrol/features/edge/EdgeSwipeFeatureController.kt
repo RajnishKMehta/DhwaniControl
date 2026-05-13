@@ -20,6 +20,7 @@ object EdgeSwipeFeatureController : FeatureController {
         nameRes = R.string.feature_edge_title,
         summaryRes = R.string.feature_edge_description,
         supportsToggle = true,
+        supportsConfig = true,
         requiredPermissions = setOf(
             PermissionRequirement.Overlay,
             PermissionRequirement.Notifications

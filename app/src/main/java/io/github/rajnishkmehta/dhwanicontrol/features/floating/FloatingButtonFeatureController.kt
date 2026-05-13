@@ -16,6 +16,7 @@ object FloatingButtonFeatureController : FeatureController {
         nameRes = R.string.feature_floating_title,
         summaryRes = R.string.feature_floating_description,
         supportsToggle = true,
+        supportsConfig = false,
         requiredPermissions = setOf(
             PermissionRequirement.Overlay,
             PermissionRequirement.Notifications

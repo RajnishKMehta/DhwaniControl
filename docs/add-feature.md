@@ -19,7 +19,9 @@ This document explains the minimum flow to add a new feature safely.
    - `nameRes`
    - `summaryRes`
    - `supportsToggle`
+   - `supportsConfig` (set to `false` to hide the Config button)
    - `requiredPermissions`
+
    - `displayOrder`
 5. Implement behavior methods:
    - `isConfigured`

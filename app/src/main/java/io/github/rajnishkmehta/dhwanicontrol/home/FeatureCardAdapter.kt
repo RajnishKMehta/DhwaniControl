@@ -53,6 +53,7 @@ class FeatureCardAdapter(
 
             binding.featureToggleSwitch.setOnCheckedChangeListener(null)
             binding.featureToggleSwitch.isVisible = item.showToggle
+            binding.featureToggleLabel.isVisible = item.showToggle
             binding.featureToggleSwitch.isEnabled = item.toggleEnabled
             binding.featureToggleSwitch.isChecked = item.toggledOn
 
@@ -60,6 +61,7 @@ class FeatureCardAdapter(
                 onToggleChanged(item.featureId, isChecked)
             }
 
+            binding.featureConfigButton.isVisible = item.showConfig
             binding.featureConfigButton.isEnabled = item.configEnabled
             binding.featureConfigButton.setOnClickListener {
                 onConfigClick(item.featureId)

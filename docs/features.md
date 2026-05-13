@@ -52,3 +52,12 @@ Feature order is controlled by metadata in each feature controller:
 - `displayOrder = 3` -> Edge Swipe
 
 The Home screen and registry use this metadata to render a stable, predictable order.
+
+## Feature Management System
+
+DhwaniControl uses a granular management system to ensure features only run when fully ready:
+
+1. **Permissions First:** If a feature lacks required permissions, its status will show **Permission required**. Toggling it ON will prompt for permissions.
+2. **Auto-Disabling:** If a granted permission is revoked later, the feature will automatically turn itself **OFF** to prevent crashes.
+3. **Smart Configuration:** Features that need manual setup (like Edge Swipe) will show **Configuration required** until completed. Features without complex setup (like Floating Button) hide the **Config** button for a cleaner UI.
+4. **Safety Blocks:** System-level settings (like Gesture Navigation) can temporarily block incompatible features to ensure a smooth user experience.
