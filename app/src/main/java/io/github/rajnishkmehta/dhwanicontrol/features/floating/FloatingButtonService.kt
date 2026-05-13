@@ -106,7 +106,7 @@ class FloatingButtonService : Service() {
 
         val iconColor = AppPreferences.getFloatingIconColor(this)
         val tintColor = if (iconColor == -1) {
-            context.getColor(R.color.colorPrimary)
+            getColor(R.color.colorPrimary)
         } else {
             iconColor
         }
