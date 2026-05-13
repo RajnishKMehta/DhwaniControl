@@ -203,7 +203,7 @@ class HomeActivity : AppCompatActivity() {
                 return
             }
 
-            if (!controller.isConfigured(this)) {
+            if (controller.spec.supportsConfig && !controller.isConfigured(this)) {
                 handleConfigClick(featureId)
                 revertToggle(featureId)
                 return
