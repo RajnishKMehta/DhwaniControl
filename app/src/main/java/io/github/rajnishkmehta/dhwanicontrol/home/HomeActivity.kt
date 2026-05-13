@@ -94,11 +94,17 @@ class HomeActivity : AppCompatActivity() {
             val enabled = controller.isEnabled(this)
             val blockResult = availability.blockResult
             val isBlocked = blockResult is FeatureBlockResult.Blocked
+            val missingPermissions = PermissionPolicy.missingPermissions(this, spec.requiredPermissions)
+            val hasPermissions = missingPermissions.isEmpty()
+
             val needsConfiguration = spec.supportsToggle && !configured
-            val statusIsWarning = isBlocked || needsConfiguration
+            val statusIsWarning = isBlocked || !hasPermissions || needsConfiguration
 
             val statusText = when {
                 isBlocked -> getString((blockResult as FeatureBlockResult.Blocked).reasonRes)
+
+                !hasPermissions -> getString(R.string.feature_status_permissions_required)
+
                 needsConfiguration ->
                     getString(R.string.feature_status_needs_config)
 
@@ -124,6 +130,7 @@ class HomeActivity : AppCompatActivity() {
                 showToggle = spec.supportsToggle,
                 toggleEnabled = spec.supportsToggle && !isBlocked,
                 toggledOn = spec.supportsToggle && enabled,
+                showConfig = spec.supportsConfig,
                 configEnabled = !isBlocked
             )
         }.getOrElse {
@@ -136,6 +143,7 @@ class HomeActivity : AppCompatActivity() {
                 showToggle = spec.supportsToggle,
                 toggleEnabled = false,
                 toggledOn = false,
+                showConfig = spec.supportsConfig,
                 configEnabled = false
             )
         }
@@ -183,20 +191,23 @@ class HomeActivity : AppCompatActivity() {
             return
         }
 
-        if (isEnabled && !controller.isConfigured(this)) {
-            // Send to configuration
-            handleConfigClick(featureId)
+        if (isEnabled) {
+            val missingPermissions = PermissionPolicy.missingPermissions(
+                this,
+                controller.spec.requiredPermissions
+            )
 
-            // Surgically revert the switch visually because the feature isn't truly 'On' yet.
-            // notifyItemChanged forces the adapter to re-bind this item, which resets the switch
-            // to the state defined in the model (which is currently 'Off').
-            val index = adapter.currentList.indexOfFirst { it.featureId == featureId }
-            if (index != -1) {
-                binding.root.post {
-                    adapter.notifyItemChanged(index)
-                }
+            if (missingPermissions.isNotEmpty()) {
+                handleConfigClick(featureId)
+                revertToggle(featureId)
+                return
             }
-            return
+
+            if (!controller.isConfigured(this)) {
+                handleConfigClick(featureId)
+                revertToggle(featureId)
+                return
+            }
         }
 
         runCatching {
@@ -207,5 +218,14 @@ class HomeActivity : AppCompatActivity() {
         }
 
         refreshFeatureCards()
+    }
+
+    private fun revertToggle(featureId: String) {
+        val index = adapter.currentList.indexOfFirst { it.featureId == featureId }
+        if (index != -1) {
+            binding.root.post {
+                adapter.notifyItemChanged(index)
+            }
+        }
     }
 }

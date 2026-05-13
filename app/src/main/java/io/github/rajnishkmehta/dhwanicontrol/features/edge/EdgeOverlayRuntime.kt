@@ -10,33 +10,38 @@ import io.github.rajnishkmehta.dhwanicontrol.core.preferences.AppPreferences
 object EdgeOverlayRuntime {
 
     fun sync(context: Context) {
-        if (!canRun(context)) {
+        val enabledByPref = AppPreferences.isEdgeEnabled(context)
+        if (!enabledByPref) {
+            stop(context)
+            return
+        }
+
+        // Feature is intended to be ON. Check if it CAN run.
+        val missingPermissions = PermissionPolicy.missingPermissions(
+            context,
+            EdgeSwipeFeatureController.spec.requiredPermissions
+        )
+
+        if (missingPermissions.isNotEmpty()) {
+            // Permissions revoked, turn off the feature preference
+            AppPreferences.setEdgeEnabled(context, false)
+            stop(context)
+            return
+        }
+
+        if (!AppPreferences.isEdgeConfigured(context)) {
+            AppPreferences.setEdgeEnabled(context, false)
+            stop(context)
+            return
+        }
+
+        val blockResult = EdgeSwipeFeatureController.blockCondition.evaluate(context)
+        if (blockResult is FeatureBlockResult.Blocked) {
             stop(context)
             return
         }
 
         start(context)
-    }
-
-    private fun canRun(context: Context): Boolean {
-        val blockResult = EdgeSwipeFeatureController.blockCondition.evaluate(context)
-        if (blockResult is FeatureBlockResult.Blocked) {
-            return false
-        }
-
-        if (!AppPreferences.isEdgeConfigured(context)) {
-            return false
-        }
-
-        if (!AppPreferences.isEdgeEnabled(context)) {
-            return false
-        }
-
-        val missingPermissions = PermissionPolicy.missingPermissions(
-            context,
-            EdgeSwipeFeatureController.spec.requiredPermissions
-        )
-        return missingPermissions.isEmpty()
     }
 
     private fun start(context: Context) {
