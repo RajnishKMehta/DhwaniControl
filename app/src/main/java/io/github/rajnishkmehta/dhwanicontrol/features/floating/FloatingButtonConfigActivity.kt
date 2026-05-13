@@ -136,6 +136,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val name = iconNames[position]
             val resId = resources.getIdentifier(name, "drawable", packageName)
+                .takeIf { it != 0 } ?: R.drawable.ic_overlay
             
             holder.iconImage.setImageResource(resId)
             
