@@ -87,6 +87,14 @@ object AppPreferences {
         preferences(context).edit().putInt(Constants.PREF_FLOATING_ICON_COLOR, color).apply()
     }
 
+    fun getFloatingOpacity(context: Context): Float {
+        return preferences(context).getFloat(Constants.PREF_FLOATING_OPACITY, 1.0f)
+    }
+
+    fun setFloatingOpacity(context: Context, opacity: Float) {
+        preferences(context).edit().putFloat(Constants.PREF_FLOATING_OPACITY, opacity).apply()
+    }
+
     fun getNotificationDenialCount(context: Context): Int {
         return getIntSafe(preferences(context), Constants.PREF_NOTIFICATION_DENIAL_COUNT, 0)
     }

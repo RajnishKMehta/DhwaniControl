@@ -117,6 +117,24 @@
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/floating_config_opacity"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/opacitySlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:valueFrom="0.1"
+        android:valueTo="1.0"
+        android:stepSize="0.1"
+        android:value="1.0" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"

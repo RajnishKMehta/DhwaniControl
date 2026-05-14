@@ -120,6 +120,7 @@ class FloatingButtonService : Service() {
         val imageView = ImageView(this).apply {
             setImageResource(iconResId)
             setColorFilter(tintColor)
+            alpha = opacity
             setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8))
             elevation = dpToPx(4).toFloat()
         }
@@ -266,6 +267,11 @@ class FloatingButtonService : Service() {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,
             dp.toFloat(),
+            resources.displayMetrics
+        ).toInt()
+    }
+}
+oat(),
             resources.displayMetrics
         ).toInt()
     }

@@ -120,6 +120,7 @@
     <string name="floating_config_save">Save Configuration</string>
     <string name="floating_config_saved">Configuration saved</string>
     <string name="floating_config_more">More Icons</string>
+    <string name="floating_config_opacity">Opacity</string>
 
     <string name="home_need_help">Need Help</string>
     <string name="app_info_need_help">Need Help</string>

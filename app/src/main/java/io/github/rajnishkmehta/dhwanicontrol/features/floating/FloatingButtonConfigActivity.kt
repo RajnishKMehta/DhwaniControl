@@ -76,6 +76,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
         binding.saveConfigButton.setOnClickListener {
             AppPreferences.setFloatingIconName(this, selectedIconName)
             AppPreferences.setFloatingIconColor(this, selectedColor)
+            AppPreferences.setFloatingOpacity(this, selectedOpacity)
             
             // Restart feature if enabled
             if (AppPreferences.isFloatingEnabled(this)) {
@@ -124,6 +125,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
             .takeIf { it != 0 } ?: resources.getIdentifier(OverlayIconRegistry.getDefaultIconName(), "drawable", packageName)
         
         binding.iconPreview.setImageResource(iconResId)
+        binding.iconPreview.alpha = selectedOpacity
         
         val tintColor = if (selectedColor == -1) {
             getColor(R.color.colorPrimary)
@@ -222,6 +224,16 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
                 holder.cardView.setCardBackgroundColor(getColor(R.color.colorSurface))
                 holder.iconImage.clearColorFilter()
             }
+            
+            holder.itemView.setOnClickListener {
+                onIconSelected(name)
+            }
+        }
+
+        override fun getItemCount() = iconNames.size
+    }
+}
+}
             
             holder.itemView.setOnClickListener {
                 onIconSelected(name)
