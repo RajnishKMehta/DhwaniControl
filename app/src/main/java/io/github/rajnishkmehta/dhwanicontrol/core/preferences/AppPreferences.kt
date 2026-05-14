@@ -87,8 +87,14 @@ object AppPreferences {
         preferences(context).edit().putInt(Constants.PREF_FLOATING_ICON_COLOR, color).apply()
     }
 
+    private fun getFloatSafe(preferences: SharedPreferences, key: String, defaultValue: Float): Float {
+        return runCatching {
+            preferences.getFloat(key, defaultValue)
+        }.getOrDefault(defaultValue)
+    }
+
     fun getFloatingOpacity(context: Context): Float {
-        return preferences(context).getFloat(Constants.PREF_FLOATING_OPACITY, 1.0f)
+        return getFloatSafe(preferences(context), Constants.PREF_FLOATING_OPACITY, 1.0f)
     }
 
     fun setFloatingOpacity(context: Context, opacity: Float) {
