@@ -64,7 +64,7 @@ class FloatingButtonService : Service() {
         }
 
         startForeground(Constants.NOTIFICATION_ID_FLOATING, buildForegroundNotification())
-        attachFloatingButton()
+        updateFloatingButton()
         return START_STICKY
     }
 
@@ -74,13 +74,30 @@ class FloatingButtonService : Service() {
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    private fun attachFloatingButton() {
+    private fun updateFloatingButton() {
         if (!PermissionPolicy.isGranted(this, PermissionRequirement.Overlay)) {
             stopSelf()
             return
         }
 
-        if (floatingView != null) return
+        val iconName = AppPreferences.getFloatingIconName(this)
+        val iconResId = resources.getIdentifier(iconName, "drawable", packageName)
+            .takeIf { it != 0 } ?: resources.getIdentifier("ic_0_default", "drawable", packageName)
+
+        val iconColor = AppPreferences.getFloatingIconColor(this)
+        val tintColor = if (iconColor == -1) {
+            getColor(R.color.colorPrimary)
+        } else {
+            iconColor
+        }
+
+        if (floatingView != null) {
+            (floatingView as? ImageView)?.let {
+                it.setImageResource(iconResId)
+                it.setColorFilter(tintColor)
+            }
+            return
+        }
 
         val iconSize = dpToPx(48)
         val position = AppPreferences.getFloatingPosition(this)
@@ -99,17 +116,6 @@ class FloatingButtonService : Service() {
         }
 
         params = layoutParams
-
-        val iconName = AppPreferences.getFloatingIconName(this)
-        val iconResId = resources.getIdentifier(iconName, "drawable", packageName)
-            .takeIf { it != 0 } ?: resources.getIdentifier("ic_0_default", "drawable", packageName)
-
-        val iconColor = AppPreferences.getFloatingIconColor(this)
-        val tintColor = if (iconColor == -1) {
-            getColor(R.color.colorPrimary)
-        } else {
-            iconColor
-        }
 
         val imageView = ImageView(this).apply {
             setImageResource(iconResId)
