@@ -29,6 +29,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFloatingButtonConfigBinding
     private var selectedIconName: String = ""
     private var selectedColor: Int = -1
+    private var selectedOpacity: Float = 1.0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +38,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
 
         selectedIconName = AppPreferences.getFloatingIconName(this)
         selectedColor = AppPreferences.getFloatingIconColor(this)
+        selectedOpacity = AppPreferences.getFloatingOpacity(this)
 
         setupUI()
         updatePreview()
@@ -44,6 +46,12 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
 
     private fun setupUI() {
         refreshIconList()
+
+        binding.opacitySlider.value = selectedOpacity
+        binding.opacitySlider.addOnChangeListener { _, value, _ ->
+            selectedOpacity = value
+            updatePreview()
+        }
 
         binding.colorDefaultButton.setOnClickListener {
             selectedColor = -1
@@ -224,28 +232,6 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
                 holder.cardView.setCardBackgroundColor(getColor(R.color.colorSurface))
                 holder.iconImage.clearColorFilter()
             }
-            
-            holder.itemView.setOnClickListener {
-                onIconSelected(name)
-            }
-        }
-
-        override fun getItemCount() = iconNames.size
-    }
-}
-w.setCardBackgroundColor(getColor(R.color.colorSurface))
-                holder.iconImage.clearColorFilter()
-            }
-            
-            holder.itemView.setOnClickListener {
-                onIconSelected(name)
-            }
-        }
-
-        override fun getItemCount() = iconNames.size
-    }
-}
-}
             
             holder.itemView.setOnClickListener {
                 onIconSelected(name)
