@@ -40,7 +40,7 @@
             android:layout_height="64dp"
             android:padding="12dp"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_overlay" />
+            android:src="@drawable/ic_0_default" />
     </com.google.android.material.card.MaterialCardView>
 
     <TextView

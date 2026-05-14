@@ -178,11 +178,9 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
             val name = iconNames[position]
             val isMore = name == OverlayIconRegistry.getMoreIconName()
             
-            val resId = if (isMore) {
-                resources.getIdentifier(name, "drawable", packageName)
-            } else {
-                resources.getIdentifier(name, "drawable", packageName)
-            }
+            val resId = resources.getIdentifier(name, "drawable", packageName)
+                .takeIf { it != 0 }
+                ?: resources.getIdentifier(OverlayIconRegistry.getDefaultIconName(), "drawable", packageName)
             
             holder.iconImage.setImageResource(resId)
             
