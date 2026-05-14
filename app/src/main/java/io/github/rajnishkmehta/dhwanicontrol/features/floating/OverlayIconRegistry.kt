@@ -3,7 +3,7 @@ package io.github.rajnishkmehta.dhwanicontrol.features.floating
 object OverlayIconRegistry {
 
     /**
-     * List of icon names available in res/drawable/
+     * List of icon names available in res/overlay/drawable/
      */
     val allIcons = listOf(
         "ic_0_default",

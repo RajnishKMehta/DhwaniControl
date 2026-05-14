@@ -85,6 +85,12 @@ android {
         versionName = appVersionName
     }
 
+    sourceSets {
+        getByName("main") {
+            res.srcDirs("src/main/res", "src/main/res/overlay")
+        }
+    }
+
     signingConfigs {
 
         create("release") {
