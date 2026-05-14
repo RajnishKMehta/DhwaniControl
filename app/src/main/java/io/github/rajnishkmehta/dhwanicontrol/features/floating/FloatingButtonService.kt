@@ -271,8 +271,3 @@ class FloatingButtonService : Service() {
         ).toInt()
     }
 }
-oat(),
-            resources.displayMetrics
-        ).toInt()
-    }
-}
