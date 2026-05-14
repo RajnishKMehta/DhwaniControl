@@ -11,6 +11,7 @@
     android:padding="8dp">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/itemIconCard"
         android:layout_width="48dp"
         android:layout_height="48dp"
         app:cardBackgroundColor="@color/colorSurface"

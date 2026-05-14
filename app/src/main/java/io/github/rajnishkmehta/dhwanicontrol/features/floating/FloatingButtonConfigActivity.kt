@@ -20,12 +20,15 @@ import io.github.rajnishkmehta.dhwanicontrol.databinding.ActivityFloatingButtonC
 import kotlinx.coroutines.launch
 import java.util.Locale
 
+import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import io.github.rajnishkmehta.dhwanicontrol.databinding.LayoutIconPickerSheetBinding
+
 class FloatingButtonConfigActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFloatingButtonConfigBinding
     private var selectedIconName: String = ""
     private var selectedColor: Int = -1
-    private var showingAllIcons = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,22 +90,33 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
     }
 
     private fun refreshIconList() {
-        val displayIcons = if (showingAllIcons) {
-            OverlayIconRegistry.allIcons
-        } else {
-            // Show up to 3 icons + more button
-            OverlayIconRegistry.allIcons.take(3) + OverlayIconRegistry.getMoreIconName()
-        }
+        val displayIcons = OverlayIconRegistry.allIcons.take(3) + OverlayIconRegistry.getMoreIconName()
 
-        binding.iconRecyclerView.adapter = IconAdapter(displayIcons) { iconName ->
+        binding.iconRecyclerView.adapter = IconAdapter(displayIcons, false) { iconName ->
             if (iconName == OverlayIconRegistry.getMoreIconName()) {
-                showingAllIcons = true
-                refreshIconList()
+                showIconPickerSheet()
             } else {
                 selectedIconName = iconName
                 updatePreview()
             }
         }
+    }
+
+    private fun showIconPickerSheet() {
+        val dialog = BottomSheetDialog(this)
+        val sheetBinding = LayoutIconPickerSheetBinding.inflate(layoutInflater)
+        dialog.setContentView(sheetBinding.root)
+
+        sheetBinding.sheetIconRecyclerView.apply {
+            layoutManager = GridLayoutManager(this@FloatingButtonConfigActivity, 3)
+            adapter = IconAdapter(OverlayIconRegistry.allIcons, true) { iconName ->
+                selectedIconName = iconName
+                updatePreview()
+                dialog.dismiss()
+            }
+        }
+
+        dialog.show()
     }
 
     private fun updatePreview() {
@@ -162,12 +176,14 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
 
     inner class IconAdapter(
         private val iconNames: List<String>,
+        private val isSheet: Boolean,
         private val onIconSelected: (String) -> Unit
     ) : RecyclerView.Adapter<IconAdapter.ViewHolder>() {
 
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val iconImage: ImageView = view.findViewById(R.id.itemIconImage)
             val iconText: TextView = view.findViewById(R.id.itemIconText)
+            val cardView: com.google.android.material.card.MaterialCardView = view.findViewById(R.id.itemIconCard)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -187,13 +203,24 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
             holder.iconImage.setImageResource(resId)
             
             if (isMore) {
-                holder.iconText.text = "More"
+                holder.iconText.text = getString(R.string.floating_config_more)
+                holder.cardView.setCardBackgroundColor(getColor(R.color.colorSurfaceVariant))
+                holder.cardView.strokeWidth = 0
+                holder.iconImage.setColorFilter(getColor(R.color.colorPrimary))
             } else {
-                // Format name: ic_1_volume_up -> volume up
-                // Use limit=3 to split into ["ic", "number", "name_with_underscores"]
                 val parts = name.split("_", limit = 3)
                 val iconName = parts.getOrNull(2)?.replace("_", " ") ?: ""
                 holder.iconText.text = iconName
+                
+                if (selectedIconName == name) {
+                    holder.cardView.strokeColor = getColor(R.color.colorPrimary)
+                    holder.cardView.strokeWidth = dpToPx(2)
+                } else {
+                    holder.cardView.strokeColor = getColor(R.color.colorSurfaceVariant)
+                    holder.cardView.strokeWidth = dpToPx(1)
+                }
+                holder.cardView.setCardBackgroundColor(getColor(R.color.colorSurface))
+                holder.iconImage.clearColorFilter()
             }
             
             holder.itemView.setOnClickListener {
