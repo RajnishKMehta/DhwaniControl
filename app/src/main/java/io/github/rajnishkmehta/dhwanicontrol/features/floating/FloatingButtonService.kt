@@ -83,23 +83,26 @@ class FloatingButtonService : Service() {
         val iconName = AppPreferences.getFloatingIconName(this)
         val iconResId = resources.getIdentifier(iconName, "drawable", packageName)
             .takeIf { it != 0 } ?: resources.getIdentifier("ic_0_default", "drawable", packageName)
+val iconColor = AppPreferences.getFloatingIconColor(this)
+val tintColor = if (iconColor == -1) {
+    getColor(R.color.colorPrimary)
+} else {
+    iconColor
+}
 
-        val iconColor = AppPreferences.getFloatingIconColor(this)
-        val tintColor = if (iconColor == -1) {
-            getColor(R.color.colorPrimary)
-        } else {
-            iconColor
-        }
+val opacity = AppPreferences.getFloatingOpacity(this)
 
-        if (floatingView != null) {
-            (floatingView as? ImageView)?.let {
-                it.setImageResource(iconResId)
-                it.setColorFilter(tintColor)
-            }
-            return
-        }
+if (floatingView != null) {
+    (floatingView as? ImageView)?.let {
+        it.setImageResource(iconResId)
+        it.setColorFilter(tintColor)
+        it.alpha = opacity
+    }
+    return
+}
 
-        val iconSize = dpToPx(48)
+val iconSize = dpToPx(48)
+
         val position = AppPreferences.getFloatingPosition(this)
 
         val layoutParams = WindowManager.LayoutParams(

@@ -233,6 +233,18 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
         override fun getItemCount() = iconNames.size
     }
 }
+w.setCardBackgroundColor(getColor(R.color.colorSurface))
+                holder.iconImage.clearColorFilter()
+            }
+            
+            holder.itemView.setOnClickListener {
+                onIconSelected(name)
+            }
+        }
+
+        override fun getItemCount() = iconNames.size
+    }
+}
 }
             
             holder.itemView.setOnClickListener {
