@@ -6,20 +6,20 @@ object OverlayIconRegistry {
      * List of icon names available in res/overlay/drawable/
      */
     val allIcons = listOf(
-        "sound_detection_loud_sound_24",
-        "discover_tune_24",
-        "adjust_24",
-        "brand_awareness_24",
-        "mobile_speaker_24",
-        "headphones_24",
-        "sliders_24",
-        "volume_down_24",
-        "speaker_phone_24",
-        "doorbell_chime_24",
-        "mobile_sound_24"
+        "ic_0_default",
+        "ic_1_tune",
+        "ic_2_adjust",
+        "ic_3_awareness_sound",
+        "ic_4_mobile_speaker",
+        "ic_5_headphones",
+        "ic_6_volume_down",
+        "ic_7_speaker_phone",
+        "ic_8_doorbell_chime",
+        "ic_9_mobile_sound",
+        "ic_10_panel"
     )
 
     fun getDefaultIconName(): String = allIcons.first()
 
-    fun getMoreIconName(): String = "cards_24"
+    fun getMoreIconName(): String = "ic_cards"
 }
