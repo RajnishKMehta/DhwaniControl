@@ -1,15 +1,9 @@
 package io.github.rajnishkmehta.dhwanicontrol.features.floating
 
-import android.content.Context
-import io.github.rajnishkmehta.dhwanicontrol.R
-
 object OverlayIconRegistry {
 
     /**
-     * List of icon names available in res/drawable/overlay/
-     * This list can be manually updated or ideally discovered.
-     * Since dynamic discovery of resource names by pattern at runtime is 
-     * resource-intensive, we use a controlled list.
+     * List of icon names available in res/drawable/
      */
     val allIcons = listOf(
         "ic_0_default",
