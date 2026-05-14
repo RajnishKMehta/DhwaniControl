@@ -2,6 +2,8 @@ package io.github.rajnishkmehta.dhwanicontrol.features.floating
 
 import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,13 +21,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFloatingButtonConfigBinding
     private var selectedIconName: String = ""
     private var selectedColor: Int = -1
-
-    private val icons = listOf(
-        "ic_1_volume-up",
-        "ic_2_volume-down",
-        "ic_3_volume-medium",
-        "ic_4_sound"
-    )
+    private var showingAllIcons = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,13 +36,11 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
     }
 
     private fun setupUI() {
-        binding.iconRecyclerView.adapter = IconAdapter(icons) { iconName ->
-            selectedIconName = iconName
-            updatePreview()
-        }
+        refreshIconList()
 
         binding.colorDefaultButton.setOnClickListener {
             selectedColor = -1
+            binding.hexColorInput.setText("")
             updatePreview()
         }
 
@@ -54,18 +48,64 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
             showColorPickerDialog()
         }
 
+        binding.hexColorInput.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                val hex = s.toString()
+                if (hex.isEmpty()) return
+                
+                runCatching {
+                    val color = Color.parseColor(if (hex.startsWith("#")) hex else "#$hex")
+                    selectedColor = color
+                    binding.hexColorInputLayout.error = null
+                    updatePreview()
+                }.onFailure {
+                    binding.hexColorInputLayout.error = getString(R.string.floating_config_invalid_hex)
+                }
+            }
+        })
+
+        if (selectedColor != -1) {
+            binding.hexColorInput.setText(String.format("#%06X", 0xFFFFFF and selectedColor))
+        }
+
         binding.saveConfigButton.setOnClickListener {
             AppPreferences.setFloatingIconName(this, selectedIconName)
             AppPreferences.setFloatingIconColor(this, selectedColor)
-            FloatingButtonRuntime.sync(this)
+            
+            // Restart feature if enabled
+            if (AppPreferences.isFloatingEnabled(this)) {
+                FloatingButtonRuntime.sync(this)
+            }
+            
             Toast.makeText(this, R.string.floating_config_saved, Toast.LENGTH_SHORT).show()
             finish()
         }
     }
 
+    private fun refreshIconList() {
+        val displayIcons = if (showingAllIcons) {
+            OverlayIconRegistry.allIcons
+        } else {
+            // Show up to 3 icons + more button
+            OverlayIconRegistry.allIcons.take(3) + OverlayIconRegistry.getMoreIconName()
+        }
+
+        binding.iconRecyclerView.adapter = IconAdapter(displayIcons) { iconName ->
+            if (iconName == OverlayIconRegistry.getMoreIconName()) {
+                showingAllIcons = true
+                refreshIconList()
+            } else {
+                selectedIconName = iconName
+                updatePreview()
+            }
+        }
+    }
+
     private fun updatePreview() {
         val iconResId = resources.getIdentifier(selectedIconName, "drawable", packageName)
-            .takeIf { it != 0 } ?: R.drawable.ic_overlay
+            .takeIf { it != 0 } ?: resources.getIdentifier(OverlayIconRegistry.getDefaultIconName(), "drawable", packageName)
         
         binding.iconPreview.setImageResource(iconResId)
         
@@ -104,6 +144,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
                 backgroundTintList = android.content.res.ColorStateList.valueOf(color)
                 setOnClickListener {
                     selectedColor = color
+                    binding.hexColorInput.setText(String.format("#%06X", 0xFFFFFF and color))
                     updatePreview()
                     dialog.dismiss()
                 }
@@ -135,17 +176,25 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val name = iconNames[position]
-            val resId = resources.getIdentifier(name, "drawable", packageName)
-                .takeIf { it != 0 } ?: R.drawable.ic_overlay
+            val isMore = name == OverlayIconRegistry.getMoreIconName()
+            
+            val resId = if (isMore) {
+                resources.getIdentifier(name, "drawable", packageName)
+            } else {
+                resources.getIdentifier(name, "drawable", packageName)
+            }
             
             holder.iconImage.setImageResource(resId)
             
-            // Format name: ic_1_volume-up -> 1. volume up
-            val parts = name.split("_")
-            val place = parts.getOrNull(1) ?: ""
-            val iconName = parts.getOrNull(2)?.replace("-", " ") ?: ""
-            
-            holder.iconText.text = "$place. $iconName"
+            if (isMore) {
+                holder.iconText.text = "More"
+            } else {
+                // Format name: ic_1_volume-up -> 1. volume up
+                val parts = name.split("_")
+                val place = parts.getOrNull(1) ?: ""
+                val iconName = parts.getOrNull(2)?.replace("-", " ") ?: ""
+                holder.iconText.text = if (place.isNotEmpty()) "$place. $iconName" else iconName
+            }
             
             holder.itemView.setOnClickListener {
                 onIconSelected(name)

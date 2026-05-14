@@ -72,7 +72,7 @@ object AppPreferences {
     }
 
     fun getFloatingIconName(context: Context): String {
-        return getStringSafe(preferences(context), Constants.PREF_FLOATING_ICON_NAME, "ic_1_volume-up")
+        return getStringSafe(preferences(context), Constants.PREF_FLOATING_ICON_NAME, "ic_0_default")
     }
 
     fun setFloatingIconName(context: Context, name: String) {

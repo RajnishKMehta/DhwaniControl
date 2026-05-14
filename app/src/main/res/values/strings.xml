@@ -115,6 +115,8 @@
     <string name="floating_config_choose_color">Choose Color</string>
     <string name="floating_config_color_default">Default</string>
     <string name="floating_config_pick_color">Pick Color</string>
+    <string name="floating_config_hex_color_hint">Hex color (e.g. #FF0000)</string>
+    <string name="floating_config_invalid_hex">Invalid hex color</string>
     <string name="floating_config_save">Save Configuration</string>
     <string name="floating_config_saved">Configuration saved</string>
 
