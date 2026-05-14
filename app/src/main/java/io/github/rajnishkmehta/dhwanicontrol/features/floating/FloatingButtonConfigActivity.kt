@@ -189,11 +189,11 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
             if (isMore) {
                 holder.iconText.text = "More"
             } else {
-                // Format name: ic_1_volume-up -> 1. volume up
-                val parts = name.split("_")
-                val place = parts.getOrNull(1) ?: ""
-                val iconName = parts.getOrNull(2)?.replace("-", " ") ?: ""
-                holder.iconText.text = if (place.isNotEmpty()) "$place. $iconName" else iconName
+                // Format name: ic_1_volume_up -> volume up
+                // Use limit=3 to split into ["ic", "number", "name_with_underscores"]
+                val parts = name.split("_", limit = 3)
+                val iconName = parts.getOrNull(2)?.replace("_", " ") ?: ""
+                holder.iconText.text = iconName
             }
             
             holder.itemView.setOnClickListener {

@@ -7,9 +7,9 @@ object OverlayIconRegistry {
      */
     val allIcons = listOf(
         "ic_0_default",
-        "ic_1_volume-up",
-        "ic_2_volume-down",
-        "ic_3_volume-medium",
+        "ic_1_volume_up",
+        "ic_2_volume_down",
+        "ic_3_volume_medium",
         "ic_4_sound"
     )
 
