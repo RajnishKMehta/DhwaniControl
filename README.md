@@ -41,6 +41,14 @@
 
 ---
 
+## 🧐 Why it exists
+
+My phone's physical volume buttons are broken, and constantly opening settings just to change the volume was annoying as hell.
+
+So I built this app for myself and later open-sourced it so others with the same problem can use it too.
+
+---
+
 ## 🛠 Tech & Performance
 
 DhwaniControl is built with performance and longevity in mind:
@@ -53,7 +61,7 @@ DhwaniControl is built with performance and longevity in mind:
 
 ## 📄 License
 
-Licensed under the **Apache License 2.0**. See the [LICENSE](LICENSE) for more info.
+Licensed under the **[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)**. See the [LICENSE](LICENSE) for more info.
 
 <p align="center">
   <i>Empowering users through accessibility.</i>
