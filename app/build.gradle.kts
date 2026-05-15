@@ -5,8 +5,8 @@ plugins {
 val appId = "io.github.rajnishkmehta.dhwanicontrol"
 
 // VERSIONING
-val versionMajor = 0
-val versionMinor = 5
+val versionMajor = 1
+val versionMinor = 0
 val versionPatch = 0
 val versionBuild =
     System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull() ?: 1
@@ -87,7 +87,7 @@ android {
 
     sourceSets {
         getByName("main") {
-            res.srcDirs("src/main/res", "src/main/res/overlay")
+            res.srcDirs(mutableSetOf("src/main/res", "src/main/res/overlay"))
         }
     }
 
@@ -122,6 +122,7 @@ android {
 
             isMinifyEnabled = true
             isShrinkResources = true
+            isDebuggable = false
 
             if (hasReleaseSigning) {
                 signingConfig =

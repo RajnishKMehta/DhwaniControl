@@ -1,41 +1,54 @@
 # User Guide
 
-This guide covers first-time setup and normal usage.
+![Version](https://img.shields.io/github/v/release/RajnishKMehta/DhwaniControl?include_prereleases&style=flat-square)
 
-## Requirements
+This guide covers the initial setup and daily usage of DhwaniControl.
 
-- Android 10 (API 29) or newer
-- Overlay permission for Edge Swipe
-- Notification permission on Android 13+ for the edge background service
+---
 
-## First-Time Setup
+## 🛠 Prerequisites
 
-1. Install the APK.
-2. Open **DhwaniControl**.
-3. Explore the available features in the [Features Guide](features.md).
-4. On Home, open **Quick Settings Tile** and follow the in-app guide.
-5. Add the **Volume Panel** tile in Android Quick Settings.
-6. Optionally set up **Edge Swipe** or **Floating Button** from their respective **Config** buttons.
+- **Android Version**: Android 10 (API 29) or newer.
+- **System Permissions**: 
+    - `Overlay Permission` (required for Edge Swipe and Floating Button).
+    - `Notification Permission` (required for Android 13+ background services).
 
-Detailed feature guides:
-- [Quick Settings Tile Guide](quick-settings-tile.md)
-- [Floating Button Guide](floating-button.md)
-- [Edge Swipe Guide](edge-swipe.md)
+---
 
-## Daily Usage
+## 🏁 Getting Started
 
-- Tap the **Volume Panel** tile from Quick Settings to open volume controls.
-- If Edge Swipe is enabled, swipe inward from the configured edge.
-- Use each feature card's **Config** button for feature-specific setup.
-- Tap the top-right info button on Home to view app and developer information.
+1. **Install**: Sideload the APK or install via F-Droid.
+2. **Launch**: Open **DhwaniControl** from your app drawer.
+3. **Configure Quick Settings**:
+    - Go to `Home -> Quick Settings Tile -> Config`.
+    - Follow the step-by-step visual guide to add the tile to your notification panel.
+4. **Enable Triggers**:
+    - Toggle on **Floating Button** or **Edge Swipe** based on your preference.
+    - Grant any requested permissions to activate the feature.
 
-## Troubleshooting
+---
 
-- **Edge Swipe card is unavailable**
-  - Your device is likely using gesture navigation.
-  - Switch to button navigation in Android Settings, then reopen the app.
-- **Edge Swipe does not trigger**
-  - Confirm overlay permission is granted.
-  - Confirm the Edge Swipe toggle is ON.
-- **Quick Settings tile is missing**
-  - Reopen Quick Settings edit mode and check available tiles again.
+## 💡 Daily Usage
+
+- **Quick Access**: Tap the **Volume Panel** tile in your Quick Settings at any time.
+- **Gestures**: If Edge Swipe is active, swipe inward from your chosen screen edge.
+- **Overlay**: Tap the floating button icon to trigger the volume panel.
+- **Repositioning**: Long-press and drag the Floating Button to any screen location.
+- **Customization**: Use the **Config** button on any feature card to adjust styles and behavior.
+
+---
+
+## 🔍 Troubleshooting
+
+- **Feature says "Configuration required"**: Open the **Config** menu for that feature and complete the setup.
+- **Edge Swipe is hidden**: Ensure you are using **3-Button Navigation** mode in Android settings. Gesture navigation is currently incompatible with edge triggers.
+- **Floating Button disappears**: The system may have revoked the overlay permission. Check the permission status on the feature card.
+
+---
+
+## 📚 Related Documentation
+
+- [Features Overview](features.md)
+- [Floating Button Customization](floating-button.md)
+- [Edge Swipe Configuration](edge-swipe.md)
+- [Quick Settings Setup](quick-settings-tile.md)
