@@ -18,7 +18,9 @@ on:
       - main
     paths:
       - 'app/build.gradle.kts'
- 
+
+  workflow_dispatch:
+
 permissions:
   contents: write
  
