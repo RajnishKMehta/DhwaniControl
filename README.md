@@ -1,37 +1,59 @@
-# DhwaniControl
+# <img src="app/src/main/res/play_store_512.png" width="48" height="48"> DhwaniControl
 
-DhwaniControl helps you open Android's native volume panel without using hardware volume buttons.
+[![GitHub Release](https://img.shields.io/github/v/release/RajnishKMehta/DhwaniControl?include_prereleases&style=for-the-badge&logo=github)](https://github.com/RajnishKMehta/DhwaniControl/releases/tag/latest)
+[![F-Droid](https://img.shields.io/f-droid/v/io.github.rajnishkmehta.dhwanicontrol?style=for-the-badge&logo=f-droid)](https://f-droid.org/packages/io.github.rajnishkmehta.dhwanicontrol)
+[![License](https://img.shields.io/github/license/RajnishKMehta/DhwaniControl?style=for-the-badge)](LICENSE)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/RajnishKMehta/DhwaniControl/release-build.yml?style=for-the-badge&logo=github-actions)](https://github.com/RajnishKMehta/DhwaniControl/actions)
 
-## Why DhwaniControl?
+**DhwaniControl** is a professional Android utility designed to restore volume control functionality for devices with broken or unresponsive physical buttons. Access the native system volume panel via Quick Settings, Edge Gestures, or a persistent Floating Button.
 
-I have created this app because my phone's physical volume buttons are broken. Navigating to the Settings menu every time I want to change the volume is frustrating. I build and maintain this app for my own use to provide easy access to volume controls via gestures and tiles, and I've open-sourced it so that anyone else facing similar hardware issues can benefit.
+---
 
-## Features
+## 📥 Get the App
 
-- **Quick Settings Tile**: Add a tile and tap it to open Android volume controls.
-- **Edge Swipe**: Swipe inward from your selected edge to open Android volume controls.
+[<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/io.github.rajnishkmehta.dhwanicontrol)
 
-## Install
+### Direct Download
+[![Download APK](https://img.shields.io/badge/Download-Latest_APK-blue?style=for-the-badge&logo=android)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/latest/DhwaniControl.apk)
 
-[![Download DhwaniControl APK](https://img.shields.io/badge/APK_v0.5.0-Download-blue?logo=android&style=for-the-badge)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/v0.5.0/DhwaniControl.apk)
+---
 
-## Documentation
+## ✨ Pro Features
 
-- User setup and daily usage: [`docs/user-guide.md`](docs/user-guide.md)
-- Feature overview and requirements: [`docs/features.md`](docs/features.md)
-- Quick Settings Tile walkthrough with screenshots: [`docs/quick-settings-tile.md`](docs/quick-settings-tile.md)
-- Edge Swipe setup and behavior: [`docs/edge-swipe.md`](docs/edge-swipe.md)
-- How to add a new feature in code: [`docs/add-feature.md`](docs/add-feature.md)
-- Contributing guide: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- **🚀 Quick Settings Tile**: Seamlessly integrated into your notification shade.
+- **↔️ Edge Swipe Gestures**: Trigger volume panel with a discreet inward swipe.
+- **🔘 Custom Floating Button**: A movable on-screen trigger with custom icons, colors, and opacity.
+- **🎨 Material 3 Design**: Modern, clean, and fully responsive user interface.
+- **🔋 Battery Optimized**: Uses high-efficiency foreground services to ensure availability without drain.
+- **🔒 Privacy Driven**: No trackers, no unnecessary permissions, and 100% open-source.
 
-## Tech
+---
 
-- Kotlin + XML + ViewBinding
-- Single Android module
-- Feature contracts under `core/feature`
-- Availability and blocking policy under `core/block`
-- Permission checks under `core/permission`
+## 📖 Detailed Documentation
 
-## License
+- [**User Guide**](docs/user-guide.md) - Learn how to set up and use DhwaniControl.
+- [**Feature Breakdown**](docs/features.md) - Comprehensive list of all triggers and settings.
+- [**Quick Settings Guide**](docs/quick-settings-tile.md) - Visual guide for adding the tile.
+- [**Floating Button Guide**](docs/floating-button.md) - Personalization and behavior guide.
+- [**Edge Swipe Guide**](docs/edge-swipe.md) - Gesture configuration details.
+- [**Contributing**](CONTRIBUTING.md) - Join the development and improve the app.
 
-Apache-2.0. See [LICENSE](LICENSE).
+---
+
+## 🛠 Tech & Performance
+
+DhwaniControl is built with performance and longevity in mind:
+- **Language**: Kotlin 2.1.0
+- **Toolchain**: Java 21 & Gradle 9.5
+- **Optimization**: R8 Full Mode for minimal binary size and code obfuscation.
+- **Android Support**: Fully optimized for Android 10 (API 29) up to Android 15.
+
+---
+
+## 📄 License
+
+Licensed under the **Apache License 2.0**. See the [LICENSE](LICENSE) for more info.
+
+<p align="center">
+  <i>Empowering users through accessibility.</i>
+</p>

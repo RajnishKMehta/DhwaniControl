@@ -1,72 +1,71 @@
-# Features
+# Features Overview
 
-DhwaniControl currently ships with two features.
+![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=flat-square)
 
-## 1) Quick Settings Tile
+DhwaniControl provides multiple ways to access your device's volume controls. Each feature is designed to be lightweight, efficient, and non-intrusive.
 
-**What it does**
-- Adds a tile labeled **Volume Panel** to Android Quick Settings.
-- Tapping the tile opens Android's native volume controls.
+---
 
-**Requirements**
-- No runtime permission is required for normal use.
-
-**Configuration entry**
-- Home -> Quick Settings Tile -> **Config**
-
-## 2) Floating Button
+## 1) Quick Settings Tile 🚀
 
 **What it does**
-- Displays a movable icon that stays on top of other apps.
-- **Customizable:** You can choose the icon design and its color.
-- **Movable:** Long-press and drag the icon to reposition it anywhere.
-- Tapping the icon opens Android's native volume controls.
+- Adds a professional **Volume Panel** tile to your system's Quick Settings.
+- Tap the tile from any screen to instantly open native volume controls.
 
-**Requirements**
-- Draw over other apps permission
-- Notification permission on Android 13+
+**Key Highlights**
+- Zero background battery drain.
+- No special permissions required for basic operation.
 
-**Configuration entry**
-- Home -> Floating Button -> **Config**
+**Configuration**
+- Accessible via: `Home -> Quick Settings Tile -> Config`
 
-## 3) Edge Swipe
+---
+
+## 2) Floating Button 🔘
 
 **What it does**
-- Detects inward swipes from the configured screen edge (Left or Right).
-- Highly responsive and stays out of the way when not needed.
-- Opens Android's native volume controls.
+- A persistent, movable overlay button that stays on top of all applications.
+- **Customizable**: Choose from a variety of icons and set custom colors/opacity.
+- **Draggable**: Long-press and move it to any position on your screen.
 
 **Requirements**
-- Draw over other apps permission
-- Notification permission on Android 13+
-- Button navigation mode (gesture navigation blocks this feature)
+- `Display over other apps` permission.
+- `Notification permission` (Android 13+).
 
-**Configuration entry**
-- Home -> Edge Swipe -> **Config**
+**Configuration**
+- Accessible via: `Home -> Floating Button -> Config`
 
-## Detailed Feature Guides
+---
 
-For in-depth setup and technical details of each feature, please refer to the following documents:
+## 3) Edge Swipe ↔️
+
+**What it does**
+- Triggers volume controls by swiping inward from the screen edge.
+- Discreet and highly responsive gesture-based trigger.
+
+**Requirements**
+- `Display over other apps` permission.
+- `Notification permission` (Android 13+).
+- **Note**: Requires button-based navigation (gesture navigation may interfere).
+
+**Configuration**
+- Accessible via: `Home -> Edge Swipe -> Config`
+
+---
+
+## 🛠 Feature Management System
+
+DhwaniControl uses an intelligent management system to ensure stability:
+
+1. **Permission Guard**: Features automatically prompt for missing permissions when toggled.
+2. **Auto-Shutdown**: If a required permission is revoked, the feature gracefully turns itself OFF.
+3. **Hardware Compatibility**: Some features (like Edge Swipe) intelligently detect if your system settings (like navigation mode) are compatible.
+4. **Persistent State**: Your preferences and toggle states are saved and restored automatically on device reboot.
+
+---
+
+## 📖 Detailed Guides
 
 - [Quick Settings Tile Guide](quick-settings-tile.md)
 - [Floating Button Guide](floating-button.md)
 - [Edge Swipe Guide](edge-swipe.md)
-
-## Feature Ordering
-
-Feature order is controlled by metadata in each feature controller:
-
-- `displayOrder = 1` -> Quick Settings Tile
-- `displayOrder = 2` -> Floating Button
-- `displayOrder = 3` -> Edge Swipe
-
-The Home screen and registry use this metadata to render a stable, predictable order.
-
-## Feature Management System
-
-DhwaniControl uses a granular management system to ensure features only run when fully ready:
-
-1. **Permissions First:** If a feature lacks required permissions, its status will show **Permission required**. Toggling it ON will prompt for permissions.
-2. **Auto-Disabling:** If a granted permission is revoked later, the feature will automatically turn itself **OFF** to prevent crashes.
-3. **Smart Configuration:** Features that need manual setup (like Edge Swipe) will show **Configuration required** until completed. Features without complex setup (like Floating Button) hide the **Config** button for a cleaner UI.
-4. **Safety Blocks:** System-level settings (like Gesture Navigation) can temporarily block incompatible features to ensure a smooth user experience.
