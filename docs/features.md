@@ -1,6 +1,6 @@
 # Features Overview
 
-![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=flat-square)
+![Version](https://img.shields.io/github/v/release/RajnishKMehta/DhwaniControl?include_prereleases&style=flat-square)
 
 DhwaniControl provides multiple ways to access your device's volume controls. Each feature is designed to be lightweight, efficient, and non-intrusive.
 
@@ -9,7 +9,7 @@ DhwaniControl provides multiple ways to access your device's volume controls. Ea
 ## 1) Quick Settings Tile 🚀
 
 **What it does**
-- Adds a professional **Volume Panel** tile to your system's Quick Settings.
+- Adds a **Volume Panel** tile to your system's Quick Settings.
 - Tap the tile from any screen to instantly open native volume controls.
 
 **Key Highlights**

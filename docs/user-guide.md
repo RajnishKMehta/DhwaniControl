@@ -1,6 +1,6 @@
 # User Guide
 
-![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=flat-square)
+![Version](https://img.shields.io/github/v/release/RajnishKMehta/DhwaniControl?include_prereleases&style=flat-square)
 
 This guide covers the initial setup and daily usage of DhwaniControl.
 

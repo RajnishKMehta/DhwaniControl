@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/github/license/RajnishKMehta/DhwaniControl?style=for-the-badge)](LICENSE)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/RajnishKMehta/DhwaniControl/release-build.yml?style=for-the-badge&logo=github-actions)](https://github.com/RajnishKMehta/DhwaniControl/actions)
 
-**DhwaniControl** is a professional Android utility designed to restore volume control functionality for devices with broken or unresponsive physical buttons. Access the native system volume panel via Quick Settings, Edge Gestures, or a persistent Floating Button.
+**DhwaniControl** is a Android utility designed to restore volume control functionality for devices with broken or unresponsive physical volume buttons. Access the native system volume panel via Quick Settings, Edge Gestures, or a persistent Floating Button.
 
 ---
 
@@ -46,7 +46,7 @@ DhwaniControl is built with performance and longevity in mind:
 - **Language**: Kotlin 2.1.0
 - **Toolchain**: Java 21 & Gradle 9.5
 - **Optimization**: R8 Full Mode for minimal binary size and code obfuscation.
-- **Android Support**: Fully optimized for Android 10 (API 29) up to Android 15.
+- **Android Support**: Fully optimized for Android 10 (API 29) up to Android 16.
 
 ---
 
