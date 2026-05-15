@@ -273,12 +273,12 @@ class VolumeOverlayService : Service() {
         )
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            val vibratorManager = getSystemService(VIBRATOR_MANAGER_SERVICE) as? VibratorManager
+            val vibratorManager = getSystemService(VibratorManager::class.java)
             vibratorManager?.defaultVibrator?.vibrate(effect)
             return
         }
 
-        val vibrator = getSystemService(VIBRATOR_SERVICE) as? Vibrator ?: return
+        val vibrator = getSystemService(Vibrator::class.java) ?: return
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             vibrator.vibrate(effect)
         } else {
