@@ -12,12 +12,15 @@ This guide covers first-time setup and normal usage.
 
 1. Install the APK.
 2. Open **DhwaniControl**.
-3. On Home, open **Quick Settings Tile** and follow the in-app guide.
-4. Add the **Volume Panel** tile in Android Quick Settings.
-5. Optionally set up **Edge Swipe** from its Config button.
+3. Explore the available features in the [Features Guide](features.md).
+4. On Home, open **Quick Settings Tile** and follow the in-app guide.
+5. Add the **Volume Panel** tile in Android Quick Settings.
+6. Optionally set up **Edge Swipe** or **Floating Button** from their respective **Config** buttons.
 
-Detailed tile steps with screenshots:
-[`docs/quick-settings-tile.md`](quick-settings-tile.md)
+Detailed feature guides:
+- [Quick Settings Tile Guide](quick-settings-tile.md)
+- [Floating Button Guide](floating-button.md)
+- [Edge Swipe Guide](edge-swipe.md)
 
 ## Daily Usage
 

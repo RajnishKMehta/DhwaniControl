@@ -1,6 +1,7 @@
 package io.github.rajnishkmehta.dhwanicontrol.home
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -40,6 +41,19 @@ class HomeActivity : AppCompatActivity() {
         binding.featureRecyclerView.adapter = adapter
         binding.homeInfoButton.setOnClickListener {
             startActivity(Intent(this, AppInfoActivity::class.java))
+        }
+        binding.homeHelpButton.setOnClickListener {
+            openHelpLink()
+        }
+    }
+
+    private fun openHelpLink() {
+        val url = getString(R.string.app_info_help_url)
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        runCatching {
+            startActivity(intent)
+        }.onFailure {
+            Toast.makeText(this, R.string.app_info_open_link_failed, Toast.LENGTH_SHORT).show()
         }
     }
 

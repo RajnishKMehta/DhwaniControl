@@ -58,6 +58,10 @@ class AppInfoActivity : AppCompatActivity() {
         binding.openDevToButton.setOnClickListener {
             openLink(getString(R.string.app_info_link_devto))
         }
+
+        binding.appInfoHelpButton.setOnClickListener {
+            openLink(getString(R.string.app_info_help_url))
+        }
     }
 
     override fun onDestroy() {

@@ -12,6 +12,9 @@ The Floating Button feature provides a constant, movable point of access to your
 ## Setup & Configuration
 
 - **Enable/Disable:** Use the toggle on the home screen.
+- **Customization:** Tap **Config** on the floating button card to:
+    - Choose from multiple icon designs (Volume Up, Volume Down, Sound, etc.).
+    - Change the icon color to match your preference or theme.
 - **Permissions:** 
     - **Display over other apps:** Necessary to show the button on top of other apps.
     - **Notifications:** Required to keep the service running in the background reliably.
@@ -19,5 +22,8 @@ The Floating Button feature provides a constant, movable point of access to your
 ## Technical Details
 
 - **Service:** `FloatingButtonService` handles the `WindowManager` logic and touch events.
-- **Preferences:** Coordinates are stored in `SharedPreferences` as `feature.floating.x` and `feature.floating.y`.
+- **Preferences:** 
+    - Coordinates: `feature.floating.x` and `feature.floating.y`.
+    - Icon Name: `feature.floating.icon_name`.
+    - Icon Color: `feature.floating.icon_color`.
 - **Haptics:** Uses `VIRTUAL_KEY` feedback for taps and `LONG_PRESS` feedback for initiating drags.

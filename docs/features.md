@@ -17,22 +17,23 @@ DhwaniControl currently ships with two features.
 ## 2) Floating Button
 
 **What it does**
-- Displays a movable button that stays on top of other apps.
-- Tapping the button opens Android's native volume controls.
-- Long-pressing and dragging the button allows you to reposition it anywhere on the screen.
-- Saves the last position across app restarts.
+- Displays a movable icon that stays on top of other apps.
+- **Customizable:** You can choose the icon design and its color.
+- **Movable:** Long-press and drag the icon to reposition it anywhere.
+- Tapping the icon opens Android's native volume controls.
 
 **Requirements**
 - Draw over other apps permission
 - Notification permission on Android 13+
 
 **Configuration entry**
-- Home -> Floating Button (Toggle only)
+- Home -> Floating Button -> **Config**
 
 ## 3) Edge Swipe
 
 **What it does**
-- Detects inward swipes from the configured screen edge.
+- Detects inward swipes from the configured screen edge (Left or Right).
+- Highly responsive and stays out of the way when not needed.
 - Opens Android's native volume controls.
 
 **Requirements**
@@ -42,6 +43,14 @@ DhwaniControl currently ships with two features.
 
 **Configuration entry**
 - Home -> Edge Swipe -> **Config**
+
+## Detailed Feature Guides
+
+For in-depth setup and technical details of each feature, please refer to the following documents:
+
+- [Quick Settings Tile Guide](quick-settings-tile.md)
+- [Floating Button Guide](floating-button.md)
+- [Edge Swipe Guide](edge-swipe.md)
 
 ## Feature Ordering
 

@@ -27,14 +27,23 @@
             android:textStyle="bold" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/homeHelpButton"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_need_help"
+            app:icon="@drawable/ic_help_placeholder"
+            app:iconSize="20dp"
+            app:iconTint="@color/colorAccent" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/homeInfoButton"
-            style="@style/Widget.Material3.Button.IconButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="12dp"
-            android:contentDescription="@string/home_info_button_content_description"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_info_title"
             app:icon="@drawable/ic_info"
-            app:iconSize="24dp"
+            app:iconSize="20dp"
             app:iconTint="@color/colorAccent" />
     </LinearLayout>
 

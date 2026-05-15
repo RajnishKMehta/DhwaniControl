@@ -109,6 +109,23 @@
     <string name="app_info_link_linkedin">https://www.linkedin.com/in/RajnishKMehta</string>
     <string name="app_info_link_devto">https://dev.to/RajnishKMehta</string>
 
+    <string name="floating_config_title">Configure Floating Button</string>
+    <string name="floating_config_subtitle">Customize the icon and color of your floating volume button.</string>
+    <string name="floating_config_choose_icon">Choose Icon</string>
+    <string name="floating_config_choose_color">Choose Color</string>
+    <string name="floating_config_color_default">Default</string>
+    <string name="floating_config_pick_color">Pick Color</string>
+    <string name="floating_config_hex_color_hint">Hex color (e.g. #FF0000)</string>
+    <string name="floating_config_invalid_hex">Invalid hex color</string>
+    <string name="floating_config_save">Save Configuration</string>
+    <string name="floating_config_saved">Configuration saved</string>
+    <string name="floating_config_more">More Icons</string>
+    <string name="floating_config_opacity">Opacity</string>
+
+    <string name="home_need_help">Need Help</string>
+    <string name="app_info_need_help">Need Help</string>
+    <string name="app_info_help_url">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/user-guide.md</string>
+
     <string name="notification_channel_name">DhwaniControl edge swipe service</string>
     <string name="notification_channel_description">Keeps edge swipe detection active</string>
     <string name="notification_title">Edge Swipe Overlay is active</string>
