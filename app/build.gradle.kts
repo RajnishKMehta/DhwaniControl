@@ -87,7 +87,7 @@ android {
 
     sourceSets {
         getByName("main") {
-            res.srcDirs("src/main/res", "src/main/res/overlay")
+            res.srcDirs(mutableSetOf("src/main/res", "src/main/res/overlay"))
         }
     }
 
@@ -122,7 +122,7 @@ android {
 
             isMinifyEnabled = true
             isShrinkResources = true
-            debuggable = false
+            isDebuggable = false
 
             if (hasReleaseSigning) {
                 signingConfig =
