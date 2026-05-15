@@ -122,6 +122,7 @@ android {
 
             isMinifyEnabled = true
             isShrinkResources = true
+            debuggable = false
 
             if (hasReleaseSigning) {
                 signingConfig =
