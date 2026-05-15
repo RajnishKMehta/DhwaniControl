@@ -1,4 +1,4 @@
-# <img src="app/src/main/res/play_store_512.png" width="48" height="48"> DhwaniControl
+# <img src="app/src/main/res/play_store_512.png" alt="DhwaniControl app icon" width="48" height="48"> DhwaniControl
 
 [![GitHub Release](https://img.shields.io/github/v/release/RajnishKMehta/DhwaniControl?include_prereleases&style=for-the-badge&logo=github)](https://github.com/RajnishKMehta/DhwaniControl/releases/tag/latest)
 [![F-Droid](https://img.shields.io/f-droid/v/io.github.rajnishkmehta.dhwanicontrol?style=for-the-badge&logo=f-droid)](https://f-droid.org/packages/io.github.rajnishkmehta.dhwanicontrol)
