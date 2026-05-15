@@ -1,6 +1,7 @@
-# <img src="app/src/main/res/play_store_512.png" alt="DhwaniControl app icon" width="48" height="48"> DhwaniControl
+# <img src="app/src/main/play_store_512.png" alt="DhwaniControl app icon" width="48" height="48"> DhwaniControl
 
-[![GitHub Release](https://img.shields.io/github/v/release/RajnishKMehta/DhwaniControl?include_prereleases&style=for-the-badge&logo=github)](https://github.com/RajnishKMehta/DhwaniControl/releases/tag/latest)
+
+[![GitHub Release](https://img.shields.io/github/v/release/RajnishKMehta/DhwaniControl?include_prereleases&style=for-the-badge&logo=github)](https://github.com/RajnishKMehta/DhwaniControl/releases/latest)
 [![F-Droid](https://img.shields.io/f-droid/v/io.github.rajnishkmehta.dhwanicontrol?style=for-the-badge&logo=f-droid)](https://f-droid.org/packages/io.github.rajnishkmehta.dhwanicontrol)
 [![License](https://img.shields.io/github/license/RajnishKMehta/DhwaniControl?style=for-the-badge)](LICENSE)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/RajnishKMehta/DhwaniControl/release-build.yml?style=for-the-badge&logo=github-actions)](https://github.com/RajnishKMehta/DhwaniControl/actions)
@@ -14,7 +15,7 @@
 [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/io.github.rajnishkmehta.dhwanicontrol)
 
 ### Direct Download
-[![Download APK](https://img.shields.io/badge/Download-Latest_APK-blue?style=for-the-badge&logo=android)](https://github.com/RajnishKMehta/DhwaniControl/releases/download/latest/DhwaniControl.apk)
+[![Download APK](https://img.shields.io/badge/Download-Latest_APK-blue?style=for-the-badge&logo=android)](https://github.com/RajnishKMehta/DhwaniControl/releases/latest/download/DhwaniControl.apk)
 
 ---
 
