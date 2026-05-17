@@ -92,6 +92,11 @@ android {
         }
     }
 
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
+    }
+    
     signingConfigs {
 
         create("release") {
