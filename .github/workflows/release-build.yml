@@ -159,7 +159,7 @@ jobs:
         run: |
           mkdir -p release-artifacts
 
-          APK_PATH=$(find app/build/outputs/apk/release -name "*.apk" | head -n 1)
+          APK_PATH=$(find app/build/outputs/apk/release -name "*.apk" -type f | head -n 1)
 
           if [ -z "$APK_PATH" ] || [ ! -f "$APK_PATH" ]; then
             echo "Error: APK not found"
