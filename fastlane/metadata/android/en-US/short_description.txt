@@ -1,0 +1,1 @@
+Restore system volume controls on devices with broken volume buttons.

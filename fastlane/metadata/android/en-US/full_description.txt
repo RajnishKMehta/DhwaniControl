@@ -1,0 +1,17 @@
+DhwaniControl is an app that helps you control your device volume when the physical volume buttons are broken or not working properly.
+
+The app gives quick access to the native Android volume panel using different methods, so you can adjust volume without relying on hardware keys.
+
+Features:
+
+- Quick Settings Tile to open the volume panel directly from Android Quick Settings
+- Floating on-screen button for easy access anywhere
+- Edge swipe gesture support to quickly open volume controls
+- Uses the native Android system volume panel
+- Customization options for the floating button and gestures
+- Lightweight and Battery Friendly
+- Minimal permissions with no unnecessary access
+- No trackers or ads
+- Open source and publicly available on GitHub/GitLab
+
+Certain features may ask for additional permissions depending on how you choose to use the app.
