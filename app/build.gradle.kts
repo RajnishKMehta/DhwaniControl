@@ -11,13 +11,8 @@ val versionPatch = 0
 val versionBuild =
     System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull() ?: 1
 
-val appVersionCode =
-    versionMajor * 10000 +
-    versionMinor * 100 +
-    versionPatch
-
-val appVersionName =
-    "$versionMajor.$versionMinor.$versionPatch"
+val appVersionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch
+val appVersionName = "$versionMajor.$versionMinor.$versionPatch"
 
 // SIGNING
 val keystorePassword =
