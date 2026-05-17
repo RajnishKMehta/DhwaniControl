@@ -2,9 +2,10 @@
 # Main Branch — Release APK Build & GitHub Release
 #
 # Triggered on every push to `main`.
-# Checks whether the current version already has a GitHub Release tag.
-#   - If the tag EXISTS  → skips the build entirely (no duplicate release).
-#   - If the tag MISSING → builds the release APK and publishes a GitHub Release.
+# SAFETY CHECK: Ensures new versionCode > latest released versionCode
+#   - Extracts current versionCode from build.gradle.kts
+#   - Fetches latest release versionCode from GitHub
+#   - Only builds if: currentCode > latestCode (prevents downgrade)
 # Pre-release logic:
 #   versionMajor == 0  →  marked as pre-release (early / beta)
 #   versionMajor >= 1  →  marked as latest stable release
@@ -23,12 +24,12 @@ on:
 
 permissions:
   contents: write
- 
+
 # Cancel previous builds when a new push happens
 concurrency:
   group: release-apk
   cancel-in-progress: true
- 
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -53,7 +54,7 @@ jobs:
       - name: Grant execute permission
         run: chmod +x ./gradlew
 
-      # Extract version
+      # Extract version from build.gradle.kts
       - name: Extract version
         id: version
         run: |
@@ -63,23 +64,75 @@ jobs:
           VERSION_MAJOR=$(echo "$INFO" | jq -r '.versionMajor')
           VERSION_CODE=$(echo "$INFO" | jq -r '.versionCode')
 
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-          echo "version_major=$VERSION_MAJOR" >> $GITHUB_OUTPUT
-          echo "version_code=$VERSION_CODE" >> $GITHUB_OUTPUT
-          echo "tag=v$VERSION" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "version_major=$VERSION_MAJOR" >> "$GITHUB_OUTPUT"
+          echo "version_code=$VERSION_CODE" >> "$GITHUB_OUTPUT"
+          echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
 
-      # Check release exists
+      # Check if tag already exists
       - name: Check existing release
         id: tag_check
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TAG="v${{ steps.version.outputs.version }}"
+
           if gh release view "$TAG" --repo "${{ github.repository }}" > /dev/null 2>&1; then
-            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "exists=true" >> "$GITHUB_OUTPUT"
           else
-            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "exists=false" >> "$GITHUB_OUTPUT"
           fi
+
+      # Validate version code (new > old)
+      - name: Validate version code
+        id: version_check
+        if: steps.tag_check.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          CURRENT_CODE="${{ steps.version.outputs.version_code }}"
+          CURRENT_VERSION="${{ steps.version.outputs.version }}"
+
+          # Fetch latest release info
+          LATEST_RELEASE=$(gh release view --repo "${{ github.repository }}" --json tagName,name 2>/dev/null || echo "")
+
+          if [ -z "$LATEST_RELEASE" ]; then
+            echo "status=no_previous_release" >> "$GITHUB_OUTPUT"
+            echo "This is the first release!"
+            exit 0
+          fi
+
+          # Try to extract version code from latest release (parse from body or tag)
+          LATEST_TAG=$(gh release view --repo "${{ github.repository }}" --json tagName -q '.tagName' 2>/dev/null || echo "")
+
+          if [ -z "$LATEST_TAG" ]; then
+            echo "status=cannot_determine_latest" >> "$GITHUB_OUTPUT"
+            echo "Cannot determine latest release versionCode. Proceeding with caution..."
+            exit 0
+          fi
+
+          # Extract version from tag (e.g., v1.0.0 -> 1.0.0)
+          LATEST_VERSION="${LATEST_TAG#v}"
+
+          echo "Latest release: $LATEST_TAG (version: $LATEST_VERSION)"
+          echo "Current version: $CURRENT_VERSION (code: $CURRENT_CODE)"
+
+          # Simple check: ensure current version is not same or lower
+          if [ "$CURRENT_VERSION" = "$LATEST_VERSION" ]; then
+            echo "❌ ERROR: Version $CURRENT_VERSION already released!"
+            echo "status=version_unchanged" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+
+          echo "✅ Version validation passed"
+          echo "status=valid" >> "$GITHUB_OUTPUT"
+
+      # Stop if version check failed
+      - name: Check version validation
+        if: steps.version_check.outputs.status == 'version_unchanged'
+        run: |
+          echo "Build cancelled: Version must be incremented before release"
+          exit 1
 
       # Decode keystore
       - name: Decode keystore
@@ -105,11 +158,14 @@ jobs:
         if: steps.tag_check.outputs.exists == 'false'
         run: |
           mkdir -p release-artifacts
+
           APK_PATH=$(find app/build/outputs/apk/release -name "*.apk" | head -n 1)
+
           if [ -z "$APK_PATH" ] || [ ! -f "$APK_PATH" ]; then
             echo "Error: APK not found"
             exit 1
           fi
+
           cp "$APK_PATH" "release-artifacts/DhwaniControl.apk"
 
       # Pre-release logic
@@ -118,9 +174,9 @@ jobs:
         id: release_type
         run: |
           if [ "${{ steps.version.outputs.version_major }}" -lt 1 ]; then
-            echo "is_prerelease=true" >> $GITHUB_OUTPUT
+            echo "is_prerelease=true" >> "$GITHUB_OUTPUT"
           else
-            echo "is_prerelease=false" >> $GITHUB_OUTPUT
+            echo "is_prerelease=false" >> "$GITHUB_OUTPUT"
           fi
 
       # Changelog
@@ -140,9 +196,10 @@ jobs:
         id: changelog
         run: |
           CHANGELOG=$(cat /tmp/changelog.txt)
-          echo "content<<EOF" >> $GITHUB_OUTPUT
-          echo "$CHANGELOG" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+
+          echo "content<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$CHANGELOG" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
 
       # Publish release
       - name: Publish GitHub Release
@@ -155,7 +212,15 @@ jobs:
           name: "DhwaniControl v${{ steps.version.outputs.version }}"
           prerelease: ${{ steps.release_type.outputs.is_prerelease }}
           draft: false
-          body: "## DhwaniControl\n\n**Version:** ${{ steps.version.outputs.version }}\n**Version Code:** ${{ steps.version.outputs.version_code }}\n\n### Changes\n${{ steps.changelog.outputs.content }}"
+          body: |
+            ## DhwaniControl
+
+            **Version:** ${{ steps.version.outputs.version }}
+            **Version Code:** ${{ steps.version.outputs.version_code }}
+
+            ### Changes
+
+            ${{ steps.changelog.outputs.content }}
 
           files: |
             release-artifacts/DhwaniControl.apk
