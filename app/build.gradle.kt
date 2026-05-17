@@ -14,9 +14,10 @@ val versionMajor = versionParts.getOrNull(0)?.toIntOrNull() ?: 0
 val versionMinor = versionParts.getOrNull(1)?.toIntOrNull() ?: 0
 val versionPatch = versionParts.getOrNull(2)?.toIntOrNull() ?: 0
 
+// Build number from environment
 val versionBuild = System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull() ?: 1
 
-// SIGNING
+// SIGNING - Optional (only if available)
 val keystorePassword =
     System.getenv("KEYSTORE_PASSWORD") ?: ""
 
@@ -30,6 +31,23 @@ val hasReleaseSigning =
     keystorePassword.isNotBlank() &&
     keyAliasEnv.isNotBlank() &&
     keyPasswordEnv.isNotBlank()
+
+// GRADLE CHECK
+gradle.taskGraph.whenReady {
+    val isGitHubActions = !System.getenv("GITHUB_ACTIONS").isNullOrBlank()
+    val releaseTaskNames = setOf("assembleRelease", "bundleRelease", "packageRelease")
+    val isReleaseTask = allTasks.any { task ->
+        releaseTaskNames.any { it.equals(task.name, ignoreCase = true) }
+    }
+
+    // Fail in GitHub Actions if keystore is missing
+    if (isReleaseTask && !hasReleaseSigning && isGitHubActions) {
+        error(
+            "Missing release signing environment variables in GitHub Actions. " +
+            "Provide KEYSTORE_PASSWORD, KEY_ALIAS, KEY_PASSWORD to build signed releases."
+        )
+    }
+}
 
 // TASK - Print app info for CI/CD
 tasks.register("printAppInfo") {
@@ -46,20 +64,6 @@ tasks.register("printAppInfo") {
               "versionCode": $appVersionCode
             }
             """.trimIndent()
-        )
-    }
-}
-
-// FAIL FAST FOR RELEASE BUILDS
-gradle.taskGraph.whenReady {
-    val releaseTaskNames = setOf("assembleRelease", "bundleRelease", "packageRelease")
-    val isReleaseTask = allTasks.any { task ->
-        releaseTaskNames.any { it.equals(task.name, ignoreCase = true) }
-    }
-
-    if (isReleaseTask && !hasReleaseSigning) {
-        error(
-            "Missing release signing environment variables."
         )
     }
 }
@@ -120,12 +124,11 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             isDebuggable = false
-
+            // Apply signing config only if keystore is available
             if (hasReleaseSigning) {
                 signingConfig =
                     signingConfigs.getByName("release")
-            }
-
+            } // Else: unsigned release APK without keystore
             proguardFiles(
                 getDefaultProguardFile(
                     "proguard-android-optimize.txt"
