@@ -5,14 +5,16 @@ plugins {
 val appId = "io.github.rajnishkmehta.dhwanicontrol"
 
 // VERSIONING
-val versionMajor = 1
-val versionMinor = 0
-val versionPatch = 0
-val versionBuild =
-    System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull() ?: 1
+val appVersionName = "1.0.0"
+val appVersionCode = 1
 
-val appVersionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch
-val appVersionName = "$versionMajor.$versionMinor.$versionPatch"
+// Extract versions from appVersionName
+val versionParts = appVersionName.split(".")
+val versionMajor = versionParts.getOrNull(0)?.toIntOrNull() ?: 0
+val versionMinor = versionParts.getOrNull(1)?.toIntOrNull() ?: 0
+val versionPatch = versionParts.getOrNull(2)?.toIntOrNull() ?: 0
+
+val versionBuild = System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull() ?: 1
 
 // SIGNING
 val keystorePassword =
@@ -29,7 +31,7 @@ val hasReleaseSigning =
     keyAliasEnv.isNotBlank() &&
     keyPasswordEnv.isNotBlank()
 
-// TASK
+// TASK - Print app info for CI/CD
 tasks.register("printAppInfo") {
     doLast {
         println(
