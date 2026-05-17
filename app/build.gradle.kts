@@ -138,10 +138,10 @@ android {
         }
     }
 
-    applicationVariants.all { variant ->
-        variant.outputs.all {
-            if (buildType.name == "release") {
-                outputFileName = "DhwaniControl.apk"
+    androidComponents {
+        onVariants(selector().withBuildType("release")) { variant ->
+            variant.outputs.forEach { output ->
+                output.outputFileName.set("DhwaniControl.apk")
             }
         }
     }
