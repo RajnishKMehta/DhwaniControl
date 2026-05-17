@@ -1,10 +1,12 @@
-# <img src="app/src/main/play_store_512.png" alt="DhwaniControl app icon" width="48" height="48"> DhwaniControl
-
+# <img src="fastlane/metadata/android/en-US/images/icon.png" alt="DhwaniControl app icon" width="48" height="48"> DhwaniControl
 
 [![GitHub Release](https://img.shields.io/github/v/release/RajnishKMehta/DhwaniControl?include_prereleases&style=for-the-badge&logo=github)](https://github.com/RajnishKMehta/DhwaniControl/releases/latest)
 [![F-Droid](https://img.shields.io/f-droid/v/io.github.rajnishkmehta.dhwanicontrol?style=for-the-badge&logo=f-droid)](https://f-droid.org/packages/io.github.rajnishkmehta.dhwanicontrol)
 [![License](https://img.shields.io/github/license/RajnishKMehta/DhwaniControl?style=for-the-badge)](LICENSE)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/RajnishKMehta/DhwaniControl/release-build.yml?style=for-the-badge&logo=github-actions)](https://github.com/RajnishKMehta/DhwaniControl/actions)
+
+<!-- <img src="https://i.ibb.co/nskkKV5n/feature-Graphic.png" alt="feature-Graphic" border="0"> -->
+<img src="fastlane/metadata/android/en-US/images/featureGraphic.png" alt="feature-Graphic" border="0">
 
 **DhwaniControl** is a Android utility designed to restore volume control functionality for devices with broken or unresponsive physical volume buttons. Access the native system volume panel via Quick Settings, Edge Gestures, or a persistent Floating Button.
 
