@@ -1,3 +1,5 @@
+<div id="top" align="center">
+
 # <img src="fastlane/metadata/android/en-US/images/icon.png" alt="DhwaniControl app icon" width="48" height="48"> DhwaniControl
 
 [![GitHub Release](https://img.shields.io/github/v/release/RajnishKMehta/DhwaniControl?include_prereleases&style=for-the-badge&logo=github)](https://github.com/RajnishKMehta/DhwaniControl/releases/latest)
@@ -8,7 +10,7 @@
 <!-- <img src="https://i.ibb.co/nskkKV5n/feature-Graphic.png" alt="feature-Graphic" border="0"> -->
 <img src="fastlane/metadata/android/en-US/images/featureGraphic.png" alt="feature-Graphic" border="0">
 
-**DhwaniControl** is a Android utility designed to restore volume control functionality for devices with broken or unresponsive physical volume buttons. Access the native system volume panel via Quick Settings, Edge Gestures, or a persistent Floating Button.
+**DhwaniControl** is a Android utility designed to restore volume control functionality for devices with broken or unresponsive physical volume buttons. Access the native system volume panel via QuickSettings, Edge Gestures, or a persistent Floating Button.
 
 ---
 
@@ -18,6 +20,7 @@
 
 ### Direct Download
 [![Download APK](https://img.shields.io/badge/Download-Latest_APK-blue?style=for-the-badge&logo=android)](https://github.com/RajnishKMehta/DhwaniControl/releases/latest/download/DhwaniControl.apk)
+</div>
 
 ---
 
@@ -65,6 +68,8 @@ DhwaniControl is built with performance and longevity in mind:
 
 Licensed under the **[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)**. See the [LICENSE](LICENSE) for more info.
 
-<p align="center">
-  <i>Empowering users through accessibility.</i>
-</p>
+<div align="center">
+  <a href="#top">
+    <img src="https://img.shields.io/badge/-Back%20to%20Top-0f2027?style=for-the-badge&logo=rocket" />
+  </a>
+</div>
