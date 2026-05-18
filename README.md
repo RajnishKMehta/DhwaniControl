@@ -10,7 +10,7 @@
 <!-- <img src="https://i.ibb.co/nskkKV5n/feature-Graphic.png" alt="feature-Graphic" border="0"> -->
 <img src="fastlane/metadata/android/en-US/images/featureGraphic.png" alt="feature-Graphic" border="0">
 
-**DhwaniControl** is a Android utility designed to restore volume control functionality for devices with broken or unresponsive physical volume buttons. Access the native system volume panel via QuickSettings, Edge Gestures, or a persistent Floating Button.
+**DhwaniControl** is a Android utility designed to restore volume control functionality for devices with broken or unresponsive physical volume buttons. Access the native system volume panel via Quick Settings, Edge Gestures, or a persistent Floating Button.
 
 ---
 
