@@ -99,13 +99,13 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
     }
 
     private fun refreshIconList() {
-        val displayIcons = OverlayIconRegistry.allIcons.take(3) + OverlayIconRegistry.getMoreIconName()
+        val displayIcons = OverlayIconRegistry.allIcons.take(3) + OverlayIconRegistry.getMoreIcon()
 
-        binding.iconRecyclerView.adapter = IconAdapter(displayIcons, false) { iconName ->
-            if (iconName == OverlayIconRegistry.getMoreIconName()) {
+        binding.iconRecyclerView.adapter = IconAdapter(displayIcons, false) { icon ->
+            if (icon.name == OverlayIconRegistry.getMoreIcon().name) {
                 showIconPickerSheet()
             } else {
-                selectedIconName = iconName
+                selectedIconName = icon.name
                 updatePreview()
             }
         }
@@ -118,8 +118,8 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
 
         sheetBinding.sheetIconRecyclerView.apply {
             layoutManager = GridLayoutManager(this@FloatingButtonConfigActivity, 3)
-            adapter = IconAdapter(OverlayIconRegistry.allIcons, true) { iconName ->
-                selectedIconName = iconName
+            adapter = IconAdapter(OverlayIconRegistry.allIcons, true) { icon ->
+                selectedIconName = icon.name
                 updatePreview()
                 dialog.dismiss()
             }
@@ -129,10 +129,9 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
     }
 
     private fun updatePreview() {
-        val iconResId = resources.getIdentifier(selectedIconName, "drawable", packageName)
-            .takeIf { it != 0 } ?: resources.getIdentifier(OverlayIconRegistry.getDefaultIconName(), "drawable", packageName)
+        val icon = OverlayIconRegistry.getIconByName(selectedIconName)
         
-        binding.iconPreview.setImageResource(iconResId)
+        binding.iconPreview.setImageResource(icon.resId)
         binding.iconPreview.alpha = selectedOpacity
         
         val tintColor = if (selectedColor == -1) {
@@ -185,9 +184,9 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
     }
 
     inner class IconAdapter(
-        private val iconNames: List<String>,
+        private val icons: List<OverlayIcon>,
         private val isSheet: Boolean,
-        private val onIconSelected: (String) -> Unit
+        private val onIconSelected: (OverlayIcon) -> Unit
     ) : RecyclerView.Adapter<IconAdapter.ViewHolder>() {
 
         inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -203,14 +202,10 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            val name = iconNames[position]
-            val isMore = name == OverlayIconRegistry.getMoreIconName()
+            val icon = icons[position]
+            val isMore = icon.name == OverlayIconRegistry.getMoreIcon().name
             
-            val resId = resources.getIdentifier(name, "drawable", packageName)
-                .takeIf { it != 0 }
-                ?: resources.getIdentifier(OverlayIconRegistry.getDefaultIconName(), "drawable", packageName)
-            
-            holder.iconImage.setImageResource(resId)
+            holder.iconImage.setImageResource(icon.resId)
             
             if (isMore) {
                 holder.iconText.text = getString(R.string.floating_config_more)
@@ -218,11 +213,11 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
                 holder.cardView.strokeWidth = 0
                 holder.iconImage.setColorFilter(getColor(R.color.colorPrimary))
             } else {
-                val parts = name.split("_", limit = 3)
+                val parts = icon.name.split("_", limit = 3)
                 val iconName = parts.getOrNull(2)?.replace("_", " ") ?: ""
                 holder.iconText.text = iconName
                 
-                if (selectedIconName == name) {
+                if (selectedIconName == icon.name) {
                     holder.cardView.strokeColor = getColor(R.color.colorPrimary)
                     holder.cardView.strokeWidth = dpToPx(2)
                 } else {
@@ -234,10 +229,10 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
             }
             
             holder.itemView.setOnClickListener {
-                onIconSelected(name)
+                onIconSelected(icon)
             }
         }
 
-        override fun getItemCount() = iconNames.size
+        override fun getItemCount() = icons.size
     }
 }

@@ -81,8 +81,8 @@ class FloatingButtonService : Service() {
         }
 
         val iconName = AppPreferences.getFloatingIconName(this)
-        val iconResId = resources.getIdentifier(iconName, "drawable", packageName)
-            .takeIf { it != 0 } ?: resources.getIdentifier("ic_0_default", "drawable", packageName)
+        val icon = OverlayIconRegistry.getIconByName(iconName)
+        val iconResId = icon.resId
 val iconColor = AppPreferences.getFloatingIconColor(this)
 val tintColor = if (iconColor == -1) {
     getColor(R.color.colorPrimary)
