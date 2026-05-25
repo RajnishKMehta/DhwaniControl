@@ -12,6 +12,8 @@
 
 **DhwaniControl** is an Android utility designed to restore volume control functionality for devices with broken or unresponsive physical volume buttons. Access the native system volume panel via Quick Settings, Edge Gestures, or a persistent Floating Button.
 
+</div>
+
 ---
 
 ## 📋 Table of Contents
@@ -25,12 +27,15 @@
 
 ---
 
+<div align="center">
+
 ## 📥 Get the App
 
 [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/io.github.rajnishkmehta.dhwanicontrol)
 
 ### Direct Download
 [![Download APK](https://img.shields.io/badge/Download-Latest_APK-blue?style=for-the-badge&logo=android)](https://github.com/RajnishKMehta/DhwaniControl/releases/latest/download/DhwaniControl.apk)
+
 </div>
 
 ---
