@@ -1,47 +1,47 @@
-# Quick Settings Tile Guide
+# $\textcolor{#D00000}{\textsf{Quick Settings Tile Guide}}$
 
-Use this walkthrough after opening:
-**Home -> Quick Settings Tile -> Config**
+This walkthrough will help you set up the **Volume Panel** tile. Access this guide via:
+`Home -> Quick Settings Tile -> Config`
 
-## Step 1: Open Quick Settings
+---
 
-1. Swipe down once from the top of the screen.
-2. Swipe down again to fully expand Quick Settings.
+## $\textcolor{#D00000}{\textsf{Step 1: Open Quick Settings}}$
 
-![Step 1 - Open Quick Settings](https://raw.githubusercontent.com/RajnishKMehta/images/7d3306bbda00f0f5a7650b5810cdae34cd508393/DhwaniControl/quick-tile-step-1.webp)
+1.  Swipe down once from the top of the screen.
+2.  Swipe down again to fully expand the Quick Settings panel.
 
-## Step 2: Enter Edit Mode
+![Step 1](https://raw.githubusercontent.com/RajnishKMehta/images/7d3306bbda00f0f5a7650b5810cdae34cd508393/DhwaniControl/quick-tile-step-1.webp)
 
-1. Tap the edit control (usually a pencil icon or **Edit tiles**).
-2. Find **Volume Panel** from *DhwaniControl* in available tiles.
+---
 
-![Step 2 - Enter Edit Mode](https://raw.githubusercontent.com/RajnishKMehta/images/7d3306bbda00f0f5a7650b5810cdae34cd508393/DhwaniControl/quick-tile-step-2.webp)
+## $\textcolor{#D00000}{\textsf{Step 2: Enter Edit Mode}}$
 
-## Step 3: Add the Tile
+1.  Tap the **Edit** control (usually a pencil icon or "Edit tiles").
+2.  Locate the **Volume Panel** tile under the *DhwaniControl* section.
 
-1. Drag **Volume Panel** into your active tiles area.
-2. Place it where it is easy to reach.
+![Step 2](https://raw.githubusercontent.com/RajnishKMehta/images/7d3306bbda00f0f5a7650b5810cdae34cd508393/DhwaniControl/quick-tile-step-2.webp)
 
-![Step 3 - Add the Tile](https://raw.githubusercontent.com/RajnishKMehta/images/7d3306bbda00f0f5a7650b5810cdae34cd508393/DhwaniControl/quick-tile-step-3.webp)
+---
 
-## Step 4: Save and Test
+## $\textcolor{#D00000}{\textsf{Step 3: Add the Tile}}$
 
-1. Save the tile layout (or go back if your device auto-saves).
-2. Open Quick Settings again.
-3. Tap **Volume Panel** and confirm Android volume controls appear.
+1.  Drag the **Volume Panel** tile into your active tiles area.
+2.  Place it in a convenient location for easy reach.
 
-![Step 4 - Save and Test](https://raw.githubusercontent.com/RajnishKMehta/images/7d3306bbda00f0f5a7650b5810cdae34cd508393/DhwaniControl/quick-tile-step-4.webp)
+![Step 3](https://raw.githubusercontent.com/RajnishKMehta/images/7d3306bbda00f0f5a7650b5810cdae34cd508393/DhwaniControl/quick-tile-step-3.webp)
 
-## Notes
+---
 
-- In-app guide downloads and caches screenshots in app-private storage.
-- Screenshot labels and tile edit UI can vary by OEM skin.
+## $\textcolor{#D00000}{\textsf{Step 4: Save and Test}}$
 
-## 🔍 Troubleshooting
+1.  Save your layout and exit edit mode.
+2.  Tap the **Volume Panel** tile to confirm the native volume controls appear.
 
-- **Tile is not in the list of available tiles:**
-    - Try restarting your device.
-    - Ensure you have launched the DhwaniControl app at least once after installation.
-- **Tapping the tile does nothing:**
-    - Open the DhwaniControl app to ensure it hasn't been put into "deep sleep" by the system.
-    - Check if other features like Floating Button are working.
+![Step 4](https://raw.githubusercontent.com/RajnishKMehta/images/7d3306bbda00f0f5a7650b5810cdae34cd508393/DhwaniControl/quick-tile-step-4.webp)
+
+---
+
+## $\textcolor{#D00000}{\textsf{🔍 Troubleshooting}}$
+
+- **$\textcolor{#D00000}{\textsf{Tile missing:}}$** Try restarting your device or ensuring you've opened the app at least once.
+- **$\textcolor{#D00000}{\textsf{Tile unresponsive:}}$** Ensure the app is not in "deep sleep". Check [Battery Optimization](user-guide.md#battery-optimization).
