@@ -15,6 +15,18 @@ This guide covers the initial setup and daily usage of DhwaniControl.
 
 ---
 
+## 🔋 Battery Optimization
+
+To ensure that DhwaniControl services (Floating Button and Edge Swipe) remain active and responsive, it is highly recommended to exclude the app from system battery restrictions.
+
+1. Go to **Settings** > **Apps** > **DhwaniControl**.
+2. Tap on **Battery** or **Battery usage**.
+3. Select **Unrestricted**.
+
+This prevents the Android system from killing the background services that power the on-screen triggers.
+
+---
+
 ## 🏁 Getting Started
 
 1. **Install**: Sideload the APK or install via F-Droid.
@@ -40,9 +52,15 @@ This guide covers the initial setup and daily usage of DhwaniControl.
 
 ## 🔍 Troubleshooting
 
-- **Feature says "Configuration required"**: Open the **Config** menu for that feature and complete the setup.
-- **Edge Swipe is hidden**: Ensure you are using **3-Button Navigation** mode in Android settings. Gesture navigation is currently incompatible with edge triggers.
-- **Floating Button disappears**: The system may have revoked the overlay permission. Check the permission status on the feature card.
+- **Feature says "Configuration required"**: Some features need a one-time setup (like selecting an edge for Edge Swipe). Open the **Config** menu for that feature and follow the prompts.
+- **Edge Swipe is hidden or unresponsive**:
+    - Ensure you are using **3-Button Navigation** mode. Gesture navigation uses the same screen edges and will block DhwaniControl.
+    - Check if the **Notification permission** is granted.
+- **Floating Button disappears or doesn't start**:
+    - The system may have revoked the **Display over other apps** (Overlay) permission.
+    - Ensure the app is set to **Unrestricted** in battery settings.
+- **Quick Settings Tile missing**: You must manually add the tile to your active area. See the [Quick Settings Guide](quick-settings-tile.md) for visual steps.
+- **Permissions not sticking**: Some aggressive battery savers or "security" apps may reset permissions. Ensure DhwaniControl is whitelisted.
 
 ---
 

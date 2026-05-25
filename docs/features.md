@@ -8,48 +8,51 @@ DhwaniControl provides multiple ways to access your device's volume controls. Ea
 
 ## 1) Quick Settings Tile 🚀
 
-**What it does**
+**Overview**
 - Adds a **Volume Panel** tile to your system's Quick Settings.
 - Tap the tile from any screen to instantly open native volume controls.
+- Optimized for zero background battery drain.
 
-**Key Highlights**
-- Zero background battery drain.
-- No special permissions required for basic operation.
+**Requirements**
+- None (System standard feature).
 
 **Configuration**
 - Accessible via: `Home -> Quick Settings Tile -> Config`
+- [Detailed Guide](quick-settings-tile.md)
 
 ---
 
 ## 2) Floating Button 🔘
 
-**What it does**
+**Overview**
 - A persistent, movable overlay button that stays on top of all applications.
 - **Customizable**: Choose from a variety of icons and set custom colors/opacity.
 - **Draggable**: Long-press and move it to any position on your screen.
 
 **Requirements**
-- `Display over other apps` permission.
-- `Notification permission` (Android 13+).
+- `Display over other apps` permission (Overlay).
+- `Notification permission` (Android 13+) for service stability.
 
 **Configuration**
 - Accessible via: `Home -> Floating Button -> Config`
+- [Detailed Guide](floating-button.md)
 
 ---
 
 ## 3) Edge Swipe ↔️
 
-**What it does**
+**Overview**
 - Triggers volume controls by swiping inward from the screen edge.
 - Discreet and highly responsive gesture-based trigger.
 
 **Requirements**
-- `Display over other apps` permission.
+- `Display over other apps` permission (Overlay).
 - `Notification permission` (Android 13+).
 - **Note**: Requires button-based navigation (gesture navigation may interfere).
 
 **Configuration**
 - Accessible via: `Home -> Edge Swipe -> Config`
+- [Detailed Guide](edge-swipe.md)
 
 ---
 
