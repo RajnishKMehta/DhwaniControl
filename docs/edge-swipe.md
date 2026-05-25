@@ -1,18 +1,18 @@
-# $\textcolor{#D00000}{\textsf{Edge Swipe Guide}}$
+# $\textcolor{#008080}{\textsf{Edge Swipe Guide}}$
 
 The **Edge Swipe** feature allows you to trigger volume controls with a simple inward swipe gesture from the side of your screen.
 
 ---
 
-## $\textcolor{#D00000}{\textsf{Requirements}}$
+## $\textcolor{#D9730D}{\textsf{Requirements}}$
 
-- **$\textcolor{#D00000}{\textsf{Overlay Permission:}}$** Required to detect gestures over other apps.
-- **$\textcolor{#D00000}{\textsf{Notification Permission:}}$** Required on Android 13+.
-- **$\textcolor{#D00000}{\textsf{Navigation Mode:}}$** Must use **3-Button Navigation** (gesture navigation interferes with this feature).
+- **Overlay Permission:** Required to detect gestures over other apps.
+- **Notification Permission:** Required on Android 13+.
+- **Navigation Mode:** Must use **3-Button Navigation** (gesture navigation interferes with this feature).
 
 ---
 
-## $\textcolor{#D00000}{\textsf{First-Time Setup}}$
+## $\textcolor{#28A745}{\textsf{First-Time Setup}}$
 
 1.  Navigate to `Home -> Edge Swipe -> Config`.
 2.  Grant the requested permissions.
@@ -21,7 +21,7 @@ The **Edge Swipe** feature allows you to trigger volume controls with a simple i
 
 ---
 
-## $\textcolor{#D00000}{\textsf{Customization}}$
+## $\textcolor{#0078D4}{\textsf{Customization}}$
 
 You can change the active edge at any time:
 1.  Go to `Home -> Edge Swipe -> Config`.
@@ -32,8 +32,8 @@ You can change the active edge at any time:
 
 ## $\textcolor{#D00000}{\textsf{🔍 Troubleshooting}}$
 
-- **$\textcolor{#D00000}{\textsf{Gesture not detected:}}$**
+- **Gesture not detected:**
     - Confirm you are using **3-Button Navigation**.
     - Ensure the feature is toggled **ON**.
     - Try swiping from the absolute edge of the screen.
-- **$\textcolor{#D00000}{\textsf{Feature turns off:}}$** Check [Battery Optimization](user-guide.md#battery-optimization) to ensure the background service is not being killed.
+- **Feature turns off:** Check [Battery Optimization](user-guide.md#battery-optimization) to ensure the background service is not being killed.

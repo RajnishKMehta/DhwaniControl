@@ -1,6 +1,6 @@
 <div align="center">
 
-# $\textcolor{#D00000}{\textsf{Contributing to DhwaniControl}}$
+# $\textcolor{#0078D4}{\textsf{Contributing to DhwaniControl}}$
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge&cacheSeconds=31536000)](http://makeapullrequest.com)
 [![GitHub contributors](https://img.shields.io/github/contributors/RajnishKMehta/DhwaniControl?style=for-the-badge)](https://github.com/RajnishKMehta/DhwaniControl/graphs/contributors)
@@ -11,7 +11,7 @@ If you are viewing this project on GitLab, please contribute on GitHub: [github.
 
 ---
 
-### $\textcolor{#D00000}{\textsf{Quick Workflow}}$
+### $\textcolor{#28A745}{\textsf{Quick Workflow}}$
 
 To ensure a smooth contribution process, please follow these steps:
 
@@ -22,7 +22,7 @@ To ensure a smooth contribution process, please follow these steps:
 
 ---
 
-### $\textcolor{#D00000}{\textsf{Scope & Guidelines}}$
+### $\textcolor{#D9730D}{\textsf{Scope and Guidelines}}$
 
 - **Atomicity**: Keep PRs small and easily reviewable.
 - **Cleanliness**: Avoid mixing unrelated refactors with functional changes.
@@ -31,14 +31,14 @@ To ensure a smooth contribution process, please follow these steps:
 
 ---
 
-### $\textcolor{#D00000}{\textsf{Feature Development}}$
+### $\textcolor{#6F42C1}{\textsf{Feature Development}}$
 
 If you are planning to add a new feature, please refer to our technical guide:
 [**`docs/add-feature.md`**](docs/add-feature.md)
 
 ---
 
-### $\textcolor{#D00000}{\textsf{Pull Request Requirements}}$
+### $\textcolor{#008080}{\textsf{Pull Request Requirements}}$
 
 When opening a PR, please include the following details in the description:
 

@@ -55,11 +55,12 @@
 
 <div align="center">
 
-| | |
-| :---: | :---: |
-| [![User Guide](https://img.shields.io/badge/User_Guide-0078D4?style=for-the-badge&logo=read-the-docs&logoColor=white&cacheSeconds=31536000)](docs/user-guide.md) | [![Feature Breakdown](https://img.shields.io/badge/Feature_Breakdown-E96132?style=for-the-badge&logo=elementor&logoColor=white&cacheSeconds=31536000)](docs/features.md) |
-| [![Quick Settings](https://img.shields.io/badge/Quick_Settings-3DDC84?style=for-the-badge&logo=android&logoColor=white&cacheSeconds=31536000)](docs/quick-settings-tile.md) | [![Floating Button](https://img.shields.io/badge/Floating_Button-8A2BE2?style=for-the-badge&logo=icloud&logoColor=white&cacheSeconds=31536000)](docs/floating-button.md) |
-| [![Edge Swipe](https://img.shields.io/badge/Edge_Swipe-D00000?style=for-the-badge&logo=hand-index&logoColor=white&cacheSeconds=31536000)](docs/edge-swipe.md) | [![Contributing](https://img.shields.io/badge/Contributing-FFD700?style=for-the-badge&logo=github&logoColor=white&cacheSeconds=31536000)](CONTRIBUTING.md) |
+[![User Guide](https://img.shields.io/badge/User_Guide-0078D4?style=for-the-badge&logo=read-the-docs&logoColor=white&cacheSeconds=31536000)](docs/user-guide.md)
+[![Feature Breakdown](https://img.shields.io/badge/Feature_Breakdown-D9730D?style=for-the-badge&logo=elementor&logoColor=white&cacheSeconds=31536000)](docs/features.md)
+[![Quick Settings](https://img.shields.io/badge/Quick_Settings-28A745?style=for-the-badge&logo=android&logoColor=white&cacheSeconds=31536000)](docs/quick-settings-tile.md)
+[![Floating Button](https://img.shields.io/badge/Floating_Button-6F42C1?style=for-the-badge&logo=icloud&logoColor=white&cacheSeconds=31536000)](docs/floating-button.md)
+[![Edge Swipe](https://img.shields.io/badge/Edge_Swipe-008080?style=for-the-badge&logo=hand-index&logoColor=white&cacheSeconds=31536000)](docs/edge-swipe.md)
+[![Contributing](https://img.shields.io/badge/Contributing-24292E?style=for-the-badge&logo=github&logoColor=white&cacheSeconds=31536000)](CONTRIBUTING.md)
 
 </div>
 
