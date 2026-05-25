@@ -53,21 +53,27 @@ object AppPreferences {
         preferences.edit().putBoolean(Constants.PREF_FLOATING_ENABLED, enabled).apply()
     }
 
-    fun getFloatingPosition(context: Context): Pair<Int, Int>? {
+    fun getFloatingPosition(context: Context): Pair<Float, Float>? {
         val preferences = preferences(context)
         if (!preferences.contains(Constants.PREF_FLOATING_X) || !preferences.contains(Constants.PREF_FLOATING_Y)) {
             return null
         }
-        val x = getIntSafe(preferences, Constants.PREF_FLOATING_X, 0)
-        val y = getIntSafe(preferences, Constants.PREF_FLOATING_Y, 0)
-        return Pair(x, y)
+
+        return try {
+            val x = preferences.getFloat(Constants.PREF_FLOATING_X, 0.5f)
+            val y = preferences.getFloat(Constants.PREF_FLOATING_Y, 0.5f)
+            Pair(x, y)
+        } catch (e: ClassCastException) {
+            // Legacy Int values exist, return null to use default position and allow overwrite with Float on next save
+            null
+        }
     }
 
-    fun setFloatingPosition(context: Context, x: Int, y: Int) {
+    fun setFloatingPosition(context: Context, x: Float, y: Float) {
         val preferences = preferences(context)
         preferences.edit()
-            .putInt(Constants.PREF_FLOATING_X, x)
-            .putInt(Constants.PREF_FLOATING_Y, y)
+            .putFloat(Constants.PREF_FLOATING_X, x)
+            .putFloat(Constants.PREF_FLOATING_Y, y)
             .apply()
     }
 

@@ -114,8 +114,17 @@ val iconSize = dpToPx(48)
             PixelFormat.TRANSLUCENT
         ).apply {
             gravity = Gravity.TOP or Gravity.START
-            x = position?.first ?: 100
-            y = position?.second ?: 100
+
+            val metrics = resources.displayMetrics
+            val screenWidth = metrics.widthPixels
+            val screenHeight = metrics.heightPixels
+
+            x = if (position != null) {
+                (position.first * (screenWidth - iconSize)).toInt().coerceIn(0, screenWidth - iconSize)
+            } else 100
+            y = if (position != null) {
+                (position.second * (screenHeight - iconSize)).toInt().coerceIn(0, screenHeight - iconSize)
+            } else 100
         }
 
         params = layoutParams
@@ -179,7 +188,10 @@ val iconSize = dpToPx(48)
                         val finalX = layoutParams.x.coerceIn(0, screenWidth - view.width)
                         val finalY = layoutParams.y.coerceIn(0, screenHeight - view.height)
                         
-                        AppPreferences.setFloatingPosition(this, finalX, finalY)
+                        val percentX = finalX.toFloat() / (screenWidth - view.width).coerceAtLeast(1)
+                        val percentY = finalY.toFloat() / (screenHeight - view.height).coerceAtLeast(1)
+
+                        AppPreferences.setFloatingPosition(this, percentX, percentY)
                     }
                     isLongPressing = false
                     true
