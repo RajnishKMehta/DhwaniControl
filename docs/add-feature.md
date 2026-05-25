@@ -12,7 +12,7 @@ This document explains the minimum flow to add a new feature safely.
 ## Step-by-Step
 
 1. Add a new feature ID constant in `Constants.kt`.
-2. Create a new package under `features/` for the feature.
+2. Create a new sub-package under `app/src/main/java/io/github/rajnishkmehta/dhwanicontrol/features/` for the feature (e.g., `features/newfeature/`).
 3. Implement a controller object that conforms to `FeatureController`.
 4. Define `FeatureSpec` in that controller:
    - `featureId`

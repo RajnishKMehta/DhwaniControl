@@ -36,3 +36,12 @@ Use this walkthrough after opening:
 
 - In-app guide downloads and caches screenshots in app-private storage.
 - Screenshot labels and tile edit UI can vary by OEM skin.
+
+## 🔍 Troubleshooting
+
+- **Tile is not in the list of available tiles:**
+    - Try restarting your device.
+    - Ensure you have launched the DhwaniControl app at least once after installation.
+- **Tapping the tile does nothing:**
+    - Open the DhwaniControl app to ensure it hasn't been put into "deep sleep" by the system.
+    - Check if other features like Floating Button are working.

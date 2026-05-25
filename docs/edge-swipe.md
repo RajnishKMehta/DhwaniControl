@@ -30,3 +30,13 @@ The side change applies immediately.
 If gesture navigation is active, this feature is unavailable.
 
 Switch your device to button navigation, then return to the app.
+
+## 🔍 Troubleshooting
+
+- **Swipe does nothing:**
+    - Confirm you are using **3-Button Navigation**.
+    - Ensure the feature is toggled **ON** in the Home screen.
+    - Check if **Display over other apps** permission is granted.
+    - Try swiping from the very edge of the screen, about midway up the height.
+- **Feature turns off by itself:**
+    - This usually happens if the system revokes permissions or kills the background service. See [Battery Optimization](user-guide.md#battery-optimization).

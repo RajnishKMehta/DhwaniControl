@@ -10,7 +10,18 @@
 <!-- <img src="https://i.ibb.co/nskkKV5n/feature-Graphic.png" alt="feature-Graphic" border="0"> -->
 <img src="fastlane/metadata/android/en-US/images/featureGraphic.png" alt="feature-Graphic" border="0">
 
-**DhwaniControl** is a Android utility designed to restore volume control functionality for devices with broken or unresponsive physical volume buttons. Access the native system volume panel via Quick Settings, Edge Gestures, or a persistent Floating Button.
+**DhwaniControl** is an Android utility designed to restore volume control functionality for devices with broken or unresponsive physical volume buttons. Access the native system volume panel via Quick Settings, Edge Gestures, or a persistent Floating Button.
+
+---
+
+## 📋 Table of Contents
+
+- [📥 Get the App](#-get-the-app)
+- [✨ Pro Features](#-pro-features)
+- [📖 Detailed Documentation](#-detailed-documentation)
+- [🧐 Why it exists](#-why-it-exists)
+- [🛠 Tech & Performance](#-tech--performance)
+- [📄 License](#-license)
 
 ---
 
@@ -26,12 +37,12 @@
 
 ## ✨ Pro Features
 
-- **🚀 Quick Settings Tile**: Seamlessly integrated into your notification shade.
-- **↔️ Edge Swipe Gestures**: Trigger volume panel with a discreet inward swipe.
-- **🔘 Custom Floating Button**: A movable on-screen trigger with custom icons, colors, and opacity.
-- **🎨 Material 3 Design**: Modern, clean, and fully responsive user interface.
-- **🔋 Battery Optimized**: Uses high-efficiency foreground services to ensure availability without drain.
-- **🔒 Privacy Driven**: No trackers, no unnecessary permissions, and 100% open-source.
+- **🚀 Quick Settings Tile**: Seamlessly integrated into your notification shade. Access your volume controls with a single tap from anywhere.
+- **↔️ Edge Swipe Gestures**: Trigger the volume panel with a discreet inward swipe from either the left or right edge of your screen.
+- **🔘 Custom Floating Button**: A persistent, movable on-screen trigger. Personalize it with custom icons, colors, and adjustable opacity.
+- **🎨 Material 3 Design**: Built with the latest Android design standards for a modern, clean, and fully responsive user interface.
+- **🔋 Battery Optimized**: Engineered with high-efficiency foreground services to ensure constant availability without compromising your device's battery life.
+- **🔒 Privacy Driven**: Your data stays yours. No trackers, no unnecessary permissions, and 100% open-source for full transparency.
 
 ---
 
@@ -48,9 +59,9 @@
 
 ## 🧐 Why it exists
 
-My phone's physical volume buttons are broken, and constantly opening settings just to change the volume was annoying as hell.
+DhwaniControl was born out of necessity. When physical volume buttons fail, navigating through system settings just to adjust audio levels becomes a significant daily friction.
 
-So I built this app for myself and later open-sourced it so others with the same problem can use it too.
+Originally developed as a personal tool to overcome hardware limitations, it has been open-sourced to provide a reliable, efficient, and customizable solution for anyone facing similar hardware challenges.
 
 ---
 
