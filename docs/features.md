@@ -1,74 +1,74 @@
-# Features Overview
+# $\textcolor{#0078D4}{\textsf{Features Overview}}$
 
-![Version](https://img.shields.io/github/v/release/RajnishKMehta/DhwaniControl?include_prereleases&style=flat-square)
+![Version](https://img.shields.io/github/v/release/RajnishKMehta/DhwaniControl?include_prereleases&style=for-the-badge)
 
-DhwaniControl provides multiple ways to access your device's volume controls. Each feature is designed to be lightweight, efficient, and non-intrusive.
-
----
-
-## 1) Quick Settings Tile 🚀
-
-**Overview**
-- Adds a **Volume Panel** tile to your system's Quick Settings.
-- Tap the tile from any screen to instantly open native volume controls.
-- Optimized for zero background battery drain.
-
-**Requirements**
-- None (System standard feature).
-
-**Configuration**
-- Accessible via: `Home -> Quick Settings Tile -> Config`
-- [Detailed Guide](quick-settings-tile.md)
+DhwaniControl offers multiple non-intrusive ways to access your device's volume controls, tailored for efficiency and ease of use.
 
 ---
 
-## 2) Floating Button 🔘
+## $\textcolor{#28A745}{\textsf{1) Quick Settings Tile 🚀}}$
 
-**Overview**
-- A persistent, movable overlay button that stays on top of all applications.
-- **Customizable**: Choose from a variety of icons and set custom colors/opacity.
-- **Draggable**: Long-press and move it to any position on your screen.
+**Overview:**
+- Adds a dedicated **Volume Panel** tile to your system's Quick Settings.
+- Provides instant access from any screen.
+- Zero background battery consumption.
 
-**Requirements**
-- `Display over other apps` permission (Overlay).
-- `Notification permission` (Android 13+) for service stability.
+**Requirements:**
+- None (standard Android feature).
 
-**Configuration**
-- Accessible via: `Home -> Floating Button -> Config`
-- [Detailed Guide](floating-button.md)
+**Setup:**
+- [Detailed Quick Settings Guide](quick-settings-tile.md)
 
 ---
 
-## 3) Edge Swipe ↔️
+## $\textcolor{#6F42C1}{\textsf{2) Floating Button 🔘}}$
 
-**Overview**
-- Triggers volume controls by swiping inward from the screen edge.
+**Overview:**
+- A persistent, movable overlay button that stays on top.
+- Fully customizable: icons, colors, and opacity.
+- Long-press to drag and reposition.
+
+**Requirements:**
+- `Display over other apps` (Overlay) permission.
+- `Notification permission` (Android 13+).
+
+**Setup:**
+- [Detailed Floating Button Guide](floating-button.md)
+
+---
+
+## $\textcolor{#008080}{\textsf{3) Edge Swipe ↔️}}$
+
+**Overview:**
+- Trigger volume controls by swiping inward from the screen edge.
 - Discreet and highly responsive gesture-based trigger.
 
-**Requirements**
-- `Display over other apps` permission (Overlay).
+**Requirements:**
+- `Display over other apps` (Overlay) permission.
 - `Notification permission` (Android 13+).
-- **Note**: Requires button-based navigation (gesture navigation may interfere).
+- **Note**: Requires **3-Button Navigation** mode.
 
-**Configuration**
-- Accessible via: `Home -> Edge Swipe -> Config`
-- [Detailed Guide](edge-swipe.md)
-
----
-
-## 🛠 Feature Management System
-
-DhwaniControl uses an intelligent management system to ensure stability:
-
-1. **Permission Guard**: Features automatically prompt for missing permissions when toggled.
-2. **Auto-Shutdown**: If a required permission is revoked, the feature gracefully turns itself OFF.
-3. **Hardware Compatibility**: Some features (like Edge Swipe) intelligently detect if your system settings (like navigation mode) are compatible.
-4. **Persistent State**: Your preferences and toggle states are saved and restored automatically on device reboot.
+**Setup:**
+- [Detailed Edge Swipe Guide](edge-swipe.md)
 
 ---
 
-## 📖 Detailed Guides
+## $\textcolor{#D9730D}{\textsf{🛠 Management System}}$
 
-- [Quick Settings Tile Guide](quick-settings-tile.md)
-- [Floating Button Guide](floating-button.md)
-- [Edge Swipe Guide](edge-swipe.md)
+DhwaniControl includes built-in safeguards for a seamless experience:
+
+- **Permission Guard:** Automatically prompts for missing permissions.
+- **Auto-Shutdown:** Features turn off gracefully if permissions are revoked.
+- **Persistence:** Your settings and toggle states are preserved across reboots.
+
+---
+
+<div align="center">
+
+### Detailed Guides
+
+[![Quick Settings](https://img.shields.io/badge/Quick_Settings-28A745?style=for-the-badge&cacheSeconds=31536000)](quick-settings-tile.md)
+[![Floating Button](https://img.shields.io/badge/Floating_Button-6F42C1?style=for-the-badge&cacheSeconds=31536000)](floating-button.md)
+[![Edge Swipe](https://img.shields.io/badge/Edge_Swipe-008080?style=for-the-badge&cacheSeconds=31536000)](edge-swipe.md)
+
+</div>
