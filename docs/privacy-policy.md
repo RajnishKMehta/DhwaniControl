@@ -32,7 +32,7 @@ Any configuration you make within the app (such as the position of the floating 
 
 ## $\textcolor{#008080}{\textsf{4. Open Source Transparency}}$
 
-We believe in full transparency. As an open-source project, our entire codebase is available for public audit. You can verify our privacy claims by reviewing the source code on [GitHub](https://github.com/RajnishKMehta/DhwaniControl).
+We believe in full transparency. As an open-source project, our entire codebase is available for public audit. You can verify our privacy claims by reviewing the source code on [GitHub](https://github.com/RajnishKMehta/DhwaniControl) or [GitLab](https://gitLab.com/RajnishKMehta/DhwaniControl).
 
 ---
 
