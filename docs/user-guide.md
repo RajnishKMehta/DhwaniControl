@@ -66,5 +66,6 @@ For DhwaniControl to remain responsive, you must exclude it from system battery 
 [![Floating Button](https://img.shields.io/badge/Floating_Button_Guide-6F42C1?style=for-the-badge&cacheSeconds=31536000)](floating-button.md)
 [![Edge Swipe](https://img.shields.io/badge/Edge_Swipe_Guide-008080?style=for-the-badge&cacheSeconds=31536000)](edge-swipe.md)
 [![Quick Settings](https://img.shields.io/badge/Quick_Settings_Guide-28A745?style=for-the-badge&cacheSeconds=31536000)](quick-settings-tile.md)
+[![Privacy Policy](https://img.shields.io/badge/Privacy_Policy-D00000?style=for-the-badge&cacheSeconds=31536000)](privacy-policy.md)
 
 </div>
