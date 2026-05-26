@@ -60,6 +60,7 @@
 [![Quick Settings](https://img.shields.io/badge/Quick_Settings-28A745?style=for-the-badge&logo=android&logoColor=white&cacheSeconds=31536000)](docs/quick-settings-tile.md)
 [![Floating Button](https://img.shields.io/badge/Floating_Button-6F42C1?style=for-the-badge&logo=icloud&logoColor=white&cacheSeconds=31536000)](docs/floating-button.md)
 [![Edge Swipe](https://img.shields.io/badge/Edge_Swipe-008080?style=for-the-badge&logo=hand-index&logoColor=white&cacheSeconds=31536000)](docs/edge-swipe.md)
+[![Privacy Policy](https://img.shields.io/badge/Privacy_Policy-D00000?style=for-the-badge&logo=securityscorecard&logoColor=white&cacheSeconds=31536000)](docs/privacy-policy.md)
 [![Contributing](https://img.shields.io/badge/Contributing-24292E?style=for-the-badge&logo=github&logoColor=white&cacheSeconds=31536000)](CONTRIBUTING.md)
 
 </div>
