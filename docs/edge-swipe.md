@@ -1,32 +1,39 @@
-# Edge Swipe Guide
+# $\textcolor{#008080}{\textsf{Edge Swipe Guide}}$
 
-## What It Does
+The **Edge Swipe** feature allows you to trigger volume controls with a simple inward swipe gesture from the side of your screen.
 
-Edge Swipe listens for inward swipes from one screen edge and opens Android volume controls.
+---
 
-## Requirements
+## $\textcolor{#D9730D}{\textsf{Requirements}}$
 
-- Draw over other apps permission
-- Notification permission on Android 13+
-- Button navigation mode (gesture navigation is blocked)
+- **Overlay Permission:** Required to detect gestures over other apps.
+- **Notification Permission:** Required on Android 13+.
+- **Navigation Mode:** Must use **3-Button Navigation** (gesture navigation interferes with this feature).
 
-## First Setup
+---
 
-1. Open **Home -> Edge Swipe -> Config**.
-2. Grant required permissions when prompted.
-3. Swipe inward from your chosen edge three times.
-4. After setup, the feature is automatically enabled.
+## $\textcolor{#28A745}{\textsf{First-Time Setup}}$
 
-## Change Active Edge Later
+1.  Navigate to `Home -> Edge Swipe -> Config`.
+2.  Grant the requested permissions.
+3.  Perform the calibration by swiping inward from your chosen edge three times.
+4.  Once completed, the feature will be automatically enabled.
 
-1. Open **Home -> Edge Swipe -> Config**.
-2. Choose left or right edge.
-3. Save.
+---
 
-The side change applies immediately.
+## $\textcolor{#0078D4}{\textsf{Customization}}$
 
-## When the Feature Is Blocked
+You can change the active edge at any time:
+1.  Go to `Home -> Edge Swipe -> Config`.
+2.  Select either the **Left** or **Right** edge.
+3.  Save the changes.
 
-If gesture navigation is active, this feature is unavailable.
+---
 
-Switch your device to button navigation, then return to the app.
+## $\textcolor{#D00000}{\textsf{🔍 Troubleshooting}}$
+
+- **Gesture not detected:**
+    - Confirm you are using **3-Button Navigation**.
+    - Ensure the feature is toggled **ON**.
+    - Try swiping from the absolute edge of the screen.
+- **Feature turns off:** Check [Battery Optimization](user-guide.md#battery-optimization) to ensure the background service is not being killed.

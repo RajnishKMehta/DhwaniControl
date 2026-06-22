@@ -10,9 +10,24 @@
 <!-- <img src="https://i.ibb.co/nskkKV5n/feature-Graphic.png" alt="feature-Graphic" border="0"> -->
 <img src="fastlane/metadata/android/en-US/images/featureGraphic.png" alt="feature-Graphic" border="0">
 
-**DhwaniControl** is a Android utility designed to restore volume control functionality for devices with broken or unresponsive physical volume buttons. Access the native system volume panel via Quick Settings, Edge Gestures, or a persistent Floating Button.
+**DhwaniControl** is an Android utility designed to restore volume control functionality for devices with broken or unresponsive physical volume buttons. Access the native system volume panel via Quick Settings, Edge Gestures, or a persistent Floating Button.
+
+</div>
 
 ---
+
+## 📋 Table of Contents
+
+- [📥 Get the App](#-get-the-app)
+- [✨ Pro Features](#-pro-features)
+- [📖 Detailed Documentation](#-detailed-documentation)
+- [🧐 Why it exists](#-why-it-exists)
+- [🛠 Tech & Performance](#-tech--performance)
+- [📄 License](#-license)
+
+---
+
+<div align="center">
 
 ## 📥 Get the App
 
@@ -20,37 +35,43 @@
 
 ### Direct Download
 [![Download APK](https://img.shields.io/badge/Download-Latest_APK-blue?style=for-the-badge&logo=android)](https://github.com/RajnishKMehta/DhwaniControl/releases/latest/download/DhwaniControl.apk)
+
 </div>
 
 ---
 
 ## ✨ Pro Features
 
-- **🚀 Quick Settings Tile**: Seamlessly integrated into your notification shade.
-- **↔️ Edge Swipe Gestures**: Trigger volume panel with a discreet inward swipe.
-- **🔘 Custom Floating Button**: A movable on-screen trigger with custom icons, colors, and opacity.
-- **🎨 Material 3 Design**: Modern, clean, and fully responsive user interface.
-- **🔋 Battery Optimized**: Uses high-efficiency foreground services to ensure availability without drain.
-- **🔒 Privacy Driven**: No trackers, no unnecessary permissions, and 100% open-source.
+- **🚀 Quick Settings Tile**: Seamlessly integrated into your notification shade. Access your volume controls with a single tap from anywhere.
+- **↔️ Edge Swipe Gestures**: Trigger the volume panel with a discreet inward swipe from either the left or right edge of your screen.
+- **🔘 Custom Floating Button**: A persistent, movable on-screen trigger. Personalize it with custom icons, colors, and adjustable opacity.
+- **🎨 Material 3 Design**: Built with the latest Android design standards for a modern, clean, and fully responsive user interface.
+- **🔋 Battery Optimized**: Engineered with high-efficiency foreground services to ensure constant availability without compromising your device's battery life.
+- **🔒 Privacy Driven**: Your data stays yours. No trackers, no unnecessary permissions, and 100% open-source for full transparency.
 
 ---
 
 ## 📖 Detailed Documentation
 
-- [**User Guide**](docs/user-guide.md) - Learn how to set up and use DhwaniControl.
-- [**Feature Breakdown**](docs/features.md) - Comprehensive list of all triggers and settings.
-- [**Quick Settings Guide**](docs/quick-settings-tile.md) - Visual guide for adding the tile.
-- [**Floating Button Guide**](docs/floating-button.md) - Personalization and behavior guide.
-- [**Edge Swipe Guide**](docs/edge-swipe.md) - Gesture configuration details.
-- [**Contributing**](CONTRIBUTING.md) - Join the development and improve the app.
+<div align="center">
+
+[![User Guide](https://img.shields.io/badge/User_Guide-0078D4?style=for-the-badge&logo=read-the-docs&logoColor=white&cacheSeconds=31536000)](docs/user-guide.md)
+[![Feature Breakdown](https://img.shields.io/badge/Feature_Breakdown-D9730D?style=for-the-badge&logo=elementor&logoColor=white&cacheSeconds=31536000)](docs/features.md)
+[![Quick Settings](https://img.shields.io/badge/Quick_Settings-28A745?style=for-the-badge&logo=android&logoColor=white&cacheSeconds=31536000)](docs/quick-settings-tile.md)
+[![Floating Button](https://img.shields.io/badge/Floating_Button-6F42C1?style=for-the-badge&logo=icloud&logoColor=white&cacheSeconds=31536000)](docs/floating-button.md)
+[![Edge Swipe](https://img.shields.io/badge/Edge_Swipe-008080?style=for-the-badge&logo=hand-index&logoColor=white&cacheSeconds=31536000)](docs/edge-swipe.md)
+[![Privacy Policy](https://img.shields.io/badge/Privacy_Policy-D00000?style=for-the-badge&logo=securityscorecard&logoColor=white&cacheSeconds=31536000)](docs/privacy-policy.md)
+[![Contributing](https://img.shields.io/badge/Contributing-24292E?style=for-the-badge&logo=github&logoColor=white&cacheSeconds=31536000)](CONTRIBUTING.md)
+
+</div>
 
 ---
 
 ## 🧐 Why it exists
 
-My phone's physical volume buttons are broken, and constantly opening settings just to change the volume was annoying as hell.
+DhwaniControl was born out of necessity. When physical volume buttons fail, navigating through system settings just to adjust audio levels becomes a significant daily friction.
 
-So I built this app for myself and later open-sourced it so others with the same problem can use it too.
+Originally developed as a personal tool to overcome hardware limitations, it has been open-sourced to provide a reliable, efficient, and customizable solution for anyone facing similar hardware challenges.
 
 ---
 
