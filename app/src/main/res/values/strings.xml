@@ -101,6 +101,7 @@
     <string name="app_info_gitlab_repo_button">GitLab Repo</string>
     <string name="app_info_linkedin_button">LinkedIn</string>
     <string name="app_info_gravatar_button">Gravatar</string>
+    <string name="app_info_devto_button">Dev.to</string>
     <string name="app_info_avatar_url">https://avatars.githubusercontent.com/u/172272341</string>
     <string name="app_info_link_x">https://x.com/RajnishKMehta</string>
     <string name="app_info_link_github">https://github.com/RajnishKMehta</string>
@@ -108,6 +109,7 @@
     <string name="app_info_link_gitlab_repo">https://gitlab.com/RajnishKMehta/DhwaniControl</string>
     <string name="app_info_link_linkedin">https://www.linkedin.com/in/RajnishKMehta</string>
     <string name="app_info_link_gravatar">https://gravatar.com/rajnishkmehta</string>
+    <string name="app_info_link_devto">https://dev.to/RajnishKMehta</string>
 
     <string name="floating_config_title">Configure Floating Button</string>
     <string name="floating_config_subtitle">Customize the icon and color of your floating volume button.</string>
