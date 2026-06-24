@@ -55,8 +55,8 @@ class AppInfoActivity : AppCompatActivity() {
             openLink(getString(R.string.app_info_link_linkedin))
         }
 
-        binding.openDevToButton.setOnClickListener {
-            openLink(getString(R.string.app_info_link_devto))
+        binding.openGravatarButton.setOnClickListener {
+            openLink(getString(R.string.app_info_link_gravatar))
         }
 
         binding.appInfoHelpButton.setOnClickListener {
