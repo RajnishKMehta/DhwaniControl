@@ -247,15 +247,15 @@
                         app:iconTint="@color/colorTextSecondary" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/openDevToButton"
+                        android:id="@+id/openGravatarButton"
                         style="@style/Widget.Material3.Button.TextButton"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_columnWeight="1"
                         android:gravity="start|center_vertical"
-                        android:text="@string/app_info_devto_button"
+                        android:text="@string/app_info_gravatar_button"
                         android:textColor="@color/colorTextSecondary"
-                        app:icon="@drawable/ic_devto"
+                        app:icon="@drawable/ic_gravatar"
                         app:iconPadding="8dp"
                         app:iconTint="@color/colorTextSecondary" />
 
