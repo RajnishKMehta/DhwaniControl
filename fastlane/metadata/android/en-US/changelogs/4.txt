@@ -1,0 +1,14 @@
+Version 1.1.0 (Build 4)
+
+New Features:
+- Volume controls now visible on locked devices
+- FloatingButtonService displays on lockscreen
+- VolumeOverlayService displays on lockscreen
+- VolumePanelTileService quick tile works on locked devices
+
+Improvements:
+- Simplified volume panel tile service by removing unlock wrapper
+- Better accessibility for locked device scenarios
+
+Technical:
+- Updated window manager flags for overlay visibility
