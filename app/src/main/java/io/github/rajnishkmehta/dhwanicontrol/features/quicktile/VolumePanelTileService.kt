@@ -24,10 +24,8 @@ class VolumePanelTileService : TileService() {
     override fun onClick() {
         super.onClick()
 
-        unlockAndRun {
-            runCatching {
-                audioManager.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI)
-            }
+        runCatching {
+            audioManager.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI)
         }
     }
 }
