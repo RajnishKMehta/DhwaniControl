@@ -28,7 +28,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFloatingButtonConfigBinding
     private var selectedIconName: String = ""
-    private var selectedColor: Int = -1
+    private var selectedColor: Int = 0
     private var selectedOpacity: Float = 1.0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +54,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
         }
 
         binding.colorDefaultButton.setOnClickListener {
-            selectedColor = -1
+            selectedColor = 0
             binding.hexColorInput.setText("")
             updatePreview()
         }
@@ -77,7 +77,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
             }
         }
 
-        if (selectedColor != -1) {
+        if (selectedColor != 0) {
             binding.hexColorInput.setText(String.format(Locale.US, "#%06X", 0xFFFFFF and selectedColor))
         }
 
@@ -134,7 +134,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
         binding.iconPreview.setImageResource(icon.resId)
         binding.iconPreview.alpha = selectedOpacity
         
-        val tintColor = if (selectedColor == -1) {
+        val tintColor = if (selectedColor == 0) {
             getColor(R.color.colorPrimary)
         } else {
             selectedColor

@@ -86,7 +86,7 @@ object AppPreferences {
     }
 
     fun getFloatingIconColor(context: Context): Int {
-        return getIntSafe(preferences(context), Constants.PREF_FLOATING_ICON_COLOR, -1)
+        return getIntSafe(preferences(context), Constants.PREF_FLOATING_ICON_COLOR, 0)
     }
 
     fun setFloatingIconColor(context: Context, color: Int) {
