@@ -1,0 +1,7 @@
+Version 1.1.1 (Build 5)
+
+Bug Fixes:
+- Fixed floating button icon color resetting when white is selected
+
+Note:
+Default color now uses 0 instead of -1 to avoid conflict with Color.WHITE.
