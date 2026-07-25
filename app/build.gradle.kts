@@ -73,14 +73,14 @@ android {
 
     namespace = appId
 
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
 
         applicationId = appId
 
         minSdk = 29
-        targetSdk = 36
+        targetSdk = 37
 
         versionCode = appVersionCode
         versionName = appVersionName
@@ -96,7 +96,7 @@ android {
         includeInApk = false
         includeInBundle = false
     }
-    
+
     signingConfigs {
 
         create("release") {
@@ -174,7 +174,7 @@ android {
 kotlin {
     compilerOptions {
         jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
-        freeCompilerArgs.add("-Xannotation-default-target=param-property")
+
     }
 }
 
@@ -182,7 +182,7 @@ kotlin {
 dependencies {
 
     implementation(
-        "androidx.core:core-ktx:1.18.0"
+        "androidx.core:core-ktx:1.19.0"
     )
 
     implementation(

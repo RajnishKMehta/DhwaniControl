@@ -78,8 +78,8 @@ Originally developed as a personal tool to overcome hardware limitations, it has
 ## 🛠 Tech & Performance
 
 DhwaniControl is built with performance and longevity in mind:
-- **Language**: Kotlin 2.1.0
-- **Toolchain**: Java 21 & Gradle 9.5
+- **Language**: Kotlin 2.4.10
+- **Toolchain**: Java 21 & Gradle 9.6.1
 - **Optimization**: R8 Full Mode for minimal binary size and code obfuscation.
 - **Android Support**: Fully optimized for Android 10 (API 29) up to Android 16.
 
