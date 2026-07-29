@@ -1,7 +1,5 @@
 # $\textcolor{#0078D4}{\textsf{User Guide}}$
 
-![Version](https://img.shields.io/github/v/release/RajnishKMehta/DhwaniControl?include_prereleases&style=for-the-badge)
-
 This guide provides comprehensive instructions for setting up and maximizing your experience with **DhwaniControl**.
 
 ---
@@ -18,6 +16,8 @@ To ensure compatibility and optimal performance, please verify:
 ---
 
 ## $\textcolor{#D9730D}{\textsf{🔋 Battery Optimization}}$
+
+> not required
 
 For DhwaniControl to remain responsive, you must exclude it from system battery restrictions:
 
