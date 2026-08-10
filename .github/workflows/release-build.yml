@@ -38,7 +38,7 @@ jobs:
     steps:
       # Checkout
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -140,6 +140,16 @@ jobs:
         run: |
           mkdir -p .keystore
           echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > .keystore/release.jks
+
+      # Download & convert author avatar
+      - name: Update author avatar
+        if: steps.tag_check.outputs.exists == 'false'
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y webp
+
+          curl -sL "https://avatars.githubusercontent.com/u/172272341?s=460" -o /tmp/author.png
+          cwebp -q 95 /tmp/author.png -o app/src/main/res/drawable/author.webp
 
       # Build signed APK
       - name: Build release APK
