@@ -1,0 +1,6 @@
+Version 1.2.0 (Build 6)
+
+- Added "Need Help" buttons on configuration screens for quick access to guides
+- Streamlined setup guide for Quick Settings Tile
+- Added direct documentation links for Edge Swipe and Floating Button settings
+- Improved App Info screen with reliable offline developer profile avatar
