@@ -15,7 +15,7 @@ class EdgeSwipeSideSelectorActivity : AppCompatActivity() {
         binding = ActivityEdgeSwipeSideSelectorBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.helpButton.setOnClickListener {
-            val url = "https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/edge-swipe.md"
+            val url = getString(io.github.rajnishkmehta.dhwanicontrol.R.string.edge_swipe_help_url)
             val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse(url))
             runCatching {
                 startActivity(intent)

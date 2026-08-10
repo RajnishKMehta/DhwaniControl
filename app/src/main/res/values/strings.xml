@@ -127,6 +127,9 @@
     <string name="home_need_help">Need Help</string>
     <string name="app_info_need_help">Need Help</string>
     <string name="app_info_help_url">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/user-guide.md</string>
+    <string name="edge_swipe_help_url">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/edge-swipe.md</string>
+    <string name="floating_button_help_url">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/floating-button.md</string>
+    <string name="quick_tile_help_url">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/quick-settings-tile.md</string>
 
     <string name="notification_channel_name">DhwaniControl edge swipe service</string>
     <string name="notification_channel_description">Keeps edge swipe detection active</string>

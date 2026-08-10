@@ -36,7 +36,7 @@ object QuickSettingsFeatureController : FeatureController {
     }
 
     override fun openConfig(activity: Activity) {
-        val url = "https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/quick-settings-tile.md"
+        val url = activity.getString(R.string.quick_tile_help_url)
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         runCatching {
             activity.startActivity(intent)

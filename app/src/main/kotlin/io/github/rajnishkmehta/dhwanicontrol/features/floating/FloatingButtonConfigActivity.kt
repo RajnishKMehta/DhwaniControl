@@ -47,7 +47,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
     private fun setupUI() {
         refreshIconList()
         binding.helpButton.setOnClickListener {
-            val url = "https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/floating-button.md"
+            val url = getString(R.string.floating_button_help_url)
             val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse(url))
             runCatching {
                 startActivity(intent)
