@@ -90,7 +90,8 @@ DhwaniControl is built with performance and longevity in mind:
 Licensed under the **[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)**. See the [LICENSE](LICENSE) for more info.
 
 <div align="center">
-  <a href="#top">
+  <!--<a href="#top">-->
+  <a href="#-dhwanicontrol">
     <img src="https://img.shields.io/badge/-Back%20to%20Top-0f2027?style=for-the-badge&logo=rocket" />
   </a>
 </div>
