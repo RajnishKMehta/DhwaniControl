@@ -4,34 +4,21 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import io.github.rajnishkmehta.dhwanicontrol.R
 import io.github.rajnishkmehta.dhwanicontrol.databinding.ActivityAppInfoBinding
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
 
 class AppInfoActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAppInfoBinding
-    private lateinit var avatarStore: DeveloperAvatarStore
-    private val avatarExecutor: ExecutorService = Executors.newSingleThreadExecutor()
-    private val mainHandler = Handler(Looper.getMainLooper())
-
-    private var isClosed = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAppInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        avatarStore = DeveloperAvatarStore(applicationContext)
-
         setupClickListeners()
-        loadAvatar()
     }
 
     private fun setupClickListeners() {
@@ -65,11 +52,12 @@ class AppInfoActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        isClosed = true
-        avatarExecutor.shutdownNow()
+        // isClosed = true
+        // avatarExecutor.shutdownNow()
         super.onDestroy()
     }
 
+    /*
     private fun loadAvatar() {
         val savedAvatar = avatarStore.loadSavedBitmap()
 
@@ -112,6 +100,7 @@ class AppInfoActivity : AppCompatActivity() {
             }
         }
     }
+    */
 
     private fun openLink(url: String) {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))

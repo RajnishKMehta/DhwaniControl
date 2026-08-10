@@ -160,6 +160,7 @@
                         android:background="@color/colorSurfaceVariant"
                         android:contentDescription="@string/app_info_avatar_description"
                         android:scaleType="centerCrop"
+                        android:src="@drawable/author"
                         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Material3.Circle"
                         app:strokeColor="@color/colorAccent"
                         app:strokeWidth="2dp" />
@@ -183,15 +184,6 @@
                         android:textColor="@color/colorAccent"
                         android:textSize="16sp" />
 
-                    <TextView
-                        android:id="@+id/avatarStatusText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="@string/app_info_avatar_loading"
-                        android:textColor="@color/colorTextMuted"
-                        android:textSize="11sp"
-                        android:visibility="gone" />
                 </LinearLayout>
 
                 <com.google.android.material.divider.MaterialDivider
