@@ -31,9 +31,10 @@ For DhwaniControl to remain responsive, you must exclude it from system battery 
 
 ## $\textcolor{#6F42C1}{\textsf{🏁 Getting Started}}$
 
-1.  **Installation:** Download the APK from GitHub Releases or install via F-Droid.
-2.  **Configuration:** Open the app and head to `Home -> Quick Settings Tile -> Config`. Follow the visual guide to add the tile.
-3.  **Activation:** Toggle your preferred triggers (Floating Button or Edge Swipe) and grant the necessary permissions.
+1.  **Installation:** Download the APK from [GitHub Releases](https://github.com/RajnishKMehta/DhwaniControl/releases/latest/download/DhwaniControl.apk) or install via [F-Droid](https://f-droid.org/packages/io.github.rajnishkmehta.dhwanicontrol).
+2. Read ***[![Feature Breakdown](https://img.shields.io/badge/Feature_Breakdown-D9730D?style=plastic&logo=elementor&logoColor=white&cacheSeconds=31536000)](features.md)*** to know about Features and how to use that.
+
+- ***[Feature Breakdown](features.md)***
 
 ---
 
@@ -62,7 +63,6 @@ For DhwaniControl to remain responsive, you must exclude it from system battery 
 
 <div align="center">
 
-[![Features](https://img.shields.io/badge/Features_Overview-D9730D?style=for-the-badge&cacheSeconds=31536000)](features.md)
 [![Floating Button](https://img.shields.io/badge/Floating_Button_Guide-6F42C1?style=for-the-badge&cacheSeconds=31536000)](floating-button.md)
 [![Edge Swipe](https://img.shields.io/badge/Edge_Swipe_Guide-008080?style=for-the-badge&cacheSeconds=31536000)](edge-swipe.md)
 [![Quick Settings](https://img.shields.io/badge/Quick_Settings_Guide-28A745?style=for-the-badge&cacheSeconds=31536000)](quick-settings-tile.md)
