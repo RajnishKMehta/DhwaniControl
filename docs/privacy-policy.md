@@ -1,6 +1,5 @@
 # $\textcolor{#0078D4}{\textsf{Privacy Policy}}$
 
-![Version](https://img.shields.io/github/v/release/RajnishKMehta/DhwaniControl?include_prereleases&style=for-the-badge)
 
 Your privacy is paramount. **DhwaniControl** is designed with a "privacy-first" philosophy, ensuring that your data remains yours and yours alone.
 
