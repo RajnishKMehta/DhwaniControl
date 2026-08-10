@@ -145,7 +145,8 @@ class HomeActivity : AppCompatActivity() {
                 toggleEnabled = spec.supportsToggle && !isBlocked,
                 toggledOn = spec.supportsToggle && enabled,
                 showConfig = spec.supportsConfig,
-                configEnabled = !isBlocked
+                configEnabled = !isBlocked,
+                configButtonText = getString(spec.configActionRes)
             )
         }.getOrElse {
             FeatureCardUiModel(
@@ -158,7 +159,8 @@ class HomeActivity : AppCompatActivity() {
                 toggleEnabled = false,
                 toggledOn = false,
                 showConfig = spec.supportsConfig,
-                configEnabled = false
+                configEnabled = false,
+                configButtonText = getString(spec.configActionRes)
             )
         }
     }

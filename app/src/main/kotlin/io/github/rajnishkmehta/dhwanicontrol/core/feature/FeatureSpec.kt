@@ -2,6 +2,7 @@ package io.github.rajnishkmehta.dhwanicontrol.core.feature
 
 import androidx.annotation.IntRange
 import androidx.annotation.StringRes
+import io.github.rajnishkmehta.dhwanicontrol.R
 
 /**
  * Static metadata used by [FeatureRegistry] to render and resolve a feature.
@@ -15,6 +16,7 @@ data class FeatureSpec(
     @StringRes val summaryRes: Int,
     val supportsToggle: Boolean,
     val supportsConfig: Boolean = true,
+    @StringRes val configActionRes: Int = R.string.feature_config_button,
     val requiredPermissions: Set<PermissionRequirement>,
     @IntRange(from = 1)
     val displayOrder: Int

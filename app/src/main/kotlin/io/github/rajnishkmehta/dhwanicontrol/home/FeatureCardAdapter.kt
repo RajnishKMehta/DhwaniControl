@@ -63,6 +63,7 @@ class FeatureCardAdapter(
 
             binding.featureConfigButton.isVisible = item.showConfig
             binding.featureConfigButton.isEnabled = item.configEnabled
+            binding.featureConfigButton.text = item.configButtonText
             binding.featureConfigButton.setOnClickListener {
                 onConfigClick(item.featureId)
             }

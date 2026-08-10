@@ -10,5 +10,6 @@ data class FeatureCardUiModel(
     val toggleEnabled: Boolean,
     val toggledOn: Boolean,
     val showConfig: Boolean,
-    val configEnabled: Boolean
+    val configEnabled: Boolean,
+    val configButtonText: String
 )
