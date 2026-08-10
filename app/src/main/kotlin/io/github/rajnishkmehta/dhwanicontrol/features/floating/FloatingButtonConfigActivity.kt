@@ -46,6 +46,15 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
 
     private fun setupUI() {
         refreshIconList()
+        binding.helpButton.setOnClickListener {
+            val url = "https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/floating-button.md"
+            val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse(url))
+            runCatching {
+                startActivity(intent)
+            }.onFailure {
+                Toast.makeText(this, R.string.app_info_open_link_failed, Toast.LENGTH_SHORT).show()
+            }
+        }
 
         binding.opacitySlider.value = selectedOpacity
         binding.opacitySlider.addOnChangeListener { _, value, _ ->

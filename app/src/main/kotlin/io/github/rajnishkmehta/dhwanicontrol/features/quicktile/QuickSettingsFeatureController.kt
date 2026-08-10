@@ -3,6 +3,8 @@ package io.github.rajnishkmehta.dhwanicontrol.features.quicktile
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
+import android.widget.Toast
 import io.github.rajnishkmehta.dhwanicontrol.Constants
 import io.github.rajnishkmehta.dhwanicontrol.R
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureController
@@ -16,6 +18,7 @@ object QuickSettingsFeatureController : FeatureController {
         summaryRes = R.string.feature_quick_tile_description,
         supportsToggle = false,
         supportsConfig = true,
+        configActionRes = R.string.home_need_help,
         requiredPermissions = emptySet(),
         displayOrder = 1
     )
@@ -33,7 +36,13 @@ object QuickSettingsFeatureController : FeatureController {
     }
 
     override fun openConfig(activity: Activity) {
-        activity.startActivity(Intent(activity, QuickSettingsGuideActivity::class.java))
+        val url = "https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/quick-settings-tile.md"
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        runCatching {
+            activity.startActivity(intent)
+        }.onFailure {
+            Toast.makeText(activity, R.string.app_info_open_link_failed, Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun synchronize(context: Context) {

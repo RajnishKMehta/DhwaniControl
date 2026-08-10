@@ -43,6 +43,16 @@ class EdgeSwipeSetupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEdgeSwipeSetupBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.helpButton.setOnClickListener {
+            val url = "https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/edge-swipe.md"
+            val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse(url))
+            runCatching {
+                startActivity(intent)
+            }.onFailure {
+                android.widget.Toast.makeText(this, io.github.rajnishkmehta.dhwanicontrol.R.string.app_info_open_link_failed, android.widget.Toast.LENGTH_SHORT).show()
+            }
+        }
+        binding.helpButton.bringToFront()
 
         updateSwipeCounter()
 

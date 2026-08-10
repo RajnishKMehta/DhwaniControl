@@ -42,9 +42,9 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
-        <activity
+        <!-- <activity
             android:name=".features.quicktile.QuickSettingsGuideActivity"
-            android:exported="false" />
+            android:exported="false" /> -->
 
         <activity
             android:name=".features.floating.FloatingButtonConfigActivity"
