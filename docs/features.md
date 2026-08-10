@@ -1,7 +1,5 @@
 # $\textcolor{#0078D4}{\textsf{Features Overview}}$
 
-![Version](https://img.shields.io/github/v/release/RajnishKMehta/DhwaniControl?include_prereleases&style=for-the-badge)
-
 DhwaniControl offers multiple non-intrusive ways to access your device's volume controls, tailored for efficiency and ease of use.
 
 ---
