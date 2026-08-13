@@ -5,8 +5,8 @@ plugins {
 val appId = "io.github.rajnishkmehta.dhwanicontrol"
 
 // VERSIONING
-val appVersionName = "1.2.0"
-val appVersionCode = 6
+val appVersionName = "1.2.7"
+val appVersionCode = 7
 
 // Extract versions from appVersionName
 val versionParts = appVersionName.split(".")
