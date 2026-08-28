@@ -27,14 +27,19 @@
 
 ---
 
+## 📥 Get The App
+
 <div align="center">
 
-## 📥 Get the App
+### ⬇️ Direct Download
+[![Download APK](https://img.shields.io/badge/Download-Latest_APK-blue?style=for-the-badge&logo=android)](https://github.com/RajnishKMehta/DhwaniControl/releases/latest/download/DhwaniControl.apk)
+
+### 👜 Get via Store
 
 [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/io.github.rajnishkmehta.dhwanicontrol)
-
-### Direct Download
-[![Download APK](https://img.shields.io/badge/Download-Latest_APK-blue?style=for-the-badge&logo=android)](https://github.com/RajnishKMehta/DhwaniControl/releases/latest/download/DhwaniControl.apk)
+[<img src="https://github.com/ImranR98/Obtainium/blob/main/assets/graphics/badge_obtainium.png" alt="Get it on Obtainium" height="80">](https://apps.obtainium.imranr.dev/redirect.html?r=obtainium://app/%7B%22id%22%3A%22io.github.rajnishkmehta.dhwanicontrol%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2FRajnishKMehta%2FDhwaniControl%22%2C%22author%22%3A%22RajnishKMehta%22%2C%22name%22%3A%2G2DhwaniControl%22%2C%22additionalSettings%22%3A%22%7B%5C%22appName%5C%22%3A%5C%22DhwaniControl%5C%22%2C%5C%22appAuthor%5C%22%3A%5C%22RajnishKMehta%5C%22%2C%5C%22about%5C%22%3A%5C%22DhwaniControl%20is%20a%20lightweight%20Android%20utility%20app%20that%20lets%20you%20adjust%20system%20volume%20without%20hardware%20keys%2C%20perfect%20for%20devices%20with%20broken%20physical%20volume%20buttons.%5C%22%7D%22%7D)
+[<img src="https://www.openapk.net/images/openapk-badge.png" alt="Get it on OpenAPK" height="80">](https://www.openapk.net/dhwani-volume-control/io.github.rajnishkmehta.dhwanicontrol/)
+[<img src="https://raw.githubusercontent.com/rubenpgrady/get-it-on-github/refs/heads/main/get-it-on-github.png" alt="Get it on GitHub" height="80">](https://github.com/RajnishKMehta/DhwaniControl/releases/latest)
 
 </div>
 
@@ -79,7 +84,7 @@ Originally developed as a personal tool to overcome hardware limitations, it has
 
 DhwaniControl is built with performance and longevity in mind:
 - **Language**: Kotlin
-- **Toolchain**: Java 21 & Gradle 9.6.1
+- **Toolchain**: Java 21 & Gradle 9.7.1
 - **Optimization**: R8 Full Mode for minimal binary size and code obfuscation.
 - **Android Support**: Fully optimized for Android 10 (API 29) up to Android 17 (API 37).
 
