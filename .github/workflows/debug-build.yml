@@ -30,7 +30,7 @@ jobs:
   build:
     name: Debug APK
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 33
 
     steps:
       # Checkout
@@ -92,7 +92,7 @@ jobs:
         with:
           name: DhwaniControl-v${{ steps.version.outputs.version }}-debug-PR${{ github.event.pull_request.number }}
           path: artifacts/DhwaniControl-v${{ steps.version.outputs.version }}-debug.apk
-          retention-days: 60
+          retention-days: 12
 
       # Delete old bot comment if exists
       - name: Delete old APK comment on PR
@@ -159,7 +159,7 @@ jobs:
             | **Build** | \`#${runNumber}\` |
             | **PR** | #${prNumber} |
             | **Artifact** | \`${artifactName}\` |
-            | **Expires** | 60 days |
+            | **Expires** | 12 days |
 
             ---
 

@@ -182,19 +182,19 @@ kotlin {
 dependencies {
 
     implementation(
-        "androidx.core:core-ktx:1.19.0"
+        "androidx.core:core-ktx:1.19.1"
     )
 
     implementation(
-        "androidx.appcompat:appcompat:1.7.1"
+        "androidx.appcompat:appcompat:1.8.0"
     )
 
     implementation(
-        "com.google.android.material:material:1.13.0"
+        "com.google.android.material:material:1.14.0"
     )
 
     implementation(
-        "androidx.constraintlayout:constraintlayout:2.2.1"
+        "androidx.constraintlayout:constraintlayout:2.2.2"
     )
 
     implementation(
@@ -214,6 +214,6 @@ dependencies {
     )
 
     implementation(
-        "androidx.fragment:fragment-ktx:1.8.9"
+        "androidx.fragment:fragment-ktx:1.9.1"
     )
 }
