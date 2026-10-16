@@ -3,7 +3,6 @@ package io.github.rajnishkmehta.dhwanicontrol.features.edge
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
 import android.content.res.Resources
@@ -28,7 +27,6 @@ import io.github.rajnishkmehta.dhwanicontrol.Constants
 import io.github.rajnishkmehta.dhwanicontrol.R
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.PermissionRequirement
 import io.github.rajnishkmehta.dhwanicontrol.core.permission.PermissionPolicy
-import io.github.rajnishkmehta.dhwanicontrol.home.HomeActivity
 import io.github.rajnishkmehta.dhwanicontrol.core.preferences.AppPreferences
 import kotlin.math.abs
 
@@ -289,38 +287,9 @@ class VolumeOverlayService : Service() {
     }
 
     private fun buildForegroundNotification(): Notification {
-        val stopServiceIntent = Intent(this, VolumeOverlayService::class.java).apply {
-            action = Constants.ACTION_STOP_EDGE_SERVICE
-        }
-
-        val stopPendingIntent = PendingIntent.getService(
-            this,
-            Constants.STOP_ACTION_REQUEST_CODE,
-            stopServiceIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        )
-
-        val openAppIntent = Intent(this, HomeActivity::class.java)
-        val openAppPendingIntent = PendingIntent.getActivity(
-            this,
-            0,
-            openAppIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        )
-
         return NotificationCompat.Builder(this, Constants.NOTIFICATION_CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_notification)
-            .setContentTitle(getString(R.string.notification_title))
-            .setContentText(getString(R.string.notification_text))
             .setPriority(NotificationCompat.PRIORITY_MIN)
-            .setOngoing(true)
-            .setShowWhen(false)
-            .setContentIntent(openAppPendingIntent)
-            .addAction(
-                R.drawable.ic_notification,
-                getString(R.string.notification_stop_action),
-                stopPendingIntent
-            )
             .build()
     }
 

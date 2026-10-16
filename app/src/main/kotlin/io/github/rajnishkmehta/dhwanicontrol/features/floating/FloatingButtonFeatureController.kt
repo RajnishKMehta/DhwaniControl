@@ -20,7 +20,6 @@ object FloatingButtonFeatureController : FeatureController {
         supportsConfig = true,
         requiredPermissions = setOf(
             PermissionRequirement.Overlay,
-            PermissionRequirement.Notifications
         ),
         displayOrder = 2
     )
