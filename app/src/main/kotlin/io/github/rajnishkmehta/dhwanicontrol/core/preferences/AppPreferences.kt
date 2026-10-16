@@ -53,15 +53,34 @@ object AppPreferences {
         preferences.edit().putBoolean(Constants.PREF_FLOATING_ENABLED, enabled).apply()
     }
 
-    fun getFloatingPosition(context: Context): Pair<Float, Float>? {
+    fun getFloatingPosition(context: Context, isLandscape: Boolean = false): Pair<Float, Float>? {
         val preferences = preferences(context)
-        if (!preferences.contains(Constants.PREF_FLOATING_X) || !preferences.contains(Constants.PREF_FLOATING_Y)) {
+
+        val useLandscape = isLandscape && isFloatingSeparatePositionsEnabled(context)
+
+        val xKey = if (useLandscape) Constants.PREF_FLOATING_LANDSCAPE_X else Constants.PREF_FLOATING_X
+        val yKey = if (useLandscape) Constants.PREF_FLOATING_LANDSCAPE_Y else Constants.PREF_FLOATING_Y
+
+        if (!preferences.contains(xKey) || !preferences.contains(yKey)) {
+            if (useLandscape) {
+                // Fallback to portrait position if landscape is not yet saved
+                return try {
+                    if (!preferences.contains(Constants.PREF_FLOATING_X) || !preferences.contains(Constants.PREF_FLOATING_Y)) {
+                        return null
+                    }
+                    val x = preferences.getFloat(Constants.PREF_FLOATING_X, 0.5f)
+                    val y = preferences.getFloat(Constants.PREF_FLOATING_Y, 0.5f)
+                    Pair(x, y)
+                } catch (e: ClassCastException) {
+                    null
+                }
+            }
             return null
         }
 
         return try {
-            val x = preferences.getFloat(Constants.PREF_FLOATING_X, 0.5f)
-            val y = preferences.getFloat(Constants.PREF_FLOATING_Y, 0.5f)
+            val x = preferences.getFloat(xKey, 0.5f)
+            val y = preferences.getFloat(yKey, 0.5f)
             Pair(x, y)
         } catch (e: ClassCastException) {
             // Legacy Int values exist, return null to use default position and allow overwrite with Float on next save
@@ -69,11 +88,16 @@ object AppPreferences {
         }
     }
 
-    fun setFloatingPosition(context: Context, x: Float, y: Float) {
+    fun setFloatingPosition(context: Context, x: Float, y: Float, isLandscape: Boolean = false) {
         val preferences = preferences(context)
+        val useLandscape = isLandscape && isFloatingSeparatePositionsEnabled(context)
+
+        val xKey = if (useLandscape) Constants.PREF_FLOATING_LANDSCAPE_X else Constants.PREF_FLOATING_X
+        val yKey = if (useLandscape) Constants.PREF_FLOATING_LANDSCAPE_Y else Constants.PREF_FLOATING_Y
+
         preferences.edit()
-            .putFloat(Constants.PREF_FLOATING_X, x)
-            .putFloat(Constants.PREF_FLOATING_Y, y)
+            .putFloat(xKey, x)
+            .putFloat(yKey, y)
             .apply()
     }
 
@@ -107,6 +131,14 @@ object AppPreferences {
         preferences(context).edit().putFloat(Constants.PREF_FLOATING_OPACITY, opacity).apply()
     }
 
+
+    fun isFloatingSeparatePositionsEnabled(context: Context): Boolean {
+        return getBooleanSafe(preferences(context), Constants.PREF_FLOATING_SEPARATE_POSITIONS, false)
+    }
+
+    fun setFloatingSeparatePositionsEnabled(context: Context, enabled: Boolean) {
+        preferences(context).edit().putBoolean(Constants.PREF_FLOATING_SEPARATE_POSITIONS, enabled).apply()
+    }
 
     fun isFloatingFixedPosition(context: Context): Boolean {
         return getBooleanSafe(preferences(context), Constants.PREF_FLOATING_FIXED_POSITION, false)

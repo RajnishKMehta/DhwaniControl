@@ -127,6 +127,9 @@
     <string name="floating_config_fixed_position">Fixed Position</string>
     <string name="floating_config_fixed_position_desc">Set the floating button\'s position before enabling this option and saving your configuration.</string>
 
+    <string name="floating_config_separate_positions">Separate Portrait/Landscape Positions</string>
+    <string name="floating_config_separate_positions_desc">Save different positions for portrait and landscape orientations.</string>
+
     <string name="home_need_help">Need Help</string>
     <string name="app_info_need_help">Need Help</string>
     <string name="app_info_help_url">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/user-guide.md</string>

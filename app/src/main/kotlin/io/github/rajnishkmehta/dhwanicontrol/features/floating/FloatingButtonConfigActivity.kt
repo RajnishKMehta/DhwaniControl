@@ -31,6 +31,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
     private var selectedColor: Int = 0
     private var selectedOpacity: Float = 1.0f
     private var isFixedPosition: Boolean = false
+    private var isSeparatePositions: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +42,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
         selectedColor = AppPreferences.getFloatingIconColor(this)
         selectedOpacity = AppPreferences.getFloatingOpacity(this)
         isFixedPosition = AppPreferences.isFloatingFixedPosition(this)
+        isSeparatePositions = AppPreferences.isFloatingSeparatePositionsEnabled(this)
 
         setupUI()
         updatePreview()
@@ -68,6 +70,11 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
         binding.fixedPositionSwitch.isChecked = isFixedPosition
         binding.fixedPositionSwitch.setOnCheckedChangeListener { _, isChecked ->
             isFixedPosition = isChecked
+        }
+
+        binding.separatePositionsSwitch.isChecked = isSeparatePositions
+        binding.separatePositionsSwitch.setOnCheckedChangeListener { _, isChecked ->
+            isSeparatePositions = isChecked
         }
 
         binding.colorDefaultButton.setOnClickListener {
@@ -103,6 +110,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
             AppPreferences.setFloatingIconColor(this, selectedColor)
             AppPreferences.setFloatingOpacity(this, selectedOpacity)
             AppPreferences.setFloatingFixedPosition(this, isFixedPosition)
+            AppPreferences.setFloatingSeparatePositionsEnabled(this, isSeparatePositions)
             
             // Restart feature if enabled
             if (AppPreferences.isFloatingEnabled(this)) {
