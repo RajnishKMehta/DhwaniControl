@@ -30,6 +30,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
     private var selectedIconName: String = ""
     private var selectedColor: Int = 0
     private var selectedOpacity: Float = 1.0f
+    private var isFixedPosition: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +40,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
         selectedIconName = AppPreferences.getFloatingIconName(this)
         selectedColor = AppPreferences.getFloatingIconColor(this)
         selectedOpacity = AppPreferences.getFloatingOpacity(this)
+        isFixedPosition = AppPreferences.isFloatingFixedPosition(this)
 
         setupUI()
         updatePreview()
@@ -60,6 +62,12 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
         binding.opacitySlider.addOnChangeListener { _, value, _ ->
             selectedOpacity = value
             updatePreview()
+        }
+
+
+        binding.fixedPositionSwitch.isChecked = isFixedPosition
+        binding.fixedPositionSwitch.setOnCheckedChangeListener { _, isChecked ->
+            isFixedPosition = isChecked
         }
 
         binding.colorDefaultButton.setOnClickListener {
@@ -94,6 +102,7 @@ class FloatingButtonConfigActivity : AppCompatActivity() {
             AppPreferences.setFloatingIconName(this, selectedIconName)
             AppPreferences.setFloatingIconColor(this, selectedColor)
             AppPreferences.setFloatingOpacity(this, selectedOpacity)
+            AppPreferences.setFloatingFixedPosition(this, isFixedPosition)
             
             // Restart feature if enabled
             if (AppPreferences.isFloatingEnabled(this)) {

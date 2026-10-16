@@ -103,7 +103,7 @@
                             android:layout_height="20dp"
                             android:contentDescription="@string/content_description_overlay_icon"
                             android:src="@android:drawable/ic_menu_view"
-                            android:tint="@color/colorAccent" />
+                            app:tint="@color/colorAccent" />
 
                         <TextView
                             android:id="@+id/overlayPermissionLabel"
@@ -182,7 +182,7 @@
                             android:layout_height="20dp"
                             android:contentDescription="@string/content_description_notifications_icon"
                             android:src="@drawable/ic_bell"
-                            android:tint="@color/colorAccent" />
+                            app:tint="@color/colorAccent" />
 
                         <TextView
                             android:id="@+id/notificationPermissionLabel"
