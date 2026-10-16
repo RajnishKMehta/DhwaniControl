@@ -91,12 +91,86 @@ val tintColor = if (iconColor == 0) {
 }
 
 val opacity = AppPreferences.getFloatingOpacity(this)
+val isFixedPosition = AppPreferences.isFloatingFixedPosition(this)
 
 if (floatingView != null) {
     (floatingView as? ImageView)?.let {
         it.setImageResource(iconResId)
         it.setColorFilter(tintColor)
         it.alpha = opacity
+
+        // Update touch listener in case isFixedPosition changed
+        it.setOnTouchListener { view, event ->
+            if (isFixedPosition) {
+                if (event.action == android.view.MotionEvent.ACTION_UP) {
+                    showNativeVolumePanel()
+                    view.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY)
+                    return@setOnTouchListener true
+                }
+                return@setOnTouchListener event.action == android.view.MotionEvent.ACTION_DOWN
+            }
+
+            when (event.action) {
+                android.view.MotionEvent.ACTION_DOWN -> {
+                    initialX = params!!.x
+                    initialY = params!!.y
+                    initialTouchX = event.rawX
+                    initialTouchY = event.rawY
+                    touchStartTime = System.currentTimeMillis()
+                    isLongPressing = false
+                    true
+                }
+                android.view.MotionEvent.ACTION_MOVE -> {
+                    val deltaX = event.rawX - initialTouchX
+                    val deltaY = event.rawY - initialTouchY
+
+                    if (!isLongPressing && (kotlin.math.abs(deltaX) > 10 || kotlin.math.abs(deltaY) > 10)) {
+                        if (System.currentTimeMillis() - touchStartTime > longPressTimeout) {
+                            isLongPressing = true
+                            view.performHapticFeedback(android.view.HapticFeedbackConstants.LONG_PRESS)
+                        }
+                    }
+
+                    if (isLongPressing) {
+                        val metrics = resources.displayMetrics
+                        val screenWidth = metrics.widthPixels
+                        val screenHeight = metrics.heightPixels
+
+                        val newX = (initialX + deltaX.toInt()).coerceIn(0, screenWidth - view.width)
+                        val newY = (initialY + deltaY.toInt()).coerceIn(0, screenHeight - view.height)
+
+                        params!!.x = newX
+                        params!!.y = newY
+                        windowManager.updateViewLayout(view, params!!)
+                    }
+                    true
+                }
+                android.view.MotionEvent.ACTION_UP -> {
+                    val deltaX = event.rawX - initialTouchX
+                    val deltaY = event.rawY - initialTouchY
+
+                    if (!isLongPressing && kotlin.math.abs(deltaX) < 10 && kotlin.math.abs(deltaY) < 10) {
+                        showNativeVolumePanel()
+                        view.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY)
+                    } else if (isLongPressing) {
+                        val metrics = resources.displayMetrics
+                        val screenWidth = metrics.widthPixels
+                        val screenHeight = metrics.heightPixels
+
+                        val finalX = params!!.x.coerceIn(0, screenWidth - view.width)
+                        val finalY = params!!.y.coerceIn(0, screenHeight - view.height)
+
+                        val percentX = finalX.toFloat() / (screenWidth - view.width).coerceAtLeast(1)
+                        val percentY = finalY.toFloat() / (screenHeight - view.height).coerceAtLeast(1)
+
+                        AppPreferences.setFloatingPosition(this@FloatingButtonService, percentX, percentY)
+                    }
+                    isLongPressing = false
+                    true
+                }
+                else -> false
+            }
+        }
     }
     return
 }
@@ -139,6 +213,15 @@ val iconSize = dpToPx(48)
         }
 
         imageView.setOnTouchListener { view, event ->
+            if (isFixedPosition) {
+                if (event.action == MotionEvent.ACTION_UP) {
+                    showNativeVolumePanel()
+                    view.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY)
+                    return@setOnTouchListener true
+                }
+                return@setOnTouchListener event.action == MotionEvent.ACTION_DOWN
+            }
+
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     initialX = layoutParams.x

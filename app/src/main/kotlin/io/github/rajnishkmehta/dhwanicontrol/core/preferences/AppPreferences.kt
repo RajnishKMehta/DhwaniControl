@@ -107,6 +107,15 @@ object AppPreferences {
         preferences(context).edit().putFloat(Constants.PREF_FLOATING_OPACITY, opacity).apply()
     }
 
+
+    fun isFloatingFixedPosition(context: Context): Boolean {
+        return getBooleanSafe(preferences(context), Constants.PREF_FLOATING_FIXED_POSITION, false)
+    }
+
+    fun setFloatingFixedPosition(context: Context, fixed: Boolean) {
+        preferences(context).edit().putBoolean(Constants.PREF_FLOATING_FIXED_POSITION, fixed).apply()
+    }
+
     fun getNotificationDenialCount(context: Context): Int {
         return getIntSafe(preferences(context), Constants.PREF_NOTIFICATION_DENIAL_COUNT, 0)
     }
