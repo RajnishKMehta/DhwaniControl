@@ -39,15 +39,6 @@ class FloatingButtonService : Service() {
     private var floatingView: View? = null
     private var params: WindowManager.LayoutParams? = null
 
-    private var initialX: Int = 0
-    private var initialY: Int = 0
-    private var initialTouchX: Float = 0f
-    private var initialTouchY: Float = 0f
-
-    private var touchStartTime: Long = 0
-    private val longPressTimeout = ViewConfiguration.getLongPressTimeout().toLong()
-    private var isLongPressing = false
-
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onCreate() {
@@ -62,7 +53,12 @@ class FloatingButtonService : Service() {
             return START_NOT_STICKY
         }
 
-        startForeground(Constants.NOTIFICATION_ID_FLOATING, buildForegroundNotification())
+        // Set to specialUse type to match VolumeOverlayService and since it's an overlay
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            startForeground(Constants.NOTIFICATION_ID_FLOATING, buildForegroundNotification())
+        } else {
+            startForeground(Constants.NOTIFICATION_ID_FLOATING, buildForegroundNotification())
+        }
         updateFloatingButton()
         return START_STICKY
     }
@@ -82,118 +78,47 @@ class FloatingButtonService : Service() {
         val iconName = AppPreferences.getFloatingIconName(this)
         val icon = OverlayIconRegistry.getIconByName(iconName)
         val iconResId = icon.resId
-val iconColor = AppPreferences.getFloatingIconColor(this)
-val tintColor = if (iconColor == 0) {
-    getColor(R.color.colorPrimary)
-} else {
-    iconColor
-}
-
-val opacity = AppPreferences.getFloatingOpacity(this)
-val isFixedPosition = AppPreferences.isFloatingFixedPosition(this)
-
-if (floatingView != null) {
-    (floatingView as? ImageView)?.let {
-        it.setImageResource(iconResId)
-        it.setColorFilter(tintColor)
-        it.alpha = opacity
-
-        // Update touch listener in case isFixedPosition changed
-        it.setOnTouchListener { view, event ->
-            if (isFixedPosition) {
-                if (event.action == android.view.MotionEvent.ACTION_UP) {
-                    showNativeVolumePanel()
-                    view.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY)
-                    return@setOnTouchListener true
-                }
-                return@setOnTouchListener event.action == android.view.MotionEvent.ACTION_DOWN
-            }
-
-            when (event.action) {
-                android.view.MotionEvent.ACTION_DOWN -> {
-                    initialX = params!!.x
-                    initialY = params!!.y
-                    initialTouchX = event.rawX
-                    initialTouchY = event.rawY
-                    touchStartTime = System.currentTimeMillis()
-                    isLongPressing = false
-                    true
-                }
-                android.view.MotionEvent.ACTION_MOVE -> {
-                    val deltaX = event.rawX - initialTouchX
-                    val deltaY = event.rawY - initialTouchY
-
-                    if (!isLongPressing && (kotlin.math.abs(deltaX) > 10 || kotlin.math.abs(deltaY) > 10)) {
-                        if (System.currentTimeMillis() - touchStartTime > longPressTimeout) {
-                            isLongPressing = true
-                            view.performHapticFeedback(android.view.HapticFeedbackConstants.LONG_PRESS)
-                        }
-                    }
-
-                    if (isLongPressing) {
-                        val metrics = resources.displayMetrics
-                        val screenWidth = metrics.widthPixels
-                        val screenHeight = metrics.heightPixels
-
-                        val newX = (initialX + deltaX.toInt()).coerceIn(0, screenWidth - view.width)
-                        val newY = (initialY + deltaY.toInt()).coerceIn(0, screenHeight - view.height)
-
-                        params!!.x = newX
-                        params!!.y = newY
-                        windowManager.updateViewLayout(view, params!!)
-                    }
-                    true
-                }
-                android.view.MotionEvent.ACTION_UP -> {
-                    val deltaX = event.rawX - initialTouchX
-                    val deltaY = event.rawY - initialTouchY
-
-                    if (!isLongPressing && kotlin.math.abs(deltaX) < 10 && kotlin.math.abs(deltaY) < 10) {
-                        showNativeVolumePanel()
-                        view.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY)
-                    } else if (isLongPressing) {
-                        val metrics = resources.displayMetrics
-                        val screenWidth = metrics.widthPixels
-                        val screenHeight = metrics.heightPixels
-
-                        val finalX = params!!.x.coerceIn(0, screenWidth - view.width)
-                        val finalY = params!!.y.coerceIn(0, screenHeight - view.height)
-
-                        val percentX = finalX.toFloat() / (screenWidth - view.width).coerceAtLeast(1)
-                        val percentY = finalY.toFloat() / (screenHeight - view.height).coerceAtLeast(1)
-
-                        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
-                        AppPreferences.setFloatingPosition(this@FloatingButtonService, percentX, percentY, isLandscape)
-                    }
-                    isLongPressing = false
-                    true
-                }
-                else -> false
-            }
+        val iconColor = AppPreferences.getFloatingIconColor(this)
+        val tintColor = if (iconColor == 0) {
+            getColor(R.color.colorPrimary)
+        } else {
+            iconColor
         }
-    }
-    return
-}
 
-val iconSize = dpToPx(48)
+        val opacity = AppPreferences.getFloatingOpacity(this)
+        val isFixedPosition = AppPreferences.isFloatingFixedPosition(this)
+
+        if (floatingView != null) {
+            (floatingView as? ImageView)?.let {
+                it.setImageResource(iconResId)
+                it.setColorFilter(tintColor)
+                it.alpha = opacity
+                it.setOnTouchListener(FloatingTouchListener(isFixedPosition))
+            }
+            return
+        }
+
+        val iconSize = dpToPx(48)
 
         val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
         val position = AppPreferences.getFloatingPosition(this, isLandscape)
 
+        // Using FLAG_LAYOUT_NO_LIMITS to fix edge bounds clipping
         val layoutParams = WindowManager.LayoutParams(
             iconSize,
             iconSize,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
                 WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS or
                 WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED,
             PixelFormat.TRANSLUCENT
         ).apply {
             gravity = Gravity.TOP or Gravity.START
 
-            val metrics = resources.displayMetrics
-            val screenWidth = metrics.widthPixels
-            val screenHeight = metrics.heightPixels
+            val bounds = getScreenBounds()
+            val screenWidth = bounds.first
+            val screenHeight = bounds.second
 
             x = if (position != null) {
                 (position.first * (screenWidth - iconSize)).toInt().coerceIn(0, screenWidth - iconSize)
@@ -211,16 +136,39 @@ val iconSize = dpToPx(48)
             alpha = opacity
             setPadding(dpToPx(8), dpToPx(8), dpToPx(8), dpToPx(8))
             elevation = dpToPx(4).toFloat()
+            setOnTouchListener(FloatingTouchListener(isFixedPosition))
         }
 
-        imageView.setOnTouchListener { view, event ->
+        floatingView = imageView
+        runCatching {
+            windowManager.addView(imageView, layoutParams)
+        }.onFailure {
+            stopSelf()
+        }
+    }
+
+    private inner class FloatingTouchListener(private val isFixedPosition: Boolean) : View.OnTouchListener {
+        private var initialX: Int = 0
+        private var initialY: Int = 0
+        private var initialTouchX: Float = 0f
+        private var initialTouchY: Float = 0f
+
+        private var touchStartTime: Long = 0
+        private val longPressTimeout = ViewConfiguration.getLongPressTimeout().toLong()
+        private var isLongPressing = false
+        private val touchSlop = ViewConfiguration.get(this@FloatingButtonService).scaledTouchSlop
+
+        @SuppressLint("ClickableViewAccessibility")
+        override fun onTouch(view: View, event: MotionEvent): Boolean {
+            val layoutParams = params ?: return false
+
             if (isFixedPosition) {
                 if (event.action == MotionEvent.ACTION_UP) {
                     showNativeVolumePanel()
                     view.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY)
-                    return@setOnTouchListener true
+                    return true
                 }
-                return@setOnTouchListener event.action == MotionEvent.ACTION_DOWN
+                return event.action == MotionEvent.ACTION_DOWN
             }
 
             when (event.action) {
@@ -231,13 +179,13 @@ val iconSize = dpToPx(48)
                     initialTouchY = event.rawY
                     touchStartTime = System.currentTimeMillis()
                     isLongPressing = false
-                    true
+                    return true
                 }
                 MotionEvent.ACTION_MOVE -> {
                     val deltaX = event.rawX - initialTouchX
                     val deltaY = event.rawY - initialTouchY
 
-                    if (!isLongPressing && (abs(deltaX) > 10 || abs(deltaY) > 10)) {
+                    if (!isLongPressing && (abs(deltaX) > touchSlop || abs(deltaY) > touchSlop)) {
                         if (System.currentTimeMillis() - touchStartTime > longPressTimeout) {
                             isLongPressing = true
                             view.performHapticFeedback(android.view.HapticFeedbackConstants.LONG_PRESS)
@@ -245,9 +193,9 @@ val iconSize = dpToPx(48)
                     }
 
                     if (isLongPressing) {
-                        val metrics = resources.displayMetrics
-                        val screenWidth = metrics.widthPixels
-                        val screenHeight = metrics.heightPixels
+                        val bounds = getScreenBounds()
+                        val screenWidth = bounds.first
+                        val screenHeight = bounds.second
 
                         val newX = (initialX + deltaX.toInt()).coerceIn(0, screenWidth - view.width)
                         val newY = (initialY + deltaY.toInt()).coerceIn(0, screenHeight - view.height)
@@ -256,23 +204,23 @@ val iconSize = dpToPx(48)
                         layoutParams.y = newY
                         windowManager.updateViewLayout(view, layoutParams)
                     }
-                    true
+                    return true
                 }
                 MotionEvent.ACTION_UP -> {
                     val deltaX = event.rawX - initialTouchX
                     val deltaY = event.rawY - initialTouchY
-                    
-                    if (!isLongPressing && abs(deltaX) < 10 && abs(deltaY) < 10) {
+
+                    if (!isLongPressing && abs(deltaX) <= touchSlop && abs(deltaY) <= touchSlop) {
                         showNativeVolumePanel()
                         view.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY)
                     } else if (isLongPressing) {
-                        val metrics = resources.displayMetrics
-                        val screenWidth = metrics.widthPixels
-                        val screenHeight = metrics.heightPixels
-                        
+                        val bounds = getScreenBounds()
+                        val screenWidth = bounds.first
+                        val screenHeight = bounds.second
+
                         val finalX = layoutParams.x.coerceIn(0, screenWidth - view.width)
                         val finalY = layoutParams.y.coerceIn(0, screenHeight - view.height)
-                        
+
                         val percentX = finalX.toFloat() / (screenWidth - view.width).coerceAtLeast(1)
                         val percentY = finalY.toFloat() / (screenHeight - view.height).coerceAtLeast(1)
 
@@ -280,17 +228,21 @@ val iconSize = dpToPx(48)
                         AppPreferences.setFloatingPosition(this@FloatingButtonService, percentX, percentY, isLandscape)
                     }
                     isLongPressing = false
-                    true
+                    return true
                 }
-                else -> false
+                else -> return false
             }
         }
+    }
 
-        floatingView = imageView
-        runCatching {
-            windowManager.addView(imageView, layoutParams)
-        }.onFailure {
-            stopSelf()
+    private fun getScreenBounds(): Pair<Int, Int> {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val metrics = windowManager.currentWindowMetrics
+            val bounds = metrics.bounds
+            Pair(bounds.width(), bounds.height())
+        } else {
+            val metrics = resources.displayMetrics
+            Pair(metrics.widthPixels, metrics.heightPixels)
         }
     }
 
@@ -343,7 +295,6 @@ val iconSize = dpToPx(48)
         ).toInt()
     }
 
-
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         applySavedPosition(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
@@ -354,9 +305,9 @@ val iconSize = dpToPx(48)
         val currentParams = params ?: return
         val position = AppPreferences.getFloatingPosition(this, isLandscape)
 
-        val metrics = resources.displayMetrics
-        val screenWidth = metrics.widthPixels
-        val screenHeight = metrics.heightPixels
+        val bounds = getScreenBounds()
+        val screenWidth = bounds.first
+        val screenHeight = bounds.second
         val iconSizePx = dpToPx(48) // Using consistent size
 
         if (position != null) {
@@ -365,5 +316,4 @@ val iconSize = dpToPx(48)
             windowManager.updateViewLayout(view, currentParams)
         }
     }
-
 }
