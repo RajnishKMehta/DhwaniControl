@@ -94,6 +94,17 @@ class VolumeOverlayService : Service() {
         super.onDestroy()
     }
 
+    private fun getScreenBounds(): Pair<Int, Int> {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val metrics = windowManager.currentWindowMetrics
+            val bounds = metrics.bounds
+            Pair(bounds.width(), bounds.height())
+        } else {
+            val metrics = resources.displayMetrics
+            Pair(metrics.widthPixels, metrics.heightPixels)
+        }
+    }
+
     private fun attachOverlay() {
         if (!PermissionPolicy.isGranted(this, PermissionRequirement.Overlay)) {
             stopSelf()
@@ -102,10 +113,15 @@ class VolumeOverlayService : Service() {
 
         detachOverlay()
 
-        val metrics = Resources.getSystem().displayMetrics
-        val screenWidth = metrics.widthPixels
-        val screenHeight = metrics.heightPixels
-        val overlayWidth = (screenWidth * Constants.EDGE_ZONE_PERCENT).toInt().coerceAtLeast(1)
+        val bounds = getScreenBounds()
+        val screenWidth = bounds.first
+        val screenHeight = bounds.second
+
+        // Fix for touch interception: cap the width to a small safe margin (e.g. 24dp) so it doesn't block scrollbars,
+        // while still using the 5% as a base.
+        val baseWidth = (screenWidth * Constants.EDGE_ZONE_PERCENT).toInt()
+        val maxWidth = dpToPx(24)
+        val overlayWidth = baseWidth.coerceAtMost(maxWidth).coerceAtLeast(1)
 
         val selectedSide = AppPreferences.getEdgeSelectedSide(this)
         val gravity = if (selectedSide == Constants.SIDE_LEFT) {
@@ -135,54 +151,41 @@ class VolumeOverlayService : Service() {
         )
 
         touchView.setOnTouchListener { _, motionEvent ->
+            // Pass touch event to gesture detector.
+            // Returning true to consume the event and receive ACTION_MOVE/UP.
             detector.onTouchEvent(motionEvent)
-            false
+            true
         }
 
         gestureDetector = detector
         overlayView = touchView
+
+        // Use Insets listener to dynamically adjust height instead of posting a captured runnable
+        ViewCompat.setOnApplyWindowInsetsListener(touchView) { v, insets ->
+            val navInsetBottom = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+            val fallbackSafeMargin = dpToPx(Constants.SAFE_NAVIGATION_FALLBACK_DP)
+            val currentBounds = getScreenBounds()
+
+            val targetHeight = if (navInsetBottom > 0) {
+                (currentBounds.second - navInsetBottom).coerceAtLeast(1)
+            } else {
+                (currentBounds.second - fallbackSafeMargin).coerceAtLeast(1)
+            }
+
+            if (layoutParams.height != targetHeight) {
+                layoutParams.height = targetHeight
+                runCatching {
+                    windowManager.updateViewLayout(v, layoutParams)
+                }
+            }
+            insets
+        }
 
         runCatching {
             windowManager.addView(touchView, layoutParams)
         }.onFailure {
             stopSelf()
             return
-        }
-
-        touchView.post {
-            updateOverlayHeight(
-                touchView = touchView,
-                layoutParams = layoutParams,
-                fallbackScreenHeight = screenHeight
-            )
-        }
-    }
-
-    private fun updateOverlayHeight(
-        touchView: View,
-        layoutParams: WindowManager.LayoutParams,
-        fallbackScreenHeight: Int
-    ) {
-        val decorView = touchView.rootView
-        val insets = ViewCompat.getRootWindowInsets(decorView)
-        val navInsetBottom = insets
-            ?.getInsets(WindowInsetsCompat.Type.navigationBars())
-            ?.bottom
-
-        val fallbackSafeMargin = dpToPx(Constants.SAFE_NAVIGATION_FALLBACK_DP)
-        val targetHeight = if (navInsetBottom != null) {
-            (fallbackScreenHeight - navInsetBottom).coerceAtLeast(1)
-        } else {
-            (fallbackScreenHeight - fallbackSafeMargin).coerceAtLeast(1)
-        }
-
-        if (layoutParams.height == targetHeight) {
-            return
-        }
-
-        layoutParams.height = targetHeight
-        runCatching {
-            windowManager.updateViewLayout(touchView, layoutParams)
         }
     }
 
@@ -309,7 +312,7 @@ class VolumeOverlayService : Service() {
         }
 
         val manager = getSystemService(NotificationManager::class.java)
-        manager.createNotificationChannel(channel)
+        manager?.createNotificationChannel(channel)
     }
 
     private fun detachOverlay() {
