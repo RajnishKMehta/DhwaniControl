@@ -171,6 +171,24 @@
         android:textColor="@color/colorTextSecondary"
         android:textSize="14sp" />
 
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/separatePositionsSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/floating_config_separate_positions"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/floating_config_separate_positions_desc"
+        android:textColor="@color/colorTextSecondary"
+        android:textSize="14sp" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"

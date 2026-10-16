@@ -7,6 +7,7 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.PixelFormat
 import android.media.AudioManager
 import android.os.Build
@@ -163,7 +164,8 @@ if (floatingView != null) {
                         val percentX = finalX.toFloat() / (screenWidth - view.width).coerceAtLeast(1)
                         val percentY = finalY.toFloat() / (screenHeight - view.height).coerceAtLeast(1)
 
-                        AppPreferences.setFloatingPosition(this@FloatingButtonService, percentX, percentY)
+                        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+                        AppPreferences.setFloatingPosition(this@FloatingButtonService, percentX, percentY, isLandscape)
                     }
                     isLongPressing = false
                     true
@@ -177,7 +179,8 @@ if (floatingView != null) {
 
 val iconSize = dpToPx(48)
 
-        val position = AppPreferences.getFloatingPosition(this)
+        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+        val position = AppPreferences.getFloatingPosition(this, isLandscape)
 
         val layoutParams = WindowManager.LayoutParams(
             iconSize,
@@ -275,7 +278,8 @@ val iconSize = dpToPx(48)
                         val percentX = finalX.toFloat() / (screenWidth - view.width).coerceAtLeast(1)
                         val percentY = finalY.toFloat() / (screenHeight - view.height).coerceAtLeast(1)
 
-                        AppPreferences.setFloatingPosition(this, percentX, percentY)
+                        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+                        AppPreferences.setFloatingPosition(this@FloatingButtonService, percentX, percentY, isLandscape)
                     }
                     isLongPressing = false
                     true
@@ -369,4 +373,28 @@ val iconSize = dpToPx(48)
             resources.displayMetrics
         ).toInt()
     }
+
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        applySavedPosition(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
+    }
+
+    private fun applySavedPosition(isLandscape: Boolean) {
+        val view = floatingView ?: return
+        val currentParams = params ?: return
+        val position = AppPreferences.getFloatingPosition(this, isLandscape)
+
+        val metrics = resources.displayMetrics
+        val screenWidth = metrics.widthPixels
+        val screenHeight = metrics.heightPixels
+        val iconSizePx = dpToPx(48) // Using consistent size
+
+        if (position != null) {
+            currentParams.x = (position.first * (screenWidth - iconSizePx)).toInt().coerceIn(0, screenWidth - iconSizePx)
+            currentParams.y = (position.second * (screenHeight - iconSizePx)).toInt().coerceIn(0, screenHeight - iconSizePx)
+            windowManager.updateViewLayout(view, currentParams)
+        }
+    }
+
 }

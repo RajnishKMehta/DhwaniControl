@@ -24,6 +24,9 @@ object Constants {
     const val PREF_FLOATING_ICON_COLOR = "feature.floating.icon_color"
     const val PREF_FLOATING_OPACITY = "feature.floating.opacity"
     const val PREF_FLOATING_FIXED_POSITION = "feature.floating.fixed_position"
+    const val PREF_FLOATING_SEPARATE_POSITIONS = "feature.floating.separate_positions"
+    const val PREF_FLOATING_LANDSCAPE_X = "feature.floating.landscape_x"
+    const val PREF_FLOATING_LANDSCAPE_Y = "feature.floating.landscape_y"
 
     const val PREF_NOTIFICATION_DENIAL_COUNT = "permission.notifications.denial_count"
 
