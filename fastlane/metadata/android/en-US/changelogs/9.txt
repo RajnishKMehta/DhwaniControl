@@ -1,0 +1,4 @@
+- Set floating button opacity to completely transparent.
+- Lock the floating button position to prevent accidental movement.
+- Configure separate floating button positions for portrait and landscape.
+- Improved background service behavior and minor fixes.

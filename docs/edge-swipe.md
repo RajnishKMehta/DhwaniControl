@@ -7,7 +7,6 @@ The **Edge Swipe** feature allows you to trigger volume controls with a simple i
 ## $\textcolor{#D9730D}{\textsf{Requirements}}$
 
 - **Overlay Permission:** Required to detect gestures over other apps.
-- **Notification Permission:** Required on Android 13+.
 - **Navigation Mode:** Must use **3-Button Navigation** (gesture navigation interferes with this feature).
 
 ---

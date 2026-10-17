@@ -49,7 +49,7 @@
 
 - **🚀 Quick Settings Tile**: Seamlessly integrated into your notification shade. Access your volume controls with a single tap from anywhere.
 - **↔️ Edge Swipe Gestures**: Trigger the volume panel with a discreet inward swipe from either the left or right edge of your screen.
-- **🔘 Custom Floating Button**: A persistent, movable on-screen trigger. Personalize it with custom icons, colors, and adjustable opacity.
+- **🔘 Custom Floating Button**: A persistent, movable on-screen trigger. Personalize it with custom icons, colors, and adjustable opacity. Includes options to lock the position and configure separate positions for portrait and landscape.
 - **🎨 Material 3 Design**: Built with the latest Android design standards for a modern, clean, and fully responsive user interface.
 - **🔋 Battery Optimized**: Engineered with high-efficiency foreground services to ensure constant availability without compromising your device's battery life.
 - **🔒 Privacy Driven**: Your data stays yours. No trackers, no unnecessary permissions, and 100% open-source for full transparency.
