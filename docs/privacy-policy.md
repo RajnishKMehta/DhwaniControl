@@ -19,7 +19,7 @@ DhwaniControl does **not** collect, store, or transmit any personal information,
 To provide its core functionality, DhwaniControl requires certain Android system permissions. Here is why they are needed:
 
 - **Display over other apps (Overlay):** This is required to show the **Floating Button** and detect **Edge Swipe** gestures while you are using other applications.
-- **Post Notifications:** On Android 13+, this permission is necessary to keep the background service active and stable, ensuring the on-screen triggers remain available when you need them.
+- **Foreground Service (FGS):** The app runs a foreground service to ensure stability. Note that POST_NOTIFICATIONS is not required by the app's permission flow, and notifications are handled according to standard Android behavior (they may be visible depending on Android version and settings).
 
 ---
 

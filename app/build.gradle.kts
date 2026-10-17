@@ -5,8 +5,8 @@ plugins {
 val appId = "io.github.rajnishkmehta.dhwanicontrol"
 
 // VERSIONING
-val appVersionName = "1.2.2"
-val appVersionCode = 8
+val appVersionName = "1.3.0"
+val appVersionCode = 9
 
 // Extract versions from appVersionName
 val versionParts = appVersionName.split(".")
@@ -181,39 +181,21 @@ kotlin {
 // DEPENDENCIES
 dependencies {
 
-    implementation(
-        "androidx.core:core-ktx:1.19.1"
-    )
+    implementation(libs.androidx.core.ktx)
 
-    implementation(
-        "androidx.appcompat:appcompat:1.8.0"
-    )
+    implementation(libs.androidx.appcompat)
 
-    implementation(
-        "com.google.android.material:material:1.14.0"
-    )
+    implementation(libs.material)
 
-    implementation(
-        "androidx.constraintlayout:constraintlayout:2.2.2"
-    )
+    implementation(libs.androidx.constraintlayout)
 
-    implementation(
-        "androidx.recyclerview:recyclerview:1.4.0"
-    )
+    implementation(libs.androidx.recyclerview)
 
-    implementation(
-        "androidx.viewpager2:viewpager2:1.1.0"
-    )
+    implementation(libs.androidx.viewpager2)
 
-    implementation(
-        "androidx.preference:preference-ktx:1.2.1"
-    )
+    implementation(libs.androidx.preference.ktx)
 
-    implementation(
-        "androidx.activity:activity-ktx:1.13.0"
-    )
+    implementation(libs.androidx.activity.ktx)
 
-    implementation(
-        "androidx.fragment:fragment-ktx:1.9.1"
-    )
+    implementation(libs.androidx.fragment.ktx)
 }

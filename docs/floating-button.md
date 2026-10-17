@@ -19,6 +19,8 @@ The **Floating Button** provides a persistent and movable on-screen trigger for 
 - **Customization:** Tap **Config** on the feature card to:
     - Select from multiple icon designs.
     - Adjust icon color and opacity levels.
+    - **Fixed Position:** You can lock the button to prevent accidental movement. First position the floating button where you want it, then enable Fixed Position and save the configuration. To reposition a locked button, disable Fixed Position, move the button, and enable it again.
+    - **Separate Portrait/Landscape Positions:** You can enable separate positions for portrait and landscape orientations (OFF by default). When enabled, the button remembers its location for each orientation separately. If landscape is not yet saved, it falls back to the portrait position.
 
 ---
 

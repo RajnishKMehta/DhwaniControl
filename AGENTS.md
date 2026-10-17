@@ -17,6 +17,7 @@ DhwaniControl is built to solve a common problem: physical volume buttons failin
 - `info/`: App and developer information.
 
 ## Coding Conventions
+- **Version Catalogs:** Dependencies should be defined in the Version Catalog (libs.versions.toml) and referenced through libs.*; avoid declaring dependency coordinates directly in build files unless there is a specific reason.
 - Prefer Kotlin coroutines for asynchronous tasks.
 - Use Material Design 3 components and styling.
 - Ensure all resources (strings, dimensions, colors) are externalized in `res/values`.

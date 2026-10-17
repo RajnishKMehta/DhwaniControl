@@ -23,12 +23,14 @@ DhwaniControl offers multiple non-intrusive ways to access your device's volume 
 
 **Overview:**
 - A persistent, movable overlay button that stays on top.
-- Fully customizable: icons, colors, and opacity.
+- Fully customizable: icons, colors, and adjustable opacity.
+- **Fixed Position:** Lock the button in place.
+- **Separate Positions:** Configure different locations for portrait and landscape orientations.
 - Long-press to drag and reposition.
 
 **Requirements:**
 - `Display over other apps` (Overlay) permission.
-- `Notification permission` (Android 13+).
+- Foreground Service (FGS): Runs as a foreground service for stability. Notifications are handled according to actual Android behavior.
 
 **Setup:**
 - [Detailed Floating Button Guide](floating-button.md)
@@ -43,7 +45,7 @@ DhwaniControl offers multiple non-intrusive ways to access your device's volume 
 
 **Requirements:**
 - `Display over other apps` (Overlay) permission.
-- `Notification permission` (Android 13+).
+- Foreground Service (FGS): Runs as a foreground service for stability. Notifications are handled according to actual Android behavior.
 - **Note**: Requires **3-Button Navigation** mode.
 
 **Setup:**

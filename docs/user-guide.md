@@ -11,7 +11,6 @@ To ensure compatibility and optimal performance, please verify:
 - **Android Version:** Android 10 (API 29) or newer.
 - **System Permissions:**
     - `Overlay Permission`: Required for Edge Swipe and Floating Button.
-    - `Notification Permission`: Required for Android 13+ to maintain service stability.
 
 ---
 
@@ -52,7 +51,6 @@ For DhwaniControl to remain responsive, you must exclude it from system battery 
 - **Configuration required:** Some features need a one-time setup. Check the feature's **Config** menu.
 - **Edge Swipe unresponsive:**
     - Ensure you are using **3-Button Navigation**.
-    - Verify **Notification permission** is granted.
 - **Floating Button missing:**
     - Check if **Overlay** permission is still active.
     - Ensure battery usage is set to **Unrestricted**.
