@@ -1,3 +1,4 @@
+
 package io.github.rajnishkmehta.dhwanicontrol.features.floating
 
 import android.annotation.SuppressLint
@@ -55,10 +56,17 @@ class FloatingButtonService : Service() {
 
         // Set to specialUse type to match VolumeOverlayService and since it's an overlay
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            startForeground(Constants.NOTIFICATION_ID_FLOATING, buildForegroundNotification())
+            startForeground(
+                Constants.NOTIFICATION_ID_FLOATING,
+                buildForegroundNotification()
+            )
         } else {
-            startForeground(Constants.NOTIFICATION_ID_FLOATING, buildForegroundNotification())
+            startForeground(
+                Constants.NOTIFICATION_ID_FLOATING,
+                buildForegroundNotification()
+            )
         }
+
         updateFloatingButton()
         return START_STICKY
     }
@@ -79,6 +87,7 @@ class FloatingButtonService : Service() {
         val icon = OverlayIconRegistry.getIconByName(iconName)
         val iconResId = icon.resId
         val iconColor = AppPreferences.getFloatingIconColor(this)
+
         val tintColor = if (iconColor == 0) {
             getColor(R.color.colorPrimary)
         } else {
@@ -100,7 +109,8 @@ class FloatingButtonService : Service() {
 
         val iconSize = dpToPx(48)
 
-        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+        val isLandscape =
+            resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
         val position = AppPreferences.getFloatingPosition(this, isLandscape)
 
         // Using FLAG_LAYOUT_NO_LIMITS to fix edge bounds clipping
@@ -121,11 +131,20 @@ class FloatingButtonService : Service() {
             val screenHeight = bounds.second
 
             x = if (position != null) {
-                (position.first * (screenWidth - iconSize)).toInt().coerceIn(0, screenWidth - iconSize)
-            } else 100
+                (position.first * (screenWidth - iconSize))
+                    .toInt()
+                    .coerceIn(0, (screenWidth - iconSize).coerceAtLeast(0))
+            } else {
+                100
+            }
+
             y = if (position != null) {
-                (position.second * (screenHeight - iconSize)).toInt().coerceIn(0, screenHeight - iconSize)
-            } else 100
+                (position.second * (screenHeight - iconSize))
+                    .toInt()
+                    .coerceIn(0, (screenHeight - iconSize).coerceAtLeast(0))
+            } else {
+                100
+            }
         }
 
         params = layoutParams
@@ -140,6 +159,7 @@ class FloatingButtonService : Service() {
         }
 
         floatingView = imageView
+
         runCatching {
             windowManager.addView(imageView, layoutParams)
         }.onFailure {
@@ -147,7 +167,10 @@ class FloatingButtonService : Service() {
         }
     }
 
-    private inner class FloatingTouchListener(private val isFixedPosition: Boolean) : View.OnTouchListener {
+    private inner class FloatingTouchListener(
+        private val isFixedPosition: Boolean
+    ) : View.OnTouchListener {
+
         private var initialX: Int = 0
         private var initialY: Int = 0
         private var initialTouchX: Float = 0f
@@ -156,7 +179,8 @@ class FloatingButtonService : Service() {
         private var touchStartTime: Long = 0
         private val longPressTimeout = ViewConfiguration.getLongPressTimeout().toLong()
         private var isLongPressing = false
-        private val touchSlop = ViewConfiguration.get(this@FloatingButtonService).scaledTouchSlop
+        private val touchSlop =
+            ViewConfiguration.get(this@FloatingButtonService).scaledTouchSlop
 
         @SuppressLint("ClickableViewAccessibility")
         override fun onTouch(view: View, event: MotionEvent): Boolean {
@@ -165,7 +189,9 @@ class FloatingButtonService : Service() {
             if (isFixedPosition) {
                 if (event.action == MotionEvent.ACTION_UP) {
                     showNativeVolumePanel()
-                    view.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY)
+                    view.performHapticFeedback(
+                        android.view.HapticFeedbackConstants.VIRTUAL_KEY
+                    )
                     return true
                 }
                 return event.action == MotionEvent.ACTION_DOWN
@@ -181,14 +207,23 @@ class FloatingButtonService : Service() {
                     isLongPressing = false
                     return true
                 }
+
                 MotionEvent.ACTION_MOVE -> {
                     val deltaX = event.rawX - initialTouchX
                     val deltaY = event.rawY - initialTouchY
 
-                    if (!isLongPressing && (abs(deltaX) > touchSlop || abs(deltaY) > touchSlop)) {
-                        if (System.currentTimeMillis() - touchStartTime > longPressTimeout) {
+                    if (
+                        !isLongPressing &&
+                        (abs(deltaX) > touchSlop || abs(deltaY) > touchSlop)
+                    ) {
+                        if (
+                            System.currentTimeMillis() - touchStartTime >
+                            longPressTimeout
+                        ) {
                             isLongPressing = true
-                            view.performHapticFeedback(android.view.HapticFeedbackConstants.LONG_PRESS)
+                            view.performHapticFeedback(
+                                android.view.HapticFeedbackConstants.LONG_PRESS
+                            )
                         }
                     }
 
@@ -197,39 +232,66 @@ class FloatingButtonService : Service() {
                         val screenWidth = bounds.first
                         val screenHeight = bounds.second
 
-                        val newX = (initialX + deltaX.toInt()).coerceIn(0, screenWidth - view.width)
-                        val newY = (initialY + deltaY.toInt()).coerceIn(0, screenHeight - view.height)
+                        val maxX = (screenWidth - view.width).coerceAtLeast(0)
+                        val maxY = (screenHeight - view.height).coerceAtLeast(0)
+
+                        val newX = (initialX + deltaX.toInt()).coerceIn(0, maxX)
+                        val newY = (initialY + deltaY.toInt()).coerceIn(0, maxY)
 
                         layoutParams.x = newX
                         layoutParams.y = newY
+
                         windowManager.updateViewLayout(view, layoutParams)
                     }
+
                     return true
                 }
+
                 MotionEvent.ACTION_UP -> {
                     val deltaX = event.rawX - initialTouchX
                     val deltaY = event.rawY - initialTouchY
 
-                    if (!isLongPressing && abs(deltaX) <= touchSlop && abs(deltaY) <= touchSlop) {
+                    if (
+                        !isLongPressing &&
+                        abs(deltaX) <= touchSlop &&
+                        abs(deltaY) <= touchSlop
+                    ) {
                         showNativeVolumePanel()
-                        view.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY)
+                        view.performHapticFeedback(
+                            android.view.HapticFeedbackConstants.VIRTUAL_KEY
+                        )
                     } else if (isLongPressing) {
                         val bounds = getScreenBounds()
                         val screenWidth = bounds.first
                         val screenHeight = bounds.second
 
-                        val finalX = layoutParams.x.coerceIn(0, screenWidth - view.width)
-                        val finalY = layoutParams.y.coerceIn(0, screenHeight - view.height)
+                        val maxX = (screenWidth - view.width).coerceAtLeast(0)
+                        val maxY = (screenHeight - view.height).coerceAtLeast(0)
 
-                        val percentX = finalX.toFloat() / (screenWidth - view.width).coerceAtLeast(1)
-                        val percentY = finalY.toFloat() / (screenHeight - view.height).coerceAtLeast(1)
+                        val finalX = layoutParams.x.coerceIn(0, maxX)
+                        val finalY = layoutParams.y.coerceIn(0, maxY)
 
-                        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
-                        AppPreferences.setFloatingPosition(this@FloatingButtonService, percentX, percentY, isLandscape)
+                        val percentX =
+                            finalX.toFloat() / maxX.coerceAtLeast(1)
+                        val percentY =
+                            finalY.toFloat() / maxY.coerceAtLeast(1)
+
+                        val isLandscape =
+                            resources.configuration.orientation ==
+                                Configuration.ORIENTATION_LANDSCAPE
+
+                        AppPreferences.setFloatingPosition(
+                            this@FloatingButtonService,
+                            percentX,
+                            percentY,
+                            isLandscape
+                        )
                     }
+
                     isLongPressing = false
                     return true
                 }
+
                 else -> return false
             }
         }
@@ -252,17 +314,24 @@ class FloatingButtonService : Service() {
                 windowManager.removeView(it)
             }
         }
+
         floatingView = null
     }
 
     private fun showNativeVolumePanel() {
         runCatching {
-            audioManager.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI)
+            audioManager.adjustVolume(
+                AudioManager.ADJUST_SAME,
+                AudioManager.FLAG_SHOW_UI
+            )
         }
     }
 
     private fun buildForegroundNotification(): Notification {
-        return NotificationCompat.Builder(this, Constants.NOTIFICATION_CHANNEL_ID_FLOATING)
+        return NotificationCompat.Builder(
+            this,
+            Constants.NOTIFICATION_CHANNEL_ID_FLOATING
+        )
             .setSmallIcon(R.drawable.ic_notification)
             .setPriority(NotificationCompat.PRIORITY_MIN)
             .build()
@@ -297,7 +366,9 @@ class FloatingButtonService : Service() {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        applySavedPosition(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
+        applySavedPosition(
+            newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE
+        )
     }
 
     private fun applySavedPosition(isLandscape: Boolean) {
@@ -308,12 +379,21 @@ class FloatingButtonService : Service() {
         val bounds = getScreenBounds()
         val screenWidth = bounds.first
         val screenHeight = bounds.second
-        val iconSizePx = dpToPx(48) // Using consistent size
+        val iconSizePx = dpToPx(48)
+
+        val maxX = (screenWidth - iconSizePx).coerceAtLeast(0)
+        val maxY = (screenHeight - iconSizePx).coerceAtLeast(0)
 
         if (position != null) {
-            currentParams.x = (position.first * (screenWidth - iconSizePx)).toInt().coerceIn(0, screenWidth - iconSizePx)
-            currentParams.y = (position.second * (screenHeight - iconSizePx)).toInt().coerceIn(0, screenHeight - iconSizePx)
-            windowManager.updateViewLayout(view, currentParams)
+            currentParams.x =
+                (position.first * maxX).toInt().coerceIn(0, maxX)
+            currentParams.y =
+                (position.second * maxY).toInt().coerceIn(0, maxY)
+        } else {
+            currentParams.x = currentParams.x.coerceIn(0, maxX)
+            currentParams.y = currentParams.y.coerceIn(0, maxY)
         }
+
+        windowManager.updateViewLayout(view, currentParams)
     }
 }
