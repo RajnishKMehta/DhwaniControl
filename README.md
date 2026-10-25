@@ -21,6 +21,7 @@
 - [📥 Get the App](#-get-the-app)
 - [✨ Pro Features](#-pro-features)
 - [📖 Detailed Documentation](#-detailed-documentation)
+- [🌐 Localisation](#-localisation)
 - [🧐 Why it exists](#-why-it-exists)
 - [🛠 Tech & Performance](#-tech--performance)
 - [📄 License](#-license)
