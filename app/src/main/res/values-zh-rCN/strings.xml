@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_subtitle">在下方选择一个功能。每个功能都可以独立配置。</string>
+    <string name="home_info_button_content_description">打开应用信息</string>
+
+    <string name="feature_quick_tile_title">快捷设置磁贴</string>
+    <string name="feature_quick_tile_description">将此磁贴添加到快捷设置，之后随时点按即可打开安卓音量控制。</string>
+    <string name="feature_edge_title">边缘滑动</string>
+    <string name="feature_edge_description">从所选边缘向内滑动，即可打开安卓音量控制。</string>
+    <string name="feature_floating_title">悬浮按钮</string>
+    <string name="feature_floating_description">可移动的悬浮按钮。点按打开音量控制，长按拖动可移动位置。</string>
+
+    <string name="feature_toggle_label">关 / 开</string>
+    <string name="feature_config_button">配置</string>
+    <string name="feature_action_failed">操作失败，请重试。</string>
+
+    <string name="feature_status_ready">已就绪</string>
+    <string name="feature_status_enabled">已启用</string>
+    <string name="feature_status_disabled">已关闭</string>
+    <string name="feature_status_permissions_required">需要授予权限</string>
+    <string name="feature_status_needs_config">需要配置</string>
+    <string name="feature_status_unavailable">暂不可用</string>
+
+    <string name="feature_blocked_gesture_nav">手势导航下不可用。请在「设置 &gt; 手势 &gt; 导航方式」中切换为按钮导航。</string>
+    <string name="permission_blocked_reason_label">为什么不可用？</string>
+
+    <string name="permission_screen_title_with_feature">%1$s 的权限</string>
+    <string name="permission_screen_subtitle">授予所需权限，以继续配置此功能。</string>
+    <string name="permission_overlay_title">在其他应用上层显示</string>
+    <string name="permission_overlay_explanation">需要在其他应用上方显示边缘滑动浮层时使用。</string>
+    <string name="permission_notifications_title">通知</string>
+    <string name="permission_notifications_explanation">在 Android 13 及以上版本保持后台服务运行所需。</string>
+    <string name="permission_grant_button">授予</string>
+    <string name="permission_open_settings_button">打开设置</string>
+    <string name="permission_continue_button">继续</string>
+    <string name="permission_status_granted">已授予</string>
+    <string name="permission_status_pending">待授予</string>
+    <string name="permission_not_required">此 Android 版本无需授予</string>
+    <string name="permission_settings_hint">Android 已不再显示授权弹窗。请打开应用设置，手动允许通知。</string>
+
+    <string name="edge_setup_title">选择生效边缘</string>
+    <string name="edge_setup_body">从你偏好的边缘向内滑动三次即可确认。</string>
+    <string name="edge_setup_swipe_counter">滑动次数：%1$d / %2$d</string>
+    <string name="edge_setup_saved_message">边缘已保存</string>
+    <string name="edge_setup_saved_detail">正在返回首页…</string>
+
+    <string name="edge_selector_title">更新生效边缘</string>
+    <string name="edge_selector_body">选择由哪个边缘触发音量面板。</string>
+    <string name="edge_selector_save_button">保存边缘</string>
+    <string name="edge_side_left">左边缘</string>
+    <string name="edge_side_right">右边缘</string>
+
+    <string name="quick_tile_label">音量面板</string>
+    <string name="quick_tile_guide_title">快捷设置磁贴指南</string>
+    <string name="quick_tile_guide_intro">左右滑动可切换步骤，也可以使用下方的按钮。</string>
+    <string name="quick_tile_guide_step_1_title">第 1 步：打开快捷设置</string>
+    <string name="quick_tile_guide_step_1_body">从屏幕顶部向下滑动一次，再向下滑动一次即可完全展开快捷设置。</string>
+    <string name="quick_tile_guide_step_2_title">第 2 步：进入编辑模式</string>
+    <string name="quick_tile_guide_step_2_body">点按编辑控件，通常是铅笔图标或「编辑磁贴」按钮。</string>
+    <string name="quick_tile_guide_step_3_title">第 3 步：添加磁贴</string>
+    <string name="quick_tile_guide_step_3_body">找到来自 DhwaniControl 的「音量面板」，把它拖到已启用的磁贴区域。</string>
+    <string name="quick_tile_guide_step_4_title">第 4 步：保存并测试</string>
+    <string name="quick_tile_guide_step_4_body">保存布局并退出编辑模式，然后点按「音量面板」打开安卓音量控制。</string>
+    <string name="quick_tile_guide_screenshot_label">截图链接</string>
+    <string name="quick_tile_guide_step_image_description">快捷设置指南截图</string>
+    <string name="quick_tile_guide_image_loading">正在加载指南截图…</string>
+    <string name="quick_tile_guide_image_fallback">图片不可用。请使用下方的截图链接，或点按「查看图片」。</string>
+    <string name="quick_tile_guide_view_image_button">查看图片</string>
+    <string name="quick_tile_guide_image_link_open_failed">没有可打开此图片链接的应用。</string>
+    <string name="quick_tile_guide_step_counter">第 %1$d 步，共 %2$d 步</string>
+    <string name="quick_tile_guide_previous_button">上一步</string>
+    <string name="quick_tile_guide_next_button">下一步</string>
+    <string name="quick_tile_guide_done_button">完成</string>
+
+    <string name="app_info_title">应用信息</string>
+    <string name="app_info_subtitle">了解更多关于本应用和开发者的信息</string>
+    <string name="app_info_about_app_title">关于 DhwaniControl</string>
+    <string name="app_info_what_does_it_do">DhwaniControl 通过边缘滑动手势和快捷设置磁贴，让你轻松访问设备的音量控制，无需依赖实体按键来调节音量。</string>
+    <string name="app_info_about_app_body">开发这个应用是因为我手机的实体音量键坏了。每次想调音量都要进设置，实在麻烦。我先做给自己用，并开源出来，希望遇到类似问题的朋友也能方便地用上它的功能。</string>
+    <string name="app_info_about_dev_title">关于开发者</string>
+    <string name="app_info_intro">我是本应用的开发者。DhwaniControl 源于我自己遇到的真实问题，我会继续以开源项目的形式维护它，服务社区。</string>
+    <string name="app_info_name_label">开发者</string>
+    <string name="app_info_avatar_description">开发者头像</string>
+    <string name="app_info_avatar_loading">正在加载头像…</string>
+    <string name="app_info_avatar_refreshing">正在刷新头像…</string>
+    <string name="app_info_avatar_updated">头像已更新</string>
+    <string name="app_info_avatar_failed">刷新头像失败。</string>
+    <string name="app_info_avatar_unavailable">头像不可用</string>
+    <string name="app_info_open_link_failed">没有可打开此链接的应用。</string>
+    <string name="app_info_x_button">Twitter / X</string>
+    <string name="app_info_github_button">GitHub 主页</string>
+    <string name="app_info_github_repo_button">GitHub 仓库</string>
+    <string name="app_info_gitlab_repo_button">GitLab 仓库</string>
+    <string name="app_info_linkedin_button">LinkedIn</string>
+    <string name="app_info_gravatar_button">Gravatar</string>
+    <string name="app_info_devto_button">Dev.to</string>
+
+    <string name="floating_config_title">配置悬浮按钮</string>
+    <string name="floating_config_subtitle">自定义悬浮音量按钮的图标和颜色。</string>
+    <string name="floating_config_choose_icon">选择图标</string>
+    <string name="floating_config_choose_color">选择颜色</string>
+    <string name="floating_config_color_default">默认</string>
+    <string name="floating_config_pick_color">选取颜色</string>
+    <string name="floating_config_hex_color_hint">十六进制颜色（例如 #FF0000）</string>
+    <string name="floating_config_invalid_hex">十六进制颜色无效</string>
+    <string name="floating_config_save">保存配置</string>
+    <string name="floating_config_saved">配置已保存</string>
+    <string name="floating_config_more">更多图标</string>
+    <string name="floating_config_opacity">不透明度</string>
+
+    <string name="floating_config_fixed_position">固定位置</string>
+    <string name="floating_config_fixed_position_desc">请先设置悬浮按钮的位置，再启用此选项并保存配置。</string>
+
+    <string name="floating_config_separate_positions">竖屏 / 横屏分别记录位置</string>
+    <string name="floating_config_separate_positions_desc">为竖屏和横屏分别保存不同的位置。</string>
+
+    <string name="home_need_help">需要帮助</string>
+    <string name="app_info_need_help">需要帮助</string>
+
+    <string name="notification_channel_name">DhwaniControl 边缘滑动服务</string>
+    <string name="notification_channel_description">保持边缘滑动检测运行</string>
+    <string name="notification_title">边缘滑动浮层已启用</string>
+    <string name="notification_text">从所选边缘向内滑动即可打开音量控制。</string>
+
+    <string name="notification_channel_name_floating">DhwaniControl 悬浮按钮服务</string>
+    <string name="notification_channel_description_floating">保持悬浮按钮运行</string>
+    <string name="notification_title_floating">悬浮按钮已启用</string>
+    <string name="notification_text_floating">点按悬浮按钮打开音量控制，拖动可移动位置。</string>
+
+    <string name="notification_stop_action">停止</string>
+
+    <string name="content_description_status_indicator">权限状态指示</string>
+    <string name="content_description_overlay_icon">在其他应用上层显示图标</string>
+    <string name="content_description_notifications_icon">通知图标</string>
+</resources>
