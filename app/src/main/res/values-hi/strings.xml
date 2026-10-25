@@ -64,7 +64,7 @@
     <string name="app_info_link_gitlab_repo">https://gitlab.com/RajnishKMehta/DhwaniControl</string>
     <string name="app_info_link_linkedin">https://www.linkedin.com/in/RajnishKMehta</string>
     <string name="app_info_link_gravatar">https://gravatar.com/rajnishkmehta</string>
-    <string name="floating_config_title">Configure Floating Button</string>
+    <string name="floating_config_title">फ़्लोटिंग बटन की सेटिंग्स</string>
     <string name="floating_config_subtitle">अपने फ़्लोटिंग वॉल्यूम बटन के आइकन और रंग को अपनी पसंद के अनुसार बदलें।</string>
     <string name="floating_config_choose_icon">आइकन चुनें</string>
     <string name="floating_config_choose_color">रंग चुनें</string>
