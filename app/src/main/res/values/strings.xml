@@ -3,7 +3,6 @@
 
     <string name="home_title">DhwaniControl</string>
     <string name="home_subtitle">Choose a feature below. Each feature can be configured independently.</string>
-    <string name="home_info_button_content_description">Open app information</string>
 
     <string name="feature_quick_tile_title">Quick Settings Tile</string>
     <string name="feature_quick_tile_description">Add this tile to Quick Settings, then tap it anytime to open Android volume controls.</string>
@@ -23,15 +22,13 @@
     <string name="feature_status_needs_config">Configuration required</string>
     <string name="feature_status_unavailable">Temporarily unavailable</string>
 
-    <string name="feature_blocked_gesture_nav">Not available with gesture navigation. Switch to button navigation in Settings > Gestures > Navigation mode.</string>
+    <string name="feature_blocked_gesture_nav">Unavailable with gesture navigation. Search Settings for "navigation", open "Navigation mode", and switch to button navigation.</string>
     <string name="permission_blocked_reason_label">Why is this unavailable?</string>
 
     <string name="permission_screen_title_with_feature">Permissions for %1$s</string>
     <string name="permission_screen_subtitle">Grant required permissions to continue this feature configuration.</string>
     <string name="permission_overlay_title">Draw over other apps</string>
     <string name="permission_overlay_explanation">Required to run the edge-swipe overlay above other apps.</string>
-    <string name="permission_notifications_title">Notifications</string>
-    <string name="permission_notifications_explanation">Required to keep the background service alive on Android 13+.</string>
     <string name="permission_grant_button">Grant</string>
     <string name="permission_open_settings_button">Open settings</string>
     <string name="permission_continue_button">Continue</string>
@@ -53,47 +50,16 @@
     <string name="edge_side_right">Right edge</string>
 
     <string name="quick_tile_label">Volume Panel</string>
-    <string name="quick_tile_guide_title">Quick Settings Tile Guide</string>
-    <string name="quick_tile_guide_intro">Swipe left or right to move between steps. Use the buttons below if you prefer tapping.</string>
-    <string name="quick_tile_guide_step_1_title">Step 1: Open Quick Settings</string>
-    <string name="quick_tile_guide_step_1_body">Swipe down from the top of the screen once, then swipe down again to fully expand Quick Settings.</string>
-    <string name="quick_tile_guide_step_1_image_url">https://raw.githubusercontent.com/RajnishKMehta/images/refs/heads/main/DhwaniControl/quick-tile-step-1.webp</string>
-    <string name="quick_tile_guide_step_2_title">Step 2: Enter Edit Mode</string>
-    <string name="quick_tile_guide_step_2_body">Tap the edit control, usually a pencil icon or an Edit tiles button.</string>
-    <string name="quick_tile_guide_step_2_image_url">https://raw.githubusercontent.com/RajnishKMehta/images/refs/heads/main/DhwaniControl/quick-tile-step-2.webp</string>
-    <string name="quick_tile_guide_step_3_title">Step 3: Add the Tile</string>
-    <string name="quick_tile_guide_step_3_body">Find Volume Panel from DhwaniControl and drag it into your active tiles area.</string>
-    <string name="quick_tile_guide_step_3_image_url">https://raw.githubusercontent.com/RajnishKMehta/images/refs/heads/main/DhwaniControl/quick-tile-step-3.webp</string>
-    <string name="quick_tile_guide_step_4_title">Step 4: Save and Test</string>
-    <string name="quick_tile_guide_step_4_body">Save the layout, exit edit mode, then tap Volume Panel to open Android volume controls.</string>
-    <string name="quick_tile_guide_step_4_image_url">https://raw.githubusercontent.com/RajnishKMehta/images/refs/heads/main/DhwaniControl/quick-tile-step-4.webp</string>
-    <string name="quick_tile_guide_screenshot_label">Screenshot URL</string>
-    <string name="quick_tile_guide_step_image_description">Quick Settings guide screenshot</string>
-    <string name="quick_tile_guide_image_loading">Loading guide screenshot...</string>
-    <string name="quick_tile_guide_image_fallback">Image unavailable. Use the screenshot link below or tap View Image.</string>
-    <string name="quick_tile_guide_view_image_button">View Image</string>
-    <string name="quick_tile_guide_image_link_open_failed">No app can open this image link.</string>
-    <string name="quick_tile_guide_step_counter">Step %1$d of %2$d</string>
-    <string name="quick_tile_guide_previous_button">Previous</string>
-    <string name="quick_tile_guide_next_button">Next</string>
-    <string name="quick_tile_guide_done_button">Done</string>
 
     <string name="app_info_title">App Info</string>
     <string name="app_info_subtitle">Learn more about the app and the developer</string>
     <string name="app_info_about_app_title">About DhwaniControl</string>
-    <string name="app_info_what_does_it_do">DhwaniControl provides easy access to your device\'s volume controls via edge-swipe gestures and quick settings tiles, allowing you to manage volume without relying on physical hardware buttons.</string>
+    <string name="app_info_what_does_it_do">DhwaniControl provides convenient access to Android\'s native volume panel through multiple features, making it easier to manage your device\'s volume without relying on physical volume buttons.</string>
     <string name="app_info_about_app_body">I have built this app because my phone\'s physical volume buttons are broken. It is frustrating to go to settings every time I want to change the volume. I built this for myself and open-source it so that anyone facing similar issues can use it easily through its features.</string>
     <string name="app_info_about_dev_title">About the Developer</string>
-    <string name="app_info_intro">I am the developer of this app. I built DhwaniControl to solve a real-world problem I was facing, and I continue to maintain it as an open-source project for the community.</string>
-    <string name="app_info_name_label">Developer</string>
     <string name="app_info_name">Rajnish Kumar</string>
     <string name="app_info_username">@RajnishKMehta</string>
     <string name="app_info_avatar_description">Developer avatar</string>
-    <string name="app_info_avatar_loading">Loading avatar...</string>
-    <string name="app_info_avatar_refreshing">Avatar is being refreshed...</string>
-    <string name="app_info_avatar_updated">Avatar updated</string>
-    <string name="app_info_avatar_failed">Failed to refresh avatar.</string>
-    <string name="app_info_avatar_unavailable">Avatar unavailable</string>
     <string name="app_info_open_link_failed">No app can open this link.</string>
     <string name="app_info_x_button">Twitter / X</string>
     <string name="app_info_github_button">GitHub Profile</string>
@@ -101,15 +67,12 @@
     <string name="app_info_gitlab_repo_button">GitLab Repo</string>
     <string name="app_info_linkedin_button">LinkedIn</string>
     <string name="app_info_gravatar_button">Gravatar</string>
-    <string name="app_info_devto_button">Dev.to</string>
-    <string name="app_info_avatar_url">https://avatars.githubusercontent.com/u/172272341</string>
     <string name="app_info_link_x">https://x.com/RajnishKMehta</string>
     <string name="app_info_link_github">https://github.com/RajnishKMehta</string>
     <string name="app_info_link_github_repo">https://github.com/RajnishKMehta/DhwaniControl</string>
     <string name="app_info_link_gitlab_repo">https://gitlab.com/RajnishKMehta/DhwaniControl</string>
     <string name="app_info_link_linkedin">https://www.linkedin.com/in/RajnishKMehta</string>
     <string name="app_info_link_gravatar">https://gravatar.com/rajnishkmehta</string>
-    <string name="app_info_link_devto">https://dev.to/RajnishKMehta</string>
 
     <string name="floating_config_title">Configure Floating Button</string>
     <string name="floating_config_subtitle">Customize the icon and color of your floating volume button.</string>
@@ -139,17 +102,11 @@
 
     <string name="notification_channel_name">DhwaniControl edge swipe service</string>
     <string name="notification_channel_description">Keeps edge swipe detection active</string>
-    <string name="notification_title">Edge Swipe Overlay is active</string>
-    <string name="notification_text">Swipe inward from your selected edge to open volume controls.</string>
 
     <string name="notification_channel_name_floating">DhwaniControl floating button service</string>
     <string name="notification_channel_description_floating">Keeps floating button active</string>
-    <string name="notification_title_floating">Floating Button is active</string>
-    <string name="notification_text_floating">Tap the floating button to open volume controls. Drag to move it.</string>
 
-    <string name="notification_stop_action">Stop</string>
 
     <string name="content_description_status_indicator">Permission status indicator</string>
     <string name="content_description_overlay_icon">Draw-over-apps icon</string>
-    <string name="content_description_notifications_icon">Notifications icon</string>
 </resources>

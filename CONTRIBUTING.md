@@ -20,6 +20,8 @@ To ensure a smooth contribution process, please follow these steps:
 3.  **Local Verification**: Thoroughly test your changes on a physical device or emulator.
 4.  **Submit PR**: Open a Pull Request on GitHub with a comprehensive summary of your work.
 
+**Translation contributions are not accepted through GitHub Pull Requests.** To contribute translations, please use the [DhwaniControl translation project on Codeberg Translate](https://translate.codeberg.org/projects/DhwaniControl/).
+
 ---
 
 ### $\textcolor{#D9730D}{\textsf{Scope and Guidelines}}$

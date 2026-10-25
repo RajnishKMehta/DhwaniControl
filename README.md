@@ -21,6 +21,7 @@
 - [📥 Get the App](#-get-the-app)
 - [✨ Pro Features](#-pro-features)
 - [📖 Detailed Documentation](#-detailed-documentation)
+- [🌐 Localisation](#-localisation)
 - [🧐 Why it exists](#-why-it-exists)
 - [🛠 Tech & Performance](#-tech--performance)
 - [📄 License](#-license)
@@ -67,6 +68,18 @@
 [![Edge Swipe](https://img.shields.io/badge/Edge_Swipe-008080?style=for-the-badge&logo=hand-index&logoColor=white&cacheSeconds=31536000)](docs/edge-swipe.md)
 [![Privacy Policy](https://img.shields.io/badge/Privacy_Policy-D00000?style=for-the-badge&logo=securityscorecard&logoColor=white&cacheSeconds=31536000)](docs/privacy-policy.md)
 [![Contributing](https://img.shields.io/badge/Contributing-24292E?style=for-the-badge&logo=github&logoColor=white&cacheSeconds=31536000)](CONTRIBUTING.md)
+
+</div>
+
+---
+
+## 🌐 Localisation
+
+<div align="center">
+
+[![Translation Status](https://translate.codeberg.org/widget/DhwaniControl/DhwaniControl/matrix-auto.svg)](https://translate.codeberg.org/projects/DhwaniControl/DhwaniControl)
+
+[![Help Translate](https://img.shields.io/badge/Help_Translate-Contribute-2F80ED?style=for-the-badge&logo=weblate&logoColor=white)](https://translate.codeberg.org/projects/DhwaniControl/DhwaniControl)
 
 </div>
 
