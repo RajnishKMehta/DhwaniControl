@@ -72,6 +72,18 @@
 
 ---
 
+## 🌐 Localisation
+
+<div align="center">
+
+[![Translation Status](https://translate.codeberg.org/widget/DhwaniControl/DhwaniControl/matrix-auto.svg)](https://translate.codeberg.org/projects/DhwaniControl/DhwaniControl)
+
+[![Help Translate](https://img.shields.io/badge/Help_Translate-Contribute-2F80ED?style=for-the-badge&logo=weblate&logoColor=white)](https://translate.codeberg.org/projects/DhwaniControl/DhwaniControl)
+
+</div>
+
+---
+
 ## 🧐 Why it exists
 
 DhwaniControl was born out of necessity. When physical volume buttons fail, navigating through system settings just to adjust audio levels becomes a significant daily friction.
