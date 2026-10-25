@@ -111,7 +111,6 @@ class PermissionHubActivity : AppCompatActivity() {
         val overlayRequired = requirements.contains(PermissionRequirement.Overlay)
 
         binding.overlayPermissionCard.visibility = if (overlayRequired) View.VISIBLE else View.GONE
-        binding.notificationPermissionCard.visibility = View.GONE
 
         val overlayGranted = PermissionPolicy.isGranted(this, PermissionRequirement.Overlay)
 

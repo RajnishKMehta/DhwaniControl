@@ -29,8 +29,6 @@
     <string name="permission_screen_subtitle">Grant required permissions to continue this feature configuration.</string>
     <string name="permission_overlay_title">Draw over other apps</string>
     <string name="permission_overlay_explanation">Required to run the edge-swipe overlay above other apps.</string>
-    <string name="permission_notifications_title">Notifications</string>
-    <string name="permission_notifications_explanation">Required to keep the background service alive on Android 13+.</string>
     <string name="permission_grant_button">Grant</string>
     <string name="permission_open_settings_button">Open settings</string>
     <string name="permission_continue_button">Continue</string>
@@ -111,5 +109,4 @@
 
     <string name="content_description_status_indicator">Permission status indicator</string>
     <string name="content_description_overlay_icon">Draw-over-apps icon</string>
-    <string name="content_description_notifications_icon">Notifications icon</string>
 </resources>
