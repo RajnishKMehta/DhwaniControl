@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">DhwaniControl</string>
+    <string name="feature_quick_tile_title">त्वरित सेटिंग टाइल</string>
+    <string name="feature_quick_tile_description">त्वरित सेटिंग में यह टाइल जोड़ें। फिर Android के वॉल्यूम कंट्रोल खोलने के लिए इसे कभी भी टैप करें।</string>
+    <string name="feature_edge_title">किनारे से स्वाइप</string>
+    <string name="feature_edge_description">चुने गए किनारे से अंदर की ओर स्वाइप करके Android के वॉल्यूम कंट्रोल खोलें।</string>
+    <string name="feature_floating_title">फ़्लोटिंग बटन</string>
+    <string name="feature_floating_description">एक ऐसा फ़्लोटिंग बटन जिसे कहीं भी ले जा सकते हैं। वॉल्यूम कंट्रोल खोलने के लिए टैप करें। इसे दूसरी जगह ले जाने के लिए दबाकर खींचें।</string>
+    <string name="feature_toggle_label">बंद / चालू</string>
+    <string name="feature_config_button">सेटिंग्स</string>
+    <string name="feature_action_failed">कार्रवाई विफल हुई। कृपया फिर से कोशिश करें।</string>
+    <string name="feature_status_ready">तैयार</string>
+    <string name="feature_status_enabled">सक्षम</string>
+    <string name="feature_status_disabled">अक्षम</string>
+    <string name="feature_status_permissions_required">अनुमति आवश्यक है</string>
+    <string name="feature_status_needs_config">सेटिंग करना आवश्यक है</string>
+    <string name="feature_status_unavailable">फ़िलहाल अनुपलब्ध</string>
+    <string name="feature_blocked_gesture_nav">जेस्चर नेविगेशन चालू होने पर यह सुविधा उपलब्ध नहीं है। सेटिंग्स में “नेविगेशन” खोजें, “नेविगेशन मोड” खोलें और “बटन नेविगेशन” चुनें।</string>
+    <string name="permission_blocked_reason_label">यह सुविधा अनुपलब्ध क्यों है?</string>
+    <string name="permission_screen_title_with_feature">%1$s के लिए अनुमतियाँ</string>
+    <string name="permission_screen_subtitle">इस सुविधा को कॉन्फ़िगर करना जारी रखने के लिए आवश्यक अनुमतियाँ दें।</string>
+    <string name="permission_overlay_title">अन्य ऐप्स के ऊपर दिखाने की अनुमति</string>
+    <string name="permission_overlay_explanation">अन्य ऐप्स के ऊपर एज-स्वाइप ओवरले चलाने के लिए यह अनुमति आवश्यक है।</string>
+    <string name="home_title">ध्वनि नियंत्रण</string>
+    <string name="home_subtitle">नीचे कोई सुविधा चुनें। प्रत्येक सुविधा को स्वतंत्र रूप से कॉन्फ़िगर किया जा सकता है।</string>
 </resources>
