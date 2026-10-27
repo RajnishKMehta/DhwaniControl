@@ -80,7 +80,7 @@
     <string name="floating_config_fixed_position">固定位置</string>
     <string name="floating_config_fixed_position_desc">请先设置悬浮按钮的位置，再启用此选项并保存配置。</string>
 
-    <string name="floating_config_separate_positions">竖屏 / 横屏分别记录位置</string>
+    <string name="floating_config_separate_positions">分别保存竖屏和横屏的位置</string>
     <string name="floating_config_separate_positions_desc">为竖屏和横屏分别保存不同的位置。</string>
 
     <string name="home_need_help">需要帮助</string>
