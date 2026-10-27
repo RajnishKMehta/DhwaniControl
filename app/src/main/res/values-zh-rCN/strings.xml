@@ -36,7 +36,7 @@
     <string name="permission_settings_hint">Android 已不再显示授权弹窗。请打开应用设置，手动允许通知。</string>
 
     <string name="edge_setup_title">选择生效边缘</string>
-    <string name="edge_setup_body">从你偏好的边缘向内滑动三次即可确认。</string>
+    <string name="edge_setup_body">从你选择的屏幕边缘向内滑动三次以确认。</string>
     <string name="edge_setup_swipe_counter">滑动次数：%1$d / %2$d</string>
     <string name="edge_setup_saved_message">边缘已保存</string>
     <string name="edge_setup_saved_detail">正在返回首页…</string>
