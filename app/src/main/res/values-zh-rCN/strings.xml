@@ -3,7 +3,7 @@
     <string name="home_subtitle">在下方选择一个功能。每个功能都可以独立配置。</string>
 
     <string name="feature_quick_tile_title">快捷设置磁贴</string>
-    <string name="feature_quick_tile_description">将此磁贴添加到快捷设置，之后随时点按即可打开安卓音量控制。</string>
+    <string name="feature_quick_tile_description">将此磁贴添加到快捷设置中，之后随时点按即可打开系统音量面板。</string>
     <string name="feature_edge_title">边缘滑动</string>
     <string name="feature_edge_description">从所选边缘向内滑动，即可打开安卓音量控制。</string>
     <string name="feature_floating_title">悬浮按钮</string>
