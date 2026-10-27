@@ -20,7 +20,7 @@
     <string name="feature_status_needs_config">需要配置</string>
     <string name="feature_status_unavailable">暂不可用</string>
 
-    <string name="feature_blocked_gesture_nav">手势导航下不可用。请在系统设置中搜索“导航”，找到“导航模式”并切换为按钮导航。</string>
+    <string name="feature_blocked_gesture_nav">在手势导航模式下不可用。请在系统设置中搜索“导航”，找到“导航模式”并切换为按钮导航。</string>
     <string name="permission_blocked_reason_label">为什么不可用？</string>
 
     <string name="permission_screen_title_with_feature">%1$s 的权限</string>
