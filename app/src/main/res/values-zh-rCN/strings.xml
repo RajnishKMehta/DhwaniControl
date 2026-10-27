@@ -26,7 +26,7 @@
     <string name="permission_screen_title_with_feature">%1$s 的权限</string>
     <string name="permission_screen_subtitle">授予所需权限，以继续配置此功能。</string>
     <string name="permission_overlay_title">在其他应用上层显示</string>
-    <string name="permission_overlay_explanation">需要在其他应用上方显示边缘滑动浮层时使用。</string>
+    <string name="permission_overlay_explanation">此权限用于在其他应用上层显示边缘滑动浮层。</string>
     <string name="permission_grant_button">授予</string>
     <string name="permission_open_settings_button">打开设置</string>
     <string name="permission_continue_button">继续</string>
