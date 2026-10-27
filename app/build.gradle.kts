@@ -164,12 +164,6 @@ android {
         resValues = true
     }
 
-    // Generates res/xml/_locale_config.xml from values-* dirs and injects android:localeConfig,
-    // so Android 13+ system settings lists the app's languages (per-app language picker).
-    androidResources {
-        generateLocaleConfig = true
-    }
-
     packaging {
         resources {
 
