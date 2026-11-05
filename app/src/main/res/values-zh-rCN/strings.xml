@@ -62,7 +62,7 @@
     <string name="app_info_github_repo_button">GitHub 仓库</string>
     <string name="app_info_gitlab_repo_button">GitLab 仓库</string>
     <string name="app_info_linkedin_button">LinkedIn</string>
-    <string name="app_info_gravatar_button">Gravatar</string>
+    <string name="app_info_instagram_button">Instagram</string>
 
     <string name="floating_config_title">配置悬浮按钮</string>
     <string name="floating_config_subtitle">自定义悬浮音量按钮的图标和颜色。</string>

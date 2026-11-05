@@ -155,6 +155,14 @@ android {
         targetCompatibility = JavaVersion.VERSION_21
     }
     
+
+
+    lint {
+        abortOnError = true
+        disable += setOf("MissingTranslation")
+    }
+
+
     androidResources {
         generateLocaleConfig = true
     }
