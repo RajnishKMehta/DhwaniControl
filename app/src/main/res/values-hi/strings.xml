@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">DhwaniControl</string>
+    <string name="app_name" translatable="false">DhwaniControl</string>
     <string name="feature_quick_tile_title">त्वरित सेटिंग टाइल</string>
     <string name="feature_quick_tile_description">त्वरित सेटिंग में यह टाइल जोड़ें। फिर Android के वॉल्यूम कंट्रोल खोलने के लिए इसे कभी भी टैप करें।</string>
     <string name="feature_edge_title">किनारे से स्वाइप</string>
@@ -22,7 +22,7 @@
     <string name="permission_screen_subtitle">इस सुविधा को कॉन्फ़िगर करना जारी रखने के लिए आवश्यक अनुमतियाँ दें।</string>
     <string name="permission_overlay_title">अन्य ऐप्स के ऊपर दिखाने की अनुमति</string>
     <string name="permission_overlay_explanation">अन्य ऐप्स के ऊपर एज-स्वाइप ओवरले चलाने के लिए यह अनुमति आवश्यक है।</string>
-    <string name="home_title">ध्वनि नियंत्रण</string>
+    <string name="home_title" translatable="false">ध्वनि नियंत्रण</string>
     <string name="home_subtitle">नीचे कोई सुविधा चुनें। प्रत्येक सुविधा को स्वतंत्र रूप से कॉन्फ़िगर किया जा सकता है।</string>
     <string name="permission_grant_button">अनुमति दें</string>
     <string name="permission_open_settings_button">सेटिंग्स खोलें</string>
@@ -52,17 +52,17 @@
     <string name="app_info_username">\@RajnishKMehta</string>
     <string name="app_info_avatar_description">डेवलपर की प्रोफ़ाइल तस्वीर</string>
     <string name="app_info_open_link_failed">इस लिंक को खोलने के लिए कोई ऐप नहीं है।</string>
-    <string name="app_info_x_button">Twitter / X</string>
+    <string name="app_info_x_button" translatable="false">Twitter / X</string>
     <string name="app_info_github_button">GitHub प्रोफ़ाइल</string>
     <string name="app_info_github_repo_button">GitHub रिपॉज़िटरी</string>
     <string name="app_info_gitlab_repo_button">GitLab रिपॉज़िटरी</string>
-    <string name="app_info_linkedin_button">LinkedIn</string>
+    <string name="app_info_linkedin_button" translatable="false">LinkedIn</string>
     <string name="app_info_instagram_button">Instagram</string>
-    <string name="app_info_link_x">https://x.com/RajnishKMehta</string>
-    <string name="app_info_link_github">https://github.com/RajnishKMehta</string>
-    <string name="app_info_link_github_repo">https://github.com/RajnishKMehta/DhwaniControl</string>
-    <string name="app_info_link_gitlab_repo">https://gitlab.com/RajnishKMehta/DhwaniControl</string>
-    <string name="app_info_link_linkedin">https://www.linkedin.com/in/RajnishKMehta</string>
+    <string name="app_info_link_x" translatable="false">https://x.com/RajnishKMehta</string>
+    <string name="app_info_link_github" translatable="false">https://github.com/RajnishKMehta</string>
+    <string name="app_info_link_github_repo" translatable="false">https://github.com/RajnishKMehta/DhwaniControl</string>
+    <string name="app_info_link_gitlab_repo" translatable="false">https://gitlab.com/RajnishKMehta/DhwaniControl</string>
+    <string name="app_info_link_linkedin" translatable="false">https://www.linkedin.com/in/RajnishKMehta</string>
     <string name="app_info_link_instagram">https://www.instagram.com/rajnishkmehta</string>
     <string name="floating_config_title">फ़्लोटिंग बटन की सेटिंग्स</string>
     <string name="floating_config_subtitle">अपने फ़्लोटिंग वॉल्यूम बटन के आइकन और रंग को अपनी पसंद के अनुसार बदलें।</string>
@@ -82,10 +82,10 @@
     <string name="floating_config_separate_positions_desc">फ़ोन सीधा और आड़ा रखने पर अलग-अलग स्थितियाँ सहेजें।</string>
     <string name="home_need_help">सहायता चाहिए?</string>
     <string name="app_info_need_help">सहायता चाहिए?</string>
-    <string name="app_info_help_url">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/user-guide.md</string>
-    <string name="edge_swipe_help_url">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/edge-swipe.md</string>
-    <string name="floating_button_help_url">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/floating-button.md</string>
-    <string name="quick_tile_help_url">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/quick-settings-tile.md</string>
+    <string name="app_info_help_url" translatable="false">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/user-guide.md</string>
+    <string name="edge_swipe_help_url" translatable="false">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/edge-swipe.md</string>
+    <string name="floating_button_help_url" translatable="false">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/floating-button.md</string>
+    <string name="quick_tile_help_url" translatable="false">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/quick-settings-tile.md</string>
     <string name="notification_channel_name">DhwaniControl एज-स्वाइप सेवा</string>
     <string name="notification_channel_description">एज-स्वाइप पहचान सक्रिय रखता है</string>
     <string name="notification_channel_name_floating">DhwaniControl फ़्लोटिंग बटन सेवा</string>
