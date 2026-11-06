@@ -45,7 +45,7 @@
     <string name="app_info_title">ऐप परिचय</string>
     <string name="app_info_subtitle">ऐप और डेवलपर के बारे में जानें</string>
     <string name="app_info_about_app_title">DhwaniControl के बारे में</string>
-    <string name="app_info_what_does_it_do">DhwaniControl कई सुविधाओं के माध्यम से Android के मूल ध्वनि-स्तर पैनल तक आसान पहुँच प्रदान करता है, जिससे आप डिवाइस के भौतिक वॉल्यूम बटनों पर निर्भर हुए बिना ध्वनि स्तर नियंत्रित कर सकते हैं।</string>
+    <string name="app_info_what_does_it_do">DhwaniControl कई सुविधाओं के माध्यम से Android के मूल वॉल्यूम पैनल तक आसान पहुँच प्रदान करता है, जिससे आप अपने डिवाइस के फिजिकल वॉल्यूम बटन पर निर्भर हुए बिना उसका वॉल्यूम नियंत्रित कर सकते हैं।</string>
     <string name="app_info_about_app_body">मेरे फ़ोन के वॉल्यूम बटन खराब हैं। हर बार आवाज़ का स्तर बदलने के लिए सेटिंग्स में जाना काफी परेशानी भरा है। मैंने यह ऐप अपनी ज़रूरत के लिए बनाया और इसे ओपन सोर्स किया, ताकि ऐसी ही समस्या का सामना करने वाला कोई भी व्यक्ति इसकी विभिन्न सुविधाओं के ज़रिए आसानी से इसका उपयोग कर सके।</string>
     <string name="app_info_about_dev_title">डेवलपर के बारे में</string>
     <string name="app_info_name">रजनीश कुमार</string>
