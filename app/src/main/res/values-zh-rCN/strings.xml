@@ -48,11 +48,11 @@
     <string name="app_info_about_dev_title">关于开发者</string>
     <string name="app_info_avatar_description">开发者头像</string>
     <string name="app_info_open_link_failed">没有可打开此链接的应用。</string>
-    <string name="app_info_x_button">Twitter / X</string>
+    <string name="app_info_x_button" translatable="false">Twitter / X</string>
     <string name="app_info_github_button">GitHub 个人主页</string>
     <string name="app_info_github_repo_button">GitHub 仓库</string>
     <string name="app_info_gitlab_repo_button">GitLab 仓库</string>
-    <string name="app_info_linkedin_button">LinkedIn</string>
+    <string name="app_info_linkedin_button" translatable="false">LinkedIn</string>
     <string name="app_info_instagram_button" translatable="false">Instagram</string>
     <string name="floating_config_title">配置悬浮按钮</string>
     <string name="floating_config_subtitle">自定义悬浮音量按钮的图标和颜色。</string>
