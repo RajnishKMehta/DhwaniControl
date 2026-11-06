@@ -57,13 +57,13 @@
     <string name="app_info_github_repo_button">GitHub रिपॉज़िटरी</string>
     <string name="app_info_gitlab_repo_button">GitLab रिपॉज़िटरी</string>
     <string name="app_info_linkedin_button" translatable="false">LinkedIn</string>
-    <string name="app_info_instagram_button">Instagram</string>
+    <string name="app_info_instagram_button" translatable="false">Instagram</string>
     <string name="app_info_link_x" translatable="false">https://x.com/RajnishKMehta</string>
     <string name="app_info_link_github" translatable="false">https://github.com/RajnishKMehta</string>
     <string name="app_info_link_github_repo" translatable="false">https://github.com/RajnishKMehta/DhwaniControl</string>
     <string name="app_info_link_gitlab_repo" translatable="false">https://gitlab.com/RajnishKMehta/DhwaniControl</string>
     <string name="app_info_link_linkedin" translatable="false">https://www.linkedin.com/in/RajnishKMehta</string>
-    <string name="app_info_link_instagram">https://www.instagram.com/rajnishkmehta</string>
+    <string name="app_info_link_instagram" translatable="false">https://www.instagram.com/rajnishkmehta</string>
     <string name="floating_config_title">फ़्लोटिंग बटन की सेटिंग्स</string>
     <string name="floating_config_subtitle">अपने फ़्लोटिंग वॉल्यूम बटन के आइकन और रंग को अपनी पसंद के अनुसार बदलें।</string>
     <string name="floating_config_choose_icon">आइकन चुनें</string>
@@ -94,4 +94,11 @@
     <string name="content_description_overlay_icon">अन्य ऐप्स के ऊपर दिखाने का आइकन</string>
     <string name="dialog_language_title">भाषा चुनें</string>
     <string name="dialog_language_translate_link">इस ऐप का अनुवाद करने में मदद करें</string>
+    <string name="menu_report_bug"></string>
+    <string name="menu_feature_request"></string>
+    <string name="menu_about"></string>
+    <string name="menu_system_default" translatable="false"></string>
+    <string name="link_translate" translatable="false"></string>
+    <string name="link_report_issue" translatable="false"></string>
+    <string name="menu_language"></string>
 </resources>
