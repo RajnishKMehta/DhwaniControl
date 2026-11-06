@@ -94,4 +94,11 @@
     <string name="content_description_overlay_icon">अन्य ऐप्स के ऊपर दिखाने का आइकन</string>
     <string name="dialog_language_title">भाषा चुनें</string>
     <string name="dialog_language_translate_link">इस ऐप का अनुवाद करने में मदद करें</string>
+    <string name="menu_report_bug"></string>
+    <string name="menu_feature_request"></string>
+    <string name="menu_about"></string>
+    <string name="menu_system_default" translatable="false"></string>
+    <string name="link_translate" translatable="false"></string>
+    <string name="link_report_issue" translatable="false"></string>
+    <string name="menu_language"></string>
 </resources>
