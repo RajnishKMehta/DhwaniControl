@@ -1,5 +1,5 @@
 <resources>
-    <style name="Theme.DhwaniControl" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.DhwaniControl" parent="Theme.Material3.Dark.NoActionBar">
         <!-- Core colors mapping -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorOnPrimary">@color/colorTextPrimary</item>
@@ -11,7 +11,8 @@
         <item name="colorOnSurfaceVariant">@color/colorTextSecondary</item>
         <item name="colorError">@color/colorWarning</item>
         <item name="colorOnError">@color/colorBackground</item>
-        <item name="colorOutline">@color/colorSurfaceVariant</item>
+        <!-- For switches/components outline -->
+        <item name="colorOutline">@color/colorTextMuted</item>
 
         <!-- System UI -->
         <item name="android:statusBarColor">@color/colorBackground</item>
@@ -19,6 +20,13 @@
         <item name="android:windowBackground">@color/colorBackground</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowLightNavigationBar">false</item>
+
+        <!-- Material 3 Surface Containers for PopupMenu and AlertDialog -->
+        <item name="colorSurfaceContainer">@color/colorSurface</item>
+        <item name="colorSurfaceContainerHigh">@color/colorSurface</item>
+        <item name="colorSurfaceContainerHighest">@color/colorSurfaceVariant</item>
+        <item name="colorSurfaceContainerLow">@color/colorBackground</item>
+        <item name="colorSurfaceContainerLowest">@color/colorBackground</item>
     </style>
 
     <style name="ShapeAppearanceOverlay.Material3.Circle" parent="">
