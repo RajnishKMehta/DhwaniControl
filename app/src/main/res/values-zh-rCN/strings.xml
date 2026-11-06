@@ -78,17 +78,4 @@
     <string name="notification_channel_description_floating">保持悬浮按钮运行</string>
     <string name="content_description_status_indicator">权限状态指示器</string>
     <string name="content_description_overlay_icon">显示在其他应用的上层图标</string>
-    <string name="quick_tile_help_url" translatable="false"></string>
-    <string name="app_info_link_x" translatable="false"></string>
-    <string name="app_info_link_linkedin" translatable="false"></string>
-    <string name="app_info_link_github_repo" translatable="false"></string>
-    <string name="app_info_name"></string>
-    <string name="app_info_help_url" translatable="false"></string>
-    <string name="app_info_username"></string>
-    <string name="app_info_link_gitlab_repo" translatable="false"></string>
-    <string name="edge_swipe_help_url" translatable="false"></string>
-    <string name="app_info_link_github" translatable="false"></string>
-    <string name="home_title" translatable="false"></string>
-    <string name="app_name" translatable="false"></string>
-    <string name="floating_button_help_url" translatable="false"></string>
 </resources>
