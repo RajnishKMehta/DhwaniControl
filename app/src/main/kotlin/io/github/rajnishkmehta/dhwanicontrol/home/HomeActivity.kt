@@ -393,6 +393,7 @@ class HomeActivity : AppCompatActivity() {
                 .show()
         }
 
+        revertToggle(featureId)
         refreshFeatureCards()
     }
 

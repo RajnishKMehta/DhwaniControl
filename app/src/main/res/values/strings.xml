@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">DhwaniControl</string>
 
@@ -118,5 +119,9 @@
     <string name="dialog_language_translate_link">Help translate this app</string>
     <string name="link_report_issue" translatable="false">https://github.com/RajnishKMehta/DhwaniControl/issues/new/choose</string>
     <string name="link_translate" translatable="false">https://translate.codeberg.org/projects/DhwaniControl</string>
-    <string name="menu_system_default">System Default</string>
+    <string name="menu_system_default" translatable="false">System Default</string>
+    <string name="feature_assist_title">Assist App</string>
+    <string name="feature_assist_description">Set this app as your digital assistant to open the volume panel when invoking the assistant.</string>
+    <string name="assist_help_url" translatable="false">https://github.com/RajnishKMehta/DhwaniControl/blob/main/docs/assist-app.md</string>
+    <string name="assist_action_label">Assist Action</string>
 </resources>

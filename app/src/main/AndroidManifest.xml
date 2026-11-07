@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -7,19 +7,9 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <application
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.DhwaniControl">
+    <application android:allowBackup="true" android:dataExtractionRules="@xml/data_extraction_rules" android:fullBackupContent="@xml/backup_rules" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.DhwaniControl">
 
-        <activity
-            android:name=".home.HomeActivity"
-            android:exported="true">
+        <activity android:name=".home.HomeActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,69 +17,33 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".permission.PermissionHubActivity"
-            android:exported="false" />
+        <activity android:name=".permission.PermissionHubActivity" android:exported="false" />
 
-        <activity
-            android:name=".features.edge.EdgeSwipeSetupActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+        <activity android:name=".features.edge.EdgeSwipeSetupActivity" android:exported="false" android:screenOrientation="portrait" />
 
-        <activity
-            android:name=".features.edge.EdgeSwipeSideSelectorActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+        <activity android:name=".features.edge.EdgeSwipeSideSelectorActivity" android:exported="false" android:screenOrientation="portrait" />
 
-        <!-- <activity
-            android:name=".features.quicktile.QuickSettingsGuideActivity"
-            android:exported="false" /> -->
 
-        <activity
-            android:name=".features.floating.FloatingButtonConfigActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
 
-        <activity
-            android:name=".info.AppInfoActivity"
-            android:exported="false" />
+        <activity android:name=".features.floating.FloatingButtonConfigActivity" android:exported="false" android:screenOrientation="portrait" />
 
-        <service
-            android:name=".features.edge.VolumeOverlayService"
-            android:enabled="true"
-            android:exported="false"
-            android:foregroundServiceType="specialUse">
-            <property
-                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-                android:value="Edge swipe overlay to open system volume UI" />
+        <activity android:name=".info.AppInfoActivity" android:exported="false" />
+
+        <service android:name=".features.edge.VolumeOverlayService" android:enabled="true" android:exported="false" android:foregroundServiceType="specialUse">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Edge swipe overlay to open system volume UI" />
         </service>
 
-        <service
-            android:name=".features.floating.FloatingButtonService"
-            android:enabled="true"
-            android:exported="false"
-            android:foregroundServiceType="specialUse">
-            <property
-                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-                android:value="Floating button overlay to control volume" />
+        <service android:name=".features.floating.FloatingButtonService" android:enabled="true" android:exported="false" android:foregroundServiceType="specialUse">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Floating button overlay to control volume" />
         </service>
 
-        <service
-            android:name=".features.quicktile.VolumePanelTileService"
-            android:enabled="true"
-            android:exported="true"
-            android:icon="@drawable/ic_notification"
-            android:label="@string/quick_tile_label"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+        <service android:name=".features.quicktile.VolumePanelTileService" android:enabled="true" android:exported="true" android:icon="@drawable/ic_notification" android:label="@string/quick_tile_label" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
         </service>
 
-        <receiver
-            android:name=".BootReceiver"
-            android:enabled="true"
-            android:exported="true">
+        <receiver android:name=".BootReceiver" android:enabled="true" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
@@ -97,14 +51,23 @@
         </receiver>
 
 
-        <service
-            android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
-            android:enabled="false"
-            android:exported="false">
-            <meta-data
-                android:name="autoStoreLocales"
-                android:value="true" />
+        <service android:name="androidx.appcompat.app.AppLocalesMetadataHolderService" android:enabled="false" android:exported="false">
+            <meta-data android:name="autoStoreLocales" android:value="true" />
         </service>
+
+        <activity
+            android:name=".features.assist.AssistEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:excludeFromRecents="true"
+            android:taskAffinity=""
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.ASSIST" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
     </application>
 

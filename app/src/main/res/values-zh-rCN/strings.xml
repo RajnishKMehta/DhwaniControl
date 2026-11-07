@@ -80,5 +80,4 @@
     <string name="content_description_overlay_icon">显示在其他应用的上层图标</string>
     <string name="dialog_language_title">选择语言</string>
     <string name="dialog_language_translate_link">帮助翻译此应用</string>
-    <string name="menu_system_default">系统默认</string>
 </resources>

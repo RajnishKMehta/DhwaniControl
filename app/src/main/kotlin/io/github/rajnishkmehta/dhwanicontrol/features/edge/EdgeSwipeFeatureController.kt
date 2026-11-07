@@ -24,7 +24,7 @@ object EdgeSwipeFeatureController : FeatureController {
         requiredPermissions = setOf(
             PermissionRequirement.Overlay,
         ),
-        displayOrder = 3
+        displayOrder = 4
     )
 
     override fun isConfigured(context: Context): Boolean {
