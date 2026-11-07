@@ -247,7 +247,7 @@
                         android:gravity="start|center_vertical"
                         android:text="@string/app_info_instagram_button"
                         android:textColor="@color/colorTextSecondary"
-                        app:icon="@drawable/ic_gravatar"
+                        app:icon="@drawable/ic_instagram"
                         app:iconPadding="8dp"
                         app:iconTint="@color/colorTextSecondary" />
 
