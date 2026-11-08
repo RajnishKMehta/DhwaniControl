@@ -13,6 +13,9 @@ import android.widget.Toast
 import io.github.rajnishkmehta.dhwanicontrol.Constants
 import io.github.rajnishkmehta.dhwanicontrol.R
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureController
+import android.app.role.RoleManager
+import io.github.rajnishkmehta.dhwanicontrol.core.block.FeatureBlockCondition
+import io.github.rajnishkmehta.dhwanicontrol.core.block.FeatureBlockResult
 import io.github.rajnishkmehta.dhwanicontrol.core.feature.FeatureSpec
 
 object AssistFeatureController : FeatureController {
@@ -28,6 +31,15 @@ object AssistFeatureController : FeatureController {
         displayOrder = 3
     )
 
+
+    override val blockCondition = FeatureBlockCondition { context ->
+        if (AssistantRoleChecker.isAvailable(context)) {
+            FeatureBlockResult.NotBlocked
+        } else {
+            FeatureBlockResult.Blocked(R.string.assist_role_unavailable)
+        }
+    }
+
     override fun isConfigured(context: Context): Boolean {
         return true
     }
@@ -37,10 +49,25 @@ object AssistFeatureController : FeatureController {
     }
 
     override fun setEnabled(context: Context, enabled: Boolean) {
-        val intent = Intent(Settings.ACTION_VOICE_INPUT_SETTINGS)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        val intent = if (enabled && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+            val roleManager = context.getSystemService(RoleManager::class.java)
+            roleManager?.createRequestRoleIntent(RoleManager.ROLE_ASSISTANT)
+                ?: Intent(Settings.ACTION_VOICE_INPUT_SETTINGS)
+        } else {
+            Intent(Settings.ACTION_VOICE_INPUT_SETTINGS)
+        }
+
+        if (intent.action == Settings.ACTION_VOICE_INPUT_SETTINGS) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+
         runCatching {
-            context.startActivity(intent)
+            if (context is Activity && intent.action != Settings.ACTION_VOICE_INPUT_SETTINGS) {
+                context.startActivityForResult(intent, 0)
+            } else {
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                context.startActivity(intent)
+            }
         }.onFailure {
             Toast.makeText(context, R.string.feature_action_failed, Toast.LENGTH_SHORT).show()
         }

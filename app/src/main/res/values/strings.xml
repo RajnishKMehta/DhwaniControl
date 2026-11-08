@@ -1,31 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
     <string name="app_name" translatable="false">DhwaniControl</string>
-
     <string name="home_title" translatable="false">DhwaniControl</string>
     <string name="home_subtitle">Choose a feature below. Each feature can be configured independently.</string>
-
     <string name="feature_quick_tile_title">Quick Settings Tile</string>
     <string name="feature_quick_tile_description">Add this tile to Quick Settings, then tap it anytime to open Android volume controls.</string>
     <string name="feature_edge_title">Edge Swipe</string>
     <string name="feature_edge_description">Swipe inward from your selected edge to open Android volume controls.</string>
     <string name="feature_floating_title">Floating Button</string>
     <string name="feature_floating_description">A movable floating button. Tap it to open volume controls. Hold and drag to move.</string>
-
     <string name="feature_toggle_label">Off / On</string>
     <string name="feature_config_button">Config</string>
     <string name="feature_action_failed">Action failed. Please try again.</string>
-
     <string name="feature_status_ready">Ready</string>
     <string name="feature_status_enabled">Enabled</string>
     <string name="feature_status_disabled">Disabled</string>
     <string name="feature_status_permissions_required">Permission required</string>
     <string name="feature_status_needs_config">Configuration required</string>
     <string name="feature_status_unavailable">Temporarily unavailable</string>
-
     <string name="feature_blocked_gesture_nav">Unavailable with gesture navigation. Search Settings for "navigation", open "Navigation mode", and switch to button navigation.</string>
     <string name="permission_blocked_reason_label">Why is this unavailable?</string>
-
     <string name="permission_screen_title_with_feature">Permissions for %1$s</string>
     <string name="permission_screen_subtitle">Grant required permissions to continue this feature configuration.</string>
     <string name="permission_overlay_title">Draw over other apps</string>
@@ -37,21 +31,17 @@
     <string name="permission_status_pending">Pending</string>
     <string name="permission_not_required">Not required on this Android version</string>
     <string name="permission_settings_hint">Android is no longer showing the prompt. Open app settings and allow notifications manually.</string>
-
     <string name="edge_setup_title">Choose active edge</string>
     <string name="edge_setup_body">Swipe inward from your preferred edge three times to confirm.</string>
     <string name="edge_setup_swipe_counter">Swipes: %1$d / %2$d</string>
     <string name="edge_setup_saved_message">Edge saved</string>
     <string name="edge_setup_saved_detail">Returning to home...</string>
-
     <string name="edge_selector_title">Update active edge</string>
     <string name="edge_selector_body">Select which edge should trigger the volume panel.</string>
     <string name="edge_selector_save_button">Save edge</string>
     <string name="edge_side_left">Left edge</string>
     <string name="edge_side_right">Right edge</string>
-
     <string name="quick_tile_label">Volume Panel</string>
-
     <string name="app_info_title">App Info</string>
     <string name="app_info_subtitle">Learn more about the app and the developer</string>
     <string name="app_info_about_app_title">About DhwaniControl</string>
@@ -74,7 +64,6 @@
     <string name="app_info_link_gitlab_repo" translatable="false">https://gitlab.com/RajnishKMehta/DhwaniControl</string>
     <string name="app_info_link_linkedin" translatable="false">https://www.linkedin.com/in/RajnishKMehta</string>
     <string name="app_info_link_instagram" translatable="false">https://www.instagram.com/rajnishkmehta</string>
-
     <string name="floating_config_title">Configure Floating Button</string>
     <string name="floating_config_subtitle">Customize the icon and color of your floating volume button.</string>
     <string name="floating_config_choose_icon">Choose Icon</string>
@@ -87,30 +76,22 @@
     <string name="floating_config_saved">Configuration saved</string>
     <string name="floating_config_more">More Icons</string>
     <string name="floating_config_opacity">Opacity</string>
-
     <string name="floating_config_fixed_position">Fixed Position</string>
     <string name="floating_config_fixed_position_desc">Set the floating button\'s position before enabling this option and saving your configuration.</string>
-
     <string name="floating_config_separate_positions">Separate Portrait/Landscape Positions</string>
     <string name="floating_config_separate_positions_desc">Save different positions for portrait and landscape orientations.</string>
-
     <string name="home_need_help">Need Help</string>
     <string name="app_info_need_help">Need Help</string>
     <string name="app_info_help_url" translatable="false">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/user-guide.md</string>
     <string name="edge_swipe_help_url" translatable="false">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/edge-swipe.md</string>
     <string name="floating_button_help_url" translatable="false">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/floating-button.md</string>
     <string name="quick_tile_help_url" translatable="false">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/quick-settings-tile.md</string>
-
     <string name="notification_channel_name">DhwaniControl edge swipe service</string>
     <string name="notification_channel_description">Keeps edge swipe detection active</string>
-
     <string name="notification_channel_name_floating">DhwaniControl floating button service</string>
     <string name="notification_channel_description_floating">Keeps floating button active</string>
-
-
     <string name="content_description_status_indicator">Permission status indicator</string>
     <string name="content_description_overlay_icon">Draw-over-apps icon</string>
-
     <string name="menu_language">Change Language</string>
     <string name="menu_about">About</string>
     <string name="menu_report_issue">Report issue</string>
@@ -127,4 +108,5 @@
     <string name="feature_assist_description">Set this app as your digital assistant to open the volume panel when invoking the assistant.</string>
     <string name="assist_help_url" translatable="false">https://github.com/RajnishKMehta/DhwaniControl/blob/main/docs/assist-app.md</string>
     <string name="assist_action_label">Assist Action</string>
+    <string name="assist_role_unavailable">Assistant role is unavailable on this device.</string>
 </resources>
