@@ -1,0 +1,5 @@
+• Added the option to set DhwaniControl as the default Assist app for quick access to the native volume panel.
+• Fixed an issue that prevented scrolling in the floating volume panel.
+• Added a direct link to report issues.
+• Added a Contact Developer option to send emails.
+• Minor improvements and bug fixes.
