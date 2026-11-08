@@ -1,3 +1,7 @@
+/*
+ * Copyright 2026 Rajnish Kumar
+ * SPDX-License-Identifier: Apache-2.0
+ */
 package io.github.rajnishkmehta.dhwanicontrol.features.edge
 
 import android.app.Activity
@@ -24,7 +28,7 @@ object EdgeSwipeFeatureController : FeatureController {
         requiredPermissions = setOf(
             PermissionRequirement.Overlay,
         ),
-        displayOrder = 3
+        displayOrder = 4
     )
 
     override fun isConfigured(context: Context): Boolean {

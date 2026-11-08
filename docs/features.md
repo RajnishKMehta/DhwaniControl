@@ -37,7 +37,22 @@ DhwaniControl offers multiple non-intrusive ways to access your device's volume 
 
 ---
 
-## $\textcolor{#008080}{\textsf{3) Edge Swipe ↔️}}$
+## $\textcolor{#E83E8C}{\textsf{3) Assist App 🤖}}$
+
+**Overview:**
+- Sets DhwaniControl as your device's default Digital Assistant.
+- Trigger the volume panel via system assistant shortcuts (e.g., long-press home button, power button, or gestures).
+- Zero background service or battery usage.
+
+**Requirements:**
+- Android 10 (API 29) or higher.
+
+**Setup:**
+- [Detailed Assist App Guide](assist-app.md)
+
+---
+
+## $\textcolor{#008080}{\textsf{4) Edge Swipe ↔️}}$
 
 **Overview:**
 - Trigger volume controls by swiping inward from the screen edge.
@@ -69,6 +84,7 @@ DhwaniControl includes built-in safeguards for a seamless experience:
 
 [![Quick Settings](https://img.shields.io/badge/Quick_Settings-28A745?style=for-the-badge&cacheSeconds=31536000)](quick-settings-tile.md)
 [![Floating Button](https://img.shields.io/badge/Floating_Button-6F42C1?style=for-the-badge&cacheSeconds=31536000)](floating-button.md)
+[![Assist App](https://img.shields.io/badge/Assist_App-E83E8C?style=for-the-badge&cacheSeconds=31536000)](assist-app.md)
 [![Edge Swipe](https://img.shields.io/badge/Edge_Swipe-008080?style=for-the-badge&cacheSeconds=31536000)](edge-swipe.md)
 
 </div>

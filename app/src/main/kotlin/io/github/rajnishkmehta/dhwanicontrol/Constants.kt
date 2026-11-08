@@ -1,7 +1,12 @@
+/*
+ * Copyright 2026 Rajnish Kumar
+ * SPDX-License-Identifier: Apache-2.0
+ */
 package io.github.rajnishkmehta.dhwanicontrol
 
 object Constants {
     const val FEATURE_ID_QUICK_TILE = "quick_tile"
+    const val FEATURE_ID_ASSIST = "assist"
     const val FEATURE_ID_EDGE_SWIPE = "edge_swipe"
     const val FEATURE_ID_FLOATING_BUTTON = "floating_button"
 

@@ -1,5 +1,10 @@
+/*
+ * Copyright 2026 Rajnish Kumar
+ * SPDX-License-Identifier: Apache-2.0
+ */
 package io.github.rajnishkmehta.dhwanicontrol.core.feature
 
+import io.github.rajnishkmehta.dhwanicontrol.features.assist.AssistFeatureController
 import io.github.rajnishkmehta.dhwanicontrol.features.edge.EdgeSwipeFeatureController
 import io.github.rajnishkmehta.dhwanicontrol.features.floating.FloatingButtonFeatureController
 import io.github.rajnishkmehta.dhwanicontrol.features.quicktile.QuickSettingsFeatureController
@@ -9,6 +14,7 @@ object FeatureRegistry {
     private val orderedControllers = listOf(
         QuickSettingsFeatureController,
         FloatingButtonFeatureController,
+        AssistFeatureController,
         EdgeSwipeFeatureController
     ).sortedBy { it.spec.displayOrder }
 

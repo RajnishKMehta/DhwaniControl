@@ -5,8 +5,8 @@ plugins {
 val appId = "io.github.rajnishkmehta.dhwanicontrol"
 
 // VERSIONING
-val appVersionName = "1.3.0"
-val appVersionCode = 9
+val appVersionName = "1.4.0"
+val appVersionCode = 10
 
 // Extract versions from appVersionName
 val versionParts = appVersionName.split(".")
@@ -72,8 +72,9 @@ tasks.register("printAppInfo") {
 android {
 
     namespace = appId
-
     compileSdk = 37
+    compileSdkMinor = 2
+    ndkVersion = "30.0.16248370"
 
     defaultConfig {
 

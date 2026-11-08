@@ -80,5 +80,13 @@
     <string name="content_description_overlay_icon">显示在其他应用的上层图标</string>
     <string name="dialog_language_title">选择语言</string>
     <string name="dialog_language_translate_link">帮助翻译此应用</string>
-    <string name="menu_system_default">系统默认</string>
+    <string name="menu_language">更改语言</string>
+    <string name="menu_about">关于</string>
+    <string name="menu_report_issue">报告问题</string>
+    <string name="menu_contact_developer">联系开发者</string>
+    <string name="email_app_not_found">未找到电子邮件应用</string>
+    <string name="dc_dev_email">DhwaniControl 开发者邮箱</string>
+    <string name="email_app_not_found_fallback">未找到电子邮件应用。开发者邮箱已复制到剪贴板。</string>
+    <string name="feature_assist_description">将此应用设为您的数字助理，以便在调用助理时打开音量面板。</string>
+    <string name="assist_action_label">助理操作</string>
 </resources>
