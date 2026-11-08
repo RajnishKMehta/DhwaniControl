@@ -113,8 +113,11 @@
 
     <string name="menu_language">Change Language</string>
     <string name="menu_about">About</string>
-    <string name="menu_report_bug">Report Bug</string>
-    <string name="menu_feature_request">Feature Request</string>
+    <string name="menu_report_issue">Report issue</string>
+    <string name="menu_contact_developer">Contact developer</string>
+    <string name="email_app_not_found">No email app found.</string>
+    <string name="dc_dev_email">DhwaniControl developer email</string>
+    <string name="email_app_not_found_fallback">No email app found. Developer email copied to clipboard.</string>
     <string name="dialog_language_title">Select Language</string>
     <string name="dialog_language_translate_link">Help translate this app</string>
     <string name="link_report_issue" translatable="false">https://github.com/RajnishKMehta/DhwaniControl/issues/new/choose</string>

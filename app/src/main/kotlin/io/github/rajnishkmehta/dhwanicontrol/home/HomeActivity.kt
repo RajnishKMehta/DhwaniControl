@@ -1,6 +1,7 @@
 package io.github.rajnishkmehta.dhwanicontrol.home
 
 import android.content.ActivityNotFoundException
+import io.github.rajnishkmehta.dhwanicontrol.utils.EmailHelper
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -73,8 +74,8 @@ class HomeActivity : AppCompatActivity() {
                 return spannable
             }
 
-            val reportBugItem = popup.menu.add(0, 3, 0, addIconToText(getString(R.string.menu_report_bug), linkIcon))
-            val featureRequestItem = popup.menu.add(0, 4, 0, addIconToText(getString(R.string.menu_feature_request), linkIcon))
+            val reportIssueItem = popup.menu.add(0, 3, 0, addIconToText(getString(R.string.menu_report_issue), linkIcon))
+            val contactDeveloperItem = popup.menu.add(0, 4, 0, getString(R.string.menu_contact_developer))
 
 
             popup.setOnMenuItemClickListener { item ->
@@ -87,13 +88,17 @@ class HomeActivity : AppCompatActivity() {
                         showLanguageDialog()
                         true
                     }
-                    3, 4 -> {
+                    3 -> {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.link_report_issue)))
                         try {
                             startActivity(intent)
                         } catch (_: ActivityNotFoundException) {
                             Toast.makeText(this@HomeActivity, R.string.app_info_open_link_failed, Toast.LENGTH_SHORT).show()
                         }
+                        true
+                    }
+                    4 -> {
+                        EmailHelper.contactDeveloper(this@HomeActivity)
                         true
                     }
                     else -> false
