@@ -85,14 +85,14 @@ object EmailHelper {
 
                 Toast.makeText(
                     context,
-                    context.getString(R.string.email_app_not_found),
+                    context.getString(R.string.email_app_not_found_fallback),
                     Toast.LENGTH_LONG
                 ).show()
 
             } catch (_: Exception) {
                 Toast.makeText(
                     context,
-                    context.getString(R.string.email_app_not_found_fallback),
+                    context.getString(R.string.email_app_not_found),
                     Toast.LENGTH_LONG
                 ).show()
             }
