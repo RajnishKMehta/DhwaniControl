@@ -49,7 +49,7 @@
     <string name="app_info_about_app_body">मेरे फ़ोन के वॉल्यूम बटन खराब हैं। हर बार आवाज़ का स्तर बदलने के लिए सेटिंग्स में जाना काफी परेशानी भरा है। मैंने यह ऐप अपनी ज़रूरत के लिए बनाया और इसे ओपन सोर्स किया, ताकि ऐसी ही समस्या का सामना करने वाला कोई भी व्यक्ति इसकी विभिन्न सुविधाओं के ज़रिए आसानी से इसका उपयोग कर सके।</string>
     <string name="app_info_about_dev_title">डेवलपर के बारे में</string>
     <string name="app_info_name">रजनीश कुमार</string>
-    <string name="app_info_username">\@RajnishKMehta</string>
+    <string name="app_info_username" translatable="false">\@RajnishKMehta</string>
     <string name="app_info_avatar_description">डेवलपर की प्रोफ़ाइल तस्वीर</string>
     <string name="app_info_open_link_failed">इस लिंक को खोलने के लिए कोई ऐप नहीं है।</string>
     <string name="app_info_x_button" translatable="false">Twitter / X</string>
@@ -96,7 +96,7 @@
     <string name="dialog_language_translate_link">इस ऐप का अनुवाद करने में मदद करें</string>
     <string name="menu_language">भाषा बदलें</string>
     <string name="menu_about">परिचय</string>
-    <string name="menu_system_default">सिस्टम डिफ़ॉल्ट</string>
+    <string name="menu_system_default" translatable="false">सिस्टम डिफ़ॉल्ट</string>
     <string name="menu_report_issue">समस्या बताएँ</string>
     <string name="menu_contact_developer">संपर्क करें</string>
     <string name="email_app_not_found">कोई ईमेल ऐप नहीं मिला।</string>
