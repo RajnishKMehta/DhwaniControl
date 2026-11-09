@@ -125,6 +125,6 @@
     <string name="menu_system_default" translatable="false">System Default</string>
     <string name="feature_assist_title">Assist App</string>
     <string name="feature_assist_description">Set this app as your digital assistant to open the volume panel when invoking the assistant.</string>
-    <string name="assist_help_url" translatable="false">https://github.com/RajnishKMehta/DhwaniControl/blob/main/docs/assist-app.md</string>
+    <string name="assist_help_url" translatable="false">https://gitlab.com/RajnishKMehta/DhwaniControl/-/blob/main/docs/assist-app.md</string>
     <string name="assist_action_label">Assist Action</string>
 </resources>
