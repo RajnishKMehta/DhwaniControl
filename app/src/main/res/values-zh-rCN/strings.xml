@@ -89,4 +89,21 @@
     <string name="email_app_not_found_fallback">未找到电子邮件应用。开发者邮箱已复制到剪贴板。</string>
     <string name="feature_assist_description">将此应用设为您的数字助理，以便在调用助理时打开音量面板。</string>
     <string name="assist_action_label">助理操作</string>
+    <string name="quick_tile_help_url" translatable="false"></string>
+    <string name="app_info_link_x" translatable="false"></string>
+    <string name="assist_help_url" translatable="false"></string>
+    <string name="app_info_link_linkedin" translatable="false"></string>
+    <string name="app_info_link_github_repo" translatable="false"></string>
+    <string name="app_info_help_url" translatable="false"></string>
+    <string name="app_info_username" translatable="false"></string>
+    <string name="app_info_link_gitlab_repo" translatable="false"></string>
+    <string name="link_translate" translatable="false"></string>
+    <string name="edge_swipe_help_url" translatable="false"></string>
+    <string name="app_info_link_github" translatable="false"></string>
+    <string name="app_info_link_instagram" translatable="false"></string>
+    <string name="link_report_issue" translatable="false"></string>
+    <string name="feature_assist_title"></string>
+    <string name="home_title" translatable="false"></string>
+    <string name="app_name" translatable="false"></string>
+    <string name="floating_button_help_url" translatable="false"></string>
 </resources>
