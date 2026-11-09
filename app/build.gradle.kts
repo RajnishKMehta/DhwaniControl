@@ -115,7 +115,6 @@ android {
         debug {
 
             applicationIdSuffix = ".debug"
-
             versionNameSuffix = ".$versionBuild-debug"
 
             resValue(
@@ -193,22 +192,13 @@ kotlin {
 
 // DEPENDENCIES
 dependencies {
-
     implementation(libs.androidx.core.ktx)
-
     implementation(libs.androidx.appcompat)
-
     implementation(libs.material)
-
     implementation(libs.androidx.constraintlayout)
-
     implementation(libs.androidx.recyclerview)
-
     implementation(libs.androidx.viewpager2)
-
     implementation(libs.androidx.preference.ktx)
-
     implementation(libs.androidx.activity.ktx)
-
     implementation(libs.androidx.fragment.ktx)
 }
