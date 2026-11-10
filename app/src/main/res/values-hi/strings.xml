@@ -105,7 +105,4 @@
     <string name="feature_assist_title">सहायक ऐप</string>
     <string name="feature_assist_description">सहायक को सक्रिय करने पर वॉल्यूम पैनल खोलने के लिए इस ऐप को अपने डिजिटल सहायक के रूप में सेट करें।</string>
     <string name="assist_action_label">सहायक क्रिया</string>
-    <string name="assist_help_url" translatable="false"></string>
-    <string name="link_translate" translatable="false"></string>
-    <string name="link_report_issue" translatable="false"></string>
 </resources>
