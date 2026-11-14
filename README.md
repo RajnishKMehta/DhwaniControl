@@ -18,7 +18,7 @@
 
 ## 📋 Table of Contents
 
-- [📥 Get the App](#-get-the-app)
+- [📥 Download & Install](#-download--install)
 - [✨ Pro Features](#-pro-features)
 - [📖 Detailed Documentation](#-detailed-documentation)
 - [🌐 Localisation](#-localisation)
