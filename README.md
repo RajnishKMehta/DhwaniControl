@@ -28,21 +28,19 @@
 
 ---
 
-## 📥 Get The App
+## 📥 Download & Install
 
 <div align="center">
 
-### ⬇️ Direct Download
-[![Download APK](https://img.shields.io/badge/Download-Latest_APK-blue?style=for-the-badge&logo=android)](https://github.com/RajnishKMehta/DhwaniControl/releases/latest/download/DhwaniControl.apk)
-
-### 👜 Get via Store
-
+[![Download APK](https://img.shields.io/badge/Direct_Download-APK-blue?style=for-the-badge&logo=android)](https://github.com/RajnishKMehta/DhwaniControl/releases/latest/download/DhwaniControl.apk)
+<br><br>
 [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/io.github.rajnishkmehta.dhwanicontrol)
-[<img src="https://github.com/ImranR98/obtainium/blob/main/assets/graphics/badge_obtainium.png" alt="Get it on Obtainium" height="80">](https://obtainium-dhwanicontrol.pages.dev)
+[<img src="https://raw.githubusercontent.com/ImranR98/obtainium/main/assets/graphics/badge_obtainium.png" alt="Get it on Obtainium" height="80">](https://obtainium-dhwanicontrol.pages.dev)
 [<img src="https://www.openapk.net/images/openapk-badge.png" alt="Get it on OpenAPK" height="80">](https://www.openapk.net/dhwani-volume-control/io.github.rajnishkmehta.dhwanicontrol/)
-[<img src="https://raw.githubusercontent.com/rubenpgrady/get-it-on-github/refs/heads/main/get-it-on-github.png" alt="Get it on GitHub" height="80">](https://github.com/RajnishKMehta/DhwaniControl/releases/latest)
+[<img src="https://raw.githubusercontent.com/rubenpgrady/get-it-on-github/main/get-it-on-github.png" alt="Get it on GitHub" height="80">](https://github.com/RajnishKMehta/DhwaniControl/releases/latest)
 
 </div>
+
 
 ---
 
