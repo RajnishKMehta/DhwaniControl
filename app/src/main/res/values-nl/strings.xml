@@ -1,3 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="home_subtitle">Kies hieronder een actie. Iedere actie kan afzonderlijk worden ingesteld.</string>
+    <string name="feature_quick_tile_title">Snelle-instellingentegel</string>
+    <string name="feature_quick_tile_description">Voeg deze tegel toe aan de snelle instellingen en druk er op om de volumeregeling te tonen.</string>
+    <string name="feature_edge_title">Vegen vanaf zijkant</string>
+    <string name="feature_edge_description">Veeg vanaf de zijkant van het scherm om de volumeregeling te tonen.</string>
+    <string name="feature_floating_title">Zwevende knop</string>
+    <string name="feature_floating_description">Een verplaatsbare zwevende knop. Druk erop om de volumeregeling te tonen; houdt ingedrukt om te verplaatsen.</string>
+    <string name="feature_toggle_label">Uit/Aan</string>
+    <string name="feature_config_button">Instellen</string>
+    <string name="feature_action_failed">De actie kan niet worden uitgevoerd; probeer het opnieuw.</string>
+    <string name="feature_status_ready">Gereed</string>
+    <string name="feature_status_enabled">Ingeschakeld</string>
+    <string name="feature_status_disabled">Uitgeschakeld</string>
+    <string name="feature_status_permissions_required">Toegang vereist</string>
+    <string name="feature_status_needs_config">Instellen vereist</string>
+    <string name="feature_status_unavailable">Tijdelijk niet beschikbaar</string>
+    <string name="feature_blocked_gesture_nav">Deze actie is niet beschikbaar in combinatie met gebarennavigatie. Zoek in de systeeminstellingen naar ‘navigatie’, open het bijbehorende scherm en schakel over naar knopnavigatie.</string>
+    <string name="permission_blocked_reason_label">Waarom is deze actie niet beschikbaar?</string>
+    <string name="permission_screen_title_with_feature">Rechten voor %1$s</string>
+    <string name="permission_screen_subtitle">Verleen de vereiste rechten om deze functies te kunnen gebruiken.</string>
+    <string name="permission_overlay_title">Boven andere apps tonen</string>
+    <string name="permission_overlay_explanation">Vereist om vanaf de zijkant te kunnen vegen.</string>
+    <string name="permission_grant_button">Verlenen</string>
+    <string name="permission_open_settings_button">Instellingen openen</string>
+    <string name="permission_continue_button">Doorgaan</string>
+    <string name="permission_status_granted">Verleend</string>
+    <string name="permission_status_pending">In afwachting</string>
+    <string name="permission_not_required">Niet verplicht op deze Android-versie</string>
+    <string name="permission_settings_hint">Android toont de vraagstelling niet meer. Open de appinstellingen en sta meldingen toe.</string>
+    <string name="edge_setup_title">Actieve kant kiezen</string>
+    <string name="edge_setup_body">Veeg driemaal van buiten naar binnen over de voorkeurskant om te bevestigen.</string>
+    <string name="edge_setup_swipe_counter">Aantal keer geveegd: %1$d/%2$d</string>
+    <string name="edge_setup_saved_message">Kant opgeslagen</string>
+    <string name="edge_setup_saved_detail">Bezig met teruggaan…</string>
+    <string name="edge_selector_title">Actieve kant veranderen</string>
+    <string name="edge_selector_body">Geef aan aan welke kant je de volumeregeling wilt tonen.</string>
+    <string name="edge_selector_save_button">Kant opslaan</string>
+    <string name="edge_side_left">Linkerkant</string>
+    <string name="edge_side_right">Rechterkant</string>
+    <string name="quick_tile_label">Volumeregeling</string>
+    <string name="app_info_title">Appinformatie</string>
+    <string name="app_info_subtitle">Meer informatie over de app en ontwikkelaar</string>
+    <string name="app_info_about_app_title">Over DhwaniControl</string>
+</resources>
