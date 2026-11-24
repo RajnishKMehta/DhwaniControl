@@ -1,0 +1,58 @@
+name: Question
+description: Ask a question about using, configuring, or contributing to DhwaniControl
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reaching out! Before submitting, please check the [README](https://github.com/RajnishKMehta/DhwaniControl#readme) and [Documentation](https://github.com/RajnishKMehta/DhwaniControl/tree/main/docs) to see if your question is already answered.
+
+  - type: checkboxes
+    id: pre-checks
+    attributes:
+      label: Before You Ask
+      options:
+        - label: I have checked the README and documentation.
+          required: true
+        - label: I have searched existing open and closed issues for similar questions.
+          required: true
+
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Related Feature / Topic
+      description: Which part of DhwaniControl is your question about?
+      multiple: true
+      options:
+        - General Usage / Setup
+        - Quick Settings Tile
+        - Floating Button
+        - Edge Swipe Gestures
+        - Assist App Integration
+        - Installation / Updates (GitHub, F-Droid etc)
+        - Translations / Contributing
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: Write your question clearly with as much context as possible.
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Device & App Info (Optional)
+      description: Helpful if your question depends on your Android version, OEM skin, or install source.
+      placeholder: |
+        - Device: e.g. Moto G73
+        - Android: e.g. 14
+        - App Version: e.g. 1.4.0
+        - Install Source: GitHub / F-Droid / PlayStore / OpenAPK
+    validations:
+      required: false
