@@ -63,7 +63,7 @@
     <string name="floating_config_save">Instellingen opslaan</string>
     <string name="floating_config_saved">De instellingen zijn opgeslagen</string>
     <string name="floating_config_more">Meer pictogrammen</string>
-    <string name="floating_config_opacity">Doorzichtigheid</string>
+    <string name="floating_config_opacity">Ondoorzichtigheid</string>
     <string name="floating_config_fixed_position">Vaste plek</string>
     <string name="floating_config_fixed_position_desc">Stel de plek van de zwevende knop in voordat je deze optie inschakelt en de instellingen opslaat.</string>
     <string name="floating_config_separate_positions">Verschillende plekken voor horizontale en verticale modi</string>
