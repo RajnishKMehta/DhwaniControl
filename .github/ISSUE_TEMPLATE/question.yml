@@ -2,6 +2,8 @@ name: Question
 description: Ask a question about using, configuring, or contributing to DhwaniControl
 title: "[Question]: "
 labels: ["question"]
+assignees:
+ - RajnishKMehta
 body:
   - type: markdown
     attributes:
@@ -22,7 +24,9 @@ body:
     id: topic
     attributes:
       label: Related Feature / Topic
-      description: Which part of DhwaniControl is your question about?
+      description: |
+       Which part of DhwaniControl is your question about?
+       you can select multiple
       multiple: true
       options:
         - General Usage / Setup
