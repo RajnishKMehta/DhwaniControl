@@ -2,11 +2,11 @@
 <resources>
     <string name="home_subtitle">Kies hieronder een actie. Iedere actie kan afzonderlijk worden ingesteld.</string>
     <string name="feature_quick_tile_title">Snelle-instellingentegel</string>
-    <string name="feature_quick_tile_description">Voeg deze tegel toe aan de snelle instellingen en druk er op om de volumeregeling te tonen.</string>
+    <string name="feature_quick_tile_description">Voeg deze tegel toe aan de snelle instellingen en druk erop om de volumeregeling te tonen.</string>
     <string name="feature_edge_title">Vegen vanaf zijkant</string>
     <string name="feature_edge_description">Veeg vanaf de zijkant van het scherm om de volumeregeling te tonen.</string>
     <string name="feature_floating_title">Zwevende knop</string>
-    <string name="feature_floating_description">Een verplaatsbare zwevende knop. Druk erop om de volumeregeling te tonen; houdt ingedrukt om te verplaatsen.</string>
+    <string name="feature_floating_description">Een verplaatsbare zwevende knop. Druk erop om de volumeregeling te tonen; houd ingedrukt en sleep om de knop te verplaatsen.</string>
     <string name="feature_toggle_label">Uit/Aan</string>
     <string name="feature_config_button">Instellen</string>
     <string name="feature_action_failed">De actie kan niet worden uitgevoerd; probeer het opnieuw.</string>
@@ -47,7 +47,7 @@
     <string name="app_info_about_app_body">Ik heb deze app gemaakt, omdat mijn fysieke volumeknoppen kapot zijn gegaan. Zonder die knoppen vond ik het frustrerend om telkens maar weer de instellingen te openen om het volumeniveau aan te passen. Ik heb deze app dus eigenlijk louter voor mezelf ontwikkeld, maar hem toch opensource gemaakt, zodat anderen met vergelijkbare problemen er ook gebruik van kunnen maken.</string>
     <string name="app_info_about_dev_title">Over de ontwikkelaar</string>
     <string name="app_info_name">Rajnish Kumar</string>
-    <string name="app_info_avatar_description">Profielfono</string>
+    <string name="app_info_avatar_description">Profielfoto</string>
     <string name="app_info_open_link_failed">Er is geen app die deze link kan openen.</string>
     <string name="app_info_github_button">GitHub-profiel</string>
     <string name="app_info_github_repo_button">GitHub-repo</string>
